@@ -97,6 +97,15 @@ h1 {
              0 8px 24px -12px rgba(0,0,0,.2),
              inset 0 .5px 0 var(--highlight);
 }
+/* Explanatory text under a group, as iOS Settings does it. */
+.group-footer {
+  margin:var(--s2) var(--s4) 0; max-width:36rem;
+  font-size:var(--t-footnote); line-height:1.45; color:var(--label-2);
+}
+.group-footer b { font-weight:600; color:var(--label); }
+.group-footer i { font-style:italic; }
+.group-footer + .panel { margin-top:var(--s5); }
+
 .group + .group-header { margin-top:var(--s6); }
 .group + .group { margin-top:var(--s5); }
 

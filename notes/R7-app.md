@@ -65,3 +65,36 @@ that pair. It is still arbitrary across persons (*Sunt obosit* for the speaker,
 `npm run build` emits `dist/`, which is a plain static folder. `base` is `'./'`,
 so it works from a domain root or a project subpath without reconfiguration.
 HTTPS is required for the service worker and for installation.
+
+## Names are a guess, not evidence
+
+Reported: "Maya is my friend" always came out feminine and "Josh is my friend"
+always masculine, whatever the user had selected. The post-editor was behaving
+as designed — a third-person clause was deliberately left alone — but the effect
+was that the model's guess about a name silently beat the user's explicit choice.
+
+Measured, with nothing in the English to go on:
+
+| name | model guessed |
+|---|---|
+| Alex | masculine |
+| Sam | masculine |
+| Jordan | masculine |
+| Robin | feminine |
+| Andrea | feminine |
+
+**Every genuinely androgynous name came out masculine.** The model falls back to
+the masculine default when it cannot tell, which is the exact bias this app
+exists to correct. `Andrea` is worse still: it guessed feminine, and *Andrea* is
+a male name in Romanian and Italian.
+
+So the user's setting now governs third parties too, not only the speaker and
+the person addressed. The second control is relabelled **Anyone else** to say so.
+
+One distinction kept: **an explicit pronoun is never overridden.** If the
+Romanian says *el* or *ea*, the English said *he* or *she*, and that is real
+information — overriding it would produce `el este bună`, which is ungrammatical.
+A name carries no such information. `GENDERED_PRONOUN` is the guard.
+
+Leaving **Anyone else** unset keeps the previous behaviour: whatever the model
+produced stands.

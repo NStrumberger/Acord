@@ -132,7 +132,7 @@ function describe({ applied, untouched, fellBack }: Rendered): void {
   meta.replaceChildren();
   if (!applied && !untouched) { meta.textContent = 'No gendered words recognised.'; return; }
   meta.append(strong(applied), applied === 1 ? ' word set from your profile' : ' words set from your profile');
-  if (untouched) meta.append(' · ', strong(untouched), ' about someone else, left alone');
+  if (untouched) meta.append(' · ', strong(untouched), ' left as translated');
   if (fellBack) meta.append(' · no gender-free wording exists here, so both forms are shown');
 }
 

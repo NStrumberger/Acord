@@ -101,8 +101,11 @@ export function findGendered(text: string): Candidate[] {
   return out;
 }
 
-/** Whose gender a predicate agrees with. */
-export type Role = 'speaker' | 'addressee';
+/**
+ * Whose gender a predicate agrees with. 'other' is a third party -- someone
+ * named or referred to rather than speaking or spoken to.
+ */
+export type Role = 'speaker' | 'addressee' | 'other';
 
 /**
  * What to do about one person's gender.
@@ -117,14 +120,20 @@ const SECOND_PERSON = new Set(['ești', 'esti', 'sunteți', 'sunteti', 'erai', '
 const THIRD_PERSON = new Set(['este', 'e', 'era', 'erau']);
 /** Perfect auxiliaries, recognised only when they actually head a compound past. */
 const PERFECT: Record<string, Role | null> = {
-  am: 'speaker', ai: 'addressee', 'ați': 'addressee', ati: 'addressee', a: null, au: null,
+  am: 'speaker', ai: 'addressee', 'ați': 'addressee', ati: 'addressee',
+  a: 'other', au: 'other',
 };
 /** Anything that starts a new clause ends the current agreement span. */
 const BOUNDARY = new Set([
   'și', 'si', 'dar', 'iar', 'însă', 'insa', 'sau', 'ori',
   'care', 'că', 'ca', 'fiindcă', 'deoarece', 'pentru', 'când', 'cand', 'dacă', 'daca',
 ]);
-const THIRD_PERSON_SUBJECT = new Set(['el', 'ea', 'ei', 'ele', 'dumnealui', 'dumneaei']);
+/**
+ * An explicit pronoun already states the gender, so it is never overridden --
+ * "el este bună" is nonsense. A *name* states nothing we can read, which is
+ * why "Maya is my friend" is ours to decide and "he is my friend" is not.
+ */
+const GENDERED_PRONOUN = new Set(['el', 'ea', 'ei', 'ele', 'dumnealui', 'dumneaei']);
 
 /** A copula and the predicate that agrees with its subject. */
 type Span = { role: Role; copula: number; end: number };
@@ -160,15 +169,27 @@ function analyze(tokens: string[]): { roles: (Role | null)[]; spans: Span[] } {
     const next = i + 1 < tokens.length ? bare(tokens[i + 1]!).toLowerCase() : '';
     const prev = i > 0 ? bare(tokens[i - 1]!).toLowerCase() : '';
 
+    // A clause whose subject is an explicit pronoun keeps the gender the
+    // pronoun states; only a named or unnamed third party is ours to set.
+    const third = (role: Role) => start(GENDERED_PRONOUN.has(prev) ? null : role, i);
+
     // "am fost" opens a span; a bare "a" or "ai" is a possessive article.
-    if (next === 'fost' && word in PERFECT) { start(PERFECT[word] ?? null, i); continue; }
+    if (next === 'fost' && word in PERFECT) {
+      const role = PERFECT[word];
+      if (role === 'other') third('other');
+      else start(role ?? null, i);
+      continue;
+    }
     if (word === 'fost') { if (open) open.end = i; continue; }
     if (FIRST_PERSON.has(word)) {
-      start(THIRD_PERSON_SUBJECT.has(prev) ? null : 'speaker', i);  // "ei sunt obositi" is not us
+      // "sunt" is also 3rd plural: "ei sunt obositi" is not about us.
+      if (GENDERED_PRONOUN.has(prev)) open = undefined;
+      else start('speaker', i);
       continue;
     }
     if (SECOND_PERSON.has(word)) { start('addressee', i); continue; }
-    if (THIRD_PERSON.has(word) || BOUNDARY.has(word)) { open = undefined; continue; }
+    if (THIRD_PERSON.has(word)) { third('other'); continue; }
+    if (BOUNDARY.has(word)) { open = undefined; continue; }
 
     if (open) { roles[i] = open.role; open.end = i; }
     if (/[,;.!?]$/.test(raw)) open = undefined;
@@ -212,7 +233,7 @@ export function applyGender(text: string, speaker: Target, addressee?: Target): 
   return { ...primary, text: m.text, variants: [m.text, f.text] };
 }
 
-function edit(text: string, speaker: Target, addressee?: Target): Omit<PostEdit, 'variants'> {
+function edit(text: string, speaker: Target, other?: Target): Omit<PostEdit, 'variants'> {
   const tokens = text.split(/\s+/);
   const candidates = findGendered(text);
   const { roles, spans } = analyze(tokens);
@@ -224,7 +245,7 @@ function edit(text: string, speaker: Target, addressee?: Target): Omit<PostEdit,
   const replaced = new Map<number, string>();
   const dropped = new Set<number>();
   for (const span of spans) {
-    if ((span.role === 'speaker' ? speaker : addressee) !== 'avoid') continue;
+    if ((span.role === 'speaker' ? speaker : other) !== 'avoid') continue;
     const lemma = candidates
       .filter((c) => c.index > span.copula && c.index <= span.end)
       .flatMap((c) => c.options.map((o) => o.lemma))
@@ -241,7 +262,7 @@ function edit(text: string, speaker: Target, addressee?: Target): Omit<PostEdit,
   for (const c of candidates) {
     if (dropped.has(c.index) || replaced.has(c.index)) continue;
     const role = roles[c.index] ?? null;
-    const wanted = role === 'speaker' ? speaker : role === 'addressee' ? addressee : undefined;
+    const wanted = role === 'speaker' ? speaker : role ? other : undefined;
     // An avoid that found no paraphrase degrades to showing both forms.
     const target = wanted === 'avoid' ? 'both' : wanted;
     if (!target) continue;
@@ -271,8 +292,7 @@ function edit(text: string, speaker: Target, addressee?: Target): Omit<PostEdit,
   for (const c of display) {
     const role = finalRoles[c.index] ?? null;
     c.role = role ?? undefined;
-    c.autoApplied = Boolean(
-      role === 'speaker' ? speaker : role === 'addressee' ? addressee : undefined);
+    c.autoApplied = Boolean(role === 'speaker' ? speaker : role ? other : undefined);
   }
   return { text: finalText, candidates: display, changed, fellBack };
 }
