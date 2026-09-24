@@ -94,6 +94,7 @@ npm run shots          # screenshot Firefox at 3 breakpoints, both themes
 npm run check:webkit   # translate in WebKit, the engine iOS Safari uses
 npm run check:offline  # service worker + offline shell
 npm run check:people   # per-person rows end to end (needs npm run dev)
+npm run check:update   # a deploy reaches an already-installed app
 ```
 
 Rebuilding the lexicon (needs Python 3, downloads ~155 MB of corpora):

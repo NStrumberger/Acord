@@ -24,6 +24,7 @@
     "check:webkit": "node scripts/webkit-check.mjs",
     "check:offline": "node scripts/offline-check.mjs",
     "check:people": "node scripts/people-check.mjs",
+    "check:update": "npm run build && node scripts/update-check.mjs",
     "icons": "node scripts/make-icons.mjs",
     "demo": "node scripts/demo.ts",
     "mt:fixture": "node scripts/make_mt_fixture.mjs",
