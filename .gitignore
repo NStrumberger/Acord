@@ -1,0 +1,9 @@
+node_modules/
+dist/
+# Raw corpora are large and redistributable only under their own licences.
+# Regenerate with: npm run data:extract
+data/raw/
+__pycache__/
+*.pyc
+.venv/
+shots/

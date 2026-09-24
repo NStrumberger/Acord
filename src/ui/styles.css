@@ -1,0 +1,300 @@
+/* Apple-adjacent app chrome.
+   - Type follows Apple's ramp (17px body, Title 1 at 28, Footnote 13), not
+     sizes picked by eye.
+   - Spacing is on a 4pt grid.
+   - Controls sit in inset grouped lists: label left, control right, separator
+     inset to the label's edge.
+   Two things are deliberately approximations, not the real article: SF Pro
+   cannot be licensed for the web (Inter is the substitute), and CSS corners are
+   circular arcs, not the superellipse Apple uses. */
+
+:root {
+  /* Type ramp */
+  --t-hero:30px; --t-title1:28px; --t-title2:22px; --t-title3:20px;
+  --t-headline:17px; --t-body:17px;
+  --t-subhead:15px; --t-footnote:13px; --t-caption:12px;
+  /* 4pt grid */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:20px; --s6:24px; --s8:32px; --s10:40px;
+
+  --bg-a:#f4f4f7; --bg-b:#e9eaef;
+  --surface:rgba(255,255,255,.76);
+  --thumb:#fff;
+  --label:#1c1c1e;
+  --label-2:rgba(60,60,67,.78);
+  --label-3:rgba(60,60,67,.45);
+  --separator:rgba(60,60,67,.24);
+  --seg-sep:rgba(60,60,67,.22);
+  --fill:rgba(118,118,128,.12);
+  --highlight:rgba(255,255,255,.65);
+  --accent:#007aff;
+  --accent-soft:rgba(0,122,255,.5);
+  --accent-strong:#0063d1;
+  --caution:#f08c00;
+  --caution-line:#a35f00;
+
+  --r-group:14px; --r-seg:9px; --r-thumb:7px;   /* 9 = 7 + 2 padding */
+  --ease-ios:cubic-bezier(.32,.72,0,1);
+  --fast:.2s; --slide:.34s; --enter:.36s;
+
+  --sans:'Inter Variable','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-a:#131316; --bg-b:#000;
+    --surface:rgba(30,30,32,.76);
+    --thumb:#5a5a5e;
+    --label:#fff;
+    --label-2:rgba(235,235,245,.7);
+    --label-3:rgba(235,235,245,.45);
+    --separator:rgba(84,84,88,.55);
+    --seg-sep:rgba(235,235,245,.22);
+    --fill:rgba(118,118,128,.24);
+    --highlight:rgba(255,255,255,.07);
+    --accent:#0a84ff; --accent-soft:rgba(10,132,255,.62); --accent-strong:#0a84ff;
+    --caution:#ff9f0a; --caution-line:#ff9f0a;
+  }
+}
+
+html {
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; min-height:100dvh; color:var(--label);
+  background:linear-gradient(180deg,var(--bg-a),var(--bg-b)) fixed;
+  font:var(--t-body)/1.3 var(--sans);
+  font-feature-settings:'cv11';   /* single-storey a, closer to SF */
+  letter-spacing:-.01em;
+  padding:max(var(--s10),env(safe-area-inset-top)) var(--s4) var(--s10);
+}
+main { max-width:40rem; margin:0 auto; }
+
+/* Masthead */
+.masthead { margin-bottom:var(--s8); }
+h1 {
+  margin:0; font-size:var(--t-title1); font-weight:700;
+  line-height:1.2; letter-spacing:-.026em; text-wrap:balance;
+}
+.sub {
+  margin:var(--s1) 0 0; color:var(--label-2);
+  font-size:var(--t-subhead); line-height:1.35; letter-spacing:-.01em;
+}
+
+/* Inset grouped list */
+.group-header {
+  margin:0 0 var(--s2) var(--s4); font-size:var(--t-footnote); font-weight:400;
+  line-height:1.4; letter-spacing:0; color:var(--label-2);
+}
+.group {
+  background:var(--surface);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-radius:var(--r-group); overflow:hidden;
+  /* tight contact shadow + wide ambient + inner top highlight */
+  box-shadow:0 .5px 1px rgba(0,0,0,.05),
+             0 8px 24px -12px rgba(0,0,0,.2),
+             inset 0 .5px 0 var(--highlight);
+}
+.group + .group-header { margin-top:var(--s6); }
+.group + .group { margin-top:var(--s5); }
+
+.row {
+  position:relative; display:flex; align-items:center; justify-content:space-between;
+  gap:var(--s4); min-height:52px; padding:var(--s2) var(--s4);
+}
+/* Separator inset to the label's edge, as Apple's lists do. */
+.row + .row::before {
+  content:''; position:absolute; left:var(--s4); right:0; top:0;
+  height:.5px; background:var(--separator);
+}
+.row-label { font-size:var(--t-body); letter-spacing:-.01em; white-space:nowrap; }
+
+/* Segmented control: filled track, hairline separators, sliding thumb. */
+.seg {
+  position:relative; display:flex; flex:0 1 auto; min-width:0;
+  background:var(--fill); border-radius:var(--r-seg); padding:2px;
+}
+.seg-thumb {
+  position:absolute; top:2px; bottom:2px; left:0;
+  width:var(--seg-w,0); transform:translateX(var(--seg-x,0));
+  border-radius:var(--r-thumb); background:var(--thumb);
+  box-shadow:0 3px 8px rgba(0,0,0,.12), 0 1px 1px rgba(0,0,0,.04),
+             0 0 0 .5px rgba(0,0,0,.04);
+  transition:transform var(--slide) var(--ease-ios), width var(--slide) var(--ease-ios);
+  pointer-events:none;
+}
+.seg-thumb.ready { will-change:transform, width; }
+.seg label { position:relative; z-index:1; display:flex; flex:0 0 auto; }
+.seg input { position:absolute; inset:0; opacity:0; margin:0; cursor:pointer; }
+.seg span {
+  position:relative; display:flex; align-items:center; justify-content:center;
+  min-height:30px; padding:0 var(--s3); border-radius:var(--r-thumb);
+  font-size:var(--t-footnote); font-weight:500; letter-spacing:-.005em;
+  color:var(--label); white-space:nowrap; cursor:pointer;
+  transition:font-weight var(--fast) var(--ease-ios), opacity var(--fast) var(--ease-ios);
+}
+.seg label + label span::before {
+  content:''; position:absolute; left:0; top:22%; bottom:22%;
+  width:1px; background:var(--seg-sep);
+  transition:opacity var(--fast) var(--ease-ios);
+}
+/* The hairline disappears either side of the thumb. */
+.seg input:checked + span::before,
+.seg label:has(input:checked) + label span::before { opacity:0; }
+.seg input:checked + span { font-weight:600; }
+.seg label:active span { opacity:.55; }
+.seg input:focus-visible + span {
+  outline:none; box-shadow:0 0 0 3.5px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+/* Translation panel */
+.panel { margin-top:var(--s5); }
+.pane { padding:var(--s3) var(--s4) var(--s4); }
+.pane-out { position:relative; }
+.pane-out::before {
+  content:''; position:absolute; left:var(--s4); right:0; top:0;
+  height:.5px; background:var(--separator);
+}
+/* Language bar, as Apple Translate puts at the top of its card. */
+.langbar {
+  position:relative; display:flex; align-items:center; justify-content:center;
+  gap:var(--s3); padding:var(--s3) var(--s4); min-height:44px;
+}
+.langbar::after {
+  content:''; position:absolute; left:0; right:0; bottom:0;
+  height:.5px; background:var(--separator);
+}
+.lang { font-size:var(--t-headline); font-weight:600; letter-spacing:-.012em; }
+.arrow { width:20px; height:20px; color:var(--label-3); flex:0 0 auto; }
+
+textarea {
+  display:block; width:100%; resize:none; overflow:hidden;
+  font:var(--t-title2)/1.35 var(--sans); letter-spacing:-.018em; color:var(--label);
+  background:transparent; border:0; padding:0;
+}
+textarea:focus-visible { outline:none; }
+textarea::placeholder { color:var(--label-3); }
+
+.ro, .empty {
+  margin:0; font-size:var(--t-hero); font-weight:400; line-height:1.26;
+  letter-spacing:-.026em; overflow-wrap:break-word; text-wrap:pretty;
+}
+.empty { color:var(--label-3); }
+.ro:empty { display:none; }
+.ro.enter { animation:rise var(--enter) var(--ease-ios) both; }
+@keyframes rise { from { opacity:0; transform:translateY(7px); } to { opacity:1; transform:none; } }
+
+/* Dotted = this form came from your profile. Wavy = the signal a spellchecker
+   already uses for "check this". Words about anyone else carry no mark. */
+.g {
+  text-decoration:underline dotted var(--accent-soft);
+  text-decoration-thickness:1.5px; text-underline-offset:.24em;
+}
+.g[data-status="variant"], .g[data-status="contested"] {
+  text-decoration:underline wavy var(--caution);
+  text-decoration-thickness:1.5px; text-underline-offset:.18em;
+}
+.g[data-other] { text-decoration:none; }
+.variant { margin:0; }
+.variant + .variant { margin-top:var(--s1); color:var(--label-2); }
+
+/* Action row under the translation: speak and copy, both real. */
+.tools { display:flex; align-items:center; gap:var(--s1); margin-top:var(--s3); }
+.icon {
+  display:grid; place-items:center; width:34px; height:34px; padding:0;
+  color:var(--label-2); background:transparent; border:0; border-radius:999px;
+  cursor:pointer;
+  transition:background-color var(--fast) var(--ease-ios),
+             color var(--fast) var(--ease-ios), transform var(--fast) var(--ease-ios);
+}
+.icon svg { width:21px; height:21px; }
+.icon:hover { background:var(--fill); color:var(--label); }
+.icon:active { transform:scale(.92); }
+.icon:focus-visible {
+  outline:none; box-shadow:0 0 0 3.5px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.icon[hidden] { display:none; }
+.tool-status {
+  font-size:var(--t-footnote); color:var(--label-2); margin-left:var(--s1);
+  opacity:0; transition:opacity var(--fast) var(--ease-ios);
+}
+.tool-status.show { opacity:1; }
+
+/* Actions */
+.actions {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:var(--s4); margin-top:var(--s5); flex-wrap:wrap;
+}
+.meta {
+  margin:0; flex:1 1 14rem; min-width:0;
+  font-size:var(--t-footnote); line-height:1.4; color:var(--label-2);
+  font-variant-numeric:tabular-nums;
+}
+.meta b { font-weight:600; color:var(--label); }
+.meta.error { color:var(--caution-line); }
+#go {
+  flex:0 0 auto; font:600 var(--t-headline)/1 var(--sans); letter-spacing:-.01em;
+  color:#fff; background:var(--accent-strong); border:0; border-radius:980px;
+  min-height:44px; padding:0 var(--s5); cursor:pointer;
+  transition:transform var(--fast) var(--ease-ios), opacity var(--fast) var(--ease-ios);
+}
+#go:hover { opacity:.88; }
+#go:active { transform:scale(.96); }
+#go:focus-visible {
+  outline:none; box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+#go:disabled { opacity:.38; cursor:default; transform:none; }
+
+/* Notes and key */
+.notes { margin-top:var(--s4); display:flex; flex-direction:column; gap:var(--s2); }
+.note {
+  margin:0; padding:var(--s3) var(--s4); font-size:var(--t-subhead); line-height:1.4;
+  color:var(--label); background:var(--surface);
+  -webkit-backdrop-filter:blur(20px); backdrop-filter:blur(20px);
+  border-radius:var(--r-group);
+  border-left:3px solid var(--caution-line);
+  box-shadow:0 .5px 1px rgba(0,0,0,.05), inset 0 .5px 0 var(--highlight);
+}
+.note b { font-weight:600; }
+
+.colophon {
+  margin:var(--s8) 0 0; max-width:34rem;
+  font-size:var(--t-caption); line-height:1.5; color:var(--label-3);
+}
+.colophon a { color:inherit; text-underline-offset:.18em; }
+.colophon a:hover { color:var(--label-2); }
+
+.key {
+  margin:var(--s5) 0 0; font-size:var(--t-footnote); color:var(--label-2);
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:var(--s1) var(--s5);
+}
+.k { margin-right:var(--s1); }
+.k-flip { text-decoration:underline dotted var(--accent-soft);
+          text-decoration-thickness:1.5px; text-underline-offset:.24em; }
+.k-dispute { text-decoration:underline wavy var(--caution);
+             text-decoration-thickness:1.5px; text-underline-offset:.18em; }
+
+.visually-hidden {
+  position:absolute; width:1px; height:1px; margin:-1px; padding:0;
+  overflow:hidden; clip-path:inset(50%); white-space:nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:1ms !important; transition-duration:1ms !important; }
+  .seg label:active span, #go:active { transform:none; }
+}
+@media (max-width:36rem) {
+  body { padding-top:var(--s6); }
+  h1 { font-size:24px; }
+  .ro, .empty { font-size:24px; }
+  textarea { font-size:var(--t-body); }
+  .lang { font-size:var(--t-subhead); }
+  /* The control needs the full width, so the row stacks. */
+  .row { flex-direction:column; align-items:stretch; gap:var(--s2); padding:var(--s3) var(--s4); }
+  .seg { width:100%; }
+  .seg label { flex:1 1 0; min-width:0; }
+  .seg span { padding:0 var(--s1); font-size:var(--t-caption); }
+  #go { flex:1 1 100%; }
+}

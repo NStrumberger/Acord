@@ -1,0 +1,3169 @@
+{
+ "_license": "Derived from EnRoGend (CC BY 4.0) and kaikki.org Wiktionary extracts (CC BY-SA 4.0). ShareAlike attaches. Attribution required.",
+ "_status": "normative=two sources agree | variant=sources differ, both current | attested=single source | contested=documented dispute",
+ "entries": [
+  {
+   "en": "accountant",
+   "m": "contabil",
+   "f": "contabilă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "contabili",
+   "pluralF": "contabile",
+   "formsM": {
+    "pl.gd.def": "contabililor",
+    "pl.gd.indef": "contabili",
+    "pl.na.def": "contabilii",
+    "pl.na.indef": "contabili",
+    "sg.gd.def": "contabilului",
+    "sg.gd.indef": "contabil",
+    "sg.na.def": "contabilul",
+    "sg.na.indef": "contabil"
+   },
+   "formsF": {
+    "pl.gd.def": "contabilelor",
+    "pl.gd.indef": "contabile",
+    "pl.na.def": "contabilele",
+    "pl.na.indef": "contabile",
+    "sg.gd.def": "contabilei",
+    "sg.gd.indef": "contabile",
+    "sg.na.def": "contabila",
+    "sg.na.indef": "contabilă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "actor",
+   "m": "actor",
+   "f": "actriță",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "actori",
+   "pluralF": "actrițe",
+   "formsM": {
+    "pl.gd.def": "actorilor",
+    "pl.gd.indef": "actori",
+    "pl.na.def": "actorii",
+    "pl.na.indef": "actori",
+    "sg.gd.def": "actorului",
+    "sg.gd.indef": "actor",
+    "sg.na.def": "actorul",
+    "sg.na.indef": "actor"
+   },
+   "formsF": {
+    "pl.gd.def": "actrițelor",
+    "pl.gd.indef": "actrițe",
+    "pl.na.def": "actrițele",
+    "pl.na.indef": "actrițe",
+    "sg.gd.def": "actriței",
+    "sg.gd.indef": "actrițe",
+    "sg.na.def": "actrița",
+    "sg.na.indef": "actriță"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "ambassador",
+   "m": "ambasador",
+   "f": "ambasadoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "ambasadori",
+   "pluralF": "ambasadoare",
+   "formsM": {
+    "pl.gd.def": "ambasadorilor",
+    "pl.gd.indef": "ambasadori",
+    "pl.na.def": "ambasadorii",
+    "pl.na.indef": "ambasadori",
+    "sg.gd.def": "ambasadorului",
+    "sg.gd.indef": "ambasador",
+    "sg.na.def": "ambasadorul",
+    "sg.na.indef": "ambasador"
+   },
+   "formsF": {
+    "pl.gd.def": "ambasadoarelor",
+    "pl.gd.indef": "ambasadoare",
+    "pl.na.def": "ambasadoarele",
+    "pl.na.indef": "ambasadoare",
+    "sg.gd.def": "ambasadoarei",
+    "sg.gd.indef": "ambasadoare",
+    "sg.na.def": "ambasadoarea",
+    "sg.na.indef": "ambasadoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "anesthetist",
+   "m": "anestezist",
+   "f": "anestezistă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "anesteziști",
+   "pluralF": "anesteziste",
+   "formsM": {
+    "pl.gd.def": "anesteziștilor",
+    "pl.gd.indef": "anesteziști",
+    "pl.na.def": "anesteziștii",
+    "pl.na.indef": "anesteziști",
+    "sg.gd.def": "anestezistului",
+    "sg.gd.indef": "anestezist",
+    "sg.na.def": "anestezistul",
+    "sg.na.indef": "anestezist"
+   },
+   "formsF": {
+    "pl.gd.def": "anestezistelor",
+    "pl.gd.indef": "anesteziste",
+    "pl.na.def": "anestezistele",
+    "pl.na.indef": "anesteziste",
+    "sg.gd.def": "anestezistei",
+    "sg.gd.indef": "anesteziste",
+    "sg.na.def": "anestezista",
+    "sg.na.indef": "anestezistă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "architect",
+   "m": "arhitect",
+   "f": "arhitectă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "arhitecți",
+   "pluralF": "arhitecte",
+   "formsM": {
+    "pl.gd.def": "arhitecților",
+    "pl.gd.indef": "arhitecți",
+    "pl.na.def": "arhitecții",
+    "pl.na.indef": "arhitecți",
+    "sg.gd.def": "arhitectului",
+    "sg.gd.indef": "arhitect",
+    "sg.na.def": "arhitectul",
+    "sg.na.indef": "arhitect"
+   },
+   "formsF": {
+    "pl.gd.def": "arhitectelor",
+    "pl.gd.indef": "arhitecte",
+    "pl.na.def": "arhitectele",
+    "pl.na.indef": "arhitecte",
+    "sg.gd.def": "arhitectei",
+    "sg.gd.indef": "arhitecte",
+    "sg.na.def": "arhitecta",
+    "sg.na.indef": "arhitectă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "archivist",
+   "m": "arhivar",
+   "f": "arhivară",
+   "fAlt": null,
+   "status": "attested",
+   "note": "kaikki gives 'arhivarka', which is not a Romanian formation; disregarded",
+   "gender": "m",
+   "pluralM": "arhivari",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "arhivarilor",
+    "pl.gd.indef": "arhivari",
+    "pl.na.def": "arhivarii",
+    "pl.na.indef": "arhivari",
+    "sg.gd.def": "arhivarului",
+    "sg.gd.indef": "arhivar",
+    "sg.na.def": "arhivarul",
+    "sg.na.indef": "arhivar"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "astronomer",
+   "m": "astronom",
+   "f": "astronoamă",
+   "fAlt": "astronomă",
+   "status": "variant",
+   "note": "sources differ by the o->oa breaking; DOOM3 admits both spellings",
+   "gender": "m",
+   "pluralM": "astronomi",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "astronomilor",
+    "pl.gd.indef": "astronomi",
+    "pl.na.def": "astronomii",
+    "pl.na.indef": "astronomi",
+    "sg.gd.def": "astronomului",
+    "sg.gd.indef": "astronom",
+    "sg.na.def": "astronomul",
+    "sg.na.indef": "astronom"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "athlete",
+   "m": "atlet",
+   "f": "atletă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "atleți",
+   "pluralF": "atlete",
+   "formsM": {
+    "pl.gd.def": "atleților",
+    "pl.gd.indef": "atleți",
+    "pl.na.def": "atleții",
+    "pl.na.indef": "atleți",
+    "sg.gd.def": "atletului",
+    "sg.gd.indef": "atlet",
+    "sg.na.def": "atletul",
+    "sg.na.indef": "atlet"
+   },
+   "formsF": {
+    "pl.gd.def": "atletelor",
+    "pl.gd.indef": "atlete",
+    "pl.na.def": "atletele",
+    "pl.na.indef": "atlete",
+    "sg.gd.def": "atletei",
+    "sg.gd.indef": "atlete",
+    "sg.na.def": "atleta",
+    "sg.na.indef": "atletă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "auditor",
+   "m": "auditor",
+   "f": "auditoare",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": null,
+   "pluralF": "auditoare",
+   "formsM": null,
+   "formsF": {
+    "pl.gd.def": "auditoarelor",
+    "pl.gd.indef": "auditoare",
+    "pl.na.def": "auditoarele",
+    "pl.na.indef": "auditoare",
+    "sg.gd.def": "auditoarei",
+    "sg.gd.indef": "auditoare",
+    "sg.na.def": "auditoarea",
+    "sg.na.indef": "auditoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "baker",
+   "m": "brutar",
+   "f": "brutăreasă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "brutari",
+   "pluralF": "brutărese",
+   "formsM": {
+    "pl.gd.def": "brutarilor",
+    "pl.gd.indef": "brutari",
+    "pl.na.def": "brutarii",
+    "pl.na.indef": "brutari",
+    "sg.gd.def": "brutarului",
+    "sg.gd.indef": "brutar",
+    "sg.na.def": "brutarul",
+    "sg.na.indef": "brutar"
+   },
+   "formsF": {
+    "pl.gd.def": "brutăreselor",
+    "pl.gd.indef": "brutărese",
+    "pl.na.def": "brutăresele",
+    "pl.na.indef": "brutărese",
+    "sg.gd.def": "brutăresei",
+    "sg.gd.indef": "brutărese",
+    "sg.na.def": "brutăreasa",
+    "sg.na.indef": "brutăreasă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "banker",
+   "m": "bancher",
+   "f": "bancheră",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "bancheri",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "bancherilor",
+    "pl.gd.indef": "bancheri",
+    "pl.na.def": "bancherii",
+    "pl.na.indef": "bancheri",
+    "sg.gd.def": "bancherului",
+    "sg.gd.indef": "bancher",
+    "sg.na.def": "bancherul",
+    "sg.na.indef": "bancher"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "barber",
+   "m": "frizer",
+   "f": "frizeriță",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "frizeri",
+   "pluralF": "frizerițe",
+   "formsM": {
+    "pl.gd.def": "frizerilor",
+    "pl.gd.indef": "frizeri",
+    "pl.na.def": "frizerii",
+    "pl.na.indef": "frizeri",
+    "sg.gd.def": "frizerului",
+    "sg.gd.indef": "frizer",
+    "sg.na.def": "frizerul",
+    "sg.na.indef": "frizer"
+   },
+   "formsF": {
+    "pl.gd.def": "frizerițelor",
+    "pl.gd.indef": "frizerițe",
+    "pl.na.def": "frizerițele",
+    "pl.na.indef": "frizerițe",
+    "sg.gd.def": "frizeriței",
+    "sg.gd.indef": "frizerițe",
+    "sg.na.def": "frizerița",
+    "sg.na.indef": "frizeriță"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "bartender",
+   "m": "barman",
+   "f": "barmaniță",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "barmani",
+   "pluralF": "barmanițe",
+   "formsM": {
+    "pl.gd.def": "barmanilor",
+    "pl.gd.indef": "barmani",
+    "pl.na.def": "barmanii",
+    "pl.na.indef": "barmani",
+    "sg.gd.def": "barmanului",
+    "sg.gd.indef": "barman",
+    "sg.na.def": "barmanul",
+    "sg.na.indef": "barman"
+   },
+   "formsF": {
+    "pl.gd.def": "barmanițelor",
+    "pl.gd.indef": "barmanițe",
+    "pl.na.def": "barmanițele",
+    "pl.na.indef": "barmanițe",
+    "sg.gd.def": "barmaniței",
+    "sg.gd.indef": "barmanițe",
+    "sg.na.def": "barmanița",
+    "sg.na.indef": "barmaniță"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "botanist",
+   "m": "botanist",
+   "f": "botanistă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "botaniști",
+   "pluralF": "botaniste",
+   "formsM": {
+    "pl.gd.def": "botaniștilor",
+    "pl.gd.indef": "botaniști",
+    "pl.na.def": "botaniștii",
+    "pl.na.indef": "botaniști",
+    "sg.gd.def": "botanistaui",
+    "sg.gd.indef": "botanist",
+    "sg.na.def": "botanista",
+    "sg.na.indef": "botanist"
+   },
+   "formsF": {
+    "pl.gd.def": "botanistelor",
+    "pl.gd.indef": "botaniste",
+    "pl.na.def": "botanistele",
+    "pl.na.indef": "botaniste",
+    "sg.gd.def": "botanistei",
+    "sg.gd.indef": "botaniste",
+    "sg.na.def": "botanista",
+    "sg.na.indef": "botanistă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "carpenter",
+   "m": "tâmplar",
+   "f": "tâmplăriță",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "tâmplari",
+   "pluralF": "tâmplărițe",
+   "formsM": {
+    "pl.gd.def": "tâmplarilor",
+    "pl.gd.indef": "tâmplari",
+    "pl.na.def": "tâmplarii",
+    "pl.na.indef": "tâmplari",
+    "sg.gd.def": "tâmplarului",
+    "sg.gd.indef": "tâmplar",
+    "sg.na.def": "tâmplarul",
+    "sg.na.indef": "tâmplar"
+   },
+   "formsF": {
+    "pl.gd.def": "tâmplărițelor",
+    "pl.gd.indef": "tâmplărițe",
+    "pl.na.def": "tâmplărițele",
+    "pl.na.indef": "tâmplărițe",
+    "sg.gd.def": "tâmplăriței",
+    "sg.gd.indef": "tâmplărițe",
+    "sg.na.def": "tâmplărița",
+    "sg.na.indef": "tâmplăriță"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "cashier",
+   "m": "casier",
+   "f": "casieră",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "casieri",
+   "pluralF": "casiere",
+   "formsM": {
+    "pl.gd.def": "casierilor",
+    "pl.gd.indef": "casieri",
+    "pl.na.def": "casierii",
+    "pl.na.indef": "casieri",
+    "sg.gd.def": "casierului",
+    "sg.gd.indef": "casier",
+    "sg.na.def": "casierul",
+    "sg.na.indef": "casier"
+   },
+   "formsF": {
+    "pl.gd.def": "casierelor",
+    "pl.gd.indef": "casiere",
+    "pl.na.def": "casierele",
+    "pl.na.indef": "casiere",
+    "sg.gd.def": "casierei",
+    "sg.gd.indef": "casiere",
+    "sg.na.def": "casiera",
+    "sg.na.indef": "casieră"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "chef",
+   "m": "bucătar",
+   "f": "bucătăreasă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "bucătari",
+   "pluralF": "bucătărese",
+   "formsM": {
+    "pl.gd.def": "bucătarilor",
+    "pl.gd.indef": "bucătari",
+    "pl.na.def": "bucătarii",
+    "pl.na.indef": "bucătari",
+    "sg.gd.def": "bucătarului",
+    "sg.gd.indef": "bucătar",
+    "sg.na.def": "bucătarul",
+    "sg.na.indef": "bucătar"
+   },
+   "formsF": {
+    "pl.gd.def": "bucătăreselor",
+    "pl.gd.indef": "bucătărese",
+    "pl.na.def": "bucătăresele",
+    "pl.na.indef": "bucătărese",
+    "sg.gd.def": "bucătăresei",
+    "sg.gd.indef": "bucătărese",
+    "sg.na.def": "bucătăreasa",
+    "sg.na.indef": "bucătăreasă"
+   },
+   "neutral": {
+    "kind": "verb_paraphrase",
+    "verb1sg": "gătesc",
+    "verb2sg": "gătești"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "chemist",
+   "m": "chimist",
+   "f": "chimistă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "chimiști",
+   "pluralF": "chimiste",
+   "formsM": {
+    "pl.gd.def": "chimiștilor",
+    "pl.gd.indef": "chimiști",
+    "pl.na.def": "chimiștii",
+    "pl.na.indef": "chimiști",
+    "sg.gd.def": "chimistului",
+    "sg.gd.indef": "chimist",
+    "sg.na.def": "chimistul",
+    "sg.na.indef": "chimist"
+   },
+   "formsF": {
+    "pl.gd.def": "chimistelor",
+    "pl.gd.indef": "chimiste",
+    "pl.na.def": "chimistele",
+    "pl.na.indef": "chimiste",
+    "sg.gd.def": "chimistei",
+    "sg.gd.indef": "chimiste",
+    "sg.na.def": "chimista",
+    "sg.na.indef": "chimistă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "coach",
+   "m": "antrenor",
+   "f": "antrenoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "antrenori",
+   "pluralF": "antrenoare",
+   "formsM": {
+    "pl.gd.def": "antrenorilor",
+    "pl.gd.indef": "antrenori",
+    "pl.na.def": "antrenorii",
+    "pl.na.indef": "antrenori",
+    "sg.gd.def": "antrenorului",
+    "sg.gd.indef": "antrenor",
+    "sg.na.def": "antrenorul",
+    "sg.na.indef": "antrenor"
+   },
+   "formsF": {
+    "pl.gd.def": "antrenoarelor",
+    "pl.gd.indef": "antrenoare",
+    "pl.na.def": "antrenoarele",
+    "pl.na.indef": "antrenoare",
+    "sg.gd.def": "antrenoarei",
+    "sg.gd.indef": "antrenoare",
+    "sg.na.def": "antrenoarea",
+    "sg.na.indef": "antrenoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "composer",
+   "m": "compozitor",
+   "f": "compozitoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "compozitori",
+   "pluralF": "compozitoare",
+   "formsM": {
+    "pl.gd.def": "compozitorilor",
+    "pl.gd.indef": "compozitori",
+    "pl.na.def": "compozitorii",
+    "pl.na.indef": "compozitori",
+    "sg.gd.def": "compozitorului",
+    "sg.gd.indef": "compozitor",
+    "sg.na.def": "compozitorul",
+    "sg.na.indef": "compozitor"
+   },
+   "formsF": {
+    "pl.gd.def": "compozitoarelor",
+    "pl.gd.indef": "compozitoare",
+    "pl.na.def": "compozitoarele",
+    "pl.na.indef": "compozitoare",
+    "sg.gd.def": "compozitoarei",
+    "sg.gd.indef": "compozitoare",
+    "sg.na.def": "compozitoarea",
+    "sg.na.indef": "compozitoare"
+   },
+   "neutral": {
+    "kind": "verb_paraphrase",
+    "verb1sg": "compun",
+    "verb2sg": "compui"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "conductor",
+   "m": "dirijor",
+   "f": "dirijoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "dirijori",
+   "pluralF": "dirijoare",
+   "formsM": {
+    "pl.gd.def": "dirijorilor",
+    "pl.gd.indef": "dirijori",
+    "pl.na.def": "dirijorii",
+    "pl.na.indef": "dirijori",
+    "sg.gd.def": "dirijorului",
+    "sg.gd.indef": "dirijor",
+    "sg.na.def": "dirijorul",
+    "sg.na.indef": "dirijor"
+   },
+   "formsF": {
+    "pl.gd.def": "dirijoarelor",
+    "pl.gd.indef": "dirijoare",
+    "pl.na.def": "dirijoarele",
+    "pl.na.indef": "dirijoare",
+    "sg.gd.def": "dirijoarei",
+    "sg.gd.indef": "dirijoare",
+    "sg.na.def": "dirijoarea",
+    "sg.na.indef": "dirijoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "consultant",
+   "m": "consultant",
+   "f": "consultantă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "consultanți",
+   "pluralF": "consultante",
+   "formsM": {
+    "pl.gd.def": "consultanților",
+    "pl.gd.indef": "consultanți",
+    "pl.na.def": "consultanții",
+    "pl.na.indef": "consultanți",
+    "sg.gd.def": "consultantului",
+    "sg.gd.indef": "consultant",
+    "sg.na.def": "consultantul",
+    "sg.na.indef": "consultant"
+   },
+   "formsF": {
+    "pl.gd.def": "consultantelor",
+    "pl.gd.indef": "consultante",
+    "pl.na.def": "consultantele",
+    "pl.na.indef": "consultante",
+    "sg.gd.def": "consultantei",
+    "sg.gd.indef": "consultante",
+    "sg.na.def": "consultanta",
+    "sg.na.indef": "consultantă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "dancer",
+   "m": "dansator",
+   "f": "dansatoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "dansatori",
+   "pluralF": "dansatoare",
+   "formsM": {
+    "pl.gd.def": "dansatorilor",
+    "pl.gd.indef": "dansatori",
+    "pl.na.def": "dansatorii",
+    "pl.na.indef": "dansatori",
+    "sg.gd.def": "dansatorului",
+    "sg.gd.indef": "dansator",
+    "sg.na.def": "dansatorul",
+    "sg.na.indef": "dansator"
+   },
+   "formsF": {
+    "pl.gd.def": "dansatoarelor",
+    "pl.gd.indef": "dansatoare",
+    "pl.na.def": "dansatoarele",
+    "pl.na.indef": "dansatoare",
+    "sg.gd.def": "dansatoarei",
+    "sg.gd.indef": "dansatoare",
+    "sg.na.def": "dansatoarea",
+    "sg.na.indef": "dansatoare"
+   },
+   "neutral": {
+    "kind": "verb_paraphrase",
+    "verb1sg": "dansez",
+    "verb2sg": "dansezi"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "dentist",
+   "m": "dentist",
+   "f": "dentistă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "dentiști",
+   "pluralF": "dentiste",
+   "formsM": {
+    "pl.gd.def": "dentiștilor",
+    "pl.gd.indef": "dentiști",
+    "pl.na.def": "dentiștii",
+    "pl.na.indef": "dentiști",
+    "sg.gd.def": "dentistului",
+    "sg.gd.indef": "dentist",
+    "sg.na.def": "dentistul",
+    "sg.na.indef": "dentist"
+   },
+   "formsF": {
+    "pl.gd.def": "dentistelor",
+    "pl.gd.indef": "dentiste",
+    "pl.na.def": "dentistele",
+    "pl.na.indef": "dentiste",
+    "sg.gd.def": "dentistei",
+    "sg.gd.indef": "dentiste",
+    "sg.na.def": "dentista",
+    "sg.na.indef": "dentistă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "designer",
+   "m": "designer",
+   "f": "designeră",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "designeri",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "designerilor",
+    "pl.gd.indef": "designeri",
+    "pl.na.def": "designerii",
+    "pl.na.indef": "designeri",
+    "sg.gd.def": "designerului",
+    "sg.gd.indef": "designer",
+    "sg.na.def": "designerul",
+    "sg.na.indef": "designer"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "detective",
+   "m": "detectiv",
+   "f": "detectivă",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "detectivi",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "detectivilor",
+    "pl.gd.indef": "detectivi",
+    "pl.na.def": "detectivii",
+    "pl.na.indef": "detectivi",
+    "sg.gd.def": "detectivului",
+    "sg.gd.indef": "detectiv",
+    "sg.na.def": "detectivul",
+    "sg.na.indef": "detectiv"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "diplomat",
+   "m": "diplomat",
+   "f": "diplomată",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "diplomați",
+   "pluralF": "diplomate",
+   "formsM": {
+    "pl.gd.def": "diplomaților",
+    "pl.gd.indef": "diplomați",
+    "pl.na.def": "diplomații",
+    "pl.na.indef": "diplomați",
+    "sg.gd.def": "diplomatului",
+    "sg.gd.indef": "diplomat",
+    "sg.na.def": "diplomatul",
+    "sg.na.indef": "diplomat"
+   },
+   "formsF": {
+    "pl.gd.def": "diplomatelor",
+    "pl.gd.indef": "diplomate",
+    "pl.na.def": "diplomatele",
+    "pl.na.indef": "diplomate",
+    "sg.gd.def": "diplomatei",
+    "sg.gd.indef": "diplomate",
+    "sg.na.def": "diplomata",
+    "sg.na.indef": "diplomată"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "director",
+   "m": "regizor",
+   "f": "regizoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "regizori",
+   "pluralF": "regizoare",
+   "formsM": {
+    "pl.gd.def": "regizorilor",
+    "pl.gd.indef": "regizori",
+    "pl.na.def": "regizorii",
+    "pl.na.indef": "regizori",
+    "sg.gd.def": "regizorului",
+    "sg.gd.indef": "regizor",
+    "sg.na.def": "regizorul",
+    "sg.na.indef": "regizor"
+   },
+   "formsF": {
+    "pl.gd.def": "regizoarelor",
+    "pl.gd.indef": "regizoare",
+    "pl.na.def": "regizoarele",
+    "pl.na.indef": "regizoare",
+    "sg.gd.def": "regizoarei",
+    "sg.gd.indef": "regizoare",
+    "sg.na.def": "regizoarea",
+    "sg.na.indef": "regizoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "doctor",
+   "m": "doctor",
+   "f": "doctoriță",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "doctori",
+   "pluralF": "doctorițe",
+   "formsM": {
+    "pl.gd.def": "doctorilor",
+    "pl.gd.indef": "doctori",
+    "pl.na.def": "doctorii",
+    "pl.na.indef": "doctori",
+    "sg.gd.def": "doctorului",
+    "sg.gd.indef": "doctor",
+    "sg.na.def": "doctorul",
+    "sg.na.indef": "doctor"
+   },
+   "formsF": {
+    "pl.gd.def": "doctorițelor",
+    "pl.gd.indef": "doctorițe",
+    "pl.na.def": "doctorițele",
+    "pl.na.indef": "doctorițe",
+    "sg.gd.def": "doctoriței",
+    "sg.gd.indef": "doctorițe",
+    "sg.na.def": "doctorița",
+    "sg.na.indef": "doctoriță"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "driver",
+   "m": "șofer",
+   "f": "șoferiță",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "șoferi",
+   "pluralF": "șoferițe",
+   "formsM": {
+    "pl.gd.def": "șoferilor",
+    "pl.gd.indef": "șoferi",
+    "pl.na.def": "șoferii",
+    "pl.na.indef": "șoferi",
+    "sg.gd.def": "șoferului",
+    "sg.gd.indef": "șofer",
+    "sg.na.def": "șoferul",
+    "sg.na.indef": "șofer"
+   },
+   "formsF": {
+    "pl.gd.def": "șoferițelor",
+    "pl.gd.indef": "șoferițe",
+    "pl.na.def": "șoferițele",
+    "pl.na.indef": "șoferițe",
+    "sg.gd.def": "șoferiței",
+    "sg.gd.indef": "șoferițe",
+    "sg.na.def": "șoferița",
+    "sg.na.indef": "șoferiță"
+   },
+   "neutral": {
+    "kind": "verb_paraphrase",
+    "verb1sg": "conduc",
+    "verb2sg": "conduci"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "economist",
+   "m": "economist",
+   "f": "economistă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "economiști",
+   "pluralF": "economiste",
+   "formsM": {
+    "pl.gd.def": "economiștilor",
+    "pl.gd.indef": "economiști",
+    "pl.na.def": "economiștii",
+    "pl.na.indef": "economiști",
+    "sg.gd.def": "economistului",
+    "sg.gd.indef": "economist",
+    "sg.na.def": "economistul",
+    "sg.na.indef": "economist"
+   },
+   "formsF": {
+    "pl.gd.def": "economistelor",
+    "pl.gd.indef": "economiste",
+    "pl.na.def": "economistele",
+    "pl.na.indef": "economiste",
+    "sg.gd.def": "economistei",
+    "sg.gd.indef": "economiste",
+    "sg.na.def": "economista",
+    "sg.na.indef": "economistă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "editor",
+   "m": "editor",
+   "f": "editoare",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "editori",
+   "pluralF": "editoare",
+   "formsM": {
+    "pl.gd.def": "editorilor",
+    "pl.gd.indef": "editori",
+    "pl.na.def": "editorii",
+    "pl.na.indef": "editori",
+    "sg.gd.def": "editorului",
+    "sg.gd.indef": "editor",
+    "sg.na.def": "editorul",
+    "sg.na.indef": "editor"
+   },
+   "formsF": {
+    "pl.gd.def": "editoarelor",
+    "pl.gd.indef": "editoare",
+    "pl.na.def": "editoarele",
+    "pl.na.indef": "editoare",
+    "sg.gd.def": "editoarei",
+    "sg.gd.indef": "editoare",
+    "sg.na.def": "editoarea",
+    "sg.na.indef": "editoare"
+   },
+   "neutral": {
+    "kind": "verb_paraphrase",
+    "verb1sg": "editez",
+    "verb2sg": "editezi"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "electrician",
+   "m": "electrician",
+   "f": "electriciană",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "electricieni",
+   "pluralF": "electriciene",
+   "formsM": {
+    "pl.gd.def": "electricienilor",
+    "pl.gd.indef": "electricieni",
+    "pl.na.def": "electricienii",
+    "pl.na.indef": "electricieni",
+    "sg.gd.def": "electricianului",
+    "sg.gd.indef": "electrician",
+    "sg.na.def": "electricianul",
+    "sg.na.indef": "electrician"
+   },
+   "formsF": {
+    "pl.gd.def": "electricienelor",
+    "pl.gd.indef": "electriciene",
+    "pl.na.def": "electricienele",
+    "pl.na.indef": "electriciene",
+    "sg.gd.def": "electricienei",
+    "sg.gd.indef": "electriciene",
+    "sg.na.def": "electriciana",
+    "sg.na.indef": "electriciană"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "engineer",
+   "m": "inginer",
+   "f": "ingineră",
+   "fAlt": null,
+   "status": "contested",
+   "note": "both corpora record 'ingineră', but 'doamna inginer' remains widespread in address; usage is split",
+   "gender": "m",
+   "pluralM": "ingineri",
+   "pluralF": "inginere",
+   "formsM": {
+    "pl.gd.def": "inginerilor",
+    "pl.gd.indef": "ingineri",
+    "pl.na.def": "inginerii",
+    "pl.na.indef": "ingineri",
+    "sg.gd.def": "inginerului",
+    "sg.gd.indef": "inginer",
+    "sg.na.def": "inginerul",
+    "sg.na.indef": "inginer"
+   },
+   "formsF": {
+    "pl.gd.def": "inginerelor",
+    "pl.gd.indef": "inginere",
+    "pl.na.def": "inginerele",
+    "pl.na.indef": "inginere",
+    "sg.gd.def": "inginerei",
+    "sg.gd.indef": "inginere",
+    "sg.na.def": "inginera",
+    "sg.na.indef": "ingineră"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "gardener",
+   "m": "grădinar",
+   "f": "grădinăreasă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "grădinari",
+   "pluralF": "grădinărese",
+   "formsM": {
+    "pl.gd.def": "grădinarilor",
+    "pl.gd.indef": "grădinari",
+    "pl.na.def": "grădinarii",
+    "pl.na.indef": "grădinari",
+    "sg.gd.def": "grădinarului",
+    "sg.gd.indef": "grădinar",
+    "sg.na.def": "grădinarul",
+    "sg.na.indef": "grădinar"
+   },
+   "formsF": {
+    "pl.gd.def": "grădinăreselor",
+    "pl.gd.indef": "grădinărese",
+    "pl.na.def": "grădinăresele",
+    "pl.na.indef": "grădinărese",
+    "sg.gd.def": "grădinăresei",
+    "sg.gd.indef": "grădinărese",
+    "sg.na.def": "grădinăreasa",
+    "sg.na.indef": "grădinăreasă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "geologist",
+   "m": "geolog",
+   "f": "geoloagă",
+   "fAlt": "geologă",
+   "status": "variant",
+   "note": "sources differ by the o->oa breaking; DOOM3 admits both spellings",
+   "gender": "m",
+   "pluralM": "geologi",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "geologilor",
+    "pl.gd.indef": "geologi",
+    "pl.na.def": "geologii",
+    "pl.na.indef": "geologi",
+    "sg.gd.def": "geologului",
+    "sg.gd.indef": "geolog",
+    "sg.na.def": "geologul",
+    "sg.na.indef": "geolog"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "hairdresser",
+   "m": "coafor",
+   "f": "coafeză",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "coafori",
+   "pluralF": "coafeze",
+   "formsM": {
+    "pl.gd.def": "coaforilor",
+    "pl.gd.indef": "coafori",
+    "pl.na.def": "coaforii",
+    "pl.na.indef": "coafori",
+    "sg.gd.def": "coaforului",
+    "sg.gd.indef": "coafor",
+    "sg.na.def": "coaforul",
+    "sg.na.indef": "coafor"
+   },
+   "formsF": {
+    "pl.gd.def": "coafezelor",
+    "pl.gd.indef": "coafeze",
+    "pl.na.def": "coafezele",
+    "pl.na.indef": "coafeze",
+    "sg.gd.def": "coafezei",
+    "sg.gd.indef": "coafeze",
+    "sg.na.def": "coafeza",
+    "sg.na.indef": "coafeză"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "inspector",
+   "m": "inspector",
+   "f": "inspectoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "inspectori",
+   "pluralF": "inspectoare",
+   "formsM": {
+    "pl.gd.def": "inspectorilor",
+    "pl.gd.indef": "inspectori",
+    "pl.na.def": "inspectorii",
+    "pl.na.indef": "inspectori",
+    "sg.gd.def": "inspectorului",
+    "sg.gd.indef": "inspector",
+    "sg.na.def": "inspectorul",
+    "sg.na.indef": "inspector"
+   },
+   "formsF": {
+    "pl.gd.def": "inspectoarelor",
+    "pl.gd.indef": "inspectoare",
+    "pl.na.def": "inspectoarele",
+    "pl.na.indef": "inspectoare",
+    "sg.gd.def": "inspectoarei",
+    "sg.gd.indef": "inspectoare",
+    "sg.na.def": "inspectoarea",
+    "sg.na.indef": "inspectoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "journalist",
+   "m": "jurnalist",
+   "f": "jurnalistă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "jurnaliști",
+   "pluralF": "jurnaliste",
+   "formsM": {
+    "pl.gd.def": "jurnaliștilor",
+    "pl.gd.indef": "jurnaliști",
+    "pl.na.def": "jurnaliștii",
+    "pl.na.indef": "jurnaliști",
+    "sg.gd.def": "jurnalistului",
+    "sg.gd.indef": "jurnalist",
+    "sg.na.def": "jurnalistul",
+    "sg.na.indef": "jurnalist"
+   },
+   "formsF": {
+    "pl.gd.def": "jurnalistelor",
+    "pl.gd.indef": "jurnaliste",
+    "pl.na.def": "jurnalistele",
+    "pl.na.indef": "jurnaliste",
+    "sg.gd.def": "jurnalistei",
+    "sg.gd.indef": "jurnaliste",
+    "sg.na.def": "jurnalista",
+    "sg.na.indef": "jurnalistă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "judge",
+   "m": "judecător",
+   "f": "judecătoare",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "judecători",
+   "pluralF": "judecătoare",
+   "formsM": {
+    "pl.gd.def": "judecătorilor",
+    "pl.gd.indef": "judecători",
+    "pl.na.def": "judecătorii",
+    "pl.na.indef": "judecători",
+    "sg.gd.def": "judecătorului",
+    "sg.gd.indef": "judecător",
+    "sg.na.def": "judecătorul",
+    "sg.na.indef": "judecător"
+   },
+   "formsF": {
+    "pl.gd.def": "judecătoarelor",
+    "pl.gd.indef": "judecătoare",
+    "pl.na.def": "judecătoarele",
+    "pl.na.indef": "judecătoare",
+    "sg.gd.def": "judecătoarei",
+    "sg.gd.indef": "judecătoare",
+    "sg.na.def": "judecătoarea",
+    "sg.na.indef": "judecătoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "lawyer",
+   "m": "avocat",
+   "f": "avocată",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "avocați",
+   "pluralF": "avocate",
+   "formsM": {
+    "pl.gd.def": "avocaților",
+    "pl.gd.indef": "avocați",
+    "pl.na.def": "avocații",
+    "pl.na.indef": "avocați",
+    "sg.gd.def": "ului",
+    "sg.gd.indef": "avocat",
+    "sg.na.def": "ul",
+    "sg.na.indef": "avocat"
+   },
+   "formsF": {
+    "pl.gd.def": "avocatelor",
+    "pl.gd.indef": "avocate",
+    "pl.na.def": "avocatele",
+    "pl.na.indef": "avocate",
+    "sg.gd.def": "avocatei",
+    "sg.gd.indef": "avocate",
+    "sg.na.def": "avocata",
+    "sg.na.indef": "avocată"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "lecturer",
+   "m": "lector",
+   "f": "lectoare",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "lectori",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "lectorilor",
+    "pl.gd.indef": "lectori",
+    "pl.na.def": "lectorii",
+    "pl.na.indef": "lectori",
+    "sg.gd.def": "lectorului",
+    "sg.gd.indef": "lector",
+    "sg.na.def": "lectorul",
+    "sg.na.indef": "lector"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "librarian",
+   "m": "bibliotecar",
+   "f": "bibliotecară",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": null,
+   "pluralF": "bibliotecare",
+   "formsM": null,
+   "formsF": {
+    "pl.gd.def": "bibliotecarelor",
+    "pl.gd.indef": "bibliotecare",
+    "pl.na.def": "bibliotecarele",
+    "pl.na.indef": "bibliotecare",
+    "sg.gd.def": "bibliotecarei",
+    "sg.gd.indef": "bibliotecare",
+    "sg.na.def": "bibliotecara",
+    "sg.na.indef": "bibliotecară"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "mathematician",
+   "m": "matematician",
+   "f": "matematiciană",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "matematicieni",
+   "pluralF": "matematiciene",
+   "formsM": {
+    "pl.gd.def": "matematicienilor",
+    "pl.gd.indef": "matematicieni",
+    "pl.na.def": "matematicienii",
+    "pl.na.indef": "matematicieni",
+    "sg.gd.def": "matematicianului",
+    "sg.gd.indef": "matematician",
+    "sg.na.def": "matematicianul",
+    "sg.na.indef": "matematician"
+   },
+   "formsF": {
+    "pl.gd.def": "matematicienelor",
+    "pl.gd.indef": "matematiciene",
+    "pl.na.def": "matematicienele",
+    "pl.na.indef": "matematiciene",
+    "sg.gd.def": "matematicienei",
+    "sg.gd.indef": "matematiciene",
+    "sg.na.def": "matematiciana",
+    "sg.na.indef": "matematiciană"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "minister",
+   "m": "ministru",
+   "f": "ministră",
+   "fAlt": null,
+   "status": "contested",
+   "note": "Wiktionary records no feminine; 'doamna ministru' still standard in official address",
+   "gender": "m",
+   "pluralM": "miniștri",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "miniștrilor",
+    "pl.gd.indef": "miniștri",
+    "pl.na.def": "miniștrii",
+    "pl.na.indef": "miniștri",
+    "sg.gd.def": "ministrului",
+    "sg.gd.indef": "ministru",
+    "sg.na.def": "ministrul",
+    "sg.na.indef": "ministru"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "curated",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "musician",
+   "m": "muzician",
+   "f": "muziciană",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "muzicieni",
+   "pluralF": "muziciene",
+   "formsM": {
+    "pl.gd.def": "muzicienilor",
+    "pl.gd.indef": "muzicieni",
+    "pl.na.def": "muzicienii",
+    "pl.na.indef": "muzicieni",
+    "sg.gd.def": "muzicianului",
+    "sg.gd.indef": "muzician",
+    "sg.na.def": "muzicianul",
+    "sg.na.indef": "muzician"
+   },
+   "formsF": {
+    "pl.gd.def": "muzicienelor",
+    "pl.gd.indef": "muziciene",
+    "pl.na.def": "muzicienele",
+    "pl.na.indef": "muziciene",
+    "sg.gd.def": "muzicienei",
+    "sg.gd.indef": "muziciene",
+    "sg.na.def": "muziciana",
+    "sg.na.indef": "muziciană"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "nurse",
+   "m": "asistent",
+   "f": "asistentă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "asistenți",
+   "pluralF": "asistente",
+   "formsM": {
+    "pl.gd.def": "asistenților",
+    "pl.gd.indef": "asistenți",
+    "pl.na.def": "asistenții",
+    "pl.na.indef": "asistenți",
+    "sg.gd.def": "asistentului",
+    "sg.gd.indef": "asistent",
+    "sg.na.def": "asistentul",
+    "sg.na.indef": "asistent"
+   },
+   "formsF": {
+    "pl.gd.def": "asistentelor",
+    "pl.gd.indef": "asistente",
+    "pl.na.def": "asistentele",
+    "pl.na.indef": "asistente",
+    "sg.gd.def": "asistentei",
+    "sg.gd.indef": "asistente",
+    "sg.na.def": "asistenta",
+    "sg.na.indef": "asistentă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "nutritionist",
+   "m": "nutriționist",
+   "f": "nutriționistă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "nutriționiști",
+   "pluralF": "nutriționiste",
+   "formsM": {
+    "pl.gd.def": "nutriționiștilor",
+    "pl.gd.indef": "nutriționiști",
+    "pl.na.def": "nutriționiștii",
+    "pl.na.indef": "nutriționiști",
+    "sg.gd.def": "nutriționistului",
+    "sg.gd.indef": "nutriționist",
+    "sg.na.def": "nutriționistul",
+    "sg.na.indef": "nutriționist"
+   },
+   "formsF": {
+    "pl.gd.def": "nutriționistelor",
+    "pl.gd.indef": "nutriționiste",
+    "pl.na.def": "nutriționistele",
+    "pl.na.indef": "nutriționiste",
+    "sg.gd.def": "nutriționistei",
+    "sg.gd.indef": "nutriționiste",
+    "sg.na.def": "nutriționista",
+    "sg.na.indef": "nutriționistă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "optician",
+   "m": "optician",
+   "f": "opticiană",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "opticieni",
+   "pluralF": "opticiene",
+   "formsM": {
+    "pl.gd.def": "opticienilor",
+    "pl.gd.indef": "opticieni",
+    "pl.na.def": "opticienii",
+    "pl.na.indef": "opticieni",
+    "sg.gd.def": "opticianului",
+    "sg.gd.indef": "optician",
+    "sg.na.def": "opticianul",
+    "sg.na.indef": "optician"
+   },
+   "formsF": {
+    "pl.gd.def": "opticienelor",
+    "pl.gd.indef": "opticiene",
+    "pl.na.def": "opticienele",
+    "pl.na.indef": "opticiene",
+    "sg.gd.def": "opticienei",
+    "sg.gd.indef": "opticiene",
+    "sg.na.def": "opticiana",
+    "sg.na.indef": "opticiană"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "painter",
+   "m": "pictor",
+   "f": "pictoriță",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "pictori",
+   "pluralF": "pictorițe",
+   "formsM": {
+    "pl.gd.def": "pictorilor",
+    "pl.gd.indef": "pictori",
+    "pl.na.def": "pictorii",
+    "pl.na.indef": "pictori",
+    "sg.gd.def": "pictorului",
+    "sg.gd.indef": "pictor",
+    "sg.na.def": "pictorul",
+    "sg.na.indef": "pictor"
+   },
+   "formsF": {
+    "pl.gd.def": "pictorițelor",
+    "pl.gd.indef": "pictorițe",
+    "pl.na.def": "pictorițele",
+    "pl.na.indef": "pictorițe",
+    "sg.gd.def": "pictoriței",
+    "sg.gd.indef": "pictorițe",
+    "sg.na.def": "pictorița",
+    "sg.na.indef": "pictoriță"
+   },
+   "neutral": {
+    "kind": "verb_paraphrase",
+    "verb1sg": "pictez",
+    "verb2sg": "pictezi"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "pharmacist",
+   "m": "farmacist",
+   "f": "farmacistă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "farmaciști",
+   "pluralF": "farmaciste",
+   "formsM": {
+    "pl.gd.def": "farmaciștilor",
+    "pl.gd.indef": "farmaciști",
+    "pl.na.def": "farmaciștii",
+    "pl.na.indef": "farmaciști",
+    "sg.gd.def": "farmacistului",
+    "sg.gd.indef": "farmacist",
+    "sg.na.def": "farmacistul",
+    "sg.na.indef": "farmacist"
+   },
+   "formsF": {
+    "pl.gd.def": "farmacistelor",
+    "pl.gd.indef": "farmaciste",
+    "pl.na.def": "farmacistele",
+    "pl.na.indef": "farmaciste",
+    "sg.gd.def": "farmacistei",
+    "sg.gd.indef": "farmaciste",
+    "sg.na.def": "farmacista",
+    "sg.na.indef": "farmacistă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "philologist",
+   "m": "filolog",
+   "f": "filologă",
+   "fAlt": "filoloagă",
+   "status": "variant",
+   "note": "DOOM3 (2021) admits both spellings -- the canonical o->oa case",
+   "gender": "m",
+   "pluralM": "filologi",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "filologilor",
+    "pl.gd.indef": "filologi",
+    "pl.na.def": "filologii",
+    "pl.na.indef": "filologi",
+    "sg.gd.def": "filologului",
+    "sg.gd.indef": "filolog",
+    "sg.na.def": "filologul",
+    "sg.na.indef": "filolog"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "curated",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "photographer",
+   "m": "fotograf",
+   "f": "fotografă",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "fotografi",
+   "pluralF": "fotografe",
+   "formsM": {
+    "pl.gd.def": "fotografilor",
+    "pl.gd.indef": "fotografi",
+    "pl.na.def": "fotografii",
+    "pl.na.indef": "fotografi",
+    "sg.gd.def": "fotografului",
+    "sg.gd.indef": "fotograf",
+    "sg.na.def": "fotograful",
+    "sg.na.indef": "fotograf"
+   },
+   "formsF": {
+    "pl.gd.def": "fotografelor",
+    "pl.gd.indef": "fotografe",
+    "pl.na.def": "fotografele",
+    "pl.na.indef": "fotografe",
+    "sg.gd.def": "fotografei",
+    "sg.gd.indef": "fotografe",
+    "sg.na.def": "fotografa",
+    "sg.na.indef": "fotografă"
+   },
+   "neutral": {
+    "kind": "verb_paraphrase",
+    "verb1sg": "fotografiez",
+    "verb2sg": "fotografiezi"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "physician",
+   "m": "medic",
+   "f": "medică",
+   "fAlt": null,
+   "status": "contested",
+   "note": "kaikki records 'medică'; 'doamna doctor' competes in usage",
+   "gender": "m",
+   "pluralM": "medici",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "medicilor",
+    "pl.gd.indef": "medici",
+    "pl.na.def": "medicii",
+    "pl.na.indef": "medici",
+    "sg.gd.def": "medicului",
+    "sg.gd.indef": "medic",
+    "sg.na.def": "medicul",
+    "sg.na.indef": "medic"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "curated",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "physicist",
+   "m": "fizician",
+   "f": "fiziciană",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "fizicieni",
+   "pluralF": "fiziciene",
+   "formsM": {
+    "pl.gd.def": "fizicienilor",
+    "pl.gd.indef": "fizicieni",
+    "pl.na.def": "fizicienii",
+    "pl.na.indef": "fizicieni",
+    "sg.gd.def": "fizicianului",
+    "sg.gd.indef": "fizician",
+    "sg.na.def": "fizicianul",
+    "sg.na.indef": "fizician"
+   },
+   "formsF": {
+    "pl.gd.def": "fizicienelor",
+    "pl.gd.indef": "fiziciene",
+    "pl.na.def": "fizicienele",
+    "pl.na.indef": "fiziciene",
+    "sg.gd.def": "fizicienei",
+    "sg.gd.indef": "fiziciene",
+    "sg.na.def": "fiziciana",
+    "sg.na.indef": "fiziciană"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "physiotherapist",
+   "m": "kinetoterapeut",
+   "f": "kinetoterapeută",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "kinetoterapeuți",
+   "pluralF": "kinetoterapeute",
+   "formsM": {
+    "pl.gd.def": "kinetoterapeuților",
+    "pl.gd.indef": "kinetoterapeuți",
+    "pl.na.def": "kinetoterapeuții",
+    "pl.na.indef": "kinetoterapeuți",
+    "sg.gd.def": "kinetoterapeutului",
+    "sg.gd.indef": "kinetoterapeut",
+    "sg.na.def": "kinetoterapeutul",
+    "sg.na.indef": "kinetoterapeut"
+   },
+   "formsF": {
+    "pl.gd.def": "kinetoterapeutelor",
+    "pl.gd.indef": "kinetoterapeute",
+    "pl.na.def": "kinetoterapeutele",
+    "pl.na.indef": "kinetoterapeute",
+    "sg.gd.def": "kinetoterapeutei",
+    "sg.gd.indef": "kinetoterapeute",
+    "sg.na.def": "kinetoterapeuta",
+    "sg.na.indef": "kinetoterapeută"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "plumber",
+   "m": "instalator",
+   "f": "instalatoare",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "instalatori",
+   "pluralF": "instalatoare",
+   "formsM": {
+    "pl.gd.def": "instalatorilor",
+    "pl.gd.indef": "instalatori",
+    "pl.na.def": "instalatorii",
+    "pl.na.indef": "instalatori",
+    "sg.gd.def": "instalatorului",
+    "sg.gd.indef": "instalator",
+    "sg.na.def": "instalatorul",
+    "sg.na.indef": "instalator"
+   },
+   "formsF": {
+    "pl.gd.def": "instalatoarelor",
+    "pl.gd.indef": "instalatoare",
+    "pl.na.def": "instalatoarele",
+    "pl.na.indef": "instalatoare",
+    "sg.gd.def": "instalatoarei",
+    "sg.gd.indef": "instalatoare",
+    "sg.na.def": "instalatoarea",
+    "sg.na.indef": "instalatoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "poet",
+   "m": "poet",
+   "f": "poetă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "poeți",
+   "pluralF": "poete",
+   "formsM": {
+    "pl.gd.def": "poeților",
+    "pl.gd.indef": "poeți",
+    "pl.na.def": "poeții",
+    "pl.na.indef": "poeți",
+    "sg.gd.def": "poetului",
+    "sg.gd.indef": "poet",
+    "sg.na.def": "poetul",
+    "sg.na.indef": "poet"
+   },
+   "formsF": {
+    "pl.gd.def": "poetelor",
+    "pl.gd.indef": "poete",
+    "pl.na.def": "poetele",
+    "pl.na.indef": "poete",
+    "sg.gd.def": "poetei",
+    "sg.gd.indef": "poete",
+    "sg.na.def": "poeta",
+    "sg.na.indef": "poetă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "police officer",
+   "m": "polițist",
+   "f": "polițistă",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "polițiști",
+   "pluralF": "polițiste",
+   "formsM": {
+    "pl.gd.def": "polițiștilor",
+    "pl.gd.indef": "polițiști",
+    "pl.na.def": "polițiștii",
+    "pl.na.indef": "polițiști",
+    "sg.gd.def": "polițistului",
+    "sg.gd.indef": "polițist",
+    "sg.na.def": "polițistul",
+    "sg.na.indef": "polițist"
+   },
+   "formsF": {
+    "pl.gd.def": "polițistelor",
+    "pl.gd.indef": "polițiste",
+    "pl.na.def": "polițistele",
+    "pl.na.indef": "polițiste",
+    "sg.gd.def": "polițistei",
+    "sg.gd.indef": "polițiste",
+    "sg.na.def": "polițista",
+    "sg.na.indef": "polițistă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "porter",
+   "m": "portar",
+   "f": "portăriță",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "portari",
+   "pluralF": "portărițe",
+   "formsM": {
+    "pl.gd.def": "portarilor",
+    "pl.gd.indef": "portari",
+    "pl.na.def": "portarii",
+    "pl.na.indef": "portari",
+    "sg.gd.def": "portarului",
+    "sg.gd.indef": "portar",
+    "sg.na.def": "portarul",
+    "sg.na.indef": "portar"
+   },
+   "formsF": {
+    "pl.gd.def": "portărițelor",
+    "pl.gd.indef": "portărițe",
+    "pl.na.def": "portărițele",
+    "pl.na.indef": "portărițe",
+    "sg.gd.def": "portăriței",
+    "sg.gd.indef": "portărițe",
+    "sg.na.def": "portărița",
+    "sg.na.indef": "portăriță"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "presenter",
+   "m": "prezentator",
+   "f": "prezentatoare",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "prezentatori",
+   "pluralF": "prezentatoare",
+   "formsM": {
+    "pl.gd.def": "prezentatorilor",
+    "pl.gd.indef": "prezentatori",
+    "pl.na.def": "prezentatorii",
+    "pl.na.indef": "prezentatori",
+    "sg.gd.def": "prezentatorului",
+    "sg.gd.indef": "prezentator",
+    "sg.na.def": "prezentatorul",
+    "sg.na.indef": "prezentator"
+   },
+   "formsF": {
+    "pl.gd.def": "prezentatoarelor",
+    "pl.gd.indef": "prezentatoare",
+    "pl.na.def": "prezentatoarele",
+    "pl.na.indef": "prezentatoare",
+    "sg.gd.def": "prezentatoarei",
+    "sg.gd.indef": "prezentatoare",
+    "sg.na.def": "prezentatoarea",
+    "sg.na.indef": "prezentatoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "producer",
+   "m": "producător",
+   "f": "producătoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "producători",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "producătorilor",
+    "pl.gd.indef": "producători",
+    "pl.na.def": "producătorii",
+    "pl.na.indef": "producători",
+    "sg.gd.def": "producătorului",
+    "sg.gd.indef": "producător",
+    "sg.na.def": "producătorul",
+    "sg.na.indef": "producător"
+   },
+   "formsF": {
+    "pl.gd.def": "producătoarelor",
+    "pl.gd.indef": "producătoare",
+    "pl.na.def": "producătoarele",
+    "pl.na.indef": "producătoare",
+    "sg.gd.def": "producătoarei",
+    "sg.gd.indef": "producătoare",
+    "sg.na.def": "producătoarea",
+    "sg.na.indef": "producătoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "programmer",
+   "m": "programator",
+   "f": "programatoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "programatori",
+   "pluralF": "programatoare",
+   "formsM": {
+    "pl.gd.def": "programatorilor",
+    "pl.gd.indef": "programatori",
+    "pl.na.def": "programatorii",
+    "pl.na.indef": "programatori",
+    "sg.gd.def": "programatorului",
+    "sg.gd.indef": "programator",
+    "sg.na.def": "programatorul",
+    "sg.na.indef": "programator"
+   },
+   "formsF": {
+    "pl.gd.def": "programatoarelor",
+    "pl.gd.indef": "programatoare",
+    "pl.na.def": "programatoarele",
+    "pl.na.indef": "programatoare",
+    "sg.gd.def": "programatoarei",
+    "sg.gd.indef": "programatoare",
+    "sg.na.def": "programatoarea",
+    "sg.na.indef": "programatoare"
+   },
+   "neutral": {
+    "kind": "verb_paraphrase",
+    "verb1sg": "programez",
+    "verb2sg": "programezi"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "prosecutor",
+   "m": "procuror",
+   "f": "procuroare",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "procurori",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "procurorilor",
+    "pl.gd.indef": "procurori",
+    "pl.na.def": "procurorii",
+    "pl.na.indef": "procurori",
+    "sg.gd.def": "procurorului",
+    "sg.gd.indef": "procuror",
+    "sg.na.def": "procurorul",
+    "sg.na.indef": "procuror"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "psychologist",
+   "m": "psiholog",
+   "f": "psiholoagă",
+   "fAlt": "psihologă",
+   "status": "variant",
+   "note": "sources differ by the o->oa breaking; DOOM3 admits both spellings",
+   "gender": "m",
+   "pluralM": "psihologi",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "psihologilor",
+    "pl.gd.indef": "psihologi",
+    "pl.na.def": "psihologii",
+    "pl.na.indef": "psihologi",
+    "sg.gd.def": "psihologului",
+    "sg.gd.indef": "psiholog",
+    "sg.na.def": "psihologul",
+    "sg.na.indef": "psiholog"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "radiologist",
+   "m": "radiolog",
+   "f": "radioloagă",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "radiologi",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "radiologilor",
+    "pl.gd.indef": "radiologi",
+    "pl.na.def": "radiologii",
+    "pl.na.indef": "radiologi",
+    "sg.gd.def": "radiologului",
+    "sg.gd.indef": "radiolog",
+    "sg.na.def": "radiologul",
+    "sg.na.indef": "radiolog"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "receptionist",
+   "m": "recepționer",
+   "f": "recepționeră",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "recepționeri",
+   "pluralF": "recepționere",
+   "formsM": {
+    "pl.gd.def": "recepționerilor",
+    "pl.gd.indef": "recepționeri",
+    "pl.na.def": "recepționerii",
+    "pl.na.indef": "recepționeri",
+    "sg.gd.def": "recepționerului",
+    "sg.gd.indef": "recepționer",
+    "sg.na.def": "recepționerul",
+    "sg.na.indef": "recepționer"
+   },
+   "formsF": {
+    "pl.gd.def": "recepționerelor",
+    "pl.gd.indef": "recepționere",
+    "pl.na.def": "recepționerele",
+    "pl.na.indef": "recepționere",
+    "sg.gd.def": "recepționerei",
+    "sg.gd.indef": "recepționere",
+    "sg.na.def": "recepționera",
+    "sg.na.indef": "recepționeră"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "recruiter",
+   "m": "recrutor",
+   "f": "recrutoare",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "recrutori",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "recrutorilor",
+    "pl.gd.indef": "recrutori",
+    "pl.na.def": "recrutorii",
+    "pl.na.indef": "recrutori",
+    "sg.gd.def": "recrutorului",
+    "sg.gd.indef": "recrutor",
+    "sg.na.def": "recrutorul",
+    "sg.na.indef": "recrutor"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "sailor",
+   "m": "marinar",
+   "f": "marinăreasă",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "marinari",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "marinarilor",
+    "pl.gd.indef": "marinari",
+    "pl.na.def": "marinarii",
+    "pl.na.indef": "marinari",
+    "sg.gd.def": "marinarului",
+    "sg.gd.indef": "marinar",
+    "sg.na.def": "marinarul",
+    "sg.na.indef": "marinar"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "scientist",
+   "m": "cercetător",
+   "f": "cercetătoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "cercetători",
+   "pluralF": "cercetătoare",
+   "formsM": {
+    "pl.gd.def": "cercetătorilor",
+    "pl.gd.indef": "cercetători",
+    "pl.na.def": "cercetătorii",
+    "pl.na.indef": "cercetători",
+    "sg.gd.def": "cercetătorului",
+    "sg.gd.indef": "cercetător",
+    "sg.na.def": "cercetătorul",
+    "sg.na.indef": "cercetător"
+   },
+   "formsF": {
+    "pl.gd.def": "cercetătoarelor",
+    "pl.gd.indef": "cercetătoare",
+    "pl.na.def": "cercetătoarele",
+    "pl.na.indef": "cercetătoare",
+    "sg.gd.def": "cercetătoarei",
+    "sg.gd.indef": "cercetătoare",
+    "sg.na.def": "cercetătoarea",
+    "sg.na.indef": "cercetătoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "screenwriter",
+   "m": "scenarist",
+   "f": "scenaristă",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "scenariști",
+   "pluralF": "scenariste",
+   "formsM": {
+    "pl.gd.def": "scenariștilor",
+    "pl.gd.indef": "scenariști",
+    "pl.na.def": "scenariștii",
+    "pl.na.indef": "scenariști",
+    "sg.gd.def": "scenaristului",
+    "sg.gd.indef": "scenarist",
+    "sg.na.def": "scenaristul",
+    "sg.na.indef": "scenarist"
+   },
+   "formsF": {
+    "pl.gd.def": "scenaristelor",
+    "pl.gd.indef": "scenariste",
+    "pl.na.def": "scenaristele",
+    "pl.na.indef": "scenariste",
+    "sg.gd.def": "scenaristei",
+    "sg.gd.indef": "scenariste",
+    "sg.na.def": "scenarista",
+    "sg.na.indef": "scenaristă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "sculptor",
+   "m": "sculptor",
+   "f": "sculptoriță",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "sculptori",
+   "pluralF": "sculptorițe",
+   "formsM": {
+    "pl.gd.def": "sculptorilor",
+    "pl.gd.indef": "sculptori",
+    "pl.na.def": "sculptorii",
+    "pl.na.indef": "sculptori",
+    "sg.gd.def": "sculptorului",
+    "sg.gd.indef": "sculptor",
+    "sg.na.def": "sculptorul",
+    "sg.na.indef": "sculptor"
+   },
+   "formsF": {
+    "pl.gd.def": "sculptorițelor",
+    "pl.gd.indef": "sculptorițe",
+    "pl.na.def": "sculptorițele",
+    "pl.na.indef": "sculptorițe",
+    "sg.gd.def": "sculptoriței",
+    "sg.gd.indef": "sculptorițe",
+    "sg.na.def": "sculptorița",
+    "sg.na.indef": "sculptoriță"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "secretary",
+   "m": "secretar",
+   "f": "secretară",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "secretari",
+   "pluralF": "secretare",
+   "formsM": {
+    "pl.gd.def": "secretarilor",
+    "pl.gd.indef": "secretari",
+    "pl.na.def": "secretarii",
+    "pl.na.indef": "secretari",
+    "sg.gd.def": "secretarului",
+    "sg.gd.indef": "secretar",
+    "sg.na.def": "secretarul",
+    "sg.na.indef": "secretar"
+   },
+   "formsF": {
+    "pl.gd.def": "secretarelor",
+    "pl.gd.indef": "secretare",
+    "pl.na.def": "secretarele",
+    "pl.na.indef": "secretare",
+    "sg.gd.def": "secretarei",
+    "sg.gd.indef": "secretare",
+    "sg.na.def": "secretara",
+    "sg.na.indef": "secretară"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "singer",
+   "m": "cântăreț",
+   "f": "cântăreață",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "cântăreți",
+   "pluralF": "cântărețe",
+   "formsM": {
+    "pl.gd.def": "cântăreților",
+    "pl.gd.indef": "cântăreți",
+    "pl.na.def": "cântăreții",
+    "pl.na.indef": "cântăreți",
+    "sg.gd.def": "cântărețului",
+    "sg.gd.indef": "cântăreț",
+    "sg.na.def": "cântărețul",
+    "sg.na.indef": "cântăreț"
+   },
+   "formsF": {
+    "pl.gd.def": "cântărețelor",
+    "pl.gd.indef": "cântărețe",
+    "pl.na.def": "cântărețele",
+    "pl.na.indef": "cântărețe",
+    "sg.gd.def": "cântăreței",
+    "sg.gd.indef": "cântărețe",
+    "sg.na.def": "cântăreața",
+    "sg.na.indef": "cântăreață"
+   },
+   "neutral": {
+    "kind": "verb_paraphrase",
+    "verb1sg": "cânt",
+    "verb2sg": "cânți"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "statistician",
+   "m": "statistician",
+   "f": "statisticiană",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "statisticieni",
+   "pluralF": "statisticiene",
+   "formsM": {
+    "pl.gd.def": "statisticienilor",
+    "pl.gd.indef": "statisticieni",
+    "pl.na.def": "statisticienii",
+    "pl.na.indef": "statisticieni",
+    "sg.gd.def": "statisticianului",
+    "sg.gd.indef": "statistician",
+    "sg.na.def": "statisticianul",
+    "sg.na.indef": "statistician"
+   },
+   "formsF": {
+    "pl.gd.def": "statisticienelor",
+    "pl.gd.indef": "statisticiene",
+    "pl.na.def": "statisticienele",
+    "pl.na.indef": "statisticiene",
+    "sg.gd.def": "statisticienei",
+    "sg.gd.indef": "statisticiene",
+    "sg.na.def": "statisticiana",
+    "sg.na.indef": "statisticiană"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "surveyor",
+   "m": "topograf",
+   "f": "topografă",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "topografi",
+   "pluralF": "topografe",
+   "formsM": {
+    "pl.gd.def": "topografilor",
+    "pl.gd.indef": "topografi",
+    "pl.na.def": "topografii",
+    "pl.na.indef": "topografi",
+    "sg.gd.def": "topografului",
+    "sg.gd.indef": "topograf",
+    "sg.na.def": "topograful",
+    "sg.na.indef": "topograf"
+   },
+   "formsF": {
+    "pl.gd.def": "topografelor",
+    "pl.gd.indef": "topografe",
+    "pl.na.def": "topografele",
+    "pl.na.indef": "topografe",
+    "sg.gd.def": "topografei",
+    "sg.gd.indef": "topografe",
+    "sg.na.def": "topografa",
+    "sg.na.indef": "topografă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "tailor",
+   "m": "croitor",
+   "f": "croitoreasă",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "croitori",
+   "pluralF": "croitorese",
+   "formsM": {
+    "pl.gd.def": "croitorilor",
+    "pl.gd.indef": "croitori",
+    "pl.na.def": "croitorii",
+    "pl.na.indef": "croitori",
+    "sg.gd.def": "croitorului",
+    "sg.gd.indef": "croitor",
+    "sg.na.def": "croitorul",
+    "sg.na.indef": "croitor"
+   },
+   "formsF": {
+    "pl.gd.def": "croitoreselor",
+    "pl.gd.indef": "croitorese",
+    "pl.na.def": "croitoresele",
+    "pl.na.indef": "croitorese",
+    "sg.gd.def": "croitoresei",
+    "sg.gd.indef": "croitorese",
+    "sg.na.def": "croitoreasa",
+    "sg.na.indef": "croitoreasă"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "teacher",
+   "m": "profesor",
+   "f": "profesoară",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "profesori",
+   "pluralF": "profesoare",
+   "formsM": {
+    "pl.gd.def": "profesorilor",
+    "pl.gd.indef": "profesori",
+    "pl.na.def": "profesorii",
+    "pl.na.indef": "profesori",
+    "sg.gd.def": "profesorului",
+    "sg.gd.indef": "profesor",
+    "sg.na.def": "profesorul",
+    "sg.na.indef": "profesor"
+   },
+   "formsF": {
+    "pl.gd.def": "profesoarelor",
+    "pl.gd.indef": "profesoare",
+    "pl.na.def": "profesoarele",
+    "pl.na.indef": "profesoare",
+    "sg.gd.def": "profesoarei",
+    "sg.gd.indef": "profesoare",
+    "sg.na.def": "profesoara",
+    "sg.na.indef": "profesoară"
+   },
+   "neutral": {
+    "kind": "verb_paraphrase",
+    "verb1sg": "predau",
+    "verb2sg": "predai"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "technician",
+   "m": "tehnician",
+   "f": "tehniciană",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "tehnicieni",
+   "pluralF": "tehniciene",
+   "formsM": {
+    "pl.gd.def": "tehnicienilor",
+    "pl.gd.indef": "tehnicieni",
+    "pl.na.def": "tehnicienii",
+    "pl.na.indef": "tehnicieni",
+    "sg.gd.def": "tehnicianului",
+    "sg.gd.indef": "tehnician",
+    "sg.na.def": "tehnicianul",
+    "sg.na.indef": "tehnician"
+   },
+   "formsF": {
+    "pl.gd.def": "tehnicienelor",
+    "pl.gd.indef": "tehniciene",
+    "pl.na.def": "tehnicienele",
+    "pl.na.indef": "tehniciene",
+    "sg.gd.def": "tehnicienei",
+    "sg.gd.indef": "tehniciene",
+    "sg.na.def": "tehniciana",
+    "sg.na.indef": "tehniciană"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "therapist",
+   "m": "terapeut",
+   "f": "terapeută",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "terapeuți",
+   "pluralF": "terapeute",
+   "formsM": {
+    "pl.gd.def": "terapeuților",
+    "pl.gd.indef": "terapeuți",
+    "pl.na.def": "terapeuții",
+    "pl.na.indef": "terapeuți",
+    "sg.gd.def": "terapeutului",
+    "sg.gd.indef": "terapeut",
+    "sg.na.def": "terapeutul",
+    "sg.na.indef": "terapeut"
+   },
+   "formsF": {
+    "pl.gd.def": "terapeutelor",
+    "pl.gd.indef": "terapeute",
+    "pl.na.def": "terapeutele",
+    "pl.na.indef": "terapeute",
+    "sg.gd.def": "terapeutei",
+    "sg.gd.indef": "terapeute",
+    "sg.na.def": "terapeuta",
+    "sg.na.indef": "terapeută"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "translator",
+   "m": "traducător",
+   "f": "traducătoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "traducători",
+   "pluralF": "traducătoare",
+   "formsM": {
+    "pl.gd.def": "traducătorilor",
+    "pl.gd.indef": "traducători",
+    "pl.na.def": "traducătorii",
+    "pl.na.indef": "traducători",
+    "sg.gd.def": "traducătorului",
+    "sg.gd.indef": "traducător",
+    "sg.na.def": "traducătorul",
+    "sg.na.indef": "traducător"
+   },
+   "formsF": {
+    "pl.gd.def": "traducătoarelor",
+    "pl.gd.indef": "traducătoare",
+    "pl.na.def": "traducătoarele",
+    "pl.na.indef": "traducătoare",
+    "sg.gd.def": "traducătoarei",
+    "sg.gd.indef": "traducătoare",
+    "sg.na.def": "traducătoarea",
+    "sg.na.indef": "traducătoare"
+   },
+   "neutral": {
+    "kind": "verb_paraphrase",
+    "verb1sg": "traduc",
+    "verb2sg": "traduci"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "veterinarian",
+   "m": "veterinar",
+   "f": "veterinară",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": null,
+   "pluralF": "veterinare",
+   "formsM": null,
+   "formsF": {
+    "pl.gd.def": "veterinarelor",
+    "pl.gd.indef": "veterinare",
+    "pl.na.def": "veterinarele",
+    "pl.na.indef": "veterinare",
+    "sg.gd.def": "veterinarei",
+    "sg.gd.indef": "veterinare",
+    "sg.na.def": "veterinara",
+    "sg.na.indef": "veterinară"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "waiter",
+   "m": "chelner",
+   "f": "chelneriță",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "chelneri",
+   "pluralF": "chelnerițe",
+   "formsM": {
+    "pl.gd.def": "chelnerilor",
+    "pl.gd.indef": "chelneri",
+    "pl.na.def": "chelnerii",
+    "pl.na.indef": "chelneri",
+    "sg.gd.def": "chelnerului",
+    "sg.gd.indef": "chelner",
+    "sg.na.def": "chelnerul",
+    "sg.na.indef": "chelner"
+   },
+   "formsF": {
+    "pl.gd.def": "chelnerițelor",
+    "pl.gd.indef": "chelnerițe",
+    "pl.na.def": "chelnerițele",
+    "pl.na.indef": "chelnerițe",
+    "sg.gd.def": "chelneriței",
+    "sg.gd.indef": "chelnerițe",
+    "sg.na.def": "chelnerița",
+    "sg.na.indef": "chelneriță"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "welder",
+   "m": "sudor",
+   "f": "sudoriță",
+   "fAlt": null,
+   "status": "attested",
+   "note": null,
+   "gender": "m",
+   "pluralM": "sudori",
+   "pluralF": "sudorițe",
+   "formsM": {
+    "pl.gd.def": "sudorilor",
+    "pl.gd.indef": "sudori",
+    "pl.na.def": "sudorii",
+    "pl.na.indef": "sudori",
+    "sg.gd.def": "sudorului",
+    "sg.gd.indef": "sudor",
+    "sg.na.def": "sudorul",
+    "sg.na.indef": "sudor"
+   },
+   "formsF": {
+    "pl.gd.def": "sudorițelor",
+    "pl.gd.indef": "sudorițe",
+    "pl.na.def": "sudorițele",
+    "pl.na.indef": "sudorițe",
+    "sg.gd.def": "sudoriței",
+    "sg.gd.indef": "sudorițe",
+    "sg.na.def": "sudorița",
+    "sg.na.indef": "sudoriță"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  },
+  {
+   "en": "zoologist",
+   "m": "zoolog",
+   "f": "zooloagă",
+   "fAlt": "zoologă",
+   "status": "variant",
+   "note": "sources differ by the o->oa breaking; DOOM3 admits both spellings",
+   "gender": "m",
+   "pluralM": "zoologi",
+   "pluralF": null,
+   "formsM": {
+    "pl.gd.def": "zoologilor",
+    "pl.gd.indef": "zoologi",
+    "pl.na.def": "zoologii",
+    "pl.na.indef": "zoologi",
+    "sg.gd.def": "zoologului",
+    "sg.gd.indef": "zoolog",
+    "sg.na.def": "zoologul",
+    "sg.na.indef": "zoolog"
+   },
+   "formsF": null,
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false
+  }
+ ]
+}

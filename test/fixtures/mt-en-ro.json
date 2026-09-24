@@ -1,0 +1,20 @@
+{
+ "_model": "Xenova/opus-mt-en-ro (q8), the model the app runs in the browser",
+ "_note": "regenerate with: npm run mt:fixture",
+ "pairs": {
+  "I am tired.": "Sunt obosit.",
+  "I am happy.": "Sunt fericit.",
+  "I am a teacher.": "Sunt profesor.",
+  "I am a lawyer.": "Sunt avocat.",
+  "I am a geologist.": "Sunt geolog.",
+  "I am an engineer.": "Sunt inginer.",
+  "I was tired yesterday.": "Ieri eram obosită.",
+  "I saw her yesterday.": "Am văzut-o ieri.",
+  "I saw him yesterday.": "L-am văzut ieri.",
+  "I am happy and my friend is tired.": "Sunt fericit și prietenul meu e obosit.",
+  "My friend is a teacher.": "Prietenul meu e profesor.",
+  "I am ready.": "Sunt gata.",
+  "You are tired.": "Ești obosită.",
+  "You are my best friend.": "Ești cel mai bun prieten al meu."
+ }
+}
