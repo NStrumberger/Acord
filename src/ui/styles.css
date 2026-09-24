@@ -121,6 +121,14 @@ h1 {
 }
 .row-label { font-size:var(--t-body); letter-spacing:-.01em; white-space:nowrap; }
 
+/* A person the sentence names. The row only exists once a translation has
+   found them, so it arrives rather than being there all along. */
+.row-person { animation:row-in .32s var(--ease-ios) both; }
+@keyframes row-in {
+  from { opacity:0; transform:translateY(-4px); }
+  to { opacity:1; transform:none; }
+}
+
 /* Segmented control: filled track, hairline separators, sliding thumb. */
 .seg {
   position:relative; display:flex; flex:0 1 auto; min-width:0;

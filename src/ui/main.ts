@@ -18,8 +18,18 @@ const toolStatus = $<HTMLSpanElement>('toolStatus');
 
 let spoken = '';   // what the action row acts on
 
+const whoGroup = $<HTMLDivElement>('whoGroup');
+
 const STORE = 'gendered-translator.profile';
 const TARGETS = new Set<Target>(['M', 'F', 'both', 'avoid']);
+
+/**
+ * A choice per person named in the sentence, keyed by the lowercased name.
+ * Deliberately NOT persisted and cleared whenever the text changes: a name is
+ * not a person. Two people called Alex can be different genders, so carrying a
+ * choice forward would quietly apply it to the wrong one.
+ */
+const personChoices = new Map<string, Target>();
 
 const chosen = (group: string) =>
   document.querySelector<HTMLInputElement>(`input[name="${group}"]:checked`)?.value ?? '';
@@ -45,8 +55,13 @@ function loadProfile(): void {
     const raw = localStorage.getItem(STORE);
     if (!raw) return;
     const saved = JSON.parse(raw) as { speaker?: string; addressee?: string };
-    if (saved.speaker) setChoice('speaker', saved.speaker);
-    if (saved.addressee !== undefined) setChoice('addressee', saved.addressee);
+    // Every restored value is checked before it reaches setChoice, which
+    // interpolates it into a selector: one stray quote there throws, and the
+    // catch below would swallow the rest of the restore with it.
+    const valid = (v: string | undefined) =>
+      v !== undefined && (v === '' || TARGETS.has(v as Target));
+    if (valid(saved.speaker)) setChoice('speaker', saved.speaker!);
+    if (valid(saved.addressee)) setChoice('addressee', saved.addressee!);
   } catch { /* ignore unreadable or malformed storage */ }
 }
 
@@ -136,6 +151,75 @@ function describe({ applied, untouched, fellBack }: Rendered): void {
   if (fellBack) meta.append(' · no gender-free wording exists here, so both forms are shown');
 }
 
+/**
+ * What a named person can be given. The blank option is not a fifth behaviour:
+ * it means no override, so that person keeps following "Anyone else".
+ */
+const PERSON_OPTIONS: readonly (readonly [value: string, label: string])[] = [
+  ['', 'Same'], ['M', 'Masculine'], ['F', 'Feminine'], ['both', 'Both'], ['avoid', 'Avoid'],
+];
+
+let shownPeople = '';
+/** One per person row. A ResizeObserver outlives the node it watches. */
+let personObservers: ResizeObserver[] = [];
+
+/**
+ * One row per person the sentence's gender actually turns on, directly under
+ * the general rows they override. The engine only reports somebody it can act
+ * on, so every row here does something -- an unreachable control would be
+ * worse than no control.
+ */
+function renderPeople(names: string[]): void {
+  // Rebuilding on every translation would blow away a selection mid-edit.
+  const signature = names.join('\u0000');
+  if (signature === shownPeople) return;
+  shownPeople = signature;
+  for (const observer of personObservers) observer.disconnect();
+  personObservers = [];
+  for (const stale of whoGroup.querySelectorAll('.row-person')) stale.remove();
+
+  names.forEach((name, i) => {
+    const key = name.toLowerCase();
+    const id = `person-${i}`;
+
+    const label = document.createElement('span');
+    label.className = 'row-label';
+    label.id = `${id}-label`;
+    label.textContent = name;
+
+    const seg = document.createElement('div');
+    seg.className = 'seg';
+    seg.setAttribute('role', 'radiogroup');
+    seg.setAttribute('aria-labelledby', label.id);
+
+    for (const [value, text] of PERSON_OPTIONS) {
+      const option = document.createElement('label');
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = id;
+      input.value = value;
+      input.checked = (personChoices.get(key) ?? '') === value;
+      const caption = document.createElement('span');
+      caption.textContent = text;
+      option.append(input, caption);
+      seg.append(option);
+    }
+
+    seg.addEventListener('change', () => {
+      const value = seg.querySelector<HTMLInputElement>('input:checked')?.value ?? '';
+      if (TARGETS.has(value as Target)) personChoices.set(key, value as Target);
+      else personChoices.delete(key);
+      void run();
+    });
+
+    const row = document.createElement('div');
+    row.className = 'row row-person';
+    row.append(label, seg);
+    whoGroup.append(row);
+    personObservers.push(mountThumb(seg));   // in the document: the thumb is measured
+  });
+}
+
 function fail(message: string): void {
   output.replaceChildren();
   notes.replaceChildren();
@@ -187,6 +271,13 @@ speakBtn.addEventListener('click', () => {
   window.speechSynthesis.speak(utterance);
 });
 
+/**
+ * The last translation, kept so that changing anybody's gender re-runs only
+ * the post-editor. Gender is decided after translation, so the model has
+ * nothing to add the second time.
+ */
+let translated: { source: string; romanian: string } | undefined;
+
 async function run(): Promise<void> {
   const text = source.value.trim();
   if (!text) return;
@@ -194,12 +285,25 @@ async function run(): Promise<void> {
   meta.classList.remove('error');
   // The model is fetched once, then cached by the browser. Say so, because
   // ~113 MB downloading in silence looks like the app has hung.
-  meta.textContent = isLoaded() ? 'Translating…' : 'Preparing the translator…';
+  if (translated?.source !== text) {
+    meta.textContent = isLoaded() ? 'Translating…' : 'Preparing the translator…';
+  }
   try {
-    const [translated] = await translate([text], ({ percent }) => {
-      meta.textContent = `Downloading the translation model… ${Math.round(percent)}%`;
-    });
-    const result = applyGender(translated ?? '', targetOf('speaker') ?? 'M', targetOf('addressee'));
+    if (translated?.source !== text) {
+      // New text, new people: the Alex in this sentence need not be the Alex
+      // in the last one, so nobody's choice survives the change.
+      personChoices.clear();
+      shownPeople = '';
+      const [romanian] = await translate([text], ({ percent }) => {
+        meta.textContent = `Downloading the translation model… ${Math.round(percent)}%`;
+      });
+      translated = { source: text, romanian: romanian ?? '' };
+    }
+    const result = applyGender(
+      translated.romanian, targetOf('speaker') ?? 'M', targetOf('addressee'),
+      { source: text, targets: Object.fromEntries(personChoices) },
+    );
+    renderPeople(result.people);
     empty.hidden = true;
     spoken = result.variants.join('\n');
     tools.hidden = false;
@@ -231,32 +335,32 @@ for (const radio of document.querySelectorAll('input[name="speaker"], input[name
  * do this alone: the thumb has to be measured against whichever label is
  * currently checked, and re-measured when the font loads or the box resizes.
  */
-function mountSegmentedThumbs(): void {
-  for (const seg of document.querySelectorAll<HTMLElement>('.seg')) {
-    const thumb = document.createElement('div');
-    thumb.className = 'seg-thumb';
-    seg.prepend(thumb);
+function mountThumb(seg: HTMLElement): ResizeObserver {
+  const thumb = document.createElement('div');
+  thumb.className = 'seg-thumb';
+  seg.prepend(thumb);
 
-    const place = (animate: boolean) => {
-      const label = seg.querySelector<HTMLInputElement>('input:checked')?.closest('label');
-      if (!label) return;
-      // Jump without animating on first paint and on resize; only a real
-      // selection change should slide.
-      if (!animate) thumb.style.transition = 'none';
-      const track = seg.getBoundingClientRect();
-      const box = label.getBoundingClientRect();
-      thumb.style.setProperty('--seg-w', `${box.width}px`);
-      thumb.style.setProperty('--seg-x', `${box.left - track.left}px`);
-      if (!animate) { void thumb.offsetWidth; thumb.style.transition = ''; }
-      thumb.classList.add('ready');
-    };
+  const place = (animate: boolean) => {
+    const label = seg.querySelector<HTMLInputElement>('input:checked')?.closest('label');
+    if (!label) return;
+    // Jump without animating on first paint and on resize; only a real
+    // selection change should slide.
+    if (!animate) thumb.style.transition = 'none';
+    const track = seg.getBoundingClientRect();
+    const box = label.getBoundingClientRect();
+    thumb.style.setProperty('--seg-w', `${box.width}px`);
+    thumb.style.setProperty('--seg-x', `${box.left - track.left}px`);
+    if (!animate) { void thumb.offsetWidth; thumb.style.transition = ''; }
+    thumb.classList.add('ready');
+  };
 
-    place(false);
-    seg.addEventListener('change', () => place(true));
-    new ResizeObserver(() => place(false)).observe(seg);
-    // Inter loads after first paint and changes label widths.
-    void document.fonts?.ready.then(() => place(false));
-  }
+  place(false);
+  seg.addEventListener('change', () => place(true));
+  const observer = new ResizeObserver(() => place(false));
+  observer.observe(seg);
+  // Inter loads after first paint and changes label widths.
+  void document.fonts?.ready.then(() => place(false));
+  return observer;
 }
 
 /** The field grows with its content rather than reserving empty rows. */
@@ -275,6 +379,6 @@ if ('serviceWorker' in navigator &&
 }
 
 loadProfile();
-mountSegmentedThumbs();
+for (const seg of document.querySelectorAll<HTMLElement>('.seg')) mountThumb(seg);
 autoGrow();
 empty.hidden = false;

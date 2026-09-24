@@ -33,6 +33,12 @@ the subject. Half-correcting it is worse than not correcting it.
   evidence — asked about `Alex`, `Sam` and `Jordan`, the model guessed masculine
   every time, which is the exact default this exists to correct. An explicit
   *he* or *she* in the English **is** evidence, and is kept.
+- **Everybody named gets their own control.** "Josh is my friend and Maya is
+  also my friend" puts a row against each name, so they can differ. A name only
+  earns a row when something in the Romanian actually agrees with it — offering
+  a control that changes nothing would be worse than offering none. Those rows
+  are per sentence and are never remembered: a name is not a person, and two
+  people called Alex need not match.
 - **It tells you when "correct" is disputed.** Romanian professional feminines
   are not settled: DOOM3 admits both `filologă` and `filoloagă`, and
   *doamna inginer* still competes with *ingineră*. Those forms are marked, with
@@ -87,6 +93,7 @@ npm run build          # static build into dist/
 npm run shots          # screenshot Firefox at 3 breakpoints, both themes
 npm run check:webkit   # translate in WebKit, the engine iOS Safari uses
 npm run check:offline  # service worker + offline shell
+npm run check:people   # per-person rows end to end (needs npm run dev)
 ```
 
 Rebuilding the lexicon (needs Python 3, downloads ~155 MB of corpora):

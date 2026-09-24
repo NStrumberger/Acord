@@ -82,6 +82,8 @@ export type Candidate = {
   doubled?: boolean;
   /** Whose gender this word follows, when that is unambiguous. */
   role?: Role;
+  /** The named person it follows, when the subject is a name we could read. */
+  person?: string;
 };
 
 const bare = (t: string) => t.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '');
@@ -136,7 +138,13 @@ const BOUNDARY = new Set([
 const GENDERED_PRONOUN = new Set(['el', 'ea', 'ei', 'ele', 'dumnealui', 'dumneaei']);
 
 /** A copula and the predicate that agrees with its subject. */
-type Span = { role: Role; copula: number; end: number };
+type Span = {
+  role: Role;
+  /** The lowercased name of the subject, when the subject is one we can read. */
+  subject?: string;
+  copula: number;
+  end: number;
+};
 
 /**
  * Work out, for every token, whose gender it agrees with.
@@ -151,15 +159,16 @@ type Span = { role: Role; copula: number; end: number };
  * sentence. Guessing past those is coreference resolution, and getting it
  * wrong rewrites a sentence about somebody else.
  */
-function analyze(tokens: string[]): { roles: (Role | null)[]; spans: Span[] } {
-  const roles: (Role | null)[] = new Array(tokens.length).fill(null);
+function analyze(tokens: string[], names: ReadonlySet<string> = new Set()):
+    { owners: (Span | null)[]; spans: Span[] } {
+  const owners: (Span | null)[] = new Array(tokens.length).fill(null);
   const spans: Span[] = [];
   let open: Span | undefined;
 
-  const start = (role: Role | null, at: number) => {
+  const start = (role: Role | null, at: number, subject?: string) => {
     open = undefined;
     if (!role) return;
-    open = { role, copula: at, end: at };
+    open = subject ? { role, subject, copula: at, end: at } : { role, copula: at, end: at };
     spans.push(open);
   };
 
@@ -171,7 +180,10 @@ function analyze(tokens: string[]): { roles: (Role | null)[]; spans: Span[] } {
 
     // A clause whose subject is an explicit pronoun keeps the gender the
     // pronoun states; only a named or unnamed third party is ours to set.
-    const third = (role: Role) => start(GENDERED_PRONOUN.has(prev) ? null : role, i);
+    // When the subject IS a name, the span records it, so that person can be
+    // set separately from everyone else in the sentence.
+    const third = (role: Role) =>
+      start(GENDERED_PRONOUN.has(prev) ? null : role, i, names.has(prev) ? prev : undefined);
 
     // "am fost" opens a span; a bare "a" or "ai" is a possessive article.
     if (next === 'fost' && word in PERFECT) {
@@ -182,19 +194,61 @@ function analyze(tokens: string[]): { roles: (Role | null)[]; spans: Span[] } {
     }
     if (word === 'fost') { if (open) open.end = i; continue; }
     if (FIRST_PERSON.has(word)) {
-      // "sunt" is also 3rd plural: "ei sunt obositi" is not about us.
-      if (GENDERED_PRONOUN.has(prev)) open = undefined;
+      // "sunt" is also 3rd plural: "ei sunt obositi" is not about us, and
+      // neither is "Josh si Maya sunt prietenii mei".
+      if (GENDERED_PRONOUN.has(prev) || names.has(prev)) open = undefined;
       else start('speaker', i);
       continue;
     }
     if (SECOND_PERSON.has(word)) { start('addressee', i); continue; }
     if (THIRD_PERSON.has(word)) { third('other'); continue; }
-    if (BOUNDARY.has(word)) { open = undefined; continue; }
+    if (BOUNDARY.has(word)) {
+      // "si" directly after the copula is "also", not a new clause: a
+      // conjunction cannot coordinate a predicate that has not started yet.
+      // "Maya este si prietena mea" is one clause, and all of it agrees.
+      if (!open || i !== open.copula + 1) { open = undefined; continue; }
+    }
 
-    if (open) { roles[i] = open.role; open.end = i; }
+    if (open) { owners[i] = open; open.end = i; }
     if (/[,;.!?]$/.test(raw)) open = undefined;
   }
-  return { roles, spans };
+  return { owners, spans };
+}
+
+/**
+ * Romanian words, so a capital letter on one is sentence case rather than a
+ * name. Every gendered form we index, plus the closed-class words that hold
+ * the analysis together.
+ */
+let knownWords: Set<string> | undefined;
+function known(): Set<string> {
+  if (knownWords) return knownWords;
+  const words = new Set<string>(index().keys());
+  for (const w of [
+    ...FIRST_PERSON, ...SECOND_PERSON, ...THIRD_PERSON, ...BOUNDARY,
+    ...GENDERED_PRONOUN, ...Object.keys(PERFECT), 'fost',
+  ]) words.add(w);
+  return (knownWords = words);
+}
+
+/**
+ * The people named in the Romanian, lowercased.
+ *
+ * A capitalised word is only read as somebody's name when the same word also
+ * appears in the English that produced it. That one check is what separates
+ * "Maya" from "Prietena" at the start of a sentence, and it is cheap because
+ * names are the words machine translation carries through unchanged.
+ */
+function namesIn(tokens: string[], source: string): Set<string> {
+  const inSource = new Set(source.toLowerCase().match(/\p{L}+/gu) ?? []);
+  const names = new Set<string>();
+  for (const raw of tokens) {
+    const word = bare(raw);
+    if (!word || !isUpper(word)) continue;
+    const key = word.toLowerCase();
+    if (inSource.has(key) && !known().has(key)) names.add(key);
+  }
+  return names;
 }
 
 /** Occupations that can be said with a gender-free verb instead. */
@@ -216,36 +270,84 @@ export type PostEdit = {
   changed: Candidate[];
   /** True when gender-free wording was asked for but no paraphrase existed. */
   fellBack: boolean;
+  /**
+   * The people named in the sentence whose gender the output actually depends
+   * on, as written, in the order they appear. A name we found but cannot act
+   * on is left out: offering a control that changes nothing is worse than
+   * offering none.
+   */
+  people: string[];
+};
+
+/** The English input, and a choice for each person named in it. */
+export type PeopleOptions = {
+  /** The English that produced this Romanian, used to confirm names. */
+  source?: string;
+  /** Per-person choices, keyed by the lowercased name. */
+  targets?: Record<string, Target>;
 };
 
 /**
  * Rewrite the words that agree with the speaker or the addressee, leaving
  * everyone else's words alone. Omit `addressee` to rewrite only the speaker's.
+ *
+ * `people` narrows that further: a named third party with their own choice
+ * follows it, and everyone else still follows `addressee`.
  */
-export function applyGender(text: string, speaker: Target, addressee?: Target): PostEdit {
-  const primary = edit(text, speaker, addressee);
-  const doubled = primary.changed.filter((c) => c.doubled).length;
-  if (doubled <= 1) return { ...primary, variants: [primary.text] };
-  // Several doublets in one sentence read as noise; print the two readings whole.
-  const pick = (t: Target | undefined, g: Agreement) => (t === 'both' ? g : t);
-  const m = edit(text, pick(speaker, 'M')!, pick(addressee, 'M'));
-  const f = edit(text, pick(speaker, 'F')!, pick(addressee, 'F'));
+export function applyGender(text: string, speaker: Target, addressee?: Target,
+                            people?: PeopleOptions): PostEdit {
+  const primary = edit(text, speaker, addressee, people);
+  const doubled = primary.changed.filter((c) => c.doubled);
+  // Collapsing to two sentences means picking one gender for the whole
+  // sentence, which is only faithful while every doubled word belongs to the
+  // same person. Two people each shown "both" have four readings, not two, so
+  // those stay as inline doublets rather than being silently paired up.
+  const owners = new Set(doubled.map((c) => c.person ?? c.role ?? ''));
+  if (doubled.length <= 1 || owners.size > 1) return { ...primary, variants: [primary.text] };
+
+  // One person, several doublets: "cel/cea mai bun/buna prieten/prietena
+  // al/a meu/mea" is unreadable, so print the two readings whole.
+  const pick = <T extends Target | undefined>(t: T, g: Agreement) =>
+    (t === 'both' ? g : t) as T extends undefined ? Target | undefined : Target;
+  const pickPeople = (g: Agreement): PeopleOptions | undefined => people && {
+    source: people.source,
+    targets: Object.fromEntries(
+      Object.entries(people.targets ?? {}).map(([name, t]) => [name, pick(t, g)])),
+  };
+  const m = edit(text, pick(speaker, 'M'), pick(addressee, 'M'), pickPeople('M'));
+  const f = edit(text, pick(speaker, 'F'), pick(addressee, 'F'), pickPeople('F'));
   return { ...primary, text: m.text, variants: [m.text, f.text] };
 }
 
-function edit(text: string, speaker: Target, other?: Target): Omit<PostEdit, 'variants'> {
+function edit(text: string, speaker: Target, other?: Target,
+              people?: PeopleOptions): Omit<PostEdit, 'variants'> {
   const tokens = text.split(/\s+/);
+  const names = people?.source ? namesIn(tokens, people.source) : new Set<string>();
+  // A Map, not an object: the keys are words lifted out of machine output,
+  // and a person called "Constructor" must not reach Object.prototype.
+  const chosen = new Map(Object.entries(people?.targets ?? {}));
   const candidates = findGendered(text);
-  const { roles, spans } = analyze(tokens);
+  const { owners, spans } = analyze(tokens, names);
   const changed: Candidate[] = [];
   let fellBack = false;
+
+  /** A named person's own choice wins; anyone else follows the general one. */
+  const targetFor = (span: Span | null | undefined): Target | undefined => {
+    if (!span) return undefined;
+    if (span.role === 'speaker') return speaker;
+    return (span.subject ? chosen.get(span.subject) : undefined) ?? other;
+  };
 
   // Clause level first: avoiding gender replaces a whole copula clause with a
   // gender-free verb, which no amount of word swapping can achieve.
   const replaced = new Map<number, string>();
   const dropped = new Set<number>();
   for (const span of spans) {
-    if ((span.role === 'speaker' ? speaker : other) !== 'avoid') continue;
+    if (targetFor(span) !== 'avoid') continue;
+    // The gender-free paraphrase is stored for "I" and "you" only. A third
+    // person would need a 3rd-singular we do not hold, and this engine never
+    // invents a form, so it degrades to showing both.
+    if (span.role === 'other') { fellBack = true; continue; }
     const lemma = candidates
       .filter((c) => c.index > span.copula && c.index <= span.end)
       .flatMap((c) => c.options.map((o) => o.lemma))
@@ -261,8 +363,7 @@ function edit(text: string, speaker: Target, other?: Target): Omit<PostEdit, 'va
 
   for (const c of candidates) {
     if (dropped.has(c.index) || replaced.has(c.index)) continue;
-    const role = roles[c.index] ?? null;
-    const wanted = role === 'speaker' ? speaker : role ? other : undefined;
+    const wanted = targetFor(owners[c.index]);
     // An avoid that found no paraphrase degrades to showing both forms.
     const target = wanted === 'avoid' ? 'both' : wanted;
     if (!target) continue;
@@ -271,6 +372,8 @@ function edit(text: string, speaker: Target, other?: Target): Omit<PostEdit, 'va
       : c.options.find((o) => o.agreement !== target);
     if (!option) continue;
     c.doubled = target === 'both';
+    c.role = owners[c.index]?.role;
+    c.person = owners[c.index]?.subject;
     const replacement = target === 'both'
       ? (option.agreement === 'M'
           ? `${option.form}/${option.counterpart}`
@@ -288,11 +391,25 @@ function edit(text: string, speaker: Target, other?: Target): Omit<PostEdit, 'va
   // Recompute for display: a paraphrase removes tokens, so the original
   // indices no longer line up with what the user actually sees.
   const display = findGendered(finalText);
-  const finalRoles = analyze(finalTokens).roles;
+  const finalNames = people?.source ? namesIn(finalTokens, people.source) : names;
+  const finalOwners = analyze(finalTokens, finalNames).owners;
+  const governed = new Set<string>();
   for (const c of display) {
-    const role = finalRoles[c.index] ?? null;
-    c.role = role ?? undefined;
-    c.autoApplied = Boolean(role === 'speaker' ? speaker : role ? other : undefined);
+    const owner = finalOwners[c.index];
+    c.role = owner?.role;
+    c.person = owner?.subject;
+    c.autoApplied = Boolean(targetFor(owner));
+    if (owner?.subject) governed.add(owner.subject);
   }
-  return { text: finalText, candidates: display, changed, fellBack };
+
+  // Only offer a person whose gender something in the output actually turns
+  // on, and name them as they are written rather than as they are keyed.
+  const seen = new Set<string>();
+  const peopleFound: string[] = [];
+  for (const raw of finalTokens) {
+    const key = bare(raw).toLowerCase();
+    if (governed.has(key) && !seen.has(key)) { seen.add(key); peopleFound.push(bare(raw)); }
+  }
+
+  return { text: finalText, candidates: display, changed, fellBack, people: peopleFound };
 }

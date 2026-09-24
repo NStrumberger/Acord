@@ -24,7 +24,7 @@
   <form id="form">
     <!-- Inset grouped list: label left, control right, separators inset. -->
     <h2 class="group-header">People in the sentence</h2>
-    <div class="group">
+    <div class="group" id="whoGroup">
       <div class="row">
         <span class="row-label" id="speakerLabel">Me</span>
         <div class="seg" role="radiogroup" aria-labelledby="speakerLabel">
@@ -52,7 +52,10 @@
       <i lang="ro">obosit/obosită</i> rather than inventing a third form;
       <b>Avoid</b> rewrites without gender where Romanian allows it
       (<i lang="ro">Sunt profesor</i> &rarr; <i lang="ro">Predau</i>), and says so when it
-      cannot. <b>Not set</b> leaves the translation as produced.
+      cannot. <b>Not set</b> leaves the translation as produced. Anyone the sentence names
+      gets their own row, and <b>Same</b> keeps them following <i>Anyone else</i>. Those
+      rows are per sentence and are never remembered &mdash; two people called Alex need
+      not match.
     </p>
 
     <div class="group panel">
