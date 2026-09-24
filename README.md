@@ -1,71 +1,106 @@
-# gendered-translator
+# Acord
 
-English → Romanian (then German) translation that gets **grammatical gender** right.
+[![Deploy](https://github.com/NStrumberger/Acord/actions/workflows/deploy.yml/badge.svg)](https://github.com/NStrumberger/Acord/actions/workflows/deploy.yml)
 
-English under-specifies gender; Romanian and German require it. Most translators
-resolve this silently, defaulting to masculine. This one asks who is speaking, and
-tells you when the "correct" form is genuinely disputed.
+English → Romanian translation that gets **grammatical gender** right.
+Runs entirely in your browser. No server, no account, works offline.
 
-    I am tired.   →   Sunt obosit.   (male speaker)
-                      Sunt obosită.  (female speaker)
+**→ [nstrumberger.github.io/Acord](https://nstrumberger.github.io/Acord/)**
 
-## Status
+![The app translating "You are my best friend" for a woman addressing a woman](docs/screenshot.png)
 
-R0–R7 complete: data audit, agreement core, curated lexicon, frame realizer,
-gender post-editing, the web UI, and an installable offline app that translates
-entirely in the browser.
-See `notes/`. Run `npm run demo` to see it work:
+## The problem
 
-    "I am a teacher"     male    Sunt profesor
-                         female  Sunt profesoară
-    "I am tired"         male    Sunt obosit
-                         female  Sunt obosită
-    "I saw them"         male    L-am văzut
-                         female  Am văzut-o          <- word ORDER changes
-    "I am a geologist"   female  Sunt geoloagă  [variant]
-                                 DOOM3 admits both spellings
+English hides information Romanian requires. "I am tired" carries no gender;
+Romanian forces a choice on the adjective. Every general translator resolves
+this silently, and machine translation resolves it *arbitrarily* — the same
+model gives `Sunt obosit` for the speaker and `Ești obosită` for the person
+addressed, with nothing in the English to justify either.
+
+It is rarely one word, either. "You're my best friend" said to a woman changes
+five:
+
+```
+Ești cel mai bun prieten al meu.   →   Ești cea mai bună prietenă a mea.
+```
+
+Article, superlative, noun, possessive article and possessive all agree with
+the subject. Half-correcting it is worse than not correcting it.
+
+## What it does differently
+
+- **You say who is speaking and who you are addressing.** Everything in their
+  predicates agrees accordingly. Words about anyone else are left exactly as
+  translated — guessing there means rewriting a sentence about a third person.
+- **It tells you when "correct" is disputed.** Romanian professional feminines
+  are not settled: DOOM3 admits both `filologă` and `filoloagă`, and
+  *doamna inginer* still competes with *ingineră*. Those forms are marked, with
+  the reason.
+- **It will not invent a form.** Romanian inflects for two grammatical genders,
+  so there is no third to print. Non-binary output shows both forms, or avoids
+  gender entirely where the language allows — `Sunt profesor` becomes `Predau`,
+  a verb that carries no gender at all.
+- **Nothing is derived at runtime.** Rule-based feminine derivation was measured
+  at 78% against attested data, and the errors are well-formed Romanian words
+  that are simply the wrong one. The lexicon is curated; an unknown word is a
+  miss, not a guess. See [`notes/R0-findings.md`](notes/R0-findings.md).
 
 ## Install it on your phone or iPad
 
-The built app is a plain static folder with **no server**: translation runs in
-the browser. Host `dist/` anywhere that serves HTTPS — Cloudflare Pages, GitHub
-Pages, Netlify — then open it on the device and use *Share → Add to Home Screen*.
-It installs with its own icon, runs full-screen, and works offline.
+Open the site in Safari, then **Share → Add to Home Screen**. It installs with
+its own icon and opens full-screen.
 
-    npm run build          # emits dist/, ready to upload
-    npm run preview        # serve the build locally to check it
+The first translation on a device downloads the model (~113 MB, quantised) and
+takes 10–15 seconds. After that everything is local: no network, no server.
 
-First translation on a device downloads the model (~113 MB, quantised) and is
-slow; it is cached afterwards and everything from then on is local and offline.
-HTTPS is required — the service worker and installation both depend on it.
+## How it works
 
-## Requirements
+```
+English  →  opus-mt-en-ro (ONNX, in-browser)  →  Romanian
+                                                    ↓
+                                    post-editor: find the predicate spans,
+                                    rewrite the ones that agree with you
+                                    or your addressee, flag disputed forms
+```
 
-Node >= 22.6 (runs TypeScript natively, no build step for the engine) and
-Python 3 for the build-time lexicon scripts. The shipped app has one runtime
-dependency, `@huggingface/transformers`, loaded on demand.
+Translation is `Xenova/opus-mt-en-ro` under `transformers.js`. The gender layer
+is original: a reverse index over stored paradigms, and a span analyser that
+decides whose gender each word follows — deliberately narrow, because deciding
+that in general is coreference resolution and being wrong is worse than being
+silent.
 
-## Commands
+The `notes/` directory records what was measured and what was got wrong,
+including the enclitic article rules validating at 100% against corpus data
+while feminine derivation reached only 78% — which is why one is derived and
+the other is a table.
 
-    npm run dev            # the app on http://localhost:5173
-    npm run build          # static build into dist/
-    npm test               # typecheck + node --test (no test framework)
-    npm run shots          # screenshot Firefox at 3 breakpoints, both themes
-    npm run check:webkit   # translate in WebKit (the iOS engine)
-    npm run check:offline  # service worker + offline shell
-    npm run demo           # showcase translations in both genders
+## Development
 
-Lexicon pipeline, in dependency order (needs Python 3):
+Node ≥ 22.6 runs the TypeScript directly, so the engine needs no build step.
+Python 3 is only needed for the build-time lexicon pipeline.
 
-    npm run data:extract   # occupation pairs from EnRoGend
-    npm run data:kaikki    # paradigms + feminine equivalents from kaikki.org
-    npm run data:build     # merge both sources -> curated lexicon
-    npm run data:spike     # re-measure rule-derivability (R0)
-    npm run data:validate  # check article rules against the corpus (R1)
-    npm run mt:fixture     # regenerate the committed MT test fixture
+```
+npm run dev            # http://localhost:5173
+npm test               # typecheck + node --test (no test framework)
+npm run build          # static build into dist/
+npm run shots          # screenshot Firefox at 3 breakpoints, both themes
+npm run check:webkit   # translate in WebKit, the engine iOS Safari uses
+npm run check:offline  # service worker + offline shell
+```
 
-## Attribution
+Rebuilding the lexicon (needs Python 3, downloads ~155 MB of corpora):
 
-Occupation lexicon derived from **EnRoGend** (CC BY 4.0). German paradigms will
-come from **UniMorph** (CC BY-SA 3.0) and **kaikki.org** Wiktionary extracts
-(CC BY-SA 4.0); ShareAlike attaches to the derived lexicon.
+```
+npm run data:extract   # occupation pairs from EnRoGend
+npm run data:kaikki    # paradigms + feminine equivalents from kaikki.org
+npm run data:build     # merge both sources → curated lexicon
+npm run data:spike     # re-measure rule-derivability
+npm run data:validate  # check article rules against the corpus
+```
+
+## Licence
+
+Code is MIT. The lexicon is **CC BY-SA 4.0**, because it derives from
+kaikki.org's Wiktionary extracts and ShareAlike attaches — see
+[`DATA-LICENSE.md`](DATA-LICENSE.md). The app carries attribution in its footer
+for that reason.

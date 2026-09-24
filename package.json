@@ -1,9 +1,15 @@
 {
-  "name": "gendered-translator",
+  "name": "acord",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "English to Romanian and German translation that gets grammatical gender right.",
+  "description": "English to Romanian translation that gets grammatical gender right. Runs in the browser, works offline.",
+  "license": "MIT",
+  "homepage": "https://nstrumberger.github.io/Acord/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NStrumberger/Acord.git"
+  },
   "engines": {
     "node": ">=22.6"
   },
@@ -26,14 +32,14 @@
     "data:spike": "python scripts/spike_feminine.py",
     "data:validate": "node scripts/validate_articles.ts"
   },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.0"
+  },
   "devDependencies": {
     "@fontsource-variable/inter": "^5.3.0",
     "@types/node": "^26.6.2",
     "playwright": "^1.63.0",
     "typescript": "^7.0.2",
     "vite": "^8.3.0"
-  },
-  "dependencies": {
-    "@huggingface/transformers": "^4.3.0"
   }
 }
