@@ -7,7 +7,7 @@ Runs entirely in your browser. No server, no account, works offline.
 
 **→ [nstrumberger.github.io/Acord](https://nstrumberger.github.io/Acord/)**
 
-![The app translating "You are my best friend" for a woman addressing a woman](docs/screenshot.png)
+![Acord translating "You are my best friend" for a woman addressing a woman](docs/screenshot.png)
 
 ## The problem
 
@@ -29,9 +29,10 @@ the subject. Half-correcting it is worse than not correcting it.
 
 ## What it does differently
 
-- **You say who is speaking and who you are addressing.** Everything in their
-  predicates agrees accordingly. Words about anyone else are left exactly as
-  translated — guessing there means rewriting a sentence about a third person.
+- **You say who is in the sentence; your choice leads.** A name is never
+  evidence — asked about `Alex`, `Sam` and `Jordan`, the model guessed masculine
+  every time, which is the exact default this exists to correct. An explicit
+  *he* or *she* in the English **is** evidence, and is kept.
 - **It tells you when "correct" is disputed.** Romanian professional feminines
   are not settled: DOOM3 admits both `filologă` and `filoloagă`, and
   *doamna inginer* still competes with *ingineră*. Those forms are marked, with
@@ -59,15 +60,15 @@ takes 10–15 seconds. After that everything is local: no network, no server.
 English  →  opus-mt-en-ro (ONNX, in-browser)  →  Romanian
                                                     ↓
                                     post-editor: find the predicate spans,
-                                    rewrite the ones that agree with you
-                                    or your addressee, flag disputed forms
+                                    set each person's gender from your
+                                    choice, flag disputed forms
 ```
 
 Translation is `Xenova/opus-mt-en-ro` under `transformers.js`. The gender layer
 is original: a reverse index over stored paradigms, and a span analyser that
-decides whose gender each word follows — deliberately narrow, because deciding
-that in general is coreference resolution and being wrong is worse than being
-silent.
+decides whose gender each word follows. A copula opens a span to the end of its
+clause, because a Romanian predicate agrees throughout — article, superlative,
+noun, possessive article and possessive together.
 
 The `notes/` directory records what was measured and what was got wrong,
 including the enclitic article rules validating at 100% against corpus data

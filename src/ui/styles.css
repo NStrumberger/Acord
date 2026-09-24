@@ -79,8 +79,9 @@ h1 {
 }
 .sub {
   margin:var(--s1) 0 0; color:var(--label-2);
-  font-size:var(--t-subhead); line-height:1.35; letter-spacing:-.01em;
+  font-size:var(--t-subhead); line-height:1.4; letter-spacing:-.01em;
 }
+.etym { color:var(--label-3); }
 
 /* Inset grouped list */
 .group-header {
