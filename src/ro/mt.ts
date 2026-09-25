@@ -46,6 +46,32 @@ export function loadTranslator(onProgress?: (p: LoadProgress) => void): Promise<
   return ready;
 }
 
+/**
+ * A full stop that ends an abbreviation rather than a sentence. Includes a
+ * lone letter, so initials like "J. R. Tolkien" stay in one piece.
+ */
+const ABBREVIATION = /(?:^|[\s(])(?:mr|mrs|ms|dr|prof|sr|jr|st|vs|etc|approx|dept|fig|no|vol|[a-z])\.$/i;
+
+/**
+ * English sentences, one per entry.
+ *
+ * opus-mt is a sentence-level model: handed several sentences at once it
+ * splices them together with commas and, past two, silently drops the rest --
+ * "Hello. How are you? I am well." came back as "- Buna, ce mai faci?". So the
+ * splitting happens here rather than being left to the model.
+ */
+export function splitSentences(text: string): string[] {
+  const out: string[] = [];
+  for (const part of text.split(/(?<=[.!?…])\s+/)) {
+    if (!part.trim()) continue;
+    const previous = out.at(-1);
+    // "Dr." did not end a sentence, so put the pieces back together.
+    if (previous !== undefined && ABBREVIATION.test(previous)) out[out.length - 1] = `${previous} ${part}`;
+    else out.push(part);
+  }
+  return out;
+}
+
 export async function translate(
   lines: string[],
   onProgress?: (p: LoadProgress) => void,
@@ -55,8 +81,12 @@ export async function translate(
   // produces degenerate output (long runs of trailing full stops).
   const out: string[] = [];
   for (const line of lines) {
-    const [result] = await translator([line]);
-    out.push(normalizeRomanian(result?.translation_text ?? ''));
+    const sentences: string[] = [];
+    for (const sentence of splitSentences(line)) {
+      const [result] = await translator([sentence]);
+      sentences.push(normalizeRomanian(result?.translation_text ?? '').trim());
+    }
+    out.push(sentences.filter(Boolean).join(' '));
   }
   return out;
 }

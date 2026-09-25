@@ -191,6 +191,20 @@ if (await page.getAttribute('#explain', 'hidden') === null) {
 }
 console.log('info button toggles the explanation both ways');
 
+// A full stop must not end the translation. opus-mt is sentence-level and
+// silently dropped everything past the second sentence.
+const beforeDots = await page.textContent('#output');
+await page.fill('#source', 'Hello. How are you? I am well.');
+await page.click('#go');
+await page.waitForFunction((was) => document.getElementById('output')?.textContent !== was,
+  beforeDots, { timeout: 240_000 });
+await settled();
+const three = (await page.textContent('#output')).trim();
+console.log('three sentences:', three);
+if ((three.match(/[.?!]/g) ?? []).length < 3) {
+  throw new Error(`a sentence was dropped: ${three}`);
+}
+
 if (errors.length) console.log('console errors:', errors.slice(0, 5));
 console.log('OK');
 await ctx.close();
