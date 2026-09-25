@@ -287,6 +287,13 @@ export type PostEdit = {
    * which is more misleading than an inert row that explains itself.
    */
   people: Person[];
+  /**
+   * The gender the translator used for third parties it did NOT name -- the
+   * default for the catch-all row, for the same reason the named rows have
+   * one. Absent when there are none, or when they disagree: preselecting one
+   * of two would quietly propose changing the other.
+   */
+  othersGuess?: Agreement;
 };
 
 /**
@@ -369,6 +376,16 @@ function edit(text: string, speaker: Target, other?: Target,
     if (subject && option && !guesses.has(subject)) guesses.set(subject, option.agreement);
   }
 
+  const unnamed = new Set<Agreement>();
+  for (const c of candidates) {
+    const owner = owners[c.index];
+    const option = c.options[0];
+    if (owner && option && owner.role !== 'speaker' && !owner.subject) {
+      unnamed.add(option.agreement);
+    }
+  }
+  const othersGuess = unnamed.size === 1 ? [...unnamed][0] : undefined;
+
   // Clause level first: avoiding gender replaces a whole copula clause with a
   // gender-free verb, which no amount of word swapping can achieve.
   const replaced = new Map<number, string>();
@@ -447,5 +464,7 @@ function edit(text: string, speaker: Target, other?: Target,
       : { name: bare(raw), governs: governed.has(key) });
   }
 
-  return { text: finalText, candidates: display, changed, fellBack, people: peopleFound };
+  return othersGuess
+    ? { text: finalText, candidates: display, changed, fellBack, people: peopleFound, othersGuess }
+    : { text: finalText, candidates: display, changed, fellBack, people: peopleFound };
 }

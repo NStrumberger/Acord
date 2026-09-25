@@ -155,6 +155,42 @@ if (!width || parseFloat(width) < 10) throw new Error(`revealed thumb not measur
 await page.click('.toggle');
 if ((await visible()).length !== 5) throw new Error('collapsing again failed');
 
+// Every control is the same four behaviours, so on a phone -- where segments
+// share the width equally -- every track and every thumb must match down the
+// page. That is the whole point of dropping "Not set" from the catch-all row.
+// On a wide screen the thumb hugs its label instead, so only tracks match.
+await page.setViewportSize({ width: 390, height: 900 });
+await page.fill('#source', 'Maya is my friend, although Steve is tired, Rose works as a teacher');
+await page.click('#go');
+await page.waitForFunction(() => document.querySelectorAll('.row-person').length === 3,
+  null, { timeout: 240_000 });
+await settled();
+const geometry = await page.$$eval('.row:not([hidden]) .seg', (segs) => segs.map((seg) => {
+  const thumb = seg.querySelector('.seg-thumb');
+  return `${Math.round(seg.getBoundingClientRect().width)}/${thumb.style.getPropertyValue('--seg-w')}`;
+}));
+console.log('track/thumb per row:', JSON.stringify(geometry));
+if (new Set(geometry).size !== 1) {
+  throw new Error(`rows do not line up: ${JSON.stringify(geometry)}`);
+}
+
+// The explanation is behind the info button, not taking up the page.
+if (await page.getAttribute('#explain', 'hidden') === null) {
+  throw new Error('the explanation should start hidden');
+}
+await page.click('#explainBtn');
+if (await page.getAttribute('#explain', 'hidden') !== null) {
+  throw new Error('the info button should reveal the explanation');
+}
+if (await page.getAttribute('#explainBtn', 'aria-expanded') !== 'true') {
+  throw new Error('aria-expanded should follow the explanation');
+}
+await page.click('#explainBtn');
+if (await page.getAttribute('#explain', 'hidden') === null) {
+  throw new Error('the info button should hide it again');
+}
+console.log('info button toggles the explanation both ways');
+
 if (errors.length) console.log('console errors:', errors.slice(0, 5));
 console.log('OK');
 await ctx.close();

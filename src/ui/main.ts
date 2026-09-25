@@ -20,6 +20,8 @@ let spoken = '';   // what the action row acts on
 
 const whoGroup = $<HTMLDivElement>('whoGroup');
 const generalRow = $<HTMLDivElement>('generalRow');
+const explain = $<HTMLParagraphElement>('explain');
+const explainBtn = $<HTMLButtonElement>('explainBtn');
 
 const STORE = 'gendered-translator.profile';
 const TARGETS = new Set<Target>(['M', 'F', 'both', 'avoid']);
@@ -39,15 +41,17 @@ const targetOf = (group: string): Target | undefined =>
   TARGETS.has(chosen(group) as Target) ? (chosen(group) as Target) : undefined;
 
 const setChoice = (group: string, value: string) => {
-  const el = document.querySelector<HTMLInputElement>(`input[name="${group}"][value="${value}"]`);
-  if (el) el.checked = true;
+  const inputs = document.querySelectorAll<HTMLInputElement>(`input[name="${group}"]`);
+  // An empty value selects nothing: the translator had no single answer to
+  // show, so the control shows none either rather than proposing one.
+  for (const input of inputs) input.checked = input.value === value && value !== '';
 };
 
 function saveProfile(): void {
   try {
-    localStorage.setItem(STORE, JSON.stringify({
-      speaker: chosen('speaker'), addressee: chosen('addressee'),
-    }));
+    // Only "Me" is remembered. Everyone else is a fact about this sentence,
+    // and their row now starts on what the translation did with them.
+    localStorage.setItem(STORE, JSON.stringify({ speaker: chosen('speaker') }));
   } catch { /* private mode or blocked storage: the app works without it */ }
 }
 
@@ -55,14 +59,13 @@ function loadProfile(): void {
   try {
     const raw = localStorage.getItem(STORE);
     if (!raw) return;
-    const saved = JSON.parse(raw) as { speaker?: string; addressee?: string };
+    const saved = JSON.parse(raw) as { speaker?: string };
     // Every restored value is checked before it reaches setChoice, which
     // interpolates it into a selector: one stray quote there throws, and the
     // catch below would swallow the rest of the restore with it.
     const valid = (v: string | undefined) =>
       v !== undefined && (v === '' || TARGETS.has(v as Target));
     if (valid(saved.speaker)) setChoice('speaker', saved.speaker!);
-    if (valid(saved.addressee)) setChoice('addressee', saved.addressee!);
   } catch { /* ignore unreadable or malformed storage */ }
 }
 
@@ -184,6 +187,10 @@ const GENERAL_ROW_LIMIT = 2;
 const MAX_VISIBLE_PEOPLE = 5;
 
 let peopleExpanded = false;
+/** Whether the user has actually picked for the catch-all row this sentence.
+    Until they do it only DISPLAYS the translator's choice, and applies
+    nothing -- otherwise a preselected value would silently take effect. */
+let othersTouched = false;
 
 let shownPeople = '';
 /** One per person row. A ResizeObserver outlives the node it watches. */
@@ -380,6 +387,7 @@ async function run(): Promise<void> {
       // New text, new people: the Alex in this sentence need not be the Alex
       // in the last one, so nobody's choice survives the change.
       personChoices.clear();
+      othersTouched = false;
       shownPeople = '';
       const [romanian] = await translate([text], ({ percent }) => {
         meta.textContent = `Downloading the translation model… ${Math.round(percent)}%`;
@@ -388,13 +396,17 @@ async function run(): Promise<void> {
     }
     const speaker = targetOf('speaker') ?? 'M';
     const choices = { source: text, targets: Object.fromEntries(personChoices) };
-    let result = applyGender(translated.romanian, speaker, targetOf('addressee'), choices);
+    const others = othersTouched ? targetOf('addressee') : undefined;
+    let result = applyGender(translated.romanian, speaker, others, choices);
     // Once the named rows replace "Anyone else", it must stop applying too: a
     // hidden control still forcing a gender is a trap. Re-running costs
     // nothing -- the model is not involved a second time.
-    if (result.people.length >= GENERAL_ROW_LIMIT && targetOf('addressee')) {
+    if (result.people.length >= GENERAL_ROW_LIMIT && others) {
       result = applyGender(translated.romanian, speaker, undefined, choices);
     }
+    // Show what the translator did with everyone it did not name, so this row
+    // reads like the others: a visible starting point rather than a blank.
+    if (!othersTouched) setChoice('addressee', result.othersGuess ?? '');
     renderPeople(result.people);
     empty.hidden = true;
     spoken = result.variants.join('\n');
@@ -416,11 +428,17 @@ async function run(): Promise<void> {
 form.addEventListener('submit', (e) => { e.preventDefault(); void run(); });
 
 for (const radio of document.querySelectorAll('input[name="speaker"], input[name="addressee"]')) {
-  radio.addEventListener('change', () => {
+  radio.addEventListener('change', (e) => {
+    if ((e.target as HTMLInputElement).name === 'addressee') othersTouched = true;
     saveProfile();
     if (source.value.trim()) void run();
   });
 }
+
+explainBtn.addEventListener('click', () => {
+  explain.hidden = !explain.hidden;
+  explainBtn.setAttribute('aria-expanded', String(!explain.hidden));
+});
 
 /**
  * The selected segment is a thumb that slides, as it does on iOS. CSS cannot
@@ -434,6 +452,7 @@ function mountThumb(seg: HTMLElement): { observer: ResizeObserver; place: (anima
 
   const place = (animate: boolean) => {
     const label = seg.querySelector<HTMLInputElement>('input:checked')?.closest('label');
+    thumb.hidden = !label;   // nothing chosen: no thumb, not a zero-width one
     if (!label) return;
     // Jump without animating on first paint and on resize; only a real
     // selection change should slide.

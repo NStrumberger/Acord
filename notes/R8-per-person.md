@@ -192,6 +192,41 @@ Two consequences fall out of this:
 The marks in the output still separate the two: a word the user set is marked,
 a word the translator chose is not. The key says so.
 
+## Every control is the same four behaviours
+
+Reported from a phone: the rows did not line up, and neither did the sliding
+thumb. Measured at 390px:
+
+```
+Me            4 options -> 80.5px per segment
+Anyone else   5 options -> 64.4px per segment
+```
+
+Within a row the segments were equal; **across** rows they were not, because
+the catch-all row carried an extra *Not set*. Every boundary and every thumb
+therefore sat at a different width down the page.
+
+Fixed by removing *Not set*, so every control is **Masculine / Feminine / Both
+/ Avoid** and all four rows share one grid (verified: identical 326px tracks,
+identical 80.5px thumbs). What replaces it is the same idea as the named rows:
+the catch-all starts on the gender the translator used for the third parties it
+did *not* name, shown but not applied until the control is actually touched.
+
+`PostEdit.othersGuess` is absent when those people **disagree** — preselecting
+one of two would be proposing to change the other — and then the control simply
+shows no selection, with the thumb hidden rather than painted at zero width.
+
+Consequence: the catch-all row is no longer remembered between sessions. It now
+describes this sentence rather than a standing preference, which is the same
+reasoning that made the named rows per-sentence. Only **Me** persists.
+
+## The explanation lives behind an info button
+
+The paragraph under the controls had grown to eleven lines and was pushing the
+translation off a phone screen. It is now behind an ⓘ in the group header,
+hidden by default, `aria-expanded` following it. With it closed, the controls,
+the input and the translation all fit one phone screen at last.
+
 ## The choice is per sentence and is never remembered
 
 The first version stored each person's choice in `localStorage`, keyed by the

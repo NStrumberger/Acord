@@ -84,6 +84,20 @@ h1 {
 .etym { color:var(--label-3); }
 
 /* Inset grouped list */
+/* Opens the explanation. A 22px glyph with a 44px hit area around it, so the
+   header stays quiet and the target stays honest. */
+.info {
+  display:inline-flex; align-items:center; justify-content:center;
+  position:relative; width:22px; height:22px; margin-left:var(--s1);
+  vertical-align:-5px; padding:0; border:0; background:none; cursor:pointer;
+  color:var(--label-3); transition:color var(--fast) var(--ease-ios);
+}
+.info::before { content:''; position:absolute; inset:-11px; }
+.info svg { width:100%; height:100%; }
+.info:hover, .info[aria-expanded="true"] { color:var(--accent-strong); }
+.info:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:999px; }
+.group-footer[hidden] { display:none; }
+
 .group-header {
   margin:0 0 var(--s2) var(--s4); font-size:var(--t-footnote); font-weight:400;
   line-height:1.4; letter-spacing:0; color:var(--label-2);
