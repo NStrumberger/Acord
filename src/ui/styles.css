@@ -178,7 +178,11 @@ h1 {
 .seg label { position:relative; z-index:1; display:flex; flex:0 0 auto; }
 .seg input { position:absolute; inset:0; opacity:0; margin:0; cursor:pointer; }
 .seg span {
-  position:relative; display:flex; align-items:center; justify-content:center;
+  /* Fill the label. Without this the label stretches to its share of the
+     track but the text stays at its leading edge, so the words sit off-centre
+     in their columns wherever the segments are equal-width. */
+  position:relative; display:flex; flex:1 1 auto;
+  align-items:center; justify-content:center;
   min-height:30px; padding:0 var(--s3); border-radius:var(--r-thumb);
   font-size:var(--t-footnote); font-weight:500; letter-spacing:-.005em;
   color:var(--label); white-space:nowrap; cursor:pointer;

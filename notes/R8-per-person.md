@@ -220,6 +220,12 @@ Consequence: the catch-all row is no longer remembered between sessions. It now
 describes this sentence rather than a standing preference, which is the same
 reasoning that made the named rows per-sentence. Only **Me** persists.
 
+The text inside each segment was left-aligned in its column, which the equal
+widths made obvious: the label stretched to its quarter of the track, but the
+`span` inside only took its content width and sat at the leading edge, leaving
+46px ofempty space after "Both". `flex:1 1 auto` on the span makes it fill the label, and
+its existing `justify-content:center` then does the centring.
+
 ## The explanation lives behind an info button
 
 The paragraph under the controls had grown to eleven lines and was pushing the
