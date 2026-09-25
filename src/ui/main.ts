@@ -147,18 +147,28 @@ function describe({ applied, untouched, fellBack }: Rendered): void {
   meta.classList.remove('error');
   meta.replaceChildren();
   if (!applied && !untouched) { meta.textContent = 'No gendered words recognised.'; return; }
-  meta.append(strong(applied), applied === 1 ? ' word set from your profile' : ' words set from your profile');
+  meta.append(strong(applied), applied === 1 ? ' word set by you' : ' words set by you');
   if (untouched) meta.append(' · ', strong(untouched), ' left as translated');
   if (fellBack) meta.append(' · no gender-free wording exists here, so both forms are shown');
 }
 
 /**
- * What a named person can be given. The blank option is not a fifth behaviour:
- * it means no override, so that person keeps following "Anyone else".
+ * The four things that can be done about one person's gender.
  */
-const personOptions = (fallback: string): readonly (readonly [string, string])[] => [
-  ['', fallback], ['M', 'Masculine'], ['F', 'Feminine'], ['both', 'Both'], ['avoid', 'Avoid'],
+const BEHAVIOURS: readonly (readonly [string, string])[] = [
+  ['M', 'Masculine'], ['F', 'Feminine'], ['both', 'Both'], ['avoid', 'Avoid'],
 ];
+
+/**
+ * A named person the translator already guessed a gender for starts on that
+ * guess, so the row shows what the output is actually doing and the user
+ * overrules it by moving the control. Only somebody it guessed nothing for
+ * needs a blank option, and what that falls back to depends on whether the
+ * general row is still there.
+ */
+const personOptions = (guess: string | undefined, fallback: string):
+    readonly (readonly [string, string])[] =>
+  (guess ? BEHAVIOURS : [['', fallback] as const, ...BEHAVIOURS]);
 
 /** Once the sentence names two or more people, they ARE the other people. */
 const GENERAL_ROW_LIMIT = 2;
@@ -195,7 +205,8 @@ function renderPeople(people: Person[]): void {
   generalRow.hidden = !general;
 
   // Rebuilding on every translation would blow away a selection mid-edit.
-  const signature = people.map((p) => `${p.name}:${p.governs}`).join('\u0000') + `|${general}`;
+  const signature = people.map((p) => `${p.name}:${p.governs}:${p.guess ?? ''}`)
+    .join('\u0000') + `|${general}`;
   if (signature === shownPeople) return;
   shownPeople = signature;
   peopleExpanded = false;   // a new cast of people starts collapsed
@@ -204,10 +215,10 @@ function renderPeople(people: Person[]): void {
   personPlacers = [];
   for (const stale of whoGroup.querySelectorAll('.row-person')) stale.remove();
 
-  const options = personOptions(general ? 'Same' : 'Not set');
+  const fallback = general ? 'Same' : 'Not set';
   const overflow: HTMLElement[] = [];
 
-  people.forEach(({ name, governs }, i) => {
+  people.forEach(({ name, governs, guess }, i) => {
     const key = name.toLowerCase();
     const id = `person-${i}`;
 
@@ -236,13 +247,13 @@ function renderPeople(people: Person[]): void {
     seg.setAttribute('role', 'radiogroup');
     seg.setAttribute('aria-labelledby', label.id);
 
-    for (const [value, text] of options) {
+    for (const [value, text] of personOptions(guess, fallback)) {
       const option = document.createElement('label');
       const input = document.createElement('input');
       input.type = 'radio';
       input.name = id;
       input.value = value;
-      input.checked = (personChoices.get(key) ?? '') === value;
+      input.checked = (personChoices.get(key) ?? guess ?? '') === value;
       const caption = document.createElement('span');
       caption.textContent = text;
       option.append(input, caption);

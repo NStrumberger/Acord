@@ -26,7 +26,10 @@ test('a person left unset follows the general setting', () => {
 
 test('the people found are the ones whose gender the output depends on', () => {
   const out = applyGender(TWO, 'M', undefined, { source: TWO_EN });
-  assert.deepEqual(out.people, [{ name: 'Josh', governs: true }, { name: 'Maya', governs: true }]);
+  assert.deepEqual(out.people, [
+    { name: 'Josh', governs: true, guess: 'M' },
+    { name: 'Maya', governs: true, guess: 'F' },
+  ]);
 });
 
 test('a name we cannot act on is listed, but marked as not governing', () => {
@@ -37,7 +40,7 @@ test('a name we cannot act on is listed, but marked as not governing', () => {
     source: 'I told Josh that Maya is tired.',
   });
   assert.deepEqual(out.people, [
-    { name: 'Josh', governs: false }, { name: 'Maya', governs: true },
+    { name: 'Josh', governs: false }, { name: 'Maya', governs: true, guess: 'F' },
   ]);
 });
 
@@ -45,7 +48,8 @@ test('a Romanian word capitalised at the start of a sentence is not a name', () 
   const out = applyGender('Prietena mea Maya e doctor.', 'M', undefined, {
     source: 'My friend Maya is a doctor.',
   });
-  assert.deepEqual(out.people, [{ name: 'Maya', governs: true }]);
+  // "doctor" is the masculine form, so that is what the translator guessed.
+  assert.deepEqual(out.people, [{ name: 'Maya', governs: true, guess: 'M' }]);
 });
 
 test('a capitalised word absent from the English is not a name', () => {
@@ -125,7 +129,7 @@ test('everyone named is listed, even where the sentence marks only the first', (
   const out = applyGender('Maya e prietenul meu și la fel și Steve, la fel și Rose și Henry.',
     'M', undefined, { source: 'Maya is my friend and so is Steve, so is Rose and Henry' });
   assert.deepEqual(out.people, [
-    { name: 'Maya', governs: true },
+    { name: 'Maya', governs: true, guess: 'M' },   // "prietenul meu" -- its own guess
     { name: 'Steve', governs: false },
     { name: 'Rose', governs: false },
     { name: 'Henry', governs: false },
@@ -139,7 +143,7 @@ test('"works as a ..." is an agreement site, because "ca" marks off the role', (
     source: 'Rose works as a teacher.', targets: { rose: 'M' },
   });
   assert.equal(out.text, 'Rose lucrează ca profesor.');
-  assert.deepEqual(out.people, [{ name: 'Rose', governs: true }]);
+  assert.deepEqual(out.people, [{ name: 'Rose', governs: true, guess: 'F' }]);
 });
 
 test('"as tired as Steve" does not hand the predicate to Steve', () => {
@@ -150,7 +154,7 @@ test('"as tired as Steve" does not hand the predicate to Steve', () => {
   });
   assert.equal(out.text, 'Maya e la fel de obosită ca Steve.');
   assert.deepEqual(out.people, [
-    { name: 'Maya', governs: true }, { name: 'Steve', governs: false },
+    { name: 'Maya', governs: true, guess: 'F' }, { name: 'Steve', governs: false },
   ]);
 });
 
@@ -163,4 +167,16 @@ test('the reported three-name sentence is fully settable', () => {
     });
   assert.equal(out.text,
     'Maya este prietenul meu, deși Steve este obosită, Rose lucrează ca profesor.');
+});
+
+test("each person's default is the translator's own guess, not the user's last choice", () => {
+  // The guess is read off the translation BEFORE any rewriting, so forcing
+  // Josh feminine must not make the guess report feminine next time round --
+  // the control would then have no default left to overrule.
+  const ro = 'Josh este prietenul meu și Maya este și prietena mea.';
+  const en = 'Josh is my friend and Maya is also my friend';
+  const guesses = (targets: Record<string, 'M' | 'F'>) =>
+    applyGender(ro, 'M', undefined, { source: en, targets }).people.map((p) => p.guess);
+  assert.deepEqual(guesses({}), ['M', 'F']);
+  assert.deepEqual(guesses({ josh: 'F', maya: 'M' }), ['M', 'F']);
 });

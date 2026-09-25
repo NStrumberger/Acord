@@ -289,8 +289,16 @@ export type PostEdit = {
   people: Person[];
 };
 
-/** Somebody the sentence names, and whether the Romanian agrees with them. */
-export type Person = { name: string; governs: boolean };
+/**
+ * Somebody the sentence names.
+ *
+ * `guess` is the gender the translator itself picked for them, read off its
+ * own output before any of the user's choices were applied. It is a guess from
+ * the name and nothing more -- Alex, Sam and Jordan all come back masculine --
+ * but it makes a sensible default for that person's control, which the user
+ * then sees and can overrule. Absent when nothing agrees with them.
+ */
+export type Person = { name: string; governs: boolean; guess?: Agreement };
 
 /** The English input, and a choice for each person named in it. */
 export type PeopleOptions = {
@@ -350,6 +358,16 @@ function edit(text: string, speaker: Target, other?: Target,
     if (span.role === 'speaker') return speaker;
     return (span.subject ? chosen.get(span.subject) : undefined) ?? other;
   };
+
+  // What the translator itself chose for each named person, read BEFORE any
+  // rewriting -- so it stays the model's guess rather than becoming an echo of
+  // whatever the user last set.
+  const guesses = new Map<string, Agreement>();
+  for (const c of candidates) {
+    const subject = owners[c.index]?.subject;
+    const option = c.options[0];
+    if (subject && option && !guesses.has(subject)) guesses.set(subject, option.agreement);
+  }
 
   // Clause level first: avoiding gender replaces a whole copula clause with a
   // gender-free verb, which no amount of word swapping can achieve.
@@ -423,7 +441,10 @@ function edit(text: string, speaker: Target, other?: Target,
     const key = bare(raw).toLowerCase();
     if (!finalNames.has(key) || seen.has(key)) continue;
     seen.add(key);
-    peopleFound.push({ name: bare(raw), governs: governed.has(key) });
+    const guess = guesses.get(key);
+    peopleFound.push(guess
+      ? { name: bare(raw), governs: governed.has(key), guess }
+      : { name: bare(raw), governs: governed.has(key) });
   }
 
   return { text: finalText, candidates: display, changed, fellBack, people: peopleFound };

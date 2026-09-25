@@ -65,7 +65,10 @@ if (!await page.isHidden('#generalRow')) throw new Error('"Anyone else" should b
 if (start.map((r) => r.name).join(',') !== 'Josh,Maya') {
   throw new Error(`expected Josh,Maya rows; got ${JSON.stringify(start)}`);
 }
-if (start.some((r) => r.set)) throw new Error('rows should start with no override');
+// Each row starts on the gender the translator itself chose for that name.
+if (start.map((r) => r.set).join(',') !== 'M,F') {
+  throw new Error(`rows should start on the translator's guess; got ${JSON.stringify(start)}`);
+}
 const before = (await page.textContent('#output')).trim();
 if (!/Josh este prietenul meu/.test(before)) throw new Error(`unexpected start: ${before}`);
 
@@ -89,7 +92,10 @@ await page.waitForFunction((was) => document.getElementById('output')?.textConte
 await settled();
 const next = await rows();
 console.log('new sentence:', JSON.stringify(next));
-if (next.some((r) => r.set)) throw new Error(`choice carried into new text: ${JSON.stringify(next)}`);
+// Josh was forced feminine above; the new sentence must be back on the guess.
+if (next.find((r) => r.name === 'Josh')?.set !== 'M') {
+  throw new Error(`choice carried into new text: ${JSON.stringify(next)}`);
+}
 
 await page.setViewportSize({ width: 390, height: 900 });
 await page.goto(URL, { waitUntil: 'networkidle' });
@@ -98,7 +104,7 @@ await page.click('#go');
 await settled();
 const reloaded = await rows();
 console.log('after reload:', JSON.stringify(reloaded));
-if (reloaded.some((r) => r.set)) {
+if (reloaded.map((r) => r.set).join(',') !== 'M,F') {
   throw new Error(`choice survived a reload: ${JSON.stringify(reloaded)}`);
 }
 await page.screenshot({ path: 'shots/people-phone.png' });

@@ -29,10 +29,12 @@ the subject. Half-correcting it is worse than not correcting it.
 
 ## What it does differently
 
-- **You say who is in the sentence; your choice leads.** A name is never
-  evidence — asked about `Alex`, `Sam` and `Jordan`, the model guessed masculine
-  every time, which is the exact default this exists to correct. An explicit
-  *he* or *she* in the English **is** evidence, and is kept.
+- **A name may suggest; only you decide.** Each named person's control starts
+  on the gender the translator guessed from their name, because most names do
+  carry a convention — but the guess is shown rather than applied silently, and
+  one tap overrules it. It needs overruling: asked about `Alex`, `Sam` and
+  `Jordan` the model answered masculine every time. An explicit *he* or *she*
+  in the English **is** evidence, and is kept.
 - **Everybody named gets their own control.** "Josh is my friend and Maya is
   also my friend" puts a row against each name, so they can differ, and from two
   people onwards those rows replace the general one entirely. Anyone the

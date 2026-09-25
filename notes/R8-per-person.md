@@ -167,6 +167,31 @@ A row revealed from `display:none` has never been measured, so its sliding
 thumb would be zero-width for a frame. The toggle re-places every thumb
 explicitly rather than waiting for the `ResizeObserver` to notice.
 
+## The name's guess is the default, not the decision
+
+The feature began by refusing to let a name influence anything, because the
+model's name-to-gender mapping is unreliable: `R7` measured Alex, Sam and Jordan
+all coming back masculine. Every named row therefore started blank.
+
+That threw away a real signal. Most names do carry a strong convention, and a
+row that starts blank makes the user set something the translator had already
+got right. The resolution is not which one wins but **where the guess is
+allowed to act**: as a visible starting value in a control, never as a silent
+decision. So every named row now starts on the gender the translator itself
+chose, and moving the control overrules it.
+
+Two consequences fall out of this:
+
+- The blank option disappears from a named row. There is nothing for it to mean
+  once the row shows a real value — selecting the guessed gender *is* leaving
+  the translation alone. Named rows are four segments now, matching **Me**.
+- The guess is read off the translation **before** any rewriting. Reading it
+  after would make it echo whatever the user last chose, and the control would
+  have no default left to overrule. There is a test for exactly that.
+
+The marks in the output still separate the two: a word the user set is marked,
+a word the translator chose is not. The key says so.
+
 ## The choice is per sentence and is never remembered
 
 The first version stored each person's choice in `localStorage`, keyed by the
