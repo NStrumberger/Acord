@@ -123,6 +123,32 @@ if (many.map((r) => r.name).join(',') !== 'Maya,Steve,Rose,Henry') {
 }
 if (many.filter((r) => r.inert).length !== 3) throw new Error('three should be inert');
 
+// Past the measured cap of five, the rest fold behind one toggle. Five plus
+// "Me" is what still fits a 390x844 phone without scrolling.
+const MANY = 'Maya is a teacher, Steve is a doctor, Rose is a lawyer, Henry is an engineer, '
+  + 'Alex is a geologist, Jordan is a teacher, and Ana is a doctor';
+const before7 = await page.textContent('#output');
+await page.fill('#source', MANY);
+await page.click('#go');
+await page.waitForFunction((was) => document.getElementById('output')?.textContent !== was,
+  before7, { timeout: 240_000 });
+await settled();
+
+const visible = () => page.$$eval('.row-person', (els) =>
+  els.filter((el) => !el.hidden).map((el) => el.querySelector('.row-label')?.textContent));
+console.log('collapsed:', JSON.stringify(await visible()), '|', await page.textContent('.toggle'));
+if ((await visible()).length !== 5) throw new Error('five names should be visible');
+await page.click('.toggle');
+console.log('expanded: ', JSON.stringify(await visible()), '|', await page.textContent('.toggle'));
+if ((await visible()).length !== 7) throw new Error('all seven should be visible');
+// A row revealed from display:none must have had its thumb re-measured.
+const width = await page.$$eval('.row-person', (els) =>
+  els.at(-1)?.querySelector('.seg-thumb')?.style.getPropertyValue('--seg-w'));
+console.log('last thumb:', width);
+if (!width || parseFloat(width) < 10) throw new Error(`revealed thumb not measured: ${width}`);
+await page.click('.toggle');
+if ((await visible()).length !== 5) throw new Error('collapsing again failed');
+
 if (errors.length) console.log('console errors:', errors.slice(0, 5));
 console.log('OK');
 await ctx.close();

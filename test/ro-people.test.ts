@@ -131,3 +131,36 @@ test('everyone named is listed, even where the sentence marks only the first', (
     { name: 'Henry', governs: false },
   ]);
 });
+
+test('"works as a ..." is an agreement site, because "ca" marks off the role', () => {
+  // Reported: "Rose works as a teacher" left Rose with nothing to set, because
+  // "lucreaza" is a lexical verb and only copulas opened a span.
+  const out = applyGender('Rose lucrează ca profesoară.', 'M', undefined, {
+    source: 'Rose works as a teacher.', targets: { rose: 'M' },
+  });
+  assert.equal(out.text, 'Rose lucrează ca profesor.');
+  assert.deepEqual(out.people, [{ name: 'Rose', governs: true }]);
+});
+
+test('"as tired as Steve" does not hand the predicate to Steve', () => {
+  // The same word, comparing rather than naming a role. Steve is the thing
+  // compared TO, so nothing here is his to set.
+  const out = applyGender('Maya e la fel de obosită ca Steve.', 'M', undefined, {
+    source: 'Maya is as tired as Steve.', targets: { steve: 'M' },
+  });
+  assert.equal(out.text, 'Maya e la fel de obosită ca Steve.');
+  assert.deepEqual(out.people, [
+    { name: 'Maya', governs: true }, { name: 'Steve', governs: false },
+  ]);
+});
+
+test('the reported three-name sentence is fully settable', () => {
+  const out = applyGender(
+    'Maya este prietena mea, deși Steve este obosit, Rose lucrează ca profesoară.',
+    'M', undefined, {
+      source: 'Maya is my friend, although Steve is tired, Rose works as a teacher',
+      targets: { maya: 'M', steve: 'F', rose: 'M' },
+    });
+  assert.equal(out.text,
+    'Maya este prietenul meu, deși Steve este obosită, Rose lucrează ca profesor.');
+});

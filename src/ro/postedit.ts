@@ -202,6 +202,13 @@ function analyze(tokens: string[], names: ReadonlySet<string> = new Set()):
     }
     if (SECOND_PERSON.has(word)) { start('addressee', i); continue; }
     if (THIRD_PERSON.has(word)) { third('other'); continue; }
+    // "Rose lucreaza ca profesoara": a name, the verb, then the role it names.
+    // The role agrees with the name, and "ca" is exactly what marks it off --
+    // which is why "ca" is a clause boundary everywhere else.
+    if (word === 'ca' && i >= 2) {
+      const subject = bare(tokens[i - 2]!).toLowerCase();
+      if (names.has(subject) && !names.has(prev)) { start('other', i, subject); continue; }
+    }
     if (BOUNDARY.has(word)) {
       // "si" directly after the copula is "also", not a new clause: a
       // conjunction cannot coordinate a predicate that has not started yet.

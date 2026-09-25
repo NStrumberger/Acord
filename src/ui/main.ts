@@ -163,9 +163,24 @@ const personOptions = (fallback: string): readonly (readonly [string, string])[]
 /** Once the sentence names two or more people, they ARE the other people. */
 const GENERAL_ROW_LIMIT = 2;
 
+/**
+ * Measured rather than guessed. A name row costs about 88px once the layout
+ * stacks, and five is the most that still leaves every control reachable
+ * without scrolling on a current phone in Safari (390x756 of visible page).
+ * An installed app fits six and a small SE only three, so five is what the
+ * common case carries. Anyone past it folds away behind a toggle rather than
+ * vanishing.
+ */
+const MAX_VISIBLE_PEOPLE = 5;
+
+let peopleExpanded = false;
+
 let shownPeople = '';
 /** One per person row. A ResizeObserver outlives the node it watches. */
 let personObservers: ResizeObserver[] = [];
+/** Re-places each person row's thumb. A row revealed from display:none has
+    never been measured, so it would show a zero-width thumb for a frame. */
+let personPlacers: (() => void)[] = [];
 
 /**
  * One row per person the sentence's gender actually turns on, directly under
@@ -183,11 +198,14 @@ function renderPeople(people: Person[]): void {
   const signature = people.map((p) => `${p.name}:${p.governs}`).join('\u0000') + `|${general}`;
   if (signature === shownPeople) return;
   shownPeople = signature;
+  peopleExpanded = false;   // a new cast of people starts collapsed
   for (const observer of personObservers) observer.disconnect();
   personObservers = [];
+  personPlacers = [];
   for (const stale of whoGroup.querySelectorAll('.row-person')) stale.remove();
 
   const options = personOptions(general ? 'Same' : 'Not set');
+  const overflow: HTMLElement[] = [];
 
   people.forEach(({ name, governs }, i) => {
     const key = name.toLowerCase();
@@ -209,6 +227,7 @@ function renderPeople(people: Person[]): void {
       note.textContent = 'not marked in Romanian';
       row.append(label, note);
       whoGroup.append(row);
+      if (i >= MAX_VISIBLE_PEOPLE) overflow.push(row);
       return;
     }
 
@@ -241,8 +260,40 @@ function renderPeople(people: Person[]): void {
     row.className = 'row row-person';
     row.append(label, seg);
     whoGroup.append(row);
-    personObservers.push(mountThumb(seg));   // in the document: the thumb is measured
+    if (i >= MAX_VISIBLE_PEOPLE) overflow.push(row);
+    const thumb = mountThumb(seg);   // in the document: the thumb is measured
+    personObservers.push(thumb.observer);
+    personPlacers.push(() => thumb.place(false));
   });
+
+  if (overflow.length) mountOverflowToggle(overflow);
+}
+
+/**
+ * Fold the people past the cap away behind one control, rather than letting
+ * the list run off the bottom of a phone. They are collapsed to begin with,
+ * because the first names in a sentence are the ones most likely to be meant.
+ */
+function mountOverflowToggle(overflow: HTMLElement[]): void {
+  const button = document.createElement('button');
+  button.type = 'button';   // inside a form: a bare button would submit it
+  button.className = 'toggle';
+
+  const apply = () => {
+    for (const row of overflow) row.hidden = !peopleExpanded;
+    for (const place of personPlacers) place();   // newly shown rows need measuring
+    button.textContent = peopleExpanded
+      ? 'Show fewer'
+      : `Show ${overflow.length} more ${overflow.length === 1 ? 'person' : 'people'}`;
+    button.setAttribute('aria-expanded', String(peopleExpanded));
+  };
+  button.addEventListener('click', () => { peopleExpanded = !peopleExpanded; apply(); });
+  apply();
+
+  const row = document.createElement('div');
+  row.className = 'row row-toggle';
+  row.append(button);
+  whoGroup.append(row);
 }
 
 function fail(message: string): void {
@@ -365,7 +416,7 @@ for (const radio of document.querySelectorAll('input[name="speaker"], input[name
  * do this alone: the thumb has to be measured against whichever label is
  * currently checked, and re-measured when the font loads or the box resizes.
  */
-function mountThumb(seg: HTMLElement): ResizeObserver {
+function mountThumb(seg: HTMLElement): { observer: ResizeObserver; place: (animate: boolean) => void } {
   const thumb = document.createElement('div');
   thumb.className = 'seg-thumb';
   seg.prepend(thumb);
@@ -390,7 +441,7 @@ function mountThumb(seg: HTMLElement): ResizeObserver {
   observer.observe(seg);
   // Inter loads after first paint and changes label widths.
   void document.fonts?.ready.then(() => place(false));
-  return observer;
+  return { observer, place };
 }
 
 /** The field grows with its content rather than reserving empty rows. */

@@ -114,6 +114,59 @@ to **Both** have *four* readings, and printing two of them silently asserts that
 Josh and Maya share a gender. So the collapse now happens only when all the
 doubled words have the same owner; otherwise they stay inline.
 
+## "Works as a teacher" is an agreement site too
+
+Reported: "Maya is my friend, although Steve is tired, Rose works as a teacher"
+gave only two settable people.
+
+```
+Rose lucrează ca profesoară.
+```
+
+`lucrează` is a lexical verb, not a copula, and only copulas opened a span — so
+`profesoară` had no owner. The fix is narrow: **`ca` opens a span when the token
+two back is a name.** That is exactly the "X works as a Y" frame, and `ca` is
+what marks the role off, which is why it is a clause boundary everywhere else.
+
+The obvious wider rule — let any third-person verb with a name subject open a
+span — was considered and rejected. It is close enough to real coreference to
+start claiming words that belong to somebody else: in "Rose a cunoscut-o pe
+prietena mea", `prietena mea` is the *speaker's* friend, not Rose's.
+
+The comparative use of the same word is unaffected, because the name is the
+thing compared to rather than the subject:
+
+```
+Maya e la fel de obosită ca Steve.   ->  Steve governs nothing
+```
+
+## How many rows fit before a phone runs out
+
+Measured, not guessed. A name row costs about 88px once the layout stacks. The
+number of names whose controls are all reachable without scrolling from the top
+of the page:
+
+| Device | Names |
+|---|---|
+| iPhone SE, Safari (375x579 visible) | 3 |
+| iPhone 14, Safari (390x756 visible) | 5 |
+| iPhone 14, installed (390x844) | 6 |
+| iPad mini, Safari | 12+ |
+
+`MAX_VISIBLE_PEOPLE = 5`: the most a current phone in Safari carries, and safe
+in an installed app. Anyone past it folds behind a **Show N more people**
+toggle, collapsed to begin with, because the names a sentence opens with are
+the ones most likely to be meant. Nothing is unreachable.
+
+Worth recording separately: the page has **never** fit a phone in one screen,
+with or without name rows — the Translate button sits at ~925px on an iPhone 14
+whose visible viewport is 756px. The cap is about keeping the *control block*
+usable, not about making the page fit.
+
+A row revealed from `display:none` has never been measured, so its sliding
+thumb would be zero-width for a frame. The toggle re-places every thumb
+explicitly rather than waiting for the `ResizeObserver` to notice.
+
 ## The choice is per sentence and is never remembered
 
 The first version stored each person's choice in `localStorage`, keyed by the

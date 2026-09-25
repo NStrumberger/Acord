@@ -127,6 +127,17 @@ h1 {
 .row-inert .row-label { color:var(--label-2); }
 .row-note { font-size:var(--t-footnote); color:var(--label-3); text-align:right; }
 
+/* Folds away the people past the cap, so a long cast cannot run off a phone. */
+.row-toggle { min-height:44px; padding:0 var(--s4); justify-content:flex-start; }
+.toggle {
+  font:var(--t-subhead)/1 var(--sans); letter-spacing:-.01em; color:var(--accent-strong);
+  background:none; border:0; padding:var(--s3) 0; cursor:pointer;
+  transition:opacity var(--fast) var(--ease-ios);
+}
+.toggle:hover { opacity:.7; }
+.toggle:active { opacity:.45; }
+.toggle:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
+
 /* A person the sentence names. The row only exists once a translation has
    found them, so it arrives rather than being there all along. */
 .row-person { animation:row-in .32s var(--ease-ios) both; }
