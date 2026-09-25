@@ -271,13 +271,19 @@ export type PostEdit = {
   /** True when gender-free wording was asked for but no paraphrase existed. */
   fellBack: boolean;
   /**
-   * The people named in the sentence whose gender the output actually depends
-   * on, as written, in the order they appear. A name we found but cannot act
-   * on is left out: offering a control that changes nothing is worse than
-   * offering none.
+   * Everyone the sentence names, as written, in the order they appear.
+   *
+   * `governs` is false when nothing in the Romanian follows that person's
+   * gender -- usually because the sentence states the shared part once and
+   * leaves it out afterwards ("Maya e prietenul meu si la fel si Steve").
+   * They are still listed: a missing name reads as a failure to see them,
+   * which is more misleading than an inert row that explains itself.
    */
-  people: string[];
+  people: Person[];
 };
+
+/** Somebody the sentence names, and whether the Romanian agrees with them. */
+export type Person = { name: string; governs: boolean };
 
 /** The English input, and a choice for each person named in it. */
 export type PeopleOptions = {
@@ -402,13 +408,15 @@ function edit(text: string, speaker: Target, other?: Target,
     if (owner?.subject) governed.add(owner.subject);
   }
 
-  // Only offer a person whose gender something in the output actually turns
-  // on, and name them as they are written rather than as they are keyed.
+  // Everyone named, in the order they appear and spelled as they are written,
+  // each marked with whether the output actually turns on their gender.
   const seen = new Set<string>();
-  const peopleFound: string[] = [];
+  const peopleFound: Person[] = [];
   for (const raw of finalTokens) {
     const key = bare(raw).toLowerCase();
-    if (governed.has(key) && !seen.has(key)) { seen.add(key); peopleFound.push(bare(raw)); }
+    if (!finalNames.has(key) || seen.has(key)) continue;
+    seen.add(key);
+    peopleFound.push({ name: bare(raw), governs: governed.has(key) });
   }
 
   return { text: finalText, candidates: display, changed, fellBack, people: peopleFound };

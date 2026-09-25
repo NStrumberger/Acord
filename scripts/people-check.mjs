@@ -60,6 +60,8 @@ console.log('rows:  ', JSON.stringify(await rows()));
 await page.screenshot({ path: 'shots/people-desktop.png' });
 
 const start = await rows();
+// Two named people replace the catch-all row entirely.
+if (!await page.isHidden('#generalRow')) throw new Error('"Anyone else" should be gone');
 if (start.map((r) => r.name).join(',') !== 'Josh,Maya') {
   throw new Error(`expected Josh,Maya rows; got ${JSON.stringify(start)}`);
 }
@@ -100,6 +102,26 @@ if (reloaded.some((r) => r.set)) {
   throw new Error(`choice survived a reload: ${JSON.stringify(reloaded)}`);
 }
 await page.screenshot({ path: 'shots/people-phone.png' });
+
+// The reported case: four names, only the first of which the Romanian marks.
+// Every one of them must still be listed.
+await page.setViewportSize({ width: 900, height: 900 });
+const before4 = await page.textContent('#output');
+await page.fill('#source', 'Maya is my friend and so is Steve, so is Rose and Henry');
+await page.click('#go');
+await page.waitForFunction((was) => document.getElementById('output')?.textContent !== was,
+  before4, { timeout: 180_000 });
+await settled();
+const many = await page.$$eval('.row-person', (els) => els.map((el) => ({
+  name: el.querySelector('.row-label')?.textContent,
+  inert: el.classList.contains('row-inert'),
+})));
+console.log('four names:', JSON.stringify(many));
+await page.screenshot({ path: 'shots/people-many.png' });
+if (many.map((r) => r.name).join(',') !== 'Maya,Steve,Rose,Henry') {
+  throw new Error(`expected all four names; got ${JSON.stringify(many)}`);
+}
+if (many.filter((r) => r.inert).length !== 3) throw new Error('three should be inert');
 
 if (errors.length) console.log('console errors:', errors.slice(0, 5));
 console.log('OK');

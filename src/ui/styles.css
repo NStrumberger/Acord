@@ -114,12 +114,18 @@ h1 {
   position:relative; display:flex; align-items:center; justify-content:space-between;
   gap:var(--s4); min-height:52px; padding:var(--s2) var(--s4);
 }
+/* An author `display` beats the user agent's [hidden] rule, so say it again. */
+.row[hidden] { display:none; }
 /* Separator inset to the label's edge, as Apple's lists do. */
 .row + .row::before {
   content:''; position:absolute; left:var(--s4); right:0; top:0;
   height:.5px; background:var(--separator);
 }
 .row-label { font-size:var(--t-body); letter-spacing:-.01em; white-space:nowrap; }
+/* Somebody the sentence names whom no Romanian word agrees with. Listed, so
+   the app is not seen to have missed them, but with nothing to offer. */
+.row-inert .row-label { color:var(--label-2); }
+.row-note { font-size:var(--t-footnote); color:var(--label-3); text-align:right; }
 
 /* A person the sentence names. The row only exists once a translation has
    found them, so it arrives rather than being there all along. */
@@ -311,6 +317,9 @@ textarea::placeholder { color:var(--label-3); }
   .lang { font-size:var(--t-subhead); }
   /* The control needs the full width, so the row stacks. */
   .row { flex-direction:column; align-items:stretch; gap:var(--s2); padding:var(--s3) var(--s4); }
+  /* The name stacks above its note, so the note follows the name's edge. */
+  .row-note { text-align:left; }
+  .row-inert { flex-direction:row; align-items:center; }
   .seg { width:100%; }
   .seg label { flex:1 1 0; min-width:0; }
   .seg span { padding:0 var(--s1); font-size:var(--t-caption); }

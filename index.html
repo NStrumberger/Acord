@@ -34,7 +34,7 @@
           <label><input type="radio" name="speaker" value="avoid"><span>Avoid</span></label>
         </div>
       </div>
-      <div class="row">
+      <div class="row" id="generalRow">
         <span class="row-label" id="addresseeLabel">Anyone else</span>
         <div class="seg" role="radiogroup" aria-labelledby="addresseeLabel">
           <label><input type="radio" name="addressee" value="" checked><span>Not set</span></label>
@@ -52,10 +52,12 @@
       <i lang="ro">obosit/obosită</i> rather than inventing a third form;
       <b>Avoid</b> rewrites without gender where Romanian allows it
       (<i lang="ro">Sunt profesor</i> &rarr; <i lang="ro">Predau</i>), and says so when it
-      cannot. <b>Not set</b> leaves the translation as produced. Anyone the sentence names
-      gets their own row, and <b>Same</b> keeps them following <i>Anyone else</i>. Those
-      rows are per sentence and are never remembered &mdash; two people called Alex need
-      not match.
+      cannot. <b>Not set</b> leaves the translation as produced.
+      Everyone the sentence names gets their own row, and from two people onwards those
+      rows replace <i>Anyone else</i> entirely. A row reading <i>not marked in Romanian</i>
+      is someone no word in the translation agrees with &mdash; usually because the
+      sentence says the shared part once and leaves it out after. The rows are per
+      sentence and are never remembered: two people called Alex need not match.
     </p>
 
     <div class="group panel">

@@ -1,6 +1,6 @@
 import '@fontsource-variable/inter';
 import './styles.css';
-import { applyGender, type Target } from '../ro/postedit.ts';
+import { applyGender, type Person, type Target } from '../ro/postedit.ts';
 import { translate, isLoaded, TranslationUnavailable } from '../ro/mt.ts';
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -19,6 +19,7 @@ const toolStatus = $<HTMLSpanElement>('toolStatus');
 let spoken = '';   // what the action row acts on
 
 const whoGroup = $<HTMLDivElement>('whoGroup');
+const generalRow = $<HTMLDivElement>('generalRow');
 
 const STORE = 'gendered-translator.profile';
 const TARGETS = new Set<Target>(['M', 'F', 'both', 'avoid']);
@@ -155,9 +156,12 @@ function describe({ applied, untouched, fellBack }: Rendered): void {
  * What a named person can be given. The blank option is not a fifth behaviour:
  * it means no override, so that person keeps following "Anyone else".
  */
-const PERSON_OPTIONS: readonly (readonly [value: string, label: string])[] = [
-  ['', 'Same'], ['M', 'Masculine'], ['F', 'Feminine'], ['both', 'Both'], ['avoid', 'Avoid'],
+const personOptions = (fallback: string): readonly (readonly [string, string])[] => [
+  ['', fallback], ['M', 'Masculine'], ['F', 'Feminine'], ['both', 'Both'], ['avoid', 'Avoid'],
 ];
+
+/** Once the sentence names two or more people, they ARE the other people. */
+const GENERAL_ROW_LIMIT = 2;
 
 let shownPeople = '';
 /** One per person row. A ResizeObserver outlives the node it watches. */
@@ -169,16 +173,23 @@ let personObservers: ResizeObserver[] = [];
  * on, so every row here does something -- an unreachable control would be
  * worse than no control.
  */
-function renderPeople(names: string[]): void {
+function renderPeople(people: Person[]): void {
+  // Two or more named people ARE the other people, so the catch-all row goes
+  // away rather than sitting there silently outranking them.
+  const general = people.length < GENERAL_ROW_LIMIT;
+  generalRow.hidden = !general;
+
   // Rebuilding on every translation would blow away a selection mid-edit.
-  const signature = names.join('\u0000');
+  const signature = people.map((p) => `${p.name}:${p.governs}`).join('\u0000') + `|${general}`;
   if (signature === shownPeople) return;
   shownPeople = signature;
   for (const observer of personObservers) observer.disconnect();
   personObservers = [];
   for (const stale of whoGroup.querySelectorAll('.row-person')) stale.remove();
 
-  names.forEach((name, i) => {
+  const options = personOptions(general ? 'Same' : 'Not set');
+
+  people.forEach(({ name, governs }, i) => {
     const key = name.toLowerCase();
     const id = `person-${i}`;
 
@@ -187,12 +198,26 @@ function renderPeople(names: string[]): void {
     label.id = `${id}-label`;
     label.textContent = name;
 
+    // Nothing in the Romanian follows this person's gender, so there is
+    // nothing to offer. Say so rather than dropping them from the list, where
+    // the absence would read as not having seen them at all.
+    if (!governs) {
+      const row = document.createElement('div');
+      row.className = 'row row-person row-inert';
+      const note = document.createElement('span');
+      note.className = 'row-note';
+      note.textContent = 'not marked in Romanian';
+      row.append(label, note);
+      whoGroup.append(row);
+      return;
+    }
+
     const seg = document.createElement('div');
     seg.className = 'seg';
     seg.setAttribute('role', 'radiogroup');
     seg.setAttribute('aria-labelledby', label.id);
 
-    for (const [value, text] of PERSON_OPTIONS) {
+    for (const [value, text] of options) {
       const option = document.createElement('label');
       const input = document.createElement('input');
       input.type = 'radio';
@@ -299,10 +324,15 @@ async function run(): Promise<void> {
       });
       translated = { source: text, romanian: romanian ?? '' };
     }
-    const result = applyGender(
-      translated.romanian, targetOf('speaker') ?? 'M', targetOf('addressee'),
-      { source: text, targets: Object.fromEntries(personChoices) },
-    );
+    const speaker = targetOf('speaker') ?? 'M';
+    const choices = { source: text, targets: Object.fromEntries(personChoices) };
+    let result = applyGender(translated.romanian, speaker, targetOf('addressee'), choices);
+    // Once the named rows replace "Anyone else", it must stop applying too: a
+    // hidden control still forcing a gender is a trap. Re-running costs
+    // nothing -- the model is not involved a second time.
+    if (result.people.length >= GENERAL_ROW_LIMIT && targetOf('addressee')) {
+      result = applyGender(translated.romanian, speaker, undefined, choices);
+    }
     renderPeople(result.people);
     empty.hidden = true;
     spoken = result.variants.join('\n');

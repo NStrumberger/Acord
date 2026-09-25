@@ -48,13 +48,38 @@ It works because names are exactly the words machine translation carries through
 unchanged. The failure mode is benign: a name the model *does* translate
 (`John` → `Ioan`) gets no row, and the general setting still applies.
 
-## Only offering what we can act on
+## Listing everyone, and saying who cannot be set
 
-A detected name earns a row only when something in the output actually agrees
-with it. In "I told Josh that Maya is tired", Josh is an indirect object — no
-Romanian word follows his gender — so only Maya gets a row. A control that
-changes nothing is worse than no control, and `R0`'s refusal principle applies
-to controls as much as to vocabulary.
+The first version listed only people something in the output agreed with, on the
+grounds that a control which changes nothing is worse than no control. That was
+wrong, and reported as a bug within a day:
+
+```
+Maya is my friend and so is Steve, so is Rose and Henry
+  -> Maya e prietena mea și la fel și Steve, la fel și Rose și Henry.
+```
+
+All four names are found. Only Maya governs anything: Romanian states
+`prietena mea` once and elides it afterwards, so there is no second slot to
+inflect — an accurate reading of the sentence, and one no amount of analysis
+changes. But three missing rows do not say "Romanian cannot mark them here";
+they say "this app did not see them". **Silence is the more misleading of the
+two.** So everyone named is listed, and anyone with nothing to set is shown as
+*not marked in Romanian*.
+
+`PostEdit.people` is therefore `{ name, governs }[]` rather than `string[]`.
+
+## From two people, the names replace the catch-all
+
+With two or more named people, those people *are* the other people, so the
+general **Anyone else** row is hidden rather than left sitting there silently
+outranking them. Its value stops applying at the same moment — a hidden control
+that still forces a gender is a trap — and the blank option on each named row
+relabels from *Same* to *Not set*, because what it falls back to has changed.
+
+One consequence worth naming: a sentence with two names *and* an unnamed third
+party ("Maya is my friend, Steve is my friend, and my brother is tired") leaves
+that unnamed person with no control at all. Rarer than the case this fixes.
 
 ## Two bugs this turned up
 

@@ -34,11 +34,12 @@ the subject. Half-correcting it is worse than not correcting it.
   every time, which is the exact default this exists to correct. An explicit
   *he* or *she* in the English **is** evidence, and is kept.
 - **Everybody named gets their own control.** "Josh is my friend and Maya is
-  also my friend" puts a row against each name, so they can differ. A name only
-  earns a row when something in the Romanian actually agrees with it — offering
-  a control that changes nothing would be worse than offering none. Those rows
-  are per sentence and are never remembered: a name is not a person, and two
-  people called Alex need not match.
+  also my friend" puts a row against each name, so they can differ, and from two
+  people onwards those rows replace the general one entirely. Anyone the
+  Romanian cannot mark — because the sentence states the shared part once and
+  elides it after — is still listed, and said to be unmarkable rather than
+  quietly dropped. The rows are per sentence and are never remembered: a name is
+  not a person, and two people called Alex need not match.
 - **It tells you when "correct" is disputed.** Romanian professional feminines
   are not settled: DOOM3 admits both `filologă` and `filoloagă`, and
   *doamna inginer* still competes with *ingineră*. Those forms are marked, with

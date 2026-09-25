@@ -26,23 +26,26 @@ test('a person left unset follows the general setting', () => {
 
 test('the people found are the ones whose gender the output depends on', () => {
   const out = applyGender(TWO, 'M', undefined, { source: TWO_EN });
-  assert.deepEqual(out.people, ['Josh', 'Maya']);
+  assert.deepEqual(out.people, [{ name: 'Josh', governs: true }, { name: 'Maya', governs: true }]);
 });
 
-test('a name we cannot act on is not offered as a choice', () => {
+test('a name we cannot act on is listed, but marked as not governing', () => {
   // "lui Josh" is an indirect object, not the subject of a copula, so nothing
-  // in the sentence agrees with Josh. Offering a control would do nothing.
+  // in the sentence agrees with Josh. Dropping him would read as not having
+  // seen him at all, which is the more misleading of the two.
   const out = applyGender('I-am spus lui Josh că Maya e obosită.', 'M', undefined, {
     source: 'I told Josh that Maya is tired.',
   });
-  assert.deepEqual(out.people, ['Maya']);
+  assert.deepEqual(out.people, [
+    { name: 'Josh', governs: false }, { name: 'Maya', governs: true },
+  ]);
 });
 
 test('a Romanian word capitalised at the start of a sentence is not a name', () => {
   const out = applyGender('Prietena mea Maya e doctor.', 'M', undefined, {
     source: 'My friend Maya is a doctor.',
   });
-  assert.deepEqual(out.people, ['Maya']);
+  assert.deepEqual(out.people, [{ name: 'Maya', governs: true }]);
 });
 
 test('a capitalised word absent from the English is not a name', () => {
@@ -112,5 +115,19 @@ test('one person with several doubled words still collapses to two sentences', (
   assert.deepEqual(out.variants, [
     'Maya e cel mai bun prieten al meu.',
     'Maya e cea mai bună prietenă a mea.',
+  ]);
+});
+
+test('everyone named is listed, even where the sentence marks only the first', () => {
+  // Reported: four names in, one row out. The Romanian states "prietenul meu"
+  // once and elides it afterwards, so only Maya governs anything -- but Steve,
+  // Rose and Henry were still found, and saying so beats staying silent.
+  const out = applyGender('Maya e prietenul meu și la fel și Steve, la fel și Rose și Henry.',
+    'M', undefined, { source: 'Maya is my friend and so is Steve, so is Rose and Henry' });
+  assert.deepEqual(out.people, [
+    { name: 'Maya', governs: true },
+    { name: 'Steve', governs: false },
+    { name: 'Rose', governs: false },
+    { name: 'Henry', governs: false },
   ]);
 });
