@@ -1,0 +1,2065 @@
+[
+  {
+    "id": "A001",
+    "en": "I am an accountant.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "accountant"
+    ]
+  },
+  {
+    "id": "A002",
+    "en": "My brother is an accountant.",
+    "speaker": "M",
+    "addressee": "M",
+    "intent": "speaker is a man; the brother is a man",
+    "covers": [
+      "accountant"
+    ]
+  },
+  {
+    "id": "A003",
+    "en": "I am an actor.",
+    "speaker": "F",
+    "intent": "speaker is a woman (actress)",
+    "covers": [
+      "actor"
+    ]
+  },
+  {
+    "id": "A004",
+    "en": "Are you an actor?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "actor"
+    ]
+  },
+  {
+    "id": "A005",
+    "en": "Elena is the ambassador of Romania.",
+    "speaker": "M",
+    "targets": {
+      "elena": "F"
+    },
+    "intent": "speaker is a man; Elena is a woman",
+    "covers": [
+      "ambassador"
+    ]
+  },
+  {
+    "id": "A006",
+    "en": "I was an ambassador for ten years.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "ambassador"
+    ]
+  },
+  {
+    "id": "A007",
+    "en": "I am an anesthetist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "anesthetist"
+    ]
+  },
+  {
+    "id": "A008",
+    "en": "You are a good anesthetist.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "anesthetist",
+      "good"
+    ]
+  },
+  {
+    "id": "A009",
+    "en": "I am an architect.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "architect"
+    ]
+  },
+  {
+    "id": "A010",
+    "en": "Maria works as an architect.",
+    "speaker": "M",
+    "targets": {
+      "maria": "F"
+    },
+    "intent": "speaker is a man; Maria is a woman",
+    "covers": [
+      "architect"
+    ]
+  },
+  {
+    "id": "A011",
+    "en": "I am an archivist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "archivist"
+    ]
+  },
+  {
+    "id": "A012",
+    "en": "You are the archivist of this library.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "speaker is a woman; addressee is a man",
+    "covers": [
+      "archivist"
+    ]
+  },
+  {
+    "id": "A013",
+    "en": "I am an astronomer.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "astronomer"
+    ]
+  },
+  {
+    "id": "A014",
+    "en": "Are you an astronomer?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "astronomer"
+    ]
+  },
+  {
+    "id": "A015",
+    "en": "My sister is an astronomer.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; the sister is a woman",
+    "covers": [
+      "astronomer"
+    ]
+  },
+  {
+    "id": "A016",
+    "en": "I am an athlete.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "athlete"
+    ]
+  },
+  {
+    "id": "A017",
+    "en": "We are tired athletes.",
+    "speaker": "F",
+    "intent": "speaker is a woman (group of women)",
+    "covers": [
+      "athlete",
+      "tired"
+    ]
+  },
+  {
+    "id": "A018",
+    "en": "I am an auditor.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "auditor"
+    ]
+  },
+  {
+    "id": "A019",
+    "en": "Ana is the auditor of this company.",
+    "speaker": "M",
+    "targets": {
+      "ana": "F"
+    },
+    "intent": "speaker is a man; Ana is a woman",
+    "covers": [
+      "auditor"
+    ]
+  },
+  {
+    "id": "A020",
+    "en": "I am a baker.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "baker"
+    ]
+  },
+  {
+    "id": "A021",
+    "en": "You are a happy baker.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "baker",
+      "happy"
+    ]
+  },
+  {
+    "id": "A022",
+    "en": "I am a banker.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "banker"
+    ]
+  },
+  {
+    "id": "A023",
+    "en": "John is a banker.",
+    "speaker": "F",
+    "targets": {
+      "john": "M"
+    },
+    "intent": "speaker is a woman; John is a man",
+    "covers": [
+      "banker"
+    ]
+  },
+  {
+    "id": "A024",
+    "en": "I am a barber.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "barber"
+    ]
+  },
+  {
+    "id": "A025",
+    "en": "Are you a barber?",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "speaker is a woman; addressee is a woman",
+    "covers": [
+      "barber"
+    ]
+  },
+  {
+    "id": "A026",
+    "en": "I am a bartender.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "bartender"
+    ]
+  },
+  {
+    "id": "A027",
+    "en": "They are bartenders.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; the bartenders are women",
+    "covers": [
+      "bartender"
+    ]
+  },
+  {
+    "id": "A028",
+    "en": "I am a botanist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "botanist"
+    ]
+  },
+  {
+    "id": "A029",
+    "en": "Ioana is a tall botanist.",
+    "speaker": "M",
+    "targets": {
+      "ioana": "F"
+    },
+    "intent": "speaker is a man; Ioana is a woman",
+    "covers": [
+      "botanist",
+      "tall"
+    ]
+  },
+  {
+    "id": "A030",
+    "en": "I am a carpenter.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "carpenter"
+    ]
+  },
+  {
+    "id": "A031",
+    "en": "I was a carpenter.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "carpenter"
+    ]
+  },
+  {
+    "id": "A032",
+    "en": "I am a cashier.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "cashier"
+    ]
+  },
+  {
+    "id": "A033",
+    "en": "You are the cashier.",
+    "speaker": "M",
+    "addressee": "M",
+    "intent": "speaker is a man; addressee is a man",
+    "covers": [
+      "cashier"
+    ]
+  },
+  {
+    "id": "A034",
+    "en": "I am a chef.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "chef"
+    ]
+  },
+  {
+    "id": "A035",
+    "en": "I am a chef.",
+    "speaker": "avoid",
+    "intent": "speaker prefers no gender",
+    "covers": [
+      "chef"
+    ]
+  },
+  {
+    "id": "A036",
+    "en": "Are you a chef?",
+    "speaker": "M",
+    "addressee": "avoid",
+    "intent": "speaker is a man; addressee prefers no gender",
+    "covers": [
+      "chef"
+    ]
+  },
+  {
+    "id": "A037",
+    "en": "I am a chemist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "chemist"
+    ]
+  },
+  {
+    "id": "A038",
+    "en": "My sister is a chemist.",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "speaker is a woman; the sister is a woman",
+    "covers": [
+      "chemist"
+    ]
+  },
+  {
+    "id": "A039",
+    "en": "I am a coach.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "coach"
+    ]
+  },
+  {
+    "id": "A040",
+    "en": "You are a good coach.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "speaker is a woman; addressee is a man",
+    "covers": [
+      "coach",
+      "good"
+    ]
+  },
+  {
+    "id": "A041",
+    "en": "I am a composer.",
+    "speaker": "avoid",
+    "intent": "speaker prefers no gender",
+    "covers": [
+      "composer"
+    ]
+  },
+  {
+    "id": "A042",
+    "en": "Elena is a composer.",
+    "speaker": "M",
+    "targets": {
+      "elena": "F"
+    },
+    "intent": "speaker is a man; Elena is a woman",
+    "covers": [
+      "composer"
+    ]
+  },
+  {
+    "id": "A043",
+    "en": "I am a conductor.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "conductor"
+    ]
+  },
+  {
+    "id": "A044",
+    "en": "He was a conductor.",
+    "speaker": "F",
+    "intent": "speaker is a woman; the pronoun he marks a man and must stay masculine",
+    "covers": [
+      "conductor"
+    ]
+  },
+  {
+    "id": "A045",
+    "en": "I am a consultant.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "consultant"
+    ]
+  },
+  {
+    "id": "A046",
+    "en": "You are a consultant.",
+    "speaker": "both",
+    "addressee": "both",
+    "intent": "speaker is non-binary; addressee is non-binary (show both forms)",
+    "covers": [
+      "consultant"
+    ]
+  },
+  {
+    "id": "A047",
+    "en": "I am a dancer.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "dancer"
+    ]
+  },
+  {
+    "id": "A048",
+    "en": "You are a dancer.",
+    "speaker": "M",
+    "addressee": "avoid",
+    "intent": "speaker is a man; addressee prefers no gender",
+    "covers": [
+      "dancer"
+    ]
+  },
+  {
+    "id": "A049",
+    "en": "Maria is a happy dancer.",
+    "speaker": "F",
+    "targets": {
+      "maria": "F"
+    },
+    "intent": "speaker is a woman; Maria is a woman",
+    "covers": [
+      "dancer",
+      "happy"
+    ]
+  },
+  {
+    "id": "A050",
+    "en": "I am a dentist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "dentist"
+    ]
+  },
+  {
+    "id": "A051",
+    "en": "Are you the dentist?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "dentist"
+    ]
+  },
+  {
+    "id": "A052",
+    "en": "I am a designer.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "designer"
+    ]
+  },
+  {
+    "id": "A053",
+    "en": "Alex is a designer.",
+    "speaker": "M",
+    "targets": {
+      "alex": "F"
+    },
+    "intent": "speaker is a man; Alex is a woman",
+    "covers": [
+      "designer"
+    ]
+  },
+  {
+    "id": "A054",
+    "en": "I am a detective.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "detective"
+    ]
+  },
+  {
+    "id": "A055",
+    "en": "You were a good detective.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "detective",
+      "good"
+    ]
+  },
+  {
+    "id": "A056",
+    "en": "I am a diplomat.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "diplomat"
+    ]
+  },
+  {
+    "id": "A057",
+    "en": "We are diplomats.",
+    "speaker": "both",
+    "intent": "speaker is non-binary (show both forms)",
+    "covers": [
+      "diplomat"
+    ]
+  },
+  {
+    "id": "A058",
+    "en": "I am the director of this hospital.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "director"
+    ]
+  },
+  {
+    "id": "A059",
+    "en": "Ana is a director.",
+    "speaker": "M",
+    "targets": {
+      "ana": "F"
+    },
+    "intent": "speaker is a man; Ana is a woman",
+    "covers": [
+      "director"
+    ]
+  },
+  {
+    "id": "A060",
+    "en": "I am a doctor.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "doctor"
+    ]
+  },
+  {
+    "id": "A061",
+    "en": "Are you a doctor?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "doctor"
+    ]
+  },
+  {
+    "id": "A062",
+    "en": "My mother is a tired doctor.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; the mother is a woman",
+    "covers": [
+      "doctor",
+      "tired"
+    ]
+  },
+  {
+    "id": "A063",
+    "en": "I am a driver.",
+    "speaker": "avoid",
+    "intent": "speaker prefers no gender",
+    "covers": [
+      "driver"
+    ]
+  },
+  {
+    "id": "A064",
+    "en": "I was a driver.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "driver"
+    ]
+  },
+  {
+    "id": "A065",
+    "en": "I am an economist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "economist"
+    ]
+  },
+  {
+    "id": "A066",
+    "en": "Sam is an economist.",
+    "speaker": "F",
+    "targets": {
+      "sam": "F"
+    },
+    "intent": "speaker is a woman; Sam is a woman",
+    "covers": [
+      "economist"
+    ]
+  },
+  {
+    "id": "A067",
+    "en": "I am an editor.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "editor"
+    ]
+  },
+  {
+    "id": "A068",
+    "en": "You are the editor of this magazine.",
+    "speaker": "M",
+    "addressee": "avoid",
+    "intent": "speaker is a man; addressee prefers no gender",
+    "covers": [
+      "editor"
+    ]
+  },
+  {
+    "id": "A069",
+    "en": "I am an electrician.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "electrician"
+    ]
+  },
+  {
+    "id": "A070",
+    "en": "I am an electrician.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "electrician"
+    ]
+  },
+  {
+    "id": "A071",
+    "en": "I am an engineer.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "engineer"
+    ]
+  },
+  {
+    "id": "A072",
+    "en": "Are you an engineer?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "engineer"
+    ]
+  },
+  {
+    "id": "A073",
+    "en": "Maria works as an engineer.",
+    "speaker": "M",
+    "targets": {
+      "maria": "F"
+    },
+    "intent": "speaker is a man; Maria is a woman",
+    "covers": [
+      "engineer"
+    ]
+  },
+  {
+    "id": "A074",
+    "en": "We are engineers.",
+    "speaker": "F",
+    "intent": "speaker is a woman (group of women)",
+    "covers": [
+      "engineer"
+    ]
+  },
+  {
+    "id": "A075",
+    "en": "I am a gardener.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "gardener"
+    ]
+  },
+  {
+    "id": "A076",
+    "en": "My neighbour is a gardener.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; the neighbour is a woman",
+    "covers": [
+      "gardener",
+      "neighbour"
+    ]
+  },
+  {
+    "id": "A077",
+    "en": "I am a geologist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "geologist"
+    ]
+  },
+  {
+    "id": "A078",
+    "en": "You are a geologist.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "geologist"
+    ]
+  },
+  {
+    "id": "A079",
+    "en": "Elena is a geologist.",
+    "speaker": "F",
+    "targets": {
+      "elena": "F"
+    },
+    "intent": "speaker is a woman; Elena is a woman",
+    "covers": [
+      "geologist"
+    ]
+  },
+  {
+    "id": "A080",
+    "en": "I am a hairdresser.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "hairdresser"
+    ]
+  },
+  {
+    "id": "A081",
+    "en": "Are you a hairdresser?",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "speaker is a woman; addressee is a woman",
+    "covers": [
+      "hairdresser"
+    ]
+  },
+  {
+    "id": "A082",
+    "en": "I am an inspector.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "inspector"
+    ]
+  },
+  {
+    "id": "A083",
+    "en": "You are the inspector.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "inspector"
+    ]
+  },
+  {
+    "id": "A084",
+    "en": "I am a journalist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "journalist"
+    ]
+  },
+  {
+    "id": "A085",
+    "en": "I was a journalist.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "journalist"
+    ]
+  },
+  {
+    "id": "A086",
+    "en": "I am a judge.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "judge"
+    ]
+  },
+  {
+    "id": "A087",
+    "en": "Ana is a judge.",
+    "speaker": "M",
+    "targets": {
+      "ana": "F"
+    },
+    "intent": "speaker is a man; Ana is a woman",
+    "covers": [
+      "judge"
+    ]
+  },
+  {
+    "id": "A088",
+    "en": "I am a lawyer.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "lawyer"
+    ]
+  },
+  {
+    "id": "A089",
+    "en": "You are a good lawyer.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "lawyer",
+      "good"
+    ]
+  },
+  {
+    "id": "A090",
+    "en": "I am a lecturer.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "lecturer"
+    ]
+  },
+  {
+    "id": "A091",
+    "en": "Are you a lecturer?",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "speaker is a woman; addressee is a man",
+    "covers": [
+      "lecturer"
+    ]
+  },
+  {
+    "id": "A092",
+    "en": "I am a librarian.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "librarian"
+    ]
+  },
+  {
+    "id": "A093",
+    "en": "I am the librarian of this school.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "librarian"
+    ]
+  },
+  {
+    "id": "A094",
+    "en": "I am a mathematician.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "mathematician"
+    ]
+  },
+  {
+    "id": "A095",
+    "en": "Jordan is a mathematician.",
+    "speaker": "M",
+    "targets": {
+      "jordan": "F"
+    },
+    "intent": "speaker is a man; Jordan is a woman",
+    "covers": [
+      "mathematician"
+    ]
+  },
+  {
+    "id": "A096",
+    "en": "I am a minister.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "minister"
+    ]
+  },
+  {
+    "id": "A097",
+    "en": "You are the minister of health.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "minister"
+    ]
+  },
+  {
+    "id": "A098",
+    "en": "Ioana was a minister.",
+    "speaker": "M",
+    "targets": {
+      "ioana": "F"
+    },
+    "intent": "speaker is a man; Ioana is a woman",
+    "covers": [
+      "minister"
+    ]
+  },
+  {
+    "id": "A099",
+    "en": "I am a musician.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "musician"
+    ]
+  },
+  {
+    "id": "A100",
+    "en": "They are musicians.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; the musicians are women",
+    "covers": [
+      "musician"
+    ]
+  },
+  {
+    "id": "A101",
+    "en": "I am a nurse.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "nurse"
+    ]
+  },
+  {
+    "id": "A102",
+    "en": "I am a tired nurse.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "nurse",
+      "tired"
+    ]
+  },
+  {
+    "id": "A103",
+    "en": "Are you a nurse?",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "speaker is a woman; addressee is a man",
+    "covers": [
+      "nurse"
+    ]
+  },
+  {
+    "id": "A104",
+    "en": "I am a nutritionist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "nutritionist"
+    ]
+  },
+  {
+    "id": "A105",
+    "en": "You are a nutritionist.",
+    "speaker": "M",
+    "addressee": "both",
+    "intent": "speaker is a man; addressee is non-binary (show both forms)",
+    "covers": [
+      "nutritionist"
+    ]
+  },
+  {
+    "id": "A106",
+    "en": "I am an optician.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "optician"
+    ]
+  },
+  {
+    "id": "A107",
+    "en": "My brother is an optician.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "speaker is a woman; the brother is a man",
+    "covers": [
+      "optician"
+    ]
+  },
+  {
+    "id": "A108",
+    "en": "I am a painter.",
+    "speaker": "avoid",
+    "intent": "speaker prefers no gender",
+    "covers": [
+      "painter"
+    ]
+  },
+  {
+    "id": "A109",
+    "en": "Maria is a painter.",
+    "speaker": "M",
+    "targets": {
+      "maria": "F"
+    },
+    "intent": "speaker is a man; Maria is a woman",
+    "covers": [
+      "painter"
+    ]
+  },
+  {
+    "id": "A110",
+    "en": "I am a pharmacist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "pharmacist"
+    ]
+  },
+  {
+    "id": "A111",
+    "en": "Are you the pharmacist?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "pharmacist"
+    ]
+  },
+  {
+    "id": "A112",
+    "en": "I am a philologist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "philologist"
+    ]
+  },
+  {
+    "id": "A113",
+    "en": "You are a philologist.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "philologist"
+    ]
+  },
+  {
+    "id": "A114",
+    "en": "My sister is a philologist.",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "speaker is a woman; the sister is a woman",
+    "covers": [
+      "philologist"
+    ]
+  },
+  {
+    "id": "A115",
+    "en": "I am a photographer.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "photographer"
+    ]
+  },
+  {
+    "id": "A116",
+    "en": "Are you a photographer?",
+    "speaker": "F",
+    "addressee": "avoid",
+    "intent": "speaker is a woman; addressee prefers no gender",
+    "covers": [
+      "photographer"
+    ]
+  },
+  {
+    "id": "A117",
+    "en": "I am a physician.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "physician"
+    ]
+  },
+  {
+    "id": "A118",
+    "en": "You are a good physician.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "physician",
+      "good"
+    ]
+  },
+  {
+    "id": "A119",
+    "en": "Elena works as a physician.",
+    "speaker": "M",
+    "targets": {
+      "elena": "F"
+    },
+    "intent": "speaker is a man; Elena is a woman",
+    "covers": [
+      "physician"
+    ]
+  },
+  {
+    "id": "A120",
+    "en": "I am a physicist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "physicist"
+    ]
+  },
+  {
+    "id": "A121",
+    "en": "John is a physicist.",
+    "speaker": "F",
+    "targets": {
+      "john": "M"
+    },
+    "intent": "speaker is a woman; John is a man",
+    "covers": [
+      "physicist"
+    ]
+  },
+  {
+    "id": "A122",
+    "en": "I am a physiotherapist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "physiotherapist"
+    ]
+  },
+  {
+    "id": "A123",
+    "en": "Are you a physiotherapist?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "physiotherapist"
+    ]
+  },
+  {
+    "id": "A124",
+    "en": "I am a plumber.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "plumber"
+    ]
+  },
+  {
+    "id": "A125",
+    "en": "I am a plumber.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "plumber"
+    ]
+  },
+  {
+    "id": "A126",
+    "en": "I am a poet.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "poet"
+    ]
+  },
+  {
+    "id": "A127",
+    "en": "You are a happy poet.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "poet",
+      "happy"
+    ]
+  },
+  {
+    "id": "A128",
+    "en": "I am a police officer.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "police officer"
+    ]
+  },
+  {
+    "id": "A129",
+    "en": "Ana is a police officer.",
+    "speaker": "M",
+    "targets": {
+      "ana": "F"
+    },
+    "intent": "speaker is a man; Ana is a woman",
+    "covers": [
+      "police officer"
+    ]
+  },
+  {
+    "id": "A130",
+    "en": "I am a porter.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "porter"
+    ]
+  },
+  {
+    "id": "A131",
+    "en": "I was a porter.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "porter"
+    ]
+  },
+  {
+    "id": "A132",
+    "en": "I am a presenter.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "presenter"
+    ]
+  },
+  {
+    "id": "A133",
+    "en": "You are a presenter.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "speaker is a woman; addressee is a man",
+    "covers": [
+      "presenter"
+    ]
+  },
+  {
+    "id": "A134",
+    "en": "I am a producer.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "producer"
+    ]
+  },
+  {
+    "id": "A135",
+    "en": "Maria is a producer.",
+    "speaker": "M",
+    "targets": {
+      "maria": "F"
+    },
+    "intent": "speaker is a man; Maria is a woman",
+    "covers": [
+      "producer"
+    ]
+  },
+  {
+    "id": "A136",
+    "en": "I am a programmer.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "programmer"
+    ]
+  },
+  {
+    "id": "A137",
+    "en": "I am a programmer.",
+    "speaker": "avoid",
+    "intent": "speaker prefers no gender",
+    "covers": [
+      "programmer"
+    ]
+  },
+  {
+    "id": "A138",
+    "en": "Are you a programmer?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "programmer"
+    ]
+  },
+  {
+    "id": "A139",
+    "en": "I am a prosecutor.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "prosecutor"
+    ]
+  },
+  {
+    "id": "A140",
+    "en": "You are the prosecutor.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "prosecutor"
+    ]
+  },
+  {
+    "id": "A141",
+    "en": "I am a psychologist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "psychologist"
+    ]
+  },
+  {
+    "id": "A142",
+    "en": "Are you a psychologist?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "psychologist"
+    ]
+  },
+  {
+    "id": "A143",
+    "en": "Ioana works as a psychologist.",
+    "speaker": "F",
+    "targets": {
+      "ioana": "F"
+    },
+    "intent": "speaker is a woman; Ioana is a woman",
+    "covers": [
+      "psychologist"
+    ]
+  },
+  {
+    "id": "A144",
+    "en": "I am a radiologist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "radiologist"
+    ]
+  },
+  {
+    "id": "A145",
+    "en": "My mother is a radiologist.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; the mother is a woman",
+    "covers": [
+      "radiologist"
+    ]
+  },
+  {
+    "id": "A146",
+    "en": "I am a receptionist.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "receptionist"
+    ]
+  },
+  {
+    "id": "A147",
+    "en": "Are you the receptionist?",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "speaker is a woman; addressee is a woman",
+    "covers": [
+      "receptionist"
+    ]
+  },
+  {
+    "id": "A148",
+    "en": "I am a recruiter.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "recruiter"
+    ]
+  },
+  {
+    "id": "A149",
+    "en": "You are a recruiter.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "recruiter"
+    ]
+  },
+  {
+    "id": "A150",
+    "en": "I am a sailor.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "sailor"
+    ]
+  },
+  {
+    "id": "A151",
+    "en": "I was a sailor.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "sailor"
+    ]
+  },
+  {
+    "id": "A152",
+    "en": "I am a scientist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "scientist"
+    ]
+  },
+  {
+    "id": "A153",
+    "en": "Elena is a tall scientist.",
+    "speaker": "M",
+    "targets": {
+      "elena": "F"
+    },
+    "intent": "speaker is a man; Elena is a woman",
+    "covers": [
+      "scientist",
+      "tall"
+    ]
+  },
+  {
+    "id": "A154",
+    "en": "I am a screenwriter.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "screenwriter"
+    ]
+  },
+  {
+    "id": "A155",
+    "en": "Are you a screenwriter?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "screenwriter"
+    ]
+  },
+  {
+    "id": "A156",
+    "en": "I am a sculptor.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "sculptor"
+    ]
+  },
+  {
+    "id": "A157",
+    "en": "Maria was a sculptor.",
+    "speaker": "M",
+    "targets": {
+      "maria": "F"
+    },
+    "intent": "speaker is a man; Maria is a woman",
+    "covers": [
+      "sculptor"
+    ]
+  },
+  {
+    "id": "A158",
+    "en": "I am a secretary.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "secretary"
+    ]
+  },
+  {
+    "id": "A159",
+    "en": "You are a good secretary.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "speaker is a woman; addressee is a man",
+    "covers": [
+      "secretary",
+      "good"
+    ]
+  },
+  {
+    "id": "A160",
+    "en": "I am a singer.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "singer"
+    ]
+  },
+  {
+    "id": "A161",
+    "en": "I am a singer.",
+    "speaker": "avoid",
+    "intent": "speaker prefers no gender",
+    "covers": [
+      "singer"
+    ]
+  },
+  {
+    "id": "A162",
+    "en": "Ana is a singer.",
+    "speaker": "M",
+    "targets": {
+      "ana": "F"
+    },
+    "intent": "speaker is a man; Ana is a woman",
+    "covers": [
+      "singer"
+    ]
+  },
+  {
+    "id": "A163",
+    "en": "I am a statistician.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "statistician"
+    ]
+  },
+  {
+    "id": "A164",
+    "en": "You are a statistician.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "statistician"
+    ]
+  },
+  {
+    "id": "A165",
+    "en": "I am a surveyor.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "surveyor"
+    ]
+  },
+  {
+    "id": "A166",
+    "en": "My brother is a surveyor.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "speaker is a woman; the brother is a man",
+    "covers": [
+      "surveyor"
+    ]
+  },
+  {
+    "id": "A167",
+    "en": "I am a tailor.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "tailor"
+    ]
+  },
+  {
+    "id": "A168",
+    "en": "Are you a tailor?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "tailor"
+    ]
+  },
+  {
+    "id": "A169",
+    "en": "I am a teacher.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "teacher"
+    ]
+  },
+  {
+    "id": "A170",
+    "en": "I am a teacher.",
+    "speaker": "avoid",
+    "intent": "speaker prefers no gender",
+    "covers": [
+      "teacher"
+    ]
+  },
+  {
+    "id": "A171",
+    "en": "You are a good teacher.",
+    "speaker": "M",
+    "addressee": "avoid",
+    "intent": "speaker is a man; addressee prefers no gender",
+    "covers": [
+      "teacher",
+      "good"
+    ]
+  },
+  {
+    "id": "A172",
+    "en": "We are teachers.",
+    "speaker": "F",
+    "intent": "speaker is a woman (group of women)",
+    "covers": [
+      "teacher"
+    ]
+  },
+  {
+    "id": "A173",
+    "en": "I am a technician.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "technician"
+    ]
+  },
+  {
+    "id": "A174",
+    "en": "John works as a technician.",
+    "speaker": "F",
+    "targets": {
+      "john": "M"
+    },
+    "intent": "speaker is a woman; John is a man",
+    "covers": [
+      "technician"
+    ]
+  },
+  {
+    "id": "A175",
+    "en": "I am a therapist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "therapist"
+    ]
+  },
+  {
+    "id": "A176",
+    "en": "Are you a therapist?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "therapist"
+    ]
+  },
+  {
+    "id": "A177",
+    "en": "I am a translator.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "translator"
+    ]
+  },
+  {
+    "id": "A178",
+    "en": "I am a translator.",
+    "speaker": "avoid",
+    "intent": "speaker prefers no gender",
+    "covers": [
+      "translator"
+    ]
+  },
+  {
+    "id": "A179",
+    "en": "I am a veterinarian.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "veterinarian"
+    ]
+  },
+  {
+    "id": "A180",
+    "en": "You are a veterinarian.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "veterinarian"
+    ]
+  },
+  {
+    "id": "A181",
+    "en": "I am a waiter.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "waiter"
+    ]
+  },
+  {
+    "id": "A182",
+    "en": "Are you the waiter?",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "speaker is a woman; addressee is a man",
+    "covers": [
+      "waiter"
+    ]
+  },
+  {
+    "id": "A183",
+    "en": "I am a welder.",
+    "speaker": "M",
+    "intent": "speaker is a man",
+    "covers": [
+      "welder"
+    ]
+  },
+  {
+    "id": "A184",
+    "en": "I am a welder.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "welder"
+    ]
+  },
+  {
+    "id": "A185",
+    "en": "I am a zoologist.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "zoologist"
+    ]
+  },
+  {
+    "id": "A186",
+    "en": "You are a zoologist.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "zoologist"
+    ]
+  },
+  {
+    "id": "A187",
+    "en": "Maria is a zoologist.",
+    "speaker": "M",
+    "targets": {
+      "maria": "F"
+    },
+    "intent": "speaker is a man; Maria is a woman",
+    "covers": [
+      "zoologist"
+    ]
+  },
+  {
+    "id": "A188",
+    "en": "I am tired.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "tired"
+    ]
+  },
+  {
+    "id": "A189",
+    "en": "Are you tired?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "tired"
+    ]
+  },
+  {
+    "id": "A190",
+    "en": "I am happy.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "happy"
+    ]
+  },
+  {
+    "id": "A191",
+    "en": "We are happy.",
+    "speaker": "both",
+    "intent": "speaker is non-binary (show both forms)",
+    "covers": [
+      "happy"
+    ]
+  },
+  {
+    "id": "A192",
+    "en": "I am tall.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "tall"
+    ]
+  },
+  {
+    "id": "A193",
+    "en": "You are very tall.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "speaker is a woman; addressee is a man",
+    "covers": [
+      "tall"
+    ]
+  },
+  {
+    "id": "A194",
+    "en": "You are a good friend.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "good",
+      "friend"
+    ]
+  },
+  {
+    "id": "A195",
+    "en": "I am big now.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "big"
+    ]
+  },
+  {
+    "id": "A196",
+    "en": "You are a big man.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "speaker is a woman; addressee is a man",
+    "covers": [
+      "big"
+    ]
+  },
+  {
+    "id": "A197",
+    "en": "I am ready.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "ready"
+    ]
+  },
+  {
+    "id": "A198",
+    "en": "Are you ready?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "ready"
+    ]
+  },
+  {
+    "id": "A199",
+    "en": "You are my best friend.",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "speaker is a woman; addressee is a woman",
+    "covers": [
+      "friend",
+      "good"
+    ]
+  },
+  {
+    "id": "A200",
+    "en": "I am your friend.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "friend"
+    ]
+  },
+  {
+    "id": "A201",
+    "en": "Maya is my friend.",
+    "speaker": "M",
+    "targets": {
+      "maya": "F"
+    },
+    "intent": "speaker is a man; Maya is a woman",
+    "covers": [
+      "friend"
+    ]
+  },
+  {
+    "id": "A202",
+    "en": "Josh is my friend and Maya is also my friend.",
+    "speaker": "F",
+    "targets": {
+      "josh": "M",
+      "maya": "F"
+    },
+    "intent": "speaker is a woman; Josh is a man; Maya is a woman",
+    "covers": [
+      "friend"
+    ]
+  },
+  {
+    "id": "A203",
+    "en": "I am your colleague.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "colleague"
+    ]
+  },
+  {
+    "id": "A204",
+    "en": "You are my colleague.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "colleague"
+    ]
+  },
+  {
+    "id": "A205",
+    "en": "Ana is my new colleague.",
+    "speaker": "M",
+    "targets": {
+      "ana": "F"
+    },
+    "intent": "speaker is a man; Ana is a woman",
+    "covers": [
+      "colleague"
+    ]
+  },
+  {
+    "id": "A206",
+    "en": "We are colleagues.",
+    "speaker": "F",
+    "intent": "speaker is a woman (group of women)",
+    "covers": [
+      "colleague"
+    ]
+  },
+  {
+    "id": "A207",
+    "en": "I am your neighbour.",
+    "speaker": "F",
+    "intent": "speaker is a woman",
+    "covers": [
+      "neighbour"
+    ]
+  },
+  {
+    "id": "A208",
+    "en": "You are my neighbour.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "speaker is a man; addressee is a woman",
+    "covers": [
+      "neighbour"
+    ]
+  },
+  {
+    "id": "A209",
+    "en": "They are our neighbours.",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "speaker is a woman; the neighbours are women",
+    "covers": [
+      "neighbour"
+    ]
+  },
+  {
+    "id": "A210",
+    "en": "You are a friend and a colleague.",
+    "speaker": "both",
+    "addressee": "both",
+    "intent": "speaker is non-binary; addressee is non-binary (show both forms)",
+    "covers": [
+      "friend",
+      "colleague"
+    ]
+  }
+]

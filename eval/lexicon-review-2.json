@@ -1,0 +1,574 @@
+[
+  {
+    "index": 43,
+    "en": "mathematician",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 44,
+    "en": "minister",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "pluralF",
+        "current": null,
+        "proposed": "ministre",
+        "reason": "DOOM3 records '+ministră (fam.) (colocv.) s. f., g.-d. art. ministrei; pl. ministre' with a full DOOM3 flexion table, so the plural is known.",
+        "source": "https://dexonline.ro/definitie/ministră"
+      },
+      {
+        "field": "formsF",
+        "current": null,
+        "proposed": "{\"sg.na.indef\":\"ministră\",\"sg.na.def\":\"ministra\",\"sg.gd.indef\":\"ministre\",\"sg.gd.def\":\"ministrei\",\"pl.na.indef\":\"ministre\",\"pl.na.def\":\"ministrele\",\"pl.gd.indef\":\"ministre\",\"pl.gd.def\":\"ministrelor\"}",
+        "reason": "DOOM3 flexion table: ministră/ministra; pl. ministre/ministrele; g.-d. sg. ministre/ministrei; g.-d. pl. ministre/ministrelor.",
+        "source": "https://dexonline.ro/definitie/ministră"
+      },
+      {
+        "field": "note",
+        "current": "Wiktionary records no feminine; 'doamna ministru' still standard in official address",
+        "proposed": "DOOM3 (2021) admits 'ministră' but marks it (fam.)(colocv.): the feminine is used only in familiar, colloquial wording; 'doamna ministru' remains the formal standard",
+        "reason": "The note cites only Wiktionary's absence; DOOM3 is the stronger source and admits the form with a register restriction (dexonline comment: 'Forma pentru feminin se folosește doar în formulări familiare, colocviale').",
+        "source": "https://dexonline.ro/definitie/ministră"
+      }
+    ],
+    "statusComment": "'contested' is fair, but the basis is better stated as register: DOOM3 accepts ministră only as colloquial/familiar."
+  },
+  {
+    "index": 45,
+    "en": "musician",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 46,
+    "en": "nurse",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 47,
+    "en": "nutritionist",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 48,
+    "en": "optician",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 49,
+    "en": "painter",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 50,
+    "en": "pharmacist",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 51,
+    "en": "philologist",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "pluralF",
+        "current": null,
+        "proposed": "filologe",
+        "reason": "DOOM3: '!filologă (livr.)/(colocv.) filoloagă s. f., g.-d. art. filologei/filoloagei; pl. filologe/filoloage'.",
+        "source": "https://dexonline.ro/definitie/filologă"
+      },
+      {
+        "field": "formsF",
+        "current": null,
+        "proposed": "{\"sg.na.indef\":\"filologă\",\"sg.na.def\":\"filologa\",\"sg.gd.indef\":\"filologe\",\"sg.gd.def\":\"filologei\",\"pl.na.indef\":\"filologe\",\"pl.na.def\":\"filologele\",\"pl.gd.indef\":\"filologe\",\"pl.gd.def\":\"filologelor\"}",
+        "reason": "Follows from the DOOM3 entry (g.-d. art. filologei, pl. filologe); the fAlt paradigm would be filoloagă/filoloagei/filoloage.",
+        "source": "https://dexonline.ro/definitie/filologă"
+      },
+      {
+        "field": "note",
+        "current": "DOOM3 (2021) admits both spellings -- the canonical o->oa case",
+        "proposed": "DOOM3 (2021): filologă (livresc) / filoloagă (colocvial) -- register doublets, not spelling variants",
+        "reason": "DOOM3 labels filologă bookish and filoloagă colloquial rather than presenting two spellings; '!' marks a norm change in DOOM3.",
+        "source": "https://dexonline.ro/definitie/filologă"
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "en": "photographer",
+    "verdict": "ok",
+    "issues": [],
+    "statusComment": "'attested' (single source) understates it: DOOM3 lists 'fotografă' as a plain s. f. with no register mark (https://dexonline.ro/definitie/fotografă); linguistically it is normative."
+  },
+  {
+    "index": 53,
+    "en": "physician",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "f",
+        "current": "medică",
+        "proposed": "keep only if usage evidence is documented; otherwise prefer 'doctoriță'",
+        "reason": "DOOM3 has no feminine noun 'medică'. The only 'medică' it records is the feminine of the adjective medic1 (math., 'median'): 'medic1 (mat.) adj. m., pl. medici; f. medică, pl. medice'. The noun is 'medic2 s. m.' only. kaikki's form may stem from the homonymous adjective.",
+        "source": "https://dexonline.ro/definitie/medic"
+      },
+      {
+        "field": "fAlt",
+        "current": null,
+        "proposed": "doctoriță",
+        "reason": "DEX '09 / MDA2: 'DOCTORIȚĂ, doctorițe, s. f. Femeie medic.' -- the dictionary-recognised feminine for a woman physician.",
+        "source": "https://dexonline.ro/definitie/doctoriță"
+      },
+      {
+        "field": "note",
+        "current": "kaikki records 'medică'; 'doamna doctor' competes in usage",
+        "proposed": "'medică' is absent from DOOM3 as a noun (only adj. medic1 'median'); usage splits between 'medic' for women, 'doamna doctor', and 'doctoriță' (DEX)",
+        "reason": "The note should state that the normative dictionary does not sanction the form.",
+        "source": "https://dexonline.ro/definitie/medic"
+      }
+    ],
+    "statusComment": "'contested' is fair; per DOOM3 the form is not normative at all."
+  },
+  {
+    "index": 54,
+    "en": "physicist",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 55,
+    "en": "physiotherapist",
+    "verdict": "ok",
+    "issues": [],
+    "statusComment": "'attested' (single source) understates it: DOOM3 lists 'kinetoterapeută' as a plain s. f. with no register mark (https://dexonline.ro/definitie/kinetoterapeută); linguistically it is normative."
+  },
+  {
+    "index": 56,
+    "en": "plumber",
+    "verdict": "ok",
+    "issues": [],
+    "statusComment": "'attested' (single source) understates it: DOOM3 lists 'instalatoare' as a plain s. f. with no register mark (https://dexonline.ro/definitie/instalatoare); linguistically it is normative."
+  },
+  {
+    "index": 57,
+    "en": "poet",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 58,
+    "en": "police officer",
+    "verdict": "ok",
+    "issues": [],
+    "statusComment": "'attested' understates it: DOOM3 lists 'polițist adj. m., s. m., pl. polițiști; adj. f., s. f. polițistă, pl. polițiste' (https://dexonline.ro/definitie/polițistă); normative."
+  },
+  {
+    "index": 59,
+    "en": "porter",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "f",
+        "current": "portăriță",
+        "proposed": "portăreasă",
+        "reason": "DOOM3 lists 'portăreasă s. f., g.-d. art. portăresei; pl. portărese'. 'portăriță' is not in DOOM3; MDA2 marks it (Înv.) obsolete = portăreasă.",
+        "source": "https://dexonline.ro/definitie/portăreasă ; https://dexonline.ro/definitie/portăriță"
+      },
+      {
+        "field": "fAlt",
+        "current": null,
+        "proposed": "portăriță",
+        "reason": "Keep only as an obsolete variant (MDA2: Înv.).",
+        "source": "https://dexonline.ro/definitie/portăriță"
+      },
+      {
+        "field": "pluralF",
+        "current": "portărițe",
+        "proposed": "portărese",
+        "reason": "Follows from switching f to portăreasă (DOOM3 pl. portărese).",
+        "source": "https://dexonline.ro/definitie/portăreasă"
+      },
+      {
+        "field": "formsF",
+        "current": "{\"pl.gd.def\":\"portărițelor\",\"pl.gd.indef\":\"portărițe\",\"pl.na.def\":\"portărițele\",\"pl.na.indef\":\"portărițe\",\"sg.gd.def\":\"portăriței\",\"sg.gd.indef\":\"portărițe\",\"sg.na.def\":\"portărița\",\"sg.na.indef\":\"portăriță\"}",
+        "proposed": "{\"sg.na.indef\":\"portăreasă\",\"sg.na.def\":\"portăreasa\",\"sg.gd.indef\":\"portărese\",\"sg.gd.def\":\"portăresei\",\"pl.na.indef\":\"portărese\",\"pl.na.def\":\"portăresele\",\"pl.gd.indef\":\"portărese\",\"pl.gd.def\":\"portăreselor\"}",
+        "reason": "dexonline flexion table for portăreasă (F12). The current portăriță cells are internally correct but for an obsolete lemma.",
+        "source": "https://dexonline.ro/definitie/portăreasă"
+      },
+      {
+        "field": "en",
+        "current": "porter",
+        "proposed": "'doorkeeper' / 'doorman' (or keep 'porter' with a note)",
+        "reason": "'portar' is a doorkeeper (also goalkeeper); a luggage porter is 'hamal' (DOOM3 'hamal s. m., pl. hamali'). English 'porter' is ambiguous between the two.",
+        "source": "https://dexonline.ro/definitie/hamal"
+      }
+    ],
+    "statusComment": "Once f is portăreasă, 'normative' fits (DOOM3, unmarked)."
+  },
+  {
+    "index": 60,
+    "en": "presenter",
+    "verdict": "ok",
+    "issues": [],
+    "statusComment": "'attested' (single source) understates it: DOOM3 lists 'prezentatoare' as a plain s. f. with no register mark (https://dexonline.ro/definitie/prezentatoare); linguistically it is normative."
+  },
+  {
+    "index": 61,
+    "en": "producer",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "pluralF",
+        "current": null,
+        "proposed": "producătoare",
+        "reason": "formsF is filled (pl.na.indef 'producătoare') but pluralF is null -- an internal inconsistency. DOOM3: 'producător adj. m., s. m., pl. producători; adj. f., s. f. sg. și pl. producătoare'.",
+        "source": "https://dexonline.ro/definitie/producătoare"
+      }
+    ]
+  },
+  {
+    "index": 62,
+    "en": "programmer",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 63,
+    "en": "prosecutor",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "pluralF",
+        "current": null,
+        "proposed": "procuroare",
+        "reason": "DOOM3 (new entry, marked +): '+procuroare s. f., g.-d. art. procuroarei; pl. procuroare'.",
+        "source": "https://dexonline.ro/definitie/procuroare"
+      },
+      {
+        "field": "formsF",
+        "current": null,
+        "proposed": "{\"sg.na.indef\":\"procuroare\",\"sg.na.def\":\"procuroarea\",\"sg.gd.indef\":\"procuroare\",\"sg.gd.def\":\"procuroarei\",\"pl.na.indef\":\"procuroare\",\"pl.na.def\":\"procuroarele\",\"pl.gd.indef\":\"procuroare\",\"pl.gd.def\":\"procuroarelor\"}",
+        "reason": "g.-d. art. procuroarei and pl. procuroare per DOOM3; remaining cells follow the same F103 pattern dexonline shows for recrutoare/instalatoare.",
+        "source": "https://dexonline.ro/definitie/procuroare"
+      }
+    ],
+    "statusComment": "DOOM3 (2021) added 'procuroare' without a register mark, so it is normative; 'attested' understates it (though 'doamna procuror' still competes in usage)."
+  },
+  {
+    "index": 64,
+    "en": "psychologist",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "f",
+        "current": "psiholoagă",
+        "proposed": "psihologă",
+        "reason": "DOOM3 headword: '!psihologă (livr.)/(colocv.) psiholoagă'. The bookish (standard written) form is psihologă; psiholoagă is colloquial, and DOOM3 cross-refers 'psiholoagă v. psihologă'.",
+        "source": "https://dexonline.ro/definitie/psihologă"
+      },
+      {
+        "field": "fAlt",
+        "current": "psihologă",
+        "proposed": "psiholoagă",
+        "reason": "Colloquial variant per DOOM3.",
+        "source": "https://dexonline.ro/definitie/psihologă"
+      },
+      {
+        "field": "pluralF",
+        "current": null,
+        "proposed": "psihologe",
+        "reason": "DOOM3 gives pl. psihologe/psiholoage.",
+        "source": "https://dexonline.ro/definitie/psihologă"
+      },
+      {
+        "field": "formsF",
+        "current": null,
+        "proposed": "{\"sg.na.indef\":\"psihologă\",\"sg.na.def\":\"psihologa\",\"sg.gd.indef\":\"psihologe\",\"sg.gd.def\":\"psihologei\",\"pl.na.indef\":\"psihologe\",\"pl.na.def\":\"psihologele\",\"pl.gd.indef\":\"psihologe\",\"pl.gd.def\":\"psihologelor\"}",
+        "reason": "DOOM3 g.-d. art. psihologei, pl. psihologe; remaining cells follow F1.",
+        "source": "https://dexonline.ro/definitie/psihologă"
+      },
+      {
+        "field": "note",
+        "current": "sources differ by the o->oa breaking; DOOM3 admits both spellings",
+        "proposed": "DOOM3 (2021): psihologă (livresc) / psiholoagă (colocvial) -- register doublets",
+        "reason": "DOOM3 labels the two by register, not as two spellings.",
+        "source": "https://dexonline.ro/definitie/psihologă"
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "en": "radiologist",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "f",
+        "current": "radioloagă",
+        "proposed": "radiologă",
+        "reason": "DOOM3 headword: '!radiologă (livr.)/(colocv.) radioloagă'. The bookish (standard written) form is radiologă; radioloagă is colloquial, and DOOM3 cross-refers 'radioloagă v. radiologă'.",
+        "source": "https://dexonline.ro/definitie/radiologă"
+      },
+      {
+        "field": "fAlt",
+        "current": null,
+        "proposed": "radioloagă",
+        "reason": "Colloquial variant per DOOM3.",
+        "source": "https://dexonline.ro/definitie/radiologă"
+      },
+      {
+        "field": "pluralF",
+        "current": null,
+        "proposed": "radiologe",
+        "reason": "DOOM3 gives pl. radiologe/radioloage.",
+        "source": "https://dexonline.ro/definitie/radiologă"
+      },
+      {
+        "field": "formsF",
+        "current": null,
+        "proposed": "{\"sg.na.indef\":\"radiologă\",\"sg.na.def\":\"radiologa\",\"sg.gd.indef\":\"radiologe\",\"sg.gd.def\":\"radiologei\",\"pl.na.indef\":\"radiologe\",\"pl.na.def\":\"radiologele\",\"pl.gd.indef\":\"radiologe\",\"pl.gd.def\":\"radiologelor\"}",
+        "reason": "DOOM3 g.-d. art. radiologei, pl. radiologe; remaining cells follow F1.",
+        "source": "https://dexonline.ro/definitie/radiologă"
+      },
+      {
+        "field": "note",
+        "current": null,
+        "proposed": "DOOM3 (2021): radiologă (livresc) / radioloagă (colocvial) -- register doublets",
+        "reason": "DOOM3 labels the two by register, not as two spellings.",
+        "source": "https://dexonline.ro/definitie/radiologă"
+      }
+    ],
+    "statusComment": "Should be 'variant' like psiholog/zoolog: DOOM3 gives the same livr./colocv. doublet (radiologă/radioloagă)."
+  },
+  {
+    "index": 66,
+    "en": "receptionist",
+    "verdict": "ok",
+    "issues": [],
+    "statusComment": "'attested' (single source) understates it: DOOM3 lists 'recepționeră' as a plain s. f. with no register mark (https://dexonline.ro/definitie/recepționeră); linguistically it is normative."
+  },
+  {
+    "index": 67,
+    "en": "recruiter",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "pluralF",
+        "current": null,
+        "proposed": "recrutoare",
+        "reason": "DOOM3: '+recrutoare s. f., g.-d. art. recrutoarei; pl. recrutoare'.",
+        "source": "https://dexonline.ro/definitie/recrutoare"
+      },
+      {
+        "field": "formsF",
+        "current": null,
+        "proposed": "{\"sg.na.indef\":\"recrutoare\",\"sg.na.def\":\"recrutoarea\",\"sg.gd.indef\":\"recrutoare\",\"sg.gd.def\":\"recrutoarei\",\"pl.na.indef\":\"recrutoare\",\"pl.na.def\":\"recrutoarele\",\"pl.gd.indef\":\"recrutoare\",\"pl.gd.def\":\"recrutoarelor\"}",
+        "reason": "DOOM3 flexion table on dexonline (F103).",
+        "source": "https://dexonline.ro/definitie/recrutoare"
+      }
+    ],
+    "statusComment": "'attested' (single source) understates it: DOOM3 lists 'recrutoare' as a plain s. f. with no register mark (https://dexonline.ro/definitie/recrutoare); linguistically it is normative."
+  },
+  {
+    "index": 68,
+    "en": "sailor",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "f",
+        "current": "marinăreasă",
+        "proposed": "marinăriță",
+        "reason": "dexonline returns 'Niciun rezultat' for 'marinăreasă' in every dictionary. DEX '09/'98 and MDA2 record 'MARINĂRIȚĂ, marinărițe, s. f. Femeie din echipajul unei nave.' (DOOM3 has only 'marinar s. m.').",
+        "source": "https://dexonline.ro/definitie/marinăreasă ; https://dexonline.ro/definitie/marinăriță"
+      },
+      {
+        "field": "pluralF",
+        "current": null,
+        "proposed": "marinărițe",
+        "reason": "DEX: pl. marinărițe.",
+        "source": "https://dexonline.ro/definitie/marinăriță"
+      },
+      {
+        "field": "formsF",
+        "current": null,
+        "proposed": "{\"sg.na.indef\":\"marinăriță\",\"sg.na.def\":\"marinărița\",\"sg.gd.indef\":\"marinărițe\",\"sg.gd.def\":\"marinăriței\",\"pl.na.indef\":\"marinărițe\",\"pl.na.def\":\"marinărițele\",\"pl.gd.indef\":\"marinărițe\",\"pl.gd.def\":\"marinărițelor\"}",
+        "reason": "Regular F1 -iță paradigm (cf. DOOM3 chelneriță, g.-d. art. chelneriței).",
+        "source": "https://dexonline.ro/definitie/marinăriță"
+      }
+    ],
+    "statusComment": "'attested' is generous for the current form, which no dexonline dictionary contains; marinăriță is in DEX but rare in use, and 'marinar' is commonly used for women."
+  },
+  {
+    "index": 69,
+    "en": "scientist",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 70,
+    "en": "screenwriter",
+    "verdict": "ok",
+    "issues": [],
+    "statusComment": "'attested' (single source) understates it: DOOM3 lists 'scenaristă' as a plain s. f. with no register mark (https://dexonline.ro/definitie/scenaristă); linguistically it is normative."
+  },
+  {
+    "index": 71,
+    "en": "sculptor",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 72,
+    "en": "secretary",
+    "verdict": "ok",
+    "issues": [],
+    "statusComment": "'attested' (single source) understates it: DOOM3 lists 'secretară' as a plain s. f. with no register mark (https://dexonline.ro/definitie/secretară); linguistically it is normative."
+  },
+  {
+    "index": 73,
+    "en": "singer",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 74,
+    "en": "statistician",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 75,
+    "en": "surveyor",
+    "verdict": "ok",
+    "issues": [],
+    "statusComment": "'attested' (single source) understates it: DOOM3 lists 'topografă' as a plain s. f. with no register mark (https://dexonline.ro/definitie/topografă); linguistically it is normative."
+  },
+  {
+    "index": 76,
+    "en": "tailor",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 77,
+    "en": "teacher",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 78,
+    "en": "technician",
+    "verdict": "ok",
+    "issues": [],
+    "statusComment": "'attested' (single source) understates it: DOOM3 lists 'tehniciană' as a plain s. f. with no register mark (https://dexonline.ro/definitie/tehniciană); linguistically it is normative."
+  },
+  {
+    "index": 79,
+    "en": "therapist",
+    "verdict": "ok",
+    "issues": [],
+    "statusComment": "'attested' (single source) understates it: DOOM3 lists 'terapeută' as a plain s. f. with no register mark (https://dexonline.ro/definitie/terapeută); linguistically it is normative."
+  },
+  {
+    "index": 80,
+    "en": "translator",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 81,
+    "en": "veterinarian",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "pluralM",
+        "current": null,
+        "proposed": "veterinari",
+        "reason": "DOOM3: 'veterinar adj. m., s. m., pl. veterinari'.",
+        "source": "https://dexonline.ro/definitie/veterinar"
+      },
+      {
+        "field": "formsM",
+        "current": null,
+        "proposed": "{\"sg.na.indef\":\"veterinar\",\"sg.na.def\":\"veterinarul\",\"sg.gd.indef\":\"veterinar\",\"sg.gd.def\":\"veterinarului\",\"pl.na.indef\":\"veterinari\",\"pl.na.def\":\"veterinarii\",\"pl.gd.indef\":\"veterinari\",\"pl.gd.def\":\"veterinarilor\"}",
+        "reason": "dexonline M1 flexion table for veterinar (s. m.).",
+        "source": "https://dexonline.ro/definitie/veterinar"
+      },
+      {
+        "field": "note",
+        "current": null,
+        "proposed": "DOOM3 lists 'veterinară' only as an adjective (adj. f.); the noun is s. m. only. Women are usually 'medic veterinar' or 'doctoriță veterinară'",
+        "reason": "DOOM3: 'veterinar adj. m., s. m., pl. veterinari; adj. f. veterinară, pl. veterinare'; DEX: 'VETERINAR, -Ă ... adj., s. m.' -- no s. f. sense.",
+        "source": "https://dexonline.ro/definitie/veterinară"
+      }
+    ],
+    "statusComment": "The feminine noun 'veterinară' is not sanctioned by DOOM3 (adjective only); 'attested' is acceptable but should carry that caveat, arguably 'contested'."
+  },
+  {
+    "index": 82,
+    "en": "waiter",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 83,
+    "en": "welder",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "note",
+        "current": null,
+        "proposed": "DOOM3 marks 'sudoriță' (fam.)",
+        "reason": "DOOM3: 'sudoriță (fam.) s. f., g.-d. art. sudoriței; pl. sudorițe'. All 8 cells are correct, but the register restriction should be recorded.",
+        "source": "https://dexonline.ro/definitie/sudoriță"
+      }
+    ],
+    "statusComment": "Register-marked (fam.) in DOOM3, so the feminine is not neutral standard; the status or note should flag it."
+  },
+  {
+    "index": 84,
+    "en": "zoologist",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "f",
+        "current": "zooloagă",
+        "proposed": "zoologă",
+        "reason": "DOOM3 headword: '!zoologă (livr.)/(colocv.) zooloagă'. The bookish (standard written) form is zoologă; zooloagă is colloquial, and DOOM3 cross-refers 'zooloagă v. zoologă'.",
+        "source": "https://dexonline.ro/definitie/zoologă"
+      },
+      {
+        "field": "fAlt",
+        "current": "zoologă",
+        "proposed": "zooloagă",
+        "reason": "Colloquial variant per DOOM3.",
+        "source": "https://dexonline.ro/definitie/zoologă"
+      },
+      {
+        "field": "pluralF",
+        "current": null,
+        "proposed": "zoologe",
+        "reason": "DOOM3 gives pl. zoologe/zooloage.",
+        "source": "https://dexonline.ro/definitie/zoologă"
+      },
+      {
+        "field": "formsF",
+        "current": null,
+        "proposed": "{\"sg.na.indef\":\"zoologă\",\"sg.na.def\":\"zoologa\",\"sg.gd.indef\":\"zoologe\",\"sg.gd.def\":\"zoologei\",\"pl.na.indef\":\"zoologe\",\"pl.na.def\":\"zoologele\",\"pl.gd.indef\":\"zoologe\",\"pl.gd.def\":\"zoologelor\"}",
+        "reason": "DOOM3 g.-d. art. zoologei, pl. zoologe; remaining cells follow F1.",
+        "source": "https://dexonline.ro/definitie/zoologă"
+      },
+      {
+        "field": "note",
+        "current": "sources differ by the o->oa breaking; DOOM3 admits both spellings",
+        "proposed": "DOOM3 (2021): zoologă (livresc) / zooloagă (colocvial) -- register doublets",
+        "reason": "DOOM3 labels the two by register, not as two spellings.",
+        "source": "https://dexonline.ro/definitie/zoologă"
+      }
+    ]
+  }
+]

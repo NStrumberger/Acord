@@ -1,0 +1,1616 @@
+[
+  {
+    "id": "B001",
+    "en": "He is my best friend.",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "\"He\" is male and explicit: the whole predicate stays masculine (cel mai bun prieten al meu). \"meu\" agrees with prieten, not with the female speaker; neither the speaker nor the anyone-else setting may touch this clause.",
+    "covers": [
+      "trap:pronoun-copula",
+      "trap:superlative",
+      "friend",
+      "good"
+    ]
+  },
+  {
+    "id": "B002",
+    "en": "She is a good teacher.",
+    "speaker": "M",
+    "addressee": "M",
+    "intent": "\"She\" is female and explicit: o profesoară bună stays feminine even though speaker and anyone-else are both masculine.",
+    "covers": [
+      "trap:pronoun-copula",
+      "teacher",
+      "good"
+    ]
+  },
+  {
+    "id": "B003",
+    "en": "He is tired and I am tired too.",
+    "speaker": "F",
+    "intent": "He (male, explicit) is obosit; the speaker (female) is obosită. Only the second adjective follows the speaker.",
+    "covers": [
+      "trap:pronoun-copula",
+      "trap:third-party-untouched",
+      "tired"
+    ]
+  },
+  {
+    "id": "B004",
+    "en": "She is a doctor and I am a nurse.",
+    "speaker": "M",
+    "intent": "She (female) is a doctor: doctoriță (or doctor) as the model chose, not rewritten. The speaker (male) is a nurse: asistent (medical), masculine.",
+    "covers": [
+      "trap:pronoun-copula",
+      "doctor",
+      "nurse"
+    ]
+  },
+  {
+    "id": "B005",
+    "en": "Maya says that he is a good engineer.",
+    "speaker": "F",
+    "targets": {
+      "maya": "F"
+    },
+    "intent": "Maya (female) is only the one speaking; \"he\" (male, explicit) is the engineer: un inginer bun stays masculine. Maya's setting must not reach the \"that\"-clause.",
+    "covers": [
+      "trap:pronoun-vs-name",
+      "trap:relative-clause",
+      "engineer",
+      "good"
+    ]
+  },
+  {
+    "id": "B006",
+    "en": "Alex is a teacher and she is very good.",
+    "speaker": "M",
+    "targets": {
+      "alex": "F"
+    },
+    "intent": "Alex is female (target F, consistent with \"she\"): profesoară; \"she is very good\" is foarte bună. The male speaker setting affects nothing.",
+    "covers": [
+      "trap:pronoun-vs-name",
+      "trap:ambiguous-name",
+      "teacher",
+      "good"
+    ]
+  },
+  {
+    "id": "B007",
+    "en": "Maya told Josh that she is tired.",
+    "speaker": "M",
+    "addressee": "M",
+    "targets": {
+      "maya": "F",
+      "josh": "M"
+    },
+    "intent": "\"She\" is Maya (female): obosită. Romanian usually drops the pronoun (\"că este obosită\"), so nothing marks the subject; the anyone-else setting M must NOT turn it into obosit. Josh (male) has no gendered word.",
+    "covers": [
+      "trap:pronoun-vs-name",
+      "trap:pro-drop",
+      "trap:mixed-names",
+      "tired"
+    ]
+  },
+  {
+    "id": "B008",
+    "en": "Josh thinks that he is a good singer.",
+    "speaker": "F",
+    "addressee": "F",
+    "targets": {
+      "josh": "M"
+    },
+    "intent": "\"He\" is Josh (male): un cântăreț bun, masculine. Romanian drops the pronoun (\"crede că este un cântăreț bun\"); the anyone-else setting F must NOT rewrite it to cântăreață bună.",
+    "covers": [
+      "trap:pronoun-vs-name",
+      "trap:pro-drop",
+      "singer",
+      "good"
+    ]
+  },
+  {
+    "id": "B009",
+    "en": "You are a friend of my brother.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "The addressee is female: o prietenă a fratelui meu. \"a\" (possessive article) agrees with prietenă; \"meu\" belongs to fratelui (brother, male) and must stay meu.",
+    "covers": [
+      "trap:possessive-article",
+      "trap:speaker-addressee",
+      "friend"
+    ]
+  },
+  {
+    "id": "B010",
+    "en": "My sister is a colleague of my husband.",
+    "speaker": "M",
+    "addressee": "M",
+    "intent": "Sister is lexically female: Sora mea este o colegă a soțului meu. The predicate (o colegă a) stays feminine even though the anyone-else setting is M; \"meu\" belongs to soțului and stays.",
+    "covers": [
+      "trap:possessive-article",
+      "trap:lexical-subject",
+      "colleague"
+    ]
+  },
+  {
+    "id": "B011",
+    "en": "I am a colleague of his.",
+    "speaker": "F",
+    "intent": "The speaker is female: Sunt o colegă de-a lui / o colegă a lui. Article and possessive article feminine (o, a); \"lui\" is the colleague-owner and is invariable.",
+    "covers": [
+      "trap:possessive-article",
+      "colleague"
+    ]
+  },
+  {
+    "id": "B012",
+    "en": "I have a friend who is a teacher.",
+    "speaker": "F",
+    "intent": "\"Am\" is the verb \"have\", not a perfect auxiliary. The friend is an unnamed third party whose gender is not given; the female speaker setting must change nothing (un prieten care este profesor stays as translated).",
+    "covers": [
+      "trap:have-not-perfect",
+      "trap:third-party-untouched",
+      "friend",
+      "teacher"
+    ]
+  },
+  {
+    "id": "B013",
+    "en": "You have a good neighbour.",
+    "speaker": "F",
+    "intent": "\"Ai\" is the verb \"have\", not a perfect auxiliary, and the neighbour is not the addressee. No addressee setting; nothing should change (un vecin bun).",
+    "covers": [
+      "trap:have-not-perfect",
+      "trap:possessive-article",
+      "neighbour",
+      "good"
+    ]
+  },
+  {
+    "id": "B014",
+    "en": "The doctor is a friend of mine.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "The doctor is an unnamed third party set to F via anyone-else: Doctorița este o prietenă de-a mea. The subject noun (doctorul -> doctorița) is before the copula and is part of the requirement; article, noun and possessive in the predicate are feminine.",
+    "covers": [
+      "trap:possessive-article",
+      "trap:lexical-subject",
+      "doctor",
+      "friend"
+    ]
+  },
+  {
+    "id": "B015",
+    "en": "I have been a teacher for ten years.",
+    "speaker": "F",
+    "intent": "Female speaker: Am fost profesoară timp de zece ani. \"Am fost\" opens the speaker span.",
+    "covers": [
+      "trap:perfect-tense",
+      "teacher"
+    ]
+  },
+  {
+    "id": "B016",
+    "en": "I was tired yesterday.",
+    "speaker": "F",
+    "intent": "Female speaker: Am fost obosită ieri / Eram obosită ieri.",
+    "covers": [
+      "trap:perfect-tense",
+      "tired"
+    ]
+  },
+  {
+    "id": "B017",
+    "en": "You were my best friend.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "Female addressee: Ai fost cea mai bună prietenă a mea. \"mea\" agrees with prietenă (not with the male speaker).",
+    "covers": [
+      "trap:perfect-tense",
+      "trap:superlative",
+      "friend",
+      "good"
+    ]
+  },
+  {
+    "id": "B018",
+    "en": "She has been my neighbour for years.",
+    "speaker": "M",
+    "addressee": "M",
+    "intent": "\"She\" is explicit and female: Ea a fost vecina mea de ani de zile. Neither the male speaker nor the male anyone-else setting changes vecina or mea.",
+    "covers": [
+      "trap:perfect-tense",
+      "trap:pronoun-copula",
+      "neighbour"
+    ]
+  },
+  {
+    "id": "B019",
+    "en": "Maya has been a good friend to me.",
+    "speaker": "M",
+    "targets": {
+      "maya": "F"
+    },
+    "intent": "Maya is female: Maya a fost o prietenă bună pentru mine. The male speaker does not affect it (\"mine\" is genderless).",
+    "covers": [
+      "trap:perfect-tense",
+      "friend",
+      "good"
+    ]
+  },
+  {
+    "id": "B020",
+    "en": "I had been a waiter before I became a chef.",
+    "speaker": "F",
+    "intent": "Female speaker throughout: Fusesem chelneriță înainte să devin bucătăreasă. Both nouns follow the speaker even though neither \"fusesem\" nor \"devin\" is a present copula.",
+    "covers": [
+      "trap:perfect-tense",
+      "waiter",
+      "chef"
+    ]
+  },
+  {
+    "id": "B021",
+    "en": "Josh has been my colleague and Maya has been my neighbour.",
+    "speaker": "F",
+    "targets": {
+      "josh": "M",
+      "maya": "F"
+    },
+    "intent": "Josh (male): colegul meu; Maya (female): vecina mea. The female speaker setting must not touch \"meu\" in Josh's predicate.",
+    "covers": [
+      "trap:perfect-tense",
+      "trap:mixed-names",
+      "colleague",
+      "neighbour"
+    ]
+  },
+  {
+    "id": "B022",
+    "en": "Maya is also my friend.",
+    "speaker": "M",
+    "targets": {
+      "maya": "F"
+    },
+    "intent": "Maya is female: Maya este și prietena mea. \"și\" directly after the copula means \"also\"; prietena and mea both follow Maya.",
+    "covers": [
+      "trap:also-vs-and",
+      "friend"
+    ]
+  },
+  {
+    "id": "B023",
+    "en": "Josh is my friend and Maya is also my friend.",
+    "speaker": "F",
+    "targets": {
+      "josh": "M",
+      "maya": "F"
+    },
+    "intent": "Josh (male): prietenul meu; Maya (female): și prietena mea. Each predicate follows its own subject; the female speaker setting affects neither.",
+    "covers": [
+      "trap:also-vs-and",
+      "trap:mixed-names",
+      "friend"
+    ]
+  },
+  {
+    "id": "B024",
+    "en": "Maya is a teacher and also a singer.",
+    "speaker": "M",
+    "targets": {
+      "maya": "F"
+    },
+    "intent": "Maya (female) is both: profesoară și cântăreață. The second noun, after a mid-predicate \"și\", still agrees with Maya.",
+    "covers": [
+      "trap:also-vs-and",
+      "trap:adj-coordination",
+      "teacher",
+      "singer"
+    ]
+  },
+  {
+    "id": "B025",
+    "en": "I am a doctor and a teacher.",
+    "speaker": "F",
+    "intent": "Female speaker: Sunt doctoriță și profesoară. The second noun after \"și\" is still the speaker's predicate.",
+    "covers": [
+      "trap:also-vs-and",
+      "trap:adj-coordination",
+      "doctor",
+      "teacher"
+    ]
+  },
+  {
+    "id": "B026",
+    "en": "Maya is my friend and so is Steve.",
+    "speaker": "F",
+    "targets": {
+      "maya": "F",
+      "steve": "M"
+    },
+    "intent": "Maya (female): prietena mea. Steve (male) shares the elided predicate; Romanian cannot mark him unless it repeats (\"și Steve este prietenul meu\"). Steve must be listed as present but unmarkable; Maya's words feminine.",
+    "covers": [
+      "trap:also-vs-and",
+      "trap:mixed-names",
+      "friend"
+    ]
+  },
+  {
+    "id": "B027",
+    "en": "Steve is my colleague and also my neighbour.",
+    "speaker": "F",
+    "targets": {
+      "steve": "F"
+    },
+    "intent": "Steve is set female: colega mea și vecina mea. Both nouns and both possessives follow Steve; the speaker setting is irrelevant.",
+    "covers": [
+      "trap:also-vs-and",
+      "colleague",
+      "neighbour"
+    ]
+  },
+  {
+    "id": "B028",
+    "en": "Josh and Maya are my friends.",
+    "speaker": "F",
+    "targets": {
+      "josh": "M",
+      "maya": "F"
+    },
+    "intent": "Joint agreement over a mixed group is masculine plural: Josh și Maya sunt prietenii mei. \"sunt\" here is 3rd plural, not \"I am\"; the female speaker must NOT turn this into prietenele mele.",
+    "covers": [
+      "trap:name-plural-copula",
+      "trap:joint-agreement",
+      "friend"
+    ]
+  },
+  {
+    "id": "B029",
+    "en": "Maya and Ana are my colleagues.",
+    "speaker": "M",
+    "targets": {
+      "maya": "F",
+      "ana": "F"
+    },
+    "intent": "Both are female so joint agreement is feminine plural: colegele mele. The male speaker must not affect it.",
+    "covers": [
+      "trap:name-plural-copula",
+      "trap:joint-agreement",
+      "colleague"
+    ]
+  },
+  {
+    "id": "B030",
+    "en": "My parents are tired.",
+    "speaker": "F",
+    "intent": "Parents are a mixed group: Părinții mei sunt obosiți. \"sunt\" is 3rd plural after a plural noun, not \"I am\"; the female speaker must NOT produce obosite.",
+    "covers": [
+      "trap:name-plural-copula",
+      "trap:third-party-untouched",
+      "tired"
+    ]
+  },
+  {
+    "id": "B031",
+    "en": "The children are happy and I am happy too.",
+    "speaker": "F",
+    "intent": "Children (unspecified/mixed): Copiii sunt fericiți (masculine plural). Female speaker: și eu sunt fericită. Only the second adjective follows the speaker.",
+    "covers": [
+      "trap:name-plural-copula",
+      "trap:third-party-untouched",
+      "happy"
+    ]
+  },
+  {
+    "id": "B032",
+    "en": "Maya and I are tired.",
+    "speaker": "M",
+    "targets": {
+      "maya": "F"
+    },
+    "intent": "Male speaker plus female Maya: mixed group, masculine plural: Maya și cu mine suntem obosiți.",
+    "covers": [
+      "trap:joint-agreement",
+      "trap:name-plural-copula",
+      "tired"
+    ]
+  },
+  {
+    "id": "B033",
+    "en": "Maya and I are tired.",
+    "speaker": "F",
+    "targets": {
+      "maya": "F"
+    },
+    "intent": "Both female: Maya și cu mine suntem obosite (feminine plural).",
+    "covers": [
+      "trap:joint-agreement",
+      "trap:name-plural-copula",
+      "tired"
+    ]
+  },
+  {
+    "id": "B034",
+    "en": "You and I are colleagues.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "Female speaker plus male addressee is a mixed group: Tu și cu mine suntem colegi (masculine plural). The speaker setting alone must NOT produce colege.",
+    "covers": [
+      "trap:joint-agreement",
+      "trap:speaker-addressee",
+      "colleague"
+    ]
+  },
+  {
+    "id": "B035",
+    "en": "Rose works as a teacher.",
+    "speaker": "M",
+    "targets": {
+      "rose": "F"
+    },
+    "intent": "Rose is female: Rose lucrează ca profesoară.",
+    "covers": [
+      "trap:ca-frame",
+      "teacher"
+    ]
+  },
+  {
+    "id": "B036",
+    "en": "Sam works as a nurse.",
+    "speaker": "F",
+    "targets": {
+      "sam": "M"
+    },
+    "intent": "Sam is male: Sam lucrează ca asistent (medical). The female speaker is irrelevant.",
+    "covers": [
+      "trap:ca-frame",
+      "trap:ambiguous-name",
+      "nurse"
+    ]
+  },
+  {
+    "id": "B037",
+    "en": "My sister works as a waiter.",
+    "speaker": "M",
+    "addressee": "M",
+    "intent": "Sister is lexically female: Sora mea lucrează ca chelneriță. Neither setting should make it chelner.",
+    "covers": [
+      "trap:ca-frame",
+      "trap:lexical-subject",
+      "waiter"
+    ]
+  },
+  {
+    "id": "B038",
+    "en": "Andrea works as a lawyer and Kim works as a judge.",
+    "speaker": "M",
+    "targets": {
+      "andrea": "F",
+      "kim": "M"
+    },
+    "intent": "Andrea (female): ca avocată; Kim (male): ca judecător.",
+    "covers": [
+      "trap:ca-frame",
+      "trap:mixed-names",
+      "trap:ambiguous-name",
+      "lawyer",
+      "judge"
+    ]
+  },
+  {
+    "id": "B039",
+    "en": "I work as a photographer.",
+    "speaker": "F",
+    "intent": "Female speaker: Lucrez ca fotografă (attested form). The \"ca\" noun follows the speaker even though no name precedes it.",
+    "covers": [
+      "trap:ca-frame",
+      "photographer"
+    ]
+  },
+  {
+    "id": "B040",
+    "en": "You work as a dancer.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "Female addressee: Lucrezi ca dansatoare.",
+    "covers": [
+      "trap:ca-frame",
+      "trap:speaker-addressee",
+      "dancer"
+    ]
+  },
+  {
+    "id": "B041",
+    "en": "He works as a nurse.",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "\"He\" is explicit and male: El lucrează ca asistent (medical). No setting changes it.",
+    "covers": [
+      "trap:ca-frame",
+      "trap:pronoun-copula",
+      "nurse"
+    ]
+  },
+  {
+    "id": "B042",
+    "en": "Josh is a doctor and Maya is a nurse.",
+    "speaker": "F",
+    "targets": {
+      "josh": "F",
+      "maya": "M"
+    },
+    "intent": "Counter-stereotype on purpose: Josh is female (doctoriță), Maya is male (asistent medical). Each predicate follows its own name.",
+    "covers": [
+      "trap:mixed-names",
+      "doctor",
+      "nurse"
+    ]
+  },
+  {
+    "id": "B043",
+    "en": "Alex is a teacher, Sam is an engineer and Kim is a lawyer.",
+    "speaker": "M",
+    "targets": {
+      "alex": "F",
+      "sam": "M",
+      "kim": "F"
+    },
+    "intent": "Alex (female): profesoară; Sam (male): inginer; Kim (female): avocată. Commas separate the clauses; each noun follows its own name.",
+    "covers": [
+      "trap:mixed-names",
+      "trap:ambiguous-name",
+      "teacher",
+      "engineer",
+      "lawyer"
+    ]
+  },
+  {
+    "id": "B044",
+    "en": "Alex is tired but Sam is happy.",
+    "speaker": "M",
+    "targets": {
+      "alex": "F",
+      "sam": "M"
+    },
+    "intent": "Alex (female): obosită; Sam (male): fericit.",
+    "covers": [
+      "trap:mixed-names",
+      "trap:ambiguous-name",
+      "tired",
+      "happy"
+    ]
+  },
+  {
+    "id": "B045",
+    "en": "Jordan is a teacher and Andrea is a singer.",
+    "speaker": "F",
+    "targets": {
+      "jordan": "M",
+      "andrea": "F"
+    },
+    "intent": "Jordan (male): profesor; Andrea (female): cântăreață.",
+    "covers": [
+      "trap:mixed-names",
+      "trap:ambiguous-name",
+      "teacher",
+      "singer"
+    ]
+  },
+  {
+    "id": "B046",
+    "en": "Maya is my colleague and Steve is my neighbour.",
+    "speaker": "M",
+    "targets": {
+      "maya": "F",
+      "steve": "F"
+    },
+    "intent": "Maya (female): colega mea; Steve is set female: vecina mea. Possessives follow each noun.",
+    "covers": [
+      "trap:mixed-names",
+      "colleague",
+      "neighbour"
+    ]
+  },
+  {
+    "id": "B047",
+    "en": "Josh and Maya are tired, but my boss is happy.",
+    "speaker": "M",
+    "addressee": "F",
+    "targets": {
+      "josh": "M",
+      "maya": "F"
+    },
+    "intent": "Josh+Maya: mixed, obosiți. The boss is an unnamed third party set F through anyone-else: șefa mea este fericită (the subject noun and its possessive must be feminine too, not just the adjective).",
+    "covers": [
+      "trap:names-plus-unnamed",
+      "trap:joint-agreement",
+      "tired",
+      "happy"
+    ]
+  },
+  {
+    "id": "B048",
+    "en": "Ana is a teacher, Mihai is a doctor and my neighbour is a nurse.",
+    "speaker": "M",
+    "addressee": "M",
+    "targets": {
+      "ana": "F",
+      "mihai": "M"
+    },
+    "intent": "Ana (female): profesoară; Mihai (male): doctor; the neighbour is unnamed and set M via anyone-else: vecinul meu este asistent (medical).",
+    "covers": [
+      "trap:names-plus-unnamed",
+      "trap:mixed-names",
+      "teacher",
+      "doctor",
+      "nurse",
+      "neighbour"
+    ]
+  },
+  {
+    "id": "B049",
+    "en": "Maya is my colleague, Steve is my friend, and the director is tired.",
+    "speaker": "F",
+    "addressee": "F",
+    "targets": {
+      "maya": "F",
+      "steve": "M"
+    },
+    "intent": "Maya (female): colega mea; Steve (male): prietenul meu; the director (unnamed) set F: directoarea este obosită. The female speaker setting must not touch Steve's \"meu\".",
+    "covers": [
+      "trap:names-plus-unnamed",
+      "trap:mixed-names",
+      "colleague",
+      "friend",
+      "director",
+      "tired"
+    ]
+  },
+  {
+    "id": "B050",
+    "en": "Kim and Sam are good programmers, and their boss is a good engineer.",
+    "speaker": "F",
+    "addressee": "M",
+    "targets": {
+      "kim": "F",
+      "sam": "F"
+    },
+    "intent": "Kim and Sam are both female: programatoare bune (feminine plural). The boss (unnamed) set M: șeful lor este un inginer bun.",
+    "covers": [
+      "trap:names-plus-unnamed",
+      "trap:joint-agreement",
+      "trap:ambiguous-name",
+      "programmer",
+      "engineer",
+      "good"
+    ]
+  },
+  {
+    "id": "B051",
+    "en": "I am tired but you are happy.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "Male speaker: obosit; female addressee: fericită.",
+    "covers": [
+      "trap:speaker-addressee",
+      "tired",
+      "happy"
+    ]
+  },
+  {
+    "id": "B052",
+    "en": "You are tired and I am happy.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "Male addressee: obosit; female speaker: fericită.",
+    "covers": [
+      "trap:speaker-addressee",
+      "tired",
+      "happy"
+    ]
+  },
+  {
+    "id": "B053",
+    "en": "I am your friend and you are my friend.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "Female speaker: Sunt prietena ta; male addressee: tu ești prietenul meu. \"ta\" agrees with prietena, \"meu\" with prietenul.",
+    "covers": [
+      "trap:speaker-addressee",
+      "friend"
+    ]
+  },
+  {
+    "id": "B054",
+    "en": "Are you ready? I am ready.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "\"gata\" is invariable: nothing should change in either sentence.",
+    "covers": [
+      "trap:speaker-addressee",
+      "trap:question",
+      "trap:multi-sentence",
+      "ready"
+    ]
+  },
+  {
+    "id": "B055",
+    "en": "My brother is tired and I am tired too.",
+    "speaker": "F",
+    "intent": "Brother (male): Fratele meu este obosit. Female speaker: și eu sunt obosită. Only the second adjective changes.",
+    "covers": [
+      "trap:third-party-untouched",
+      "tired"
+    ]
+  },
+  {
+    "id": "B056",
+    "en": "My wife is a doctor and I am a teacher.",
+    "speaker": "M",
+    "intent": "Wife (female): Soția mea este doctoriță (or doctor). Male speaker: sunt profesor. The speaker setting must not touch the wife's predicate.",
+    "covers": [
+      "trap:third-party-untouched",
+      "doctor",
+      "teacher"
+    ]
+  },
+  {
+    "id": "B057",
+    "en": "My father is happy because I am happy.",
+    "speaker": "F",
+    "intent": "Father (male): Tatăl meu este fericit. Female speaker: pentru că sunt fericită.",
+    "covers": [
+      "trap:third-party-untouched",
+      "happy"
+    ]
+  },
+  {
+    "id": "B058",
+    "en": "The teacher is tired.",
+    "speaker": "F",
+    "intent": "An unnamed third party; no anyone-else setting given. The female speaker setting must change nothing.",
+    "covers": [
+      "trap:third-party-untouched",
+      "teacher",
+      "tired"
+    ]
+  },
+  {
+    "id": "B059",
+    "en": "His wife is my colleague.",
+    "speaker": "M",
+    "addressee": "M",
+    "intent": "Wife is lexically female: Soția lui este colega mea. \"mea\" agrees with colega. The male anyone-else setting must NOT produce colegul meu.",
+    "covers": [
+      "trap:third-party-untouched",
+      "trap:lexical-subject",
+      "colleague"
+    ]
+  },
+  {
+    "id": "B060",
+    "en": "I am a teacher. My husband is a doctor. We are happy.",
+    "speaker": "F",
+    "intent": "Female speaker: profesoară. Husband (male): doctor. \"We\" is the speaker plus husband, a mixed group: suntem fericiți (masculine plural). The speaker setting must NOT make it fericite.",
+    "covers": [
+      "trap:multi-sentence",
+      "trap:joint-agreement",
+      "teacher",
+      "doctor",
+      "happy"
+    ]
+  },
+  {
+    "id": "B061",
+    "en": "Maya is tired. She is a nurse.",
+    "speaker": "M",
+    "targets": {
+      "maya": "F"
+    },
+    "intent": "Maya (female): obosită. Second sentence \"She\" is Maya, explicit: asistentă. All feminine.",
+    "covers": [
+      "trap:multi-sentence",
+      "trap:pronoun-copula",
+      "tired",
+      "nurse"
+    ]
+  },
+  {
+    "id": "B062",
+    "en": "Hello. How are you? I am tired.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "Female speaker: Sunt obosită. \"How are you\" (Ce mai faci) has no gendered word. All three sentences must survive translation.",
+    "covers": [
+      "trap:multi-sentence",
+      "trap:question",
+      "tired"
+    ]
+  },
+  {
+    "id": "B063",
+    "en": "Josh is my friend. He is a good programmer. I am his colleague.",
+    "speaker": "F",
+    "targets": {
+      "josh": "M"
+    },
+    "intent": "Josh (male): prietenul meu; he (Josh): un programator bun; female speaker: colega lui.",
+    "covers": [
+      "trap:multi-sentence",
+      "trap:pronoun-copula",
+      "friend",
+      "programmer",
+      "colleague",
+      "good"
+    ]
+  },
+  {
+    "id": "B064",
+    "en": "You are a good doctor. Your sister is also a doctor.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "Male addressee: un doctor bun. Sister (female): Sora ta este și ea doctoriță. The male anyone-else setting must NOT rewrite the sister's noun.",
+    "covers": [
+      "trap:multi-sentence",
+      "trap:lexical-subject",
+      "trap:also-vs-and",
+      "doctor",
+      "good"
+    ]
+  },
+  {
+    "id": "B065",
+    "en": "I am Ana. I am a teacher. My brother is an engineer. He is tired.",
+    "speaker": "F",
+    "targets": {
+      "ana": "F"
+    },
+    "intent": "Female speaker (Ana): Sunt profesoară. Brother (male): inginer; \"He\" (brother): obosit. Only the speaker's noun follows the speaker setting.",
+    "covers": [
+      "trap:multi-sentence",
+      "trap:third-party-untouched",
+      "teacher",
+      "engineer",
+      "tired"
+    ]
+  },
+  {
+    "id": "B066",
+    "en": "Sam is a dancer. Kim is a singer. They are happy.",
+    "speaker": "M",
+    "targets": {
+      "sam": "F",
+      "kim": "F"
+    },
+    "intent": "Sam (female): dansatoare; Kim (female): cântăreață; \"They\" = both women: (ele) sunt fericite.",
+    "covers": [
+      "trap:multi-sentence",
+      "trap:joint-agreement",
+      "trap:ambiguous-name",
+      "dancer",
+      "singer",
+      "happy"
+    ]
+  },
+  {
+    "id": "B067",
+    "en": "Dr. Popescu is a good doctor.",
+    "speaker": "M",
+    "targets": {
+      "popescu": "F"
+    },
+    "intent": "Popescu is female: Dr. Popescu este o doctoriță bună (or o medică bună). \"Dr.\" must not split the sentence.",
+    "covers": [
+      "trap:abbreviation",
+      "doctor",
+      "good"
+    ]
+  },
+  {
+    "id": "B068",
+    "en": "Mr. Smith is my neighbour.",
+    "speaker": "F",
+    "targets": {
+      "smith": "M"
+    },
+    "intent": "Mr. Smith is male: Domnul Smith este vecinul meu. The female speaker setting must change nothing.",
+    "covers": [
+      "trap:abbreviation",
+      "trap:third-party-untouched",
+      "neighbour"
+    ]
+  },
+  {
+    "id": "B069",
+    "en": "Mrs. Smith is a lawyer and I am her colleague.",
+    "speaker": "M",
+    "targets": {
+      "smith": "F"
+    },
+    "intent": "Mrs. Smith (female): avocată. Male speaker: sunt colegul ei. \"ei\" (her) is the possessor, unchanged.",
+    "covers": [
+      "trap:abbreviation",
+      "trap:speaker-addressee",
+      "lawyer",
+      "colleague"
+    ]
+  },
+  {
+    "id": "B070",
+    "en": "J. R. Tolkien was a good writer.",
+    "speaker": "F",
+    "targets": {
+      "tolkien": "M"
+    },
+    "intent": "Tolkien is male: a fost un scriitor bun. The initials must not break the sentence; the female speaker setting changes nothing.",
+    "covers": [
+      "trap:abbreviation",
+      "trap:perfect-tense",
+      "OOV:writer",
+      "good"
+    ]
+  },
+  {
+    "id": "B071",
+    "en": "Ms. Kim is the best teacher in our school.",
+    "speaker": "M",
+    "targets": {
+      "kim": "F"
+    },
+    "intent": "Kim is female: cea mai bună profesoară din școala noastră. \"noastră\" agrees with școala and stays feminine.",
+    "covers": [
+      "trap:abbreviation",
+      "trap:superlative",
+      "trap:ambiguous-name",
+      "teacher",
+      "good"
+    ]
+  },
+  {
+    "id": "B072",
+    "en": "Prof. Ionescu is tired. Dr. Popescu is happy.",
+    "speaker": "F",
+    "targets": {
+      "ionescu": "M",
+      "popescu": "F"
+    },
+    "intent": "Ionescu (male): obosit; Popescu (female): fericită. Two sentences despite four full stops.",
+    "covers": [
+      "trap:abbreviation",
+      "trap:multi-sentence",
+      "trap:mixed-names",
+      "tired",
+      "happy"
+    ]
+  },
+  {
+    "id": "B073",
+    "en": "Are you tired?",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "Female addressee: Ești obosită?",
+    "covers": [
+      "trap:question",
+      "tired"
+    ]
+  },
+  {
+    "id": "B074",
+    "en": "Is Maya your friend?",
+    "speaker": "F",
+    "addressee": "M",
+    "targets": {
+      "maya": "F"
+    },
+    "intent": "Maya is female: Este Maya prietena ta? The copula comes BEFORE the name, so the predicate must still follow Maya, not the male anyone-else setting.",
+    "covers": [
+      "trap:question",
+      "friend"
+    ]
+  },
+  {
+    "id": "B075",
+    "en": "Am I your best friend?",
+    "speaker": "F",
+    "intent": "Female speaker: Sunt eu cea mai bună prietenă a ta?",
+    "covers": [
+      "trap:question",
+      "trap:superlative",
+      "friend",
+      "good"
+    ]
+  },
+  {
+    "id": "B076",
+    "en": "I am not a doctor.",
+    "speaker": "F",
+    "intent": "Female speaker: Nu sunt doctoriță.",
+    "covers": [
+      "trap:negation",
+      "doctor"
+    ]
+  },
+  {
+    "id": "B077",
+    "en": "You are not my friend.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "Female addressee: Nu ești prietena mea.",
+    "covers": [
+      "trap:negation",
+      "friend"
+    ]
+  },
+  {
+    "id": "B078",
+    "en": "I am not tired, I am happy.",
+    "speaker": "F",
+    "intent": "Female speaker in both clauses: Nu sunt obosită, sunt fericită.",
+    "covers": [
+      "trap:negation",
+      "tired",
+      "happy"
+    ]
+  },
+  {
+    "id": "B079",
+    "en": "He is not my brother, he is my colleague.",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "Both clauses are about \"he\" (male, explicit): colegul meu. No setting changes anything.",
+    "covers": [
+      "trap:negation",
+      "trap:pronoun-copula",
+      "colleague"
+    ]
+  },
+  {
+    "id": "B080",
+    "en": "Alex is my best friend.",
+    "speaker": "M",
+    "targets": {
+      "alex": "F"
+    },
+    "intent": "Alex is female: Alex este cea mai bună prietenă a mea.",
+    "covers": [
+      "trap:ambiguous-name",
+      "trap:superlative",
+      "friend",
+      "good"
+    ]
+  },
+  {
+    "id": "B081",
+    "en": "Alex is my best friend.",
+    "speaker": "F",
+    "targets": {
+      "alex": "M"
+    },
+    "intent": "Alex is male: Alex este cel mai bun prieten al meu. The female speaker setting must not reach \"meu\".",
+    "covers": [
+      "trap:ambiguous-name",
+      "trap:superlative",
+      "friend",
+      "good"
+    ]
+  },
+  {
+    "id": "B082",
+    "en": "Sam is a good doctor.",
+    "speaker": "M",
+    "targets": {
+      "sam": "F"
+    },
+    "intent": "Sam is female: Sam este o doctoriță bună.",
+    "covers": [
+      "trap:ambiguous-name",
+      "doctor",
+      "good"
+    ]
+  },
+  {
+    "id": "B083",
+    "en": "Sam is a good doctor.",
+    "speaker": "F",
+    "targets": {
+      "sam": "M"
+    },
+    "intent": "Sam is male: Sam este un doctor bun.",
+    "covers": [
+      "trap:ambiguous-name",
+      "doctor",
+      "good"
+    ]
+  },
+  {
+    "id": "B084",
+    "en": "Andrea is a programmer.",
+    "speaker": "F",
+    "targets": {
+      "andrea": "M"
+    },
+    "intent": "Andrea is male (Italian usage): Andrea este programator.",
+    "covers": [
+      "trap:ambiguous-name",
+      "programmer"
+    ]
+  },
+  {
+    "id": "B085",
+    "en": "Alex and Sam are my colleagues.",
+    "speaker": "M",
+    "targets": {
+      "alex": "F",
+      "sam": "F"
+    },
+    "intent": "Both female: joint feminine plural: colegele mele.",
+    "covers": [
+      "trap:ambiguous-name",
+      "trap:joint-agreement",
+      "trap:name-plural-copula",
+      "colleague"
+    ]
+  },
+  {
+    "id": "B086",
+    "en": "I am the teacher who is tired.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "Female speaker is both the teacher and the tired one: Sunt profesoara care este obosită. The relative \"care este\" refers back to the speaker; the male anyone-else setting must NOT make it obosit.",
+    "covers": [
+      "trap:relative-clause",
+      "teacher",
+      "tired"
+    ]
+  },
+  {
+    "id": "B087",
+    "en": "The doctor who is my neighbour is tired.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "One unnamed person, set F via anyone-else: Doctorița care este vecina mea este obosită. Subject noun, relative-clause noun and adjective all feminine.",
+    "covers": [
+      "trap:relative-clause",
+      "trap:lexical-subject",
+      "doctor",
+      "neighbour",
+      "tired"
+    ]
+  },
+  {
+    "id": "B088",
+    "en": "Maya, who is my colleague, is a good engineer.",
+    "speaker": "F",
+    "addressee": "M",
+    "targets": {
+      "maya": "F"
+    },
+    "intent": "Everything is about Maya (female): care este colega mea, este o ingineră bună. The male anyone-else setting must not apply to either predicate.",
+    "covers": [
+      "trap:relative-clause",
+      "colleague",
+      "engineer",
+      "good"
+    ]
+  },
+  {
+    "id": "B089",
+    "en": "I have a friend who is a nurse.",
+    "speaker": "M",
+    "intent": "The friend is an unnamed third party of unknown gender; no anyone-else setting. Nothing follows the male speaker; leave care este asistent/asistentă as translated.",
+    "covers": [
+      "trap:relative-clause",
+      "trap:have-not-perfect",
+      "trap:third-party-untouched",
+      "friend",
+      "nurse"
+    ]
+  },
+  {
+    "id": "B090",
+    "en": "My sister, who is a teacher, is tired.",
+    "speaker": "M",
+    "addressee": "M",
+    "intent": "Sister is lexically female: care este profesoară, este obosită. The male anyone-else setting must not rewrite either predicate.",
+    "covers": [
+      "trap:relative-clause",
+      "trap:lexical-subject",
+      "teacher",
+      "tired"
+    ]
+  },
+  {
+    "id": "B091",
+    "en": "I am tired and happy.",
+    "speaker": "F",
+    "intent": "Female speaker: Sunt obosită și fericită. Both adjectives follow the speaker.",
+    "covers": [
+      "trap:adj-coordination",
+      "tired",
+      "happy"
+    ]
+  },
+  {
+    "id": "B092",
+    "en": "I am tall, tired and happy.",
+    "speaker": "F",
+    "intent": "Female speaker: Sunt înaltă, obosită și fericită. Commas inside the predicate do not end it.",
+    "covers": [
+      "trap:adj-coordination",
+      "tall",
+      "tired",
+      "happy"
+    ]
+  },
+  {
+    "id": "B093",
+    "en": "You are a good friend and a good colleague.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "Female addressee: o prietenă bună și o colegă bună.",
+    "covers": [
+      "trap:adj-coordination",
+      "friend",
+      "colleague",
+      "good"
+    ]
+  },
+  {
+    "id": "B094",
+    "en": "You are the best teacher.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "Female addressee: Ești cea mai bună profesoară.",
+    "covers": [
+      "trap:superlative",
+      "teacher",
+      "good"
+    ]
+  },
+  {
+    "id": "B095",
+    "en": "You are the best teacher I have.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "Female addressee: Ești cea mai bună profesoară pe care o am. The clitic îl -> o also follows her; \"am\" is \"have\", not the speaker's perfect.",
+    "covers": [
+      "trap:superlative",
+      "trap:relative-clause",
+      "trap:have-not-perfect",
+      "teacher",
+      "good"
+    ]
+  },
+  {
+    "id": "B096",
+    "en": "I am the tallest in my family.",
+    "speaker": "M",
+    "intent": "Male speaker: Sunt cel mai înalt din familia mea. \"mea\" agrees with familia and must stay feminine.",
+    "covers": [
+      "trap:superlative",
+      "trap:possessive-other-noun",
+      "tall"
+    ]
+  },
+  {
+    "id": "B097",
+    "en": "Josh is the best singer in my family.",
+    "speaker": "F",
+    "targets": {
+      "josh": "M"
+    },
+    "intent": "Josh is male: cel mai bun cântăreț din familia mea. \"mea\" belongs to familia; it must NOT become meu.",
+    "covers": [
+      "trap:superlative",
+      "trap:possessive-other-noun",
+      "singer",
+      "good"
+    ]
+  },
+  {
+    "id": "B098",
+    "en": "Alex is the best programmer in our team.",
+    "speaker": "F",
+    "targets": {
+      "alex": "M"
+    },
+    "intent": "Alex is male: cel mai bun programator din echipa noastră. \"noastră\" belongs to echipa and stays feminine.",
+    "covers": [
+      "trap:superlative",
+      "trap:possessive-other-noun",
+      "trap:ambiguous-name",
+      "programmer",
+      "good"
+    ]
+  },
+  {
+    "id": "B099",
+    "en": "I am a teacher.",
+    "speaker": "avoid",
+    "intent": "Speaker gender avoided: Predau. (Gender-free verb paraphrase exists.)",
+    "covers": [
+      "trap:avoid-fallback",
+      "teacher"
+    ]
+  },
+  {
+    "id": "B100",
+    "en": "I am a doctor.",
+    "speaker": "avoid",
+    "intent": "No gender-free paraphrase for doctor: fall back to both forms, doctor/doctoriță, and report the fallback.",
+    "covers": [
+      "trap:avoid-fallback",
+      "doctor"
+    ]
+  },
+  {
+    "id": "B101",
+    "en": "I am tired.",
+    "speaker": "avoid",
+    "intent": "No paraphrase for an adjective: fall back to obosit/obosită.",
+    "covers": [
+      "trap:avoid-fallback",
+      "tired"
+    ]
+  },
+  {
+    "id": "B102",
+    "en": "You are a good singer.",
+    "speaker": "M",
+    "addressee": "avoid",
+    "intent": "Addressee gender avoided: Cânți bine. \"good\" must survive as \"bine\"; dropping it (just \"Cânți\") loses meaning. If that is not possible, both forms.",
+    "covers": [
+      "trap:avoid-fallback",
+      "singer",
+      "good"
+    ]
+  },
+  {
+    "id": "B103",
+    "en": "Maya is a teacher.",
+    "speaker": "M",
+    "targets": {
+      "maya": "avoid"
+    },
+    "intent": "Avoid is not available for a third person: fall back to both forms profesor/profesoară for Maya.",
+    "covers": [
+      "trap:avoid-fallback",
+      "teacher"
+    ]
+  },
+  {
+    "id": "B104",
+    "en": "I am a teacher and a translator.",
+    "speaker": "avoid",
+    "intent": "Speaker avoided: Predau și traduc. Both nouns need the paraphrase, or the whole predicate falls back to both forms; never a half-paraphrase with a stray gendered noun.",
+    "covers": [
+      "trap:avoid-fallback",
+      "trap:adj-coordination",
+      "teacher",
+      "translator"
+    ]
+  },
+  {
+    "id": "B105",
+    "en": "I am the best teacher.",
+    "speaker": "avoid",
+    "intent": "No faithful gender-free version (Predau loses \"the best\"): fall back to both forms, cel/cea mai bun/bună profesor/profesoară (or two whole variants).",
+    "covers": [
+      "trap:avoid-fallback",
+      "trap:superlative",
+      "teacher",
+      "good"
+    ]
+  },
+  {
+    "id": "B106",
+    "en": "Am I a good driver?",
+    "speaker": "avoid",
+    "intent": "Speaker avoided: Conduc bine? (keeping \"good\" as bine and the question); otherwise both forms șofer bun/șoferiță bună.",
+    "covers": [
+      "trap:avoid-fallback",
+      "trap:question",
+      "driver",
+      "good"
+    ]
+  },
+  {
+    "id": "B107",
+    "en": "You are my best friend.",
+    "speaker": "M",
+    "addressee": "both",
+    "intent": "Addressee both: two whole readings, Ești cel mai bun prieten al meu / Ești cea mai bună prietenă a mea. Never a mixed sentence.",
+    "covers": [
+      "trap:both",
+      "trap:superlative",
+      "friend",
+      "good"
+    ]
+  },
+  {
+    "id": "B108",
+    "en": "I am tired and you are happy.",
+    "speaker": "both",
+    "addressee": "both",
+    "intent": "Two different people each shown both: inline doublets obosit/obosită and fericit/fericită, not collapsed into two whole sentences that pair the speaker's gender with the addressee's.",
+    "covers": [
+      "trap:both",
+      "trap:speaker-addressee",
+      "tired",
+      "happy"
+    ]
+  },
+  {
+    "id": "B109",
+    "en": "Sam is my best friend.",
+    "speaker": "F",
+    "targets": {
+      "sam": "both"
+    },
+    "intent": "Sam both: Sam este cel mai bun prieten al meu / cea mai bună prietenă a mea (two whole readings). The female speaker is irrelevant.",
+    "covers": [
+      "trap:both",
+      "trap:ambiguous-name",
+      "trap:superlative",
+      "friend",
+      "good"
+    ]
+  },
+  {
+    "id": "B110",
+    "en": "Kim is a nurse and Jordan is a driver.",
+    "speaker": "M",
+    "targets": {
+      "kim": "both",
+      "jordan": "avoid"
+    },
+    "intent": "Kim both: asistent/asistentă. Jordan avoid: third person cannot be paraphrased, so also both: șofer/șoferiță.",
+    "covers": [
+      "trap:both",
+      "trap:avoid-fallback",
+      "trap:mixed-names",
+      "trap:ambiguous-name",
+      "nurse",
+      "driver"
+    ]
+  },
+  {
+    "id": "B111",
+    "en": "My brother is a teacher and I am a teacher too.",
+    "speaker": "avoid",
+    "intent": "Brother (male) stays profesor. Speaker avoided: și eu predau. The brother's clause must not be paraphrased.",
+    "covers": [
+      "trap:avoid-fallback",
+      "trap:third-party-untouched",
+      "teacher"
+    ]
+  },
+  {
+    "id": "B112",
+    "en": "I am sad.",
+    "speaker": "F",
+    "intent": "Female speaker: Sunt tristă. (trist/tristă not in lexicon.)",
+    "covers": [
+      "trap:oov",
+      "OOV:sad"
+    ]
+  },
+  {
+    "id": "B113",
+    "en": "You are beautiful.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "Female addressee: Ești frumoasă.",
+    "covers": [
+      "trap:oov",
+      "OOV:beautiful"
+    ]
+  },
+  {
+    "id": "B114",
+    "en": "I am busy today.",
+    "speaker": "F",
+    "intent": "Female speaker: Sunt ocupată azi.",
+    "covers": [
+      "trap:oov",
+      "OOV:busy"
+    ]
+  },
+  {
+    "id": "B115",
+    "en": "Are you angry with me?",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "Female addressee: Ești supărată pe mine?",
+    "covers": [
+      "trap:oov",
+      "trap:question",
+      "OOV:angry"
+    ]
+  },
+  {
+    "id": "B116",
+    "en": "I am married.",
+    "speaker": "F",
+    "intent": "Female speaker: Sunt căsătorită.",
+    "covers": [
+      "trap:oov",
+      "OOV:married"
+    ]
+  },
+  {
+    "id": "B117",
+    "en": "I am a student.",
+    "speaker": "F",
+    "intent": "Female speaker: Sunt studentă.",
+    "covers": [
+      "trap:oov",
+      "OOV:student"
+    ]
+  },
+  {
+    "id": "B118",
+    "en": "Maya is my cousin.",
+    "speaker": "M",
+    "targets": {
+      "maya": "F"
+    },
+    "intent": "Maya is female: Maya este verișoara mea. If the model says vărul meu, flipping only \"meu\" to \"mea\" (vărul mea) is worse than no change: noun and possessive must move together.",
+    "covers": [
+      "trap:oov",
+      "trap:half-correction",
+      "OOV:cousin"
+    ]
+  },
+  {
+    "id": "B119",
+    "en": "I am proud of you.",
+    "speaker": "F",
+    "addressee": "M",
+    "intent": "Female speaker: Sunt mândră de tine. The male addressee has no gendered word.",
+    "covers": [
+      "trap:oov",
+      "OOV:proud"
+    ]
+  },
+  {
+    "id": "B120",
+    "en": "You are alone and I am tired.",
+    "speaker": "F",
+    "addressee": "F",
+    "intent": "Female addressee: Ești singură; female speaker: obosită.",
+    "covers": [
+      "trap:oov",
+      "trap:speaker-addressee",
+      "OOV:alone",
+      "tired"
+    ]
+  },
+  {
+    "id": "B121",
+    "en": "I am sad and tired.",
+    "speaker": "F",
+    "intent": "Female speaker: tristă și obosită. Both must be feminine; fixing only the in-lexicon word gives a mixed predicate.",
+    "covers": [
+      "trap:oov",
+      "trap:adj-coordination",
+      "trap:half-correction",
+      "OOV:sad",
+      "tired"
+    ]
+  },
+  {
+    "id": "B122",
+    "en": "You are a beautiful dancer.",
+    "speaker": "M",
+    "addressee": "F",
+    "intent": "Female addressee: Ești o dansatoare frumoasă. Article, noun and OOV adjective all feminine.",
+    "covers": [
+      "trap:oov",
+      "trap:half-correction",
+      "OOV:beautiful",
+      "dancer"
+    ]
+  }
+]

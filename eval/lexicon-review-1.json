@@ -1,0 +1,529 @@
+[
+  {
+    "index": 0,
+    "en": "accountant",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 1,
+    "en": "actor",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 2,
+    "en": "ambassador",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 3,
+    "en": "anesthetist",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 4,
+    "en": "architect",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 5,
+    "en": "archivist",
+    "verdict": "uncertain",
+    "issues": [
+      {
+        "field": "f",
+        "current": "arhivară",
+        "proposed": "arhivară (unverified)",
+        "reason": "No dictionary on dexonline (DEX '09, MDA2, DOOM3) records a feminine of 'arhivar' (s.m. only). The formation is regular, but its standing cannot be confirmed.",
+        "source": "https://dexonline.ro/definitie/arhivar"
+      },
+      {
+        "field": "pluralF/formsF",
+        "current": "null",
+        "proposed": "arhivare; {\"pl.gd.def\":\"arhivarelor\",\"pl.gd.indef\":\"arhivare\",\"pl.na.def\":\"arhivarele\",\"pl.na.indef\":\"arhivare\",\"sg.gd.def\":\"arhivarei\",\"sg.gd.indef\":\"arhivare\",\"sg.na.def\":\"arhivara\",\"sg.na.indef\":\"arhivară\"}",
+        "reason": "f is given but pluralF and formsF are missing. The regular -ară paradigm would be as proposed.",
+        "source": "memory"
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "en": "astronomer",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "note",
+        "current": "sources differ by the o->oa breaking; DOOM3 admits both spellings",
+        "proposed": "DOOM3 (marked '!', a changed norm) records only 'astronoamă'. 'astronomă' (rar) is the superseded DOOM2 form.",
+        "reason": "The DOOM3 entry lists astronoamă alone (g.-d. astronoamei, pl. astronoame). astronomă appears only in DOOM2 and the Ortografic.",
+        "source": "https://dexonline.ro/definitie/astronoamă"
+      },
+      {
+        "field": "pluralF/formsF",
+        "current": "null",
+        "proposed": "astronoame; {\"pl.gd.def\":\"astronoamelor\",\"pl.gd.indef\":\"astronoame\",\"pl.na.def\":\"astronoamele\",\"pl.na.indef\":\"astronoame\",\"sg.gd.def\":\"astronoamei\",\"sg.gd.indef\":\"astronoame\",\"sg.na.def\":\"astronoama\",\"sg.na.indef\":\"astronoamă\"}",
+        "reason": "Feminine plural and paradigm are missing. DOOM3 gives g.-d. art. astronoamei, pl. astronoame.",
+        "source": "https://dexonline.ro/definitie/astronoamă"
+      }
+    ],
+    "statusComment": "'variant' overstates parity: DOOM3 has a single normative feminine, 'astronoamă', and 'astronomă' is the old DOOM2 norm. 'normative' with fAlt='astronomă' marked as superseded would be more accurate."
+  },
+  {
+    "index": 7,
+    "en": "athlete",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 8,
+    "en": "auditor",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "pluralM/formsM",
+        "current": "null",
+        "proposed": "auditori; {\"pl.gd.def\":\"auditorilor\",\"pl.gd.indef\":\"auditori\",\"pl.na.def\":\"auditorii\",\"pl.na.indef\":\"auditori\",\"sg.gd.def\":\"auditorului\",\"sg.gd.indef\":\"auditor\",\"sg.na.def\":\"auditorul\",\"sg.na.indef\":\"auditor\"}",
+        "reason": "Masculine plural and paradigm are missing. DOOM3: auditor, pl. auditori.",
+        "source": "https://dexonline.ro/definitie/auditor"
+      },
+      {
+        "field": "status",
+        "current": "attested",
+        "proposed": "normative",
+        "reason": "DOOM3 records auditoare (s.f., same form in sg. and pl.). DEX '09 has auditor², -oare: 'persoană ... având responsabilitatea unui audit'.",
+        "source": "https://dexonline.ro/definitie/auditoare"
+      }
+    ],
+    "statusComment": "The feminine is in DOOM3 and DEX '09 (sense: auditor of accounts), so 'normative' fits better than 'attested'."
+  },
+  {
+    "index": 9,
+    "en": "baker",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 10,
+    "en": "banker",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "status",
+        "current": "normative",
+        "proposed": "attested or contested",
+        "reason": "dexonline has no entry for 'bancheră'. DEX '09, MDA2 and DOOM3 give 'bancher' as s.m. only, so 'normative' is not supported.",
+        "source": "https://dexonline.ro/definitie/bancheră"
+      },
+      {
+        "field": "note",
+        "current": "EnRoGend and kaikki agree",
+        "proposed": "bancheră is a regular formation but absent from DEX and DOOM3",
+        "reason": "The note implies normative backing that the dictionaries do not give.",
+        "source": "https://dexonline.ro/definitie/bancher"
+      },
+      {
+        "field": "pluralF/formsF",
+        "current": "null",
+        "proposed": "banchere; {\"pl.gd.def\":\"bancherelor\",\"pl.gd.indef\":\"banchere\",\"pl.na.def\":\"bancherele\",\"pl.na.indef\":\"banchere\",\"sg.gd.def\":\"bancherei\",\"sg.gd.indef\":\"banchere\",\"sg.na.def\":\"banchera\",\"sg.na.indef\":\"bancheră\"}",
+        "reason": "f is given but its plural and paradigm are missing (regular -ă paradigm).",
+        "source": "memory"
+      }
+    ],
+    "statusComment": "No dictionary on dexonline lists 'bancheră', so status 'normative' is not justified."
+  },
+  {
+    "index": 11,
+    "en": "barber",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 12,
+    "en": "bartender",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "note",
+        "current": "EnRoGend and kaikki agree",
+        "proposed": "DOOM3 marks bármaniță as (fam.), stressed on the first syllable",
+        "reason": "The register label is worth recording. The form itself and its paradigm are correct.",
+        "source": "https://dexonline.ro/definitie/barmaniță"
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "en": "botanist",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "formsM.sg.gd.def",
+        "current": "botanistaui",
+        "proposed": "botanistului",
+        "reason": "Corrupted form. The masculine genitive-dative definite is botanistului.",
+        "source": "memory"
+      },
+      {
+        "field": "formsM.sg.na.def",
+        "current": "botanista",
+        "proposed": "botanistul",
+        "reason": "The feminine definite form was copied into the masculine paradigm. The masculine NA definite is botanistul.",
+        "source": "memory"
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "en": "carpenter",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "f",
+        "current": "tâmplăriță",
+        "proposed": "tâmplăriță (keep, but flag) / no established feminine",
+        "reason": "Not in DOOM3. MDA2 labels it '(Rar)' and defines it as tâmplăreasă, i.e. 'soția tâmplarului' (the carpenter's wife), not a female carpenter. DOOM3 lists only tâmplăreasă, which DEX '09 also defines as the carpenter's wife.",
+        "source": "https://dexonline.ro/definitie/tâmplăriță"
+      }
+    ],
+    "statusComment": "'attested' overstates it: the only attestation (MDA2, rare) carries the 'wife of' meaning. As an occupational feminine it should be 'contested' or flagged."
+  },
+  {
+    "index": 15,
+    "en": "cashier",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 16,
+    "en": "chef",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "neutral.verb1sg/verb2sg",
+        "current": "gătesc / gătești",
+        "proposed": "kind 'none', or a paraphrase such as 'lucrez ca bucătar' (not gender-neutral)",
+        "reason": "The forms are correct, but 'Gătesc' ('I cook') does not name the profession. Turning 'Sunt bucătar' into 'Gătesc' loses the job meaning, and en 'chef' suggests a professional (bucătar-șef).",
+        "source": "memory"
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "en": "chemist",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 18,
+    "en": "coach",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 19,
+    "en": "composer",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 20,
+    "en": "conductor",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 21,
+    "en": "consultant",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 22,
+    "en": "dancer",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 23,
+    "en": "dentist",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 24,
+    "en": "designer",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "status",
+        "current": "attested",
+        "proposed": "normative",
+        "reason": "DOOM3 records designeră (marked '+', newly added) with g.-d. designerei, pl. designere.",
+        "source": "https://dexonline.ro/definitie/designeră"
+      },
+      {
+        "field": "pluralF/formsF",
+        "current": "null",
+        "proposed": "designere; {\"pl.gd.def\":\"designerelor\",\"pl.gd.indef\":\"designere\",\"pl.na.def\":\"designerele\",\"pl.na.indef\":\"designere\",\"sg.gd.def\":\"designerei\",\"sg.gd.indef\":\"designere\",\"sg.na.def\":\"designera\",\"sg.na.indef\":\"designeră\"}",
+        "reason": "Feminine plural and paradigm are missing. DOOM3 gives designerei, designere.",
+        "source": "https://dexonline.ro/definitie/designeră"
+      }
+    ],
+    "statusComment": "DOOM3 now includes 'designeră', so it is normative (a recent addition)."
+  },
+  {
+    "index": 25,
+    "en": "detective",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "pluralF/formsF",
+        "current": "null",
+        "proposed": "detective; {\"pl.gd.def\":\"detectivelor\",\"pl.gd.indef\":\"detective\",\"pl.na.def\":\"detectivele\",\"pl.na.indef\":\"detective\",\"sg.gd.def\":\"detectivei\",\"sg.gd.indef\":\"detective\",\"sg.na.def\":\"detectiva\",\"sg.na.indef\":\"detectivă\"}",
+        "reason": "Feminine plural and paradigm are missing. DOOM3 gives detectivei, pl. detective.",
+        "source": "https://dexonline.ro/definitie/detectivă"
+      },
+      {
+        "field": "note",
+        "current": "null",
+        "proposed": "DOOM3 adds detectivă (marked rar)",
+        "reason": "Status 'attested' is defensible, but DOOM3 does list the form (as rare), which is worth noting.",
+        "source": "https://dexonline.ro/definitie/detectivă"
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "en": "diplomat",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "status",
+        "current": "attested",
+        "proposed": "normative",
+        "reason": "DOOM3 under diplomat gives s.f. diplomată, pl. diplomate. DEX '09 has diplomat², -ă, s.m. și f.",
+        "source": "https://dexonline.ro/definitie/diplomat"
+      }
+    ],
+    "statusComment": "The feminine is in DOOM3 and DEX '09, so 'normative' fits."
+  },
+  {
+    "index": 27,
+    "en": "director",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "en",
+        "current": "director -> regizor",
+        "proposed": "'film/stage director' -> regizor; or map 'director' -> director/directoare",
+        "reason": "English 'director' most often means a manager (Romanian director/directoare). 'regizor' covers only film and theatre directors, so the mapping is ambiguous. The forms are correct (DOOM3 regizoare).",
+        "source": "https://dexonline.ro/definitie/regizoare"
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "en": "doctor",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 29,
+    "en": "driver",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "neutral.verb1sg/verb2sg",
+        "current": "conduc / conduci",
+        "proposed": "keep the forms; consider 'conduc (mașina/autobuzul)' or kind 'none'",
+        "reason": "The forms are correct, but bare 'Conduc' is ambiguous ('I lead/manage') and does not state the profession the way 'Sunt șofer' does.",
+        "source": "memory"
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "en": "economist",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 31,
+    "en": "editor",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "en",
+        "current": "editor -> editor",
+        "proposed": "redactor/redactoare (newspaper or text editor); keep editor/editoare for 'publisher'",
+        "reason": "DEX '09 defines Romanian 'editor' as the person or entity in charge of publishing a book, journal etc., which is closer to 'publisher'. English 'editor' in the job sense usually corresponds to 'redactor'.",
+        "source": "https://dexonline.ro/definitie/editor"
+      },
+      {
+        "field": "status",
+        "current": "attested",
+        "proposed": "normative",
+        "reason": "DOOM3 records editoare (g.-d. editoarei, pl. editoare). DEX '09 has editor, -oare.",
+        "source": "https://dexonline.ro/definitie/editoare"
+      }
+    ],
+    "statusComment": "The feminine 'editoare' is in DOOM3, so 'normative' fits."
+  },
+  {
+    "index": 32,
+    "en": "electrician",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 33,
+    "en": "engineer",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 34,
+    "en": "gardener",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 35,
+    "en": "geologist",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "f / fAlt",
+        "current": "f=geoloagă, fAlt=geologă",
+        "proposed": "f=geologă, fAlt=geoloagă",
+        "reason": "DOOM3 lists geologă first, labelled (livr.), and geoloagă as (colocv.), with the cross-reference 'geoloagă v. geologă'. The headword should be the literary form.",
+        "source": "https://dexonline.ro/definitie/geologă"
+      },
+      {
+        "field": "pluralF/formsF",
+        "current": "null",
+        "proposed": "geologe; {\"pl.gd.def\":\"geologelor\",\"pl.gd.indef\":\"geologe\",\"pl.na.def\":\"geologele\",\"pl.na.indef\":\"geologe\",\"sg.gd.def\":\"geologei\",\"sg.gd.indef\":\"geologe\",\"sg.na.def\":\"geologa\",\"sg.na.indef\":\"geologă\"}",
+        "reason": "Feminine plural and paradigm are missing. DOOM3: g.-d. geologei/geoloagei, pl. geologe/geoloage.",
+        "source": "https://dexonline.ro/definitie/geologă"
+      },
+      {
+        "field": "note",
+        "current": "sources differ by the o->oa breaking; DOOM3 admits both spellings",
+        "proposed": "DOOM3 admits both: geologă (livr.) / geoloagă (colocv.)",
+        "reason": "These are register variants, not just spellings.",
+        "source": "https://dexonline.ro/definitie/geologă"
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "en": "hairdresser",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "status",
+        "current": "attested",
+        "proposed": "normative",
+        "reason": "DOOM3 records coafeză (g.-d. coafezei, pl. coafeze).",
+        "source": "https://dexonline.ro/definitie/coafeză"
+      }
+    ],
+    "statusComment": "'coafeză' is in DOOM3, so it is normative."
+  },
+  {
+    "index": 37,
+    "en": "inspector",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 38,
+    "en": "journalist",
+    "verdict": "ok",
+    "issues": []
+  },
+  {
+    "index": 39,
+    "en": "judge",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "status",
+        "current": "attested",
+        "proposed": "normative",
+        "reason": "DOOM3 and DOOM2 both record judecătoare (g.-d. judecătoarei, pl. judecătoare).",
+        "source": "https://dexonline.ro/definitie/judecătoare"
+      }
+    ],
+    "statusComment": "'judecătoare' is in DOOM2 and DOOM3, so it is normative."
+  },
+  {
+    "index": 40,
+    "en": "lawyer",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "formsM.sg.gd.def",
+        "current": "ului",
+        "proposed": "avocatului",
+        "reason": "The stem is lost: only the ending is stored.",
+        "source": "memory"
+      },
+      {
+        "field": "formsM.sg.na.def",
+        "current": "ul",
+        "proposed": "avocatul",
+        "reason": "The stem is lost: only the article is stored.",
+        "source": "memory"
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "en": "lecturer",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "f",
+        "current": "lectoare",
+        "proposed": "lectoră",
+        "reason": "dexonline has no entry for 'lectoare'. For the university grade DEX '09 gives LECTOR¹, -Ă (rar la f.), and DOOM3 lists lectoră (rar), g.-d. lectorei, pl. lectore.",
+        "source": "https://dexonline.ro/definitie/lectoră"
+      },
+      {
+        "field": "pluralF/formsF",
+        "current": "null",
+        "proposed": "lectore; {\"pl.gd.def\":\"lectorelor\",\"pl.gd.indef\":\"lectore\",\"pl.na.def\":\"lectorele\",\"pl.na.indef\":\"lectore\",\"sg.gd.def\":\"lectorei\",\"sg.gd.indef\":\"lectore\",\"sg.na.def\":\"lectora\",\"sg.na.indef\":\"lectoră\"}",
+        "reason": "Feminine plural and paradigm are missing.",
+        "source": "https://dexonline.ro/definitie/lectoră"
+      }
+    ],
+    "statusComment": "Status 'attested' was given to a form that does not exist. lectoră is in DOOM3 but labelled rar, so 'attested' (rare) fits once f is corrected."
+  },
+  {
+    "index": 42,
+    "en": "librarian",
+    "verdict": "issue",
+    "issues": [
+      {
+        "field": "pluralM/formsM",
+        "current": "null",
+        "proposed": "bibliotecari; {\"pl.gd.def\":\"bibliotecarilor\",\"pl.gd.indef\":\"bibliotecari\",\"pl.na.def\":\"bibliotecarii\",\"pl.na.indef\":\"bibliotecari\",\"sg.gd.def\":\"bibliotecarului\",\"sg.gd.indef\":\"bibliotecar\",\"sg.na.def\":\"bibliotecarul\",\"sg.na.indef\":\"bibliotecar\"}",
+        "reason": "Masculine plural and paradigm are missing.",
+        "source": "memory"
+      },
+      {
+        "field": "status",
+        "current": "attested",
+        "proposed": "normative",
+        "reason": "DOOM3 records bibliotecară (g.-d. bibliotecarei, pl. bibliotecare).",
+        "source": "https://dexonline.ro/definitie/bibliotecară"
+      }
+    ],
+    "statusComment": "'bibliotecară' is in DOOM3, so it is normative."
+  }
+]

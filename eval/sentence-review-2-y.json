@@ -1,0 +1,1880 @@
+[
+ {
+  "id": "A167",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A168",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A169",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A170",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A171",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "Predai",
+    "issue": "paraphrase drops \"good\"",
+    "fix": "Predai bine"
+   }
+  ],
+  "corrected": "Predai bine.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "A172",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A173",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A174",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A175",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A176",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A177",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A178",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A179",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A180",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A181",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A182",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A183",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "welder",
+    "issue": "English word left untranslated",
+    "fix": "sudor"
+   },
+   {
+    "token": "un",
+    "issue": "no article before a profession here",
+    "fix": ""
+   }
+  ],
+  "corrected": "Sunt sudor.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "A184",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "welder",
+    "issue": "English word left untranslated",
+    "fix": "sudoriță"
+   },
+   {
+    "token": "o",
+    "issue": "no article before a profession here",
+    "fix": ""
+   }
+  ],
+  "corrected": "Sunt sudoriță.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "A185",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "Zorost",
+    "issue": "mistranslation of \"zoologist\" (non-word)",
+    "fix": "zoologă"
+   },
+   {
+    "token": "o",
+    "issue": "no article before a profession here",
+    "fix": ""
+   }
+  ],
+  "corrected": "Sunt zoologă.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "A186",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "Zorost",
+    "issue": "mistranslation of \"zoologist\" (non-word)",
+    "fix": "zoologă"
+   },
+   {
+    "token": "o",
+    "issue": "no article before a profession here",
+    "fix": ""
+   }
+  ],
+  "corrected": "Ești zoologă.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "A187",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "Zorost",
+    "issue": "mistranslation of \"zoologist\" (non-word)",
+    "fix": "zoologă"
+   },
+   {
+    "token": "o",
+    "issue": "no article before a profession here",
+    "fix": ""
+   }
+  ],
+  "corrected": "Maria este zoologă.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "A188",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A189",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A190",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A191",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A192",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A193",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A194",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A195",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A196",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A197",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A198",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A199",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A200",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A201",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A202",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A203",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A204",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A205",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A206",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A207",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A208",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A209",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "A210",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "coleg",
+    "issue": "feminine variant only half rewritten: second article and noun left masculine (second line)",
+    "fix": "o colegă"
+   }
+  ],
+  "corrected": "Ești un prieten și un coleg.\nEști o prietenă și o colegă.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B001",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "cea",
+    "issue": "\"He\" is explicit; correct MT form wrongly rewritten",
+    "fix": "cel"
+   },
+   {
+    "token": "bună",
+    "issue": "\"He\" is male",
+    "fix": "bun"
+   },
+   {
+    "token": "prietenă",
+    "issue": "\"He\" is male",
+    "fix": "prieten"
+   },
+   {
+    "token": "a",
+    "issue": "agrees with prieten",
+    "fix": "al"
+   },
+   {
+    "token": "mea",
+    "issue": "agrees with prieten",
+    "fix": "meu"
+   }
+  ],
+  "corrected": "E cel mai bun prieten al meu.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B002",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "un",
+    "issue": "\"She\" is explicit; correct MT form wrongly rewritten",
+    "fix": "o"
+   },
+   {
+    "token": "profesor",
+    "issue": "\"She\" is female",
+    "fix": "profesoară"
+   },
+   {
+    "token": "bun",
+    "issue": "\"She\" is female",
+    "fix": "bună"
+   }
+  ],
+  "corrected": "E o profesoară bună.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B003",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B004",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "medicală",
+    "issue": "adjective not re-agreed after the noun was made masculine",
+    "fix": "medical"
+   }
+  ],
+  "corrected": "Ea este doctor și eu sunt asistent medical.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B005",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "unjustified"
+ },
+ {
+  "id": "B006",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B007",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B008",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "o",
+    "issue": "\"he\" = Josh (male); correct MT form wrongly rewritten",
+    "fix": "un"
+   },
+   {
+    "token": "cântăreață",
+    "issue": "Josh is male",
+    "fix": "cântăreț"
+   },
+   {
+    "token": "bună",
+    "issue": "Josh is male",
+    "fix": "bun"
+   }
+  ],
+  "corrected": "Josh crede că e un cântăreț bun.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B009",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "de-al",
+    "issue": "possessive article must agree with prietenă",
+    "fix": "a"
+   },
+   {
+    "token": "mea",
+    "issue": "belongs to \"fratelui\" (male); wrongly rewritten",
+    "fix": "meu"
+   }
+  ],
+  "corrected": "Ești o prietenă a fratelui meu.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B010",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "un",
+    "issue": "sister is lexically female",
+    "fix": "o"
+   },
+   {
+    "token": "coleg",
+    "issue": "sister is female",
+    "fix": "colegă"
+   },
+   {
+    "token": "al",
+    "issue": "agrees with colegă",
+    "fix": "a"
+   }
+  ],
+  "corrected": "Sora mea este o colegă a soțului meu.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "B011",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "de-al",
+    "issue": "possessive article must agree with colegă",
+    "fix": "de-a"
+   }
+  ],
+  "corrected": "Sunt o colegă de-a lui.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B012",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B013",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B014",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "Doctorul",
+    "issue": "doctor set female; subject noun not rewritten",
+    "fix": "Doctorița"
+   },
+   {
+    "token": "de-al",
+    "issue": "possessive article must agree with prietenă",
+    "fix": "de-a"
+   }
+  ],
+  "corrected": "Doctorița e o prietenă de-a mea.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B015",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B016",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B017",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B018",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B019",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "un",
+    "issue": "Maya is female",
+    "fix": "o"
+   },
+   {
+    "token": "prieten",
+    "issue": "Maya is female",
+    "fix": "prietenă"
+   },
+   {
+    "token": "bun",
+    "issue": "Maya is female",
+    "fix": "bună"
+   }
+  ],
+  "corrected": "Maya mi-a fost o prietenă bună.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B020",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B021",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B022",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B023",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B024",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B025",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "profesor",
+    "issue": "second coordinated noun left masculine",
+    "fix": "profesoară"
+   }
+  ],
+  "corrected": "Sunt doctoriță și profesoară.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B026",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B027",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "vecinul",
+    "issue": "Steve set female; second coordinated noun not rewritten",
+    "fix": "vecina"
+   }
+  ],
+  "corrected": "Steve este colega mea și, de asemenea, vecina mea.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B028",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B029",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "colegii",
+    "issue": "both persons female: feminine plural",
+    "fix": "colegele"
+   },
+   {
+    "token": "mei",
+    "issue": "agrees with colegele",
+    "fix": "mele"
+   }
+  ],
+  "corrected": "Maya și Ana sunt colegele mele.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B030",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "obosite",
+    "issue": "parents (mixed) are not the speaker; correct MT form wrongly rewritten",
+    "fix": "obosiți"
+   }
+  ],
+  "corrected": "Părinții mei sunt obosiți.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B031",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "fericite",
+    "issue": "\"children\" are not the speaker; correct MT form wrongly rewritten",
+    "fix": "fericiți"
+   }
+  ],
+  "corrected": "Copiii sunt fericiți și eu sunt fericită.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B032",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B033",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B034",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "colege",
+    "issue": "mixed group (female speaker + male addressee): masculine plural; correct MT form wrongly rewritten",
+    "fix": "colegi"
+   }
+  ],
+  "corrected": "Tu și cu mine suntem colegi.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B035",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B036",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "medicală",
+    "issue": "adjective not re-agreed after the noun was made masculine",
+    "fix": "medical"
+   }
+  ],
+  "corrected": "Sam lucrează ca asistent medical.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B037",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "chelner",
+    "issue": "sister is lexically female",
+    "fix": "chelneriță"
+   }
+  ],
+  "corrected": "Sora mea lucrează ca chelneriță.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "B038",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B039",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "fotograf",
+    "issue": "speaker is female",
+    "fix": "fotografă"
+   }
+  ],
+  "corrected": "Lucrez ca fotografă.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "B040",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B041",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "asistentă",
+    "issue": "\"He\" is explicit and male",
+    "fix": "asistent"
+   },
+   {
+    "token": "medicală",
+    "issue": "agrees with the noun",
+    "fix": "medical"
+   }
+  ],
+  "corrected": "Lucrează ca asistent medical.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "B042",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B043",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "unjustified"
+ },
+ {
+  "id": "B044",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B045",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B046",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B047",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "șeful",
+    "issue": "boss set female",
+    "fix": "șefa"
+   },
+   {
+    "token": "fericit",
+    "issue": "boss set female",
+    "fix": "fericită"
+   }
+  ],
+  "corrected": "Josh și Maya sunt obosiți, dar șefa mea e fericită.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B048",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "asistentă",
+    "issue": "neighbour set male via anyone-else",
+    "fix": "asistent"
+   },
+   {
+    "token": "medicală",
+    "issue": "agrees with the noun",
+    "fix": "medical"
+   }
+  ],
+  "corrected": "Ana este profesoară, Mihai este doctor și vecinul meu este asistent medical.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B049",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "regizorul",
+    "issue": "\"director\" mistranslated as film director, and not made feminine for the F anyone-else setting",
+    "fix": "directoarea"
+   },
+   {
+    "token": "obosit",
+    "issue": "director set female",
+    "fix": "obosită"
+   }
+  ],
+  "corrected": "Maya este colega mea, Steve este prietenul meu, iar directoarea este obosită.",
+  "source": "mixed",
+  "flag": "n/a"
+ },
+ {
+  "id": "B050",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "programatori",
+    "issue": "Kim and Sam are both female",
+    "fix": "programatoare"
+   },
+   {
+    "token": "buni",
+    "issue": "agrees with programatoare",
+    "fix": "bune"
+   }
+  ],
+  "corrected": "Kim și Sam sunt programatoare bune, iar șeful lor e un inginer bun.",
+  "source": "postedit",
+  "flag": "unjustified"
+ },
+ {
+  "id": "B051",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B052",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B053",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B054",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B055",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B056",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B057",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B058",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B059",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "colegul",
+    "issue": "wife is female; correct MT form wrongly rewritten",
+    "fix": "colega"
+   },
+   {
+    "token": "meu",
+    "issue": "wrongly rewritten",
+    "fix": "mea"
+   }
+  ],
+  "corrected": "Soția lui e colega mea.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B060",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "fericite",
+    "issue": "\"we\" = speaker + husband, mixed group: masculine plural (correct MT form wrongly rewritten)",
+    "fix": "fericiți"
+   }
+  ],
+  "corrected": "Sunt profesoară. Soțul meu e doctor. Suntem fericiți.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B061",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B062",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B063",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B064",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "doctor",
+    "issue": "sister is female (\"un doctor\" is masculine-marked)",
+    "fix": "doctoriță"
+   }
+  ],
+  "corrected": "Ești un doctor bun. Și sora ta este doctoriță.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "B065",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "profesor",
+    "issue": "speaker is female; not rewritten in multi-sentence input",
+    "fix": "profesoară"
+   }
+  ],
+  "corrected": "Eu sunt Ana. Sunt profesoară. Fratele meu este inginer. E obosit.",
+  "source": "postedit",
+  "flag": "unjustified"
+ },
+ {
+  "id": "B066",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "fericiți",
+    "issue": "\"They\" = two women: feminine plural",
+    "fix": "fericite"
+   }
+  ],
+  "corrected": "Sam e dansatoare. Kim e cântăreață. Sunt fericite.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B067",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B068",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B069",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B070",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B071",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B072",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B073",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B074",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B075",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B076",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B077",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B078",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B079",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "mea",
+    "issue": "\"he\" is male; possessive of \"fratele\" wrongly rewritten (ungrammatical)",
+    "fix": "meu"
+   },
+   {
+    "token": "colega",
+    "issue": "\"he\" is male; wrongly rewritten",
+    "fix": "colegul"
+   }
+  ],
+  "corrected": "Nu e fratele meu, e colegul meu.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B080",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B081",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B082",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B083",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B084",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B085",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "colegii",
+    "issue": "both persons female: feminine plural",
+    "fix": "colegele"
+   },
+   {
+    "token": "mei",
+    "issue": "agrees with colegele",
+    "fix": "mele"
+   }
+  ],
+  "corrected": "Alex și Sam sunt colegele mele.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B086",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B087",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "Doctorul",
+    "issue": "subject noun not made feminine; clashes with the feminine predicate",
+    "fix": "Doctorița"
+   }
+  ],
+  "corrected": "Doctorița care este vecina mea este obosită.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B088",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "colegul",
+    "issue": "Maya is female; correct MT form wrongly rewritten",
+    "fix": "colega"
+   },
+   {
+    "token": "meu",
+    "issue": "wrongly rewritten",
+    "fix": "mea"
+   },
+   {
+    "token": "un",
+    "issue": "Maya is female",
+    "fix": "o"
+   },
+   {
+    "token": "inginer",
+    "issue": "Maya is female (contested form, flagged)",
+    "fix": "ingineră"
+   },
+   {
+    "token": "bun",
+    "issue": "Maya is female",
+    "fix": "bună"
+   }
+  ],
+  "corrected": "Maya, care este colega mea, este o ingineră bună.",
+  "source": "mixed",
+  "flag": "ok"
+ },
+ {
+  "id": "B089",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "asistentă",
+    "issue": "masculine \"un prieten\" paired with a feminine noun for the same person (MT inconsistency)",
+    "fix": "asistent"
+   },
+   {
+    "token": "medicală",
+    "issue": "agrees with the noun",
+    "fix": "medical"
+   }
+  ],
+  "corrected": "Am un prieten care este asistent medical.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "B090",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "profesor",
+    "issue": "sister is female; correct MT form wrongly rewritten",
+    "fix": "profesoară"
+   },
+   {
+    "token": "obosit",
+    "issue": "sister is female; wrongly rewritten",
+    "fix": "obosită"
+   }
+  ],
+  "corrected": "Sora mea, care este profesoară, este obosită.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B091",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "fericit",
+    "issue": "second coordinated adjective left masculine",
+    "fix": "fericită"
+   }
+  ],
+  "corrected": "Sunt obosită și fericită.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B092",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "obosit",
+    "issue": "speaker predicate continues after the comma; left masculine",
+    "fix": "obosită"
+   },
+   {
+    "token": "fericit",
+    "issue": "left masculine",
+    "fix": "fericită"
+   }
+  ],
+  "corrected": "Sunt înaltă, obosită și fericită.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B093",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "un",
+    "issue": "second NP not rewritten for the female addressee",
+    "fix": "o"
+   },
+   {
+    "token": "coleg",
+    "issue": "addressee is female",
+    "fix": "colegă"
+   },
+   {
+    "token": "bun",
+    "issue": "addressee is female",
+    "fix": "bună"
+   }
+  ],
+  "corrected": "Ești o prietenă bună și o colegă bună.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B094",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B095",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "care-l",
+    "issue": "object clitic refers to the female teacher; must be feminine",
+    "fix": "care o"
+   }
+  ],
+  "corrected": "Ești cea mai bună profesoară pe care o am.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B096",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "meu",
+    "issue": "possessive belongs to \"familia\", wrongly rewritten",
+    "fix": "mea"
+   }
+  ],
+  "corrected": "Sunt cel mai înalt din familia mea.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B097",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "meu",
+    "issue": "possessive belongs to \"familia\", wrongly rewritten",
+    "fix": "mea"
+   }
+  ],
+  "corrected": "Josh este cel mai bun cântăreț din familia mea.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B098",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "nostru",
+    "issue": "possessive belongs to \"echipa\" (fem.), wrongly rewritten",
+    "fix": "noastră"
+   }
+  ],
+  "corrected": "Alex este cel mai bun programator din echipa noastră.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B099",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B100",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B101",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B102",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "",
+    "issue": "\"good\" dropped: the paraphrase loses meaning",
+    "fix": "bine"
+   }
+  ],
+  "corrected": "Cânți bine.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B103",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B104",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "traducător",
+    "issue": "half-paraphrase: stray gendered noun left after a verb, ungrammatical",
+    "fix": "traduc"
+   }
+  ],
+  "corrected": "Predau și traduc.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B105",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "Predau",
+    "issue": "paraphrase drops \"the best\"; should fall back to both forms",
+    "fix": "Sunt cel mai bun profesor/cea mai bună profesoară"
+   }
+  ],
+  "corrected": "Sunt cel mai bun profesor/cea mai bună profesoară.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B106",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "",
+    "issue": "\"good\" dropped: the paraphrase loses meaning",
+    "fix": "bine"
+   }
+  ],
+  "corrected": "Conduc bine?",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B107",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B108",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B109",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B110",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "medicală",
+    "issue": "adjective agrees only with the feminine half of the doublet asistent/asistentă",
+    "fix": "asistent medical/asistentă medicală"
+   }
+  ],
+  "corrected": "Kim e asistent medical/asistentă medicală și Jordan e șofer/șoferiță.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "B111",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B112",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "trist",
+    "issue": "speaker is female",
+    "fix": "tristă"
+   }
+  ],
+  "corrected": "Sunt tristă.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "B113",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B114",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "ocupat",
+    "issue": "speaker is female",
+    "fix": "ocupată"
+   }
+  ],
+  "corrected": "Sunt ocupată azi.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "B115",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B116",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "căsătorit",
+    "issue": "speaker is female",
+    "fix": "căsătorită"
+   }
+  ],
+  "corrected": "Sunt căsătorită.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "B117",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "student",
+    "issue": "speaker is female",
+    "fix": "studentă"
+   }
+  ],
+  "corrected": "Sunt studentă.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "B118",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ },
+ {
+  "id": "B119",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "mândru",
+    "issue": "speaker is female",
+    "fix": "mândră"
+   }
+  ],
+  "corrected": "Sunt mândră de tine.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "B120",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "singur",
+    "issue": "addressee is female",
+    "fix": "singură"
+   }
+  ],
+  "corrected": "Tu ești singură și eu sunt obosită.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "B121",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "trist",
+    "issue": "speaker is female; adjective not in lexicon",
+    "fix": "tristă"
+   },
+   {
+    "token": "obosit",
+    "issue": "in-lexicon adjective left masculine for female speaker",
+    "fix": "obosită"
+   }
+  ],
+  "corrected": "Sunt tristă și obosită.",
+  "source": "mixed",
+  "flag": "n/a"
+ },
+ {
+  "id": "B122",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": null,
+  "flag": "n/a"
+ }
+]

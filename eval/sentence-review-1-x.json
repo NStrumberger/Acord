@@ -1,0 +1,1569 @@
+[
+ {
+  "id": "A001",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A002",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A003",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A004",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A005",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A006",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A007",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A008",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A009",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A010",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A011",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "Archivist",
+    "issue": "untranslated English noun, left unadapted/masculine after the article was feminised",
+    "fix": "arhivistă"
+   },
+   {
+    "token": "o",
+    "issue": "article changed but noun not; 'o Archivist' does not agree",
+    "fix": ""
+   }
+  ],
+  "corrected": "Sunt arhivistă.",
+  "source": "mixed",
+  "flag": "n/a"
+ },
+ {
+  "id": "A012",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "archivistul",
+    "issue": "English-based non-word; Romanian is 'arhivistul' (gender M is correct)",
+    "fix": "arhivistul"
+   }
+  ],
+  "corrected": "Tu ești arhivistul acestei biblioteci.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "A013",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A014",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A015",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A016",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A017",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "sportivi",
+    "issue": "noun left masculine plural while the adjective was feminised; group of women",
+    "fix": "sportive"
+   }
+  ],
+  "corrected": "Suntem sportive obosite.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "A018",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A019",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "auditorul",
+    "issue": "articled masculine for Ana (F); lexicon has auditor/auditoare (applied in A018) but the articled form was not rewritten",
+    "fix": "auditoarea"
+   }
+  ],
+  "corrected": "Ana este auditoarea acestei companii.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "A020",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A021",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A022",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A023",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A024",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A025",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A026",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A027",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "barmani",
+    "issue": "the bartenders are women; third-person plural not rewritten",
+    "fix": "barmanițe"
+   }
+  ],
+  "corrected": "Sunt barmanițe.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "A028",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A029",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A030",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A031",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A032",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A033",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A034",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "bucătar-șef",
+    "issue": "masculine compound for a female speaker; compound outside coverage",
+    "fix": "bucătăreasă-șefă"
+   }
+  ],
+  "corrected": "Sunt bucătăreasă-șefă.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "A035",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "bucătar-șef",
+    "issue": "'avoid' fell back, but the output is masculine only: neither gender-free nor both forms",
+    "fix": "bucătar-șef/bucătăreasă-șefă"
+   }
+  ],
+  "corrected": "Sunt bucătar-șef/bucătăreasă-șefă.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "A036",
+  "verdict": "awkward",
+  "problems": [
+   {
+    "token": "Gătești?",
+    "issue": "gender-free paraphrase shifts meaning from 'are you a chef' to 'do you cook'",
+    "fix": "Gătești profesionist?"
+   }
+  ],
+  "corrected": "Gătești profesionist?",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "A037",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A038",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A039",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A040",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A041",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A042",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A043",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A044",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A045",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A046",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A047",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A048",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A049",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A050",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A051",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A052",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "missing"
+ },
+ {
+  "id": "A053",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "missing"
+ },
+ {
+  "id": "A054",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A055",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A056",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A057",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A058",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "directorul",
+    "issue": "articled masculine for a female speaker; 'director' not rewritten",
+    "fix": "directoarea"
+   }
+  ],
+  "corrected": "Eu sunt directoarea acestui spital.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "A059",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A060",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A061",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A062",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A063",
+  "verdict": "awkward",
+  "problems": [
+   {
+    "token": "Conduc.",
+    "issue": "bare 'conduc' is ambiguous (I lead / I drive) and loses the profession",
+    "fix": "Conduc profesionist."
+   }
+  ],
+  "corrected": "Conduc profesionist.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "A064",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A065",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A066",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A067",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A068",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "editezi",
+    "issue": "paraphrase drops 'of this magazine'; content lost",
+    "fix": "editezi această revistă"
+   }
+  ],
+  "corrected": "Tu editezi această revistă.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "A069",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A070",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A071",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A072",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A073",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A074",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A075",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A076",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "Vecinul",
+    "issue": "subject left masculine while the predicate noun was feminised; the neighbour is a woman",
+    "fix": "Vecina"
+   },
+   {
+    "token": "meu",
+    "issue": "possessive must agree with feminine 'vecina'",
+    "fix": "mea"
+   }
+  ],
+  "corrected": "Vecina mea e grădinăreasă.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "A077",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A078",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A079",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A080",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A081",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A082",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A083",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A084",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A085",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A086",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A087",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A088",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A089",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A090",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A091",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A092",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "librarian",
+    "issue": "not a Romanian word; librarian = bibliotecar ('librar' = bookseller)",
+    "fix": "bibliotecar"
+   }
+  ],
+  "corrected": "Sunt bibliotecar.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "A093",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "librarianul",
+    "issue": "non-word (mistranslation) and masculine for a female speaker",
+    "fix": "bibliotecara"
+   }
+  ],
+  "corrected": "Sunt bibliotecara acestei școli.",
+  "source": "mixed",
+  "flag": "n/a"
+ },
+ {
+  "id": "A094",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A095",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A096",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A097",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "ministrul",
+    "issue": "articled masculine for a female addressee; ministru is in the lexicon (contested, see A096) but the articled form was neither rewritten nor flagged",
+    "fix": "ministra"
+   }
+  ],
+  "corrected": "Ești ministra sănătății.",
+  "source": "postedit",
+  "flag": "missing"
+ },
+ {
+  "id": "A098",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "preot",
+    "issue": "'minister' mistranslated as 'priest'; also masculine for Ioana",
+    "fix": "ministră"
+   }
+  ],
+  "corrected": "Ioana a fost ministră.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "A099",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A100",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "muzicieni",
+    "issue": "the musicians are women; third-person plural not rewritten",
+    "fix": "muziciene"
+   }
+  ],
+  "corrected": "Sunt muziciene.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "A101",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "medicală",
+    "issue": "noun changed to masculine 'asistent' but its adjective was left feminine",
+    "fix": "medical"
+   }
+  ],
+  "corrected": "Sunt asistent medical.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "A102",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A103",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "medicală",
+    "issue": "noun changed to masculine 'asistent' but its adjective was left feminine",
+    "fix": "medical"
+   }
+  ],
+  "corrected": "Ești asistent medical?",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "A104",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A105",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A106",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A107",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A108",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A109",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A110",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A111",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A112",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A113",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A114",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A115",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A116",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A117",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A118",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A119",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A120",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A121",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A122",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "fizioterapeut",
+    "issue": "noun left masculine after the article was feminised; 'o fizioterapeut' does not agree",
+    "fix": "fizioterapeută"
+   }
+  ],
+  "corrected": "Sunt fizioterapeută.",
+  "source": "mixed",
+  "flag": "n/a"
+ },
+ {
+  "id": "A123",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "fizioterapeut",
+    "issue": "masculine for a female addressee; word outside coverage",
+    "fix": "fizioterapeută"
+   }
+  ],
+  "corrected": "Ești fizioterapeută?",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "A124",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "17-lea",
+    "issue": "'plumber' mistranslated as 'the 17th' (garbage)",
+    "fix": "instalator"
+   }
+  ],
+  "corrected": "Sunt instalator.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "A125",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "17-lea",
+    "issue": "'plumber' mistranslated as 'the 17th'",
+    "fix": "instalatoare"
+   },
+   {
+    "token": "a",
+    "issue": "Acord feminised the ordinal article 'al' to 'a', producing ungrammatical 'o a 17-lea'",
+    "fix": ""
+   }
+  ],
+  "corrected": "Sunt instalatoare.",
+  "source": "mixed",
+  "flag": "n/a"
+ },
+ {
+  "id": "A126",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A127",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A128",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "ofițer",
+    "issue": "masculine for a female speaker; epicene use is common, but the intended gender is not marked and the word is outside coverage",
+    "fix": "polițistă"
+   }
+  ],
+  "corrected": "Sunt polițistă.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "A129",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "ofițer",
+    "issue": "masculine for Ana (F); outside coverage",
+    "fix": "polițistă"
+   }
+  ],
+  "corrected": "Ana este polițistă.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "A130",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A131",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A132",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A133",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A134",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A135",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A136",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A137",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A138",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A139",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A140",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "procurorul",
+    "issue": "articled masculine for a female addressee; procuror is in the lexicon (A139) but the articled form was not rewritten",
+    "fix": "procuroarea"
+   }
+  ],
+  "corrected": "Tu ești procuroarea.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "A141",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A142",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A143",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "ok"
+ },
+ {
+  "id": "A144",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "missing"
+ },
+ {
+  "id": "A145",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "missing"
+ },
+ {
+  "id": "A146",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "recepționistă",
+    "issue": "feminine for a male speaker (MT error) not corrected; word outside coverage",
+    "fix": "recepționer"
+   }
+  ],
+  "corrected": "Sunt recepționer.",
+  "source": "out-of-coverage",
+  "flag": "n/a"
+ },
+ {
+  "id": "A147",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A148",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A149",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A150",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "sai",
+    "issue": "'sailor' mistranslated as the non-word 'sai'",
+    "fix": "marinăriță"
+   },
+   {
+    "token": "o",
+    "issue": "article feminised on a garbage noun",
+    "fix": ""
+   }
+  ],
+  "corrected": "Sunt marinăriță.",
+  "source": "mixed",
+  "flag": "n/a"
+ },
+ {
+  "id": "A151",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "sai",
+    "issue": "'sailor' mistranslated as the non-word 'sai'",
+    "fix": "marinar"
+   }
+  ],
+  "corrected": "Am fost marinar.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "A152",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A153",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "o",
+    "issue": "'om' is a masculine epicene noun; 'o om' is ungrammatical",
+    "fix": "un"
+   },
+   {
+    "token": "înaltă",
+    "issue": "adjective must agree with masculine 'om' (or the noun must be replaced)",
+    "fix": "înalt"
+   }
+  ],
+  "corrected": "Elena este o cercetătoare înaltă.",
+  "source": "postedit",
+  "flag": "n/a"
+ },
+ {
+  "id": "A154",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A155",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A156",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "XVII-lea",
+    "issue": "'sculptor' mistranslated as 'the 17th'",
+    "fix": "sculptoriță"
+   },
+   {
+    "token": "a",
+    "issue": "Acord feminised the ordinal 'al' to 'a', producing ungrammatical 'o a XVII-lea'",
+    "fix": ""
+   }
+  ],
+  "corrected": "Sunt sculptoriță.",
+  "source": "mixed",
+  "flag": "n/a"
+ },
+ {
+  "id": "A157",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "XVII-lea",
+    "issue": "'sculptor' mistranslated as 'the 17th'",
+    "fix": "sculptoriță"
+   },
+   {
+    "token": "a",
+    "issue": "Acord feminised the ordinal 'al' to 'a', producing 'o a XVII-lea'",
+    "fix": ""
+   }
+  ],
+  "corrected": "Maria a fost sculptoriță.",
+  "source": "mixed",
+  "flag": "n/a"
+ },
+ {
+  "id": "A158",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A159",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A160",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A161",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A162",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A163",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A164",
+  "verdict": "ok",
+  "problems": [],
+  "corrected": null,
+  "source": "n/a",
+  "flag": "n/a"
+ },
+ {
+  "id": "A165",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "inspectoare",
+    "issue": "'surveyor' mistranslated as 'inspector' (gender correctly feminised)",
+    "fix": "topografă"
+   }
+  ],
+  "corrected": "Sunt topografă.",
+  "source": "mt",
+  "flag": "n/a"
+ },
+ {
+  "id": "A166",
+  "verdict": "wrong",
+  "problems": [
+   {
+    "token": "inspector",
+    "issue": "'surveyor' mistranslated as 'inspector' (gender M correct)",
+    "fix": "topograf"
+   }
+  ],
+  "corrected": "Fratele meu este topograf.",
+  "source": "mt",
+  "flag": "n/a"
+ }
+]

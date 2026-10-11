@@ -1,0 +1,1515 @@
+{
+  "summary": {
+    "reproduced": "332/332 run records reproduce byte-for-byte when applyGender is re-run on mt with the recorded settings and review-run.ts's two-name rule",
+    "nonOkCases": 97,
+    "nonOkCasesCited": 97,
+    "postedit": {
+      "findings": 18,
+      "confirmed": 18,
+      "high": 6,
+      "medium": 9,
+      "low": 3
+    },
+    "flags": {
+      "findings": 5,
+      "confirmed": 4,
+      "unconfirmed": 1
+    },
+    "lexicon": {
+      "issues": 46,
+      "confirmed": 34,
+      "unconfirmed": 10,
+      "rejected": 2
+    },
+    "mtGroups": 6,
+    "mtCases": 25,
+    "coverageCandidates": 19,
+    "disagreements": 9,
+    "method": "Every post-editor finding was re-run deterministically (scratchpad audit/build.ts calls applyGender and throws if the bad output does not reproduce). Lexicon claims were checked against the JSON and the cached dexonline pages; nothing was fetched."
+  },
+  "postedit": [
+    {
+      "id": "P1",
+      "title": "Explicit he/she and lexically gendered subjects are overwritten by the speaker / anyone-else setting ('cea mai bună prietenă a mea' for 'He', 'profesor' for 'She', 'colegul meu' for 'His wife')",
+      "rootCause": "Romanian is pro-drop, so the clause usually has no pronoun. analyze() only protects a span when the token directly before the copula is a Romanian pronoun (GENDERED_PRONOUN). The English he/she in `source` is never consulted, kinship subjects (Sora, Soția, fratele) are not recognised, and a name governs only when it is the token directly before the copula, so 'Maya, care este' and 'Josh crede că e' fall through to the anyone-else target.",
+      "location": "src/ro/postedit.ts analyze() third() L185-186 + GENDERED_PRONOUN L138; targetFor() L363-367 falls back to 'other'",
+      "cases": [
+        "B001",
+        "B002",
+        "B008",
+        "B059",
+        "B079",
+        "B088",
+        "B090"
+      ],
+      "tokens": [
+        "cea",
+        "prietenă",
+        "profesor",
+        "cântăreață",
+        "colegul",
+        "colega",
+        "obosit"
+      ],
+      "minimalRepro": {
+        "en": "He is tired.",
+        "mt": "E obosit.",
+        "settings": {
+          "speaker": "M",
+          "addressee": "F"
+        },
+        "got": "E obosită.",
+        "expected": "E obosit."
+      },
+      "severity": "high",
+      "status": "confirmed",
+      "fix": "Pin a clause's gender from the English subject (he/she, or a gendered kinship noun such as sister/wife/mother/brother/husband/father). Treat 'care este' after a name, and 'că e' after '<Name> <verb>', as that name's span."
+    },
+    {
+      "id": "P2",
+      "title": "3rd-plural 'sunt' read as 'I am' ('Părinții mei sunt obosite', 'Copiii sunt fericite', and the pro-drop 'Sunt barmani' for 'They are')",
+      "rootCause": "FIRST_PERSON contains 'sunt', which is also 3rd plural. The only guard is a pronoun or name directly before it, so a plural noun subject, or a dropped 'they', opens a speaker span.",
+      "location": "src/ro/postedit.ts analyze() L196-201; FIRST_PERSON L120",
+      "cases": [
+        "B030",
+        "B031",
+        "A027",
+        "A100",
+        "B066"
+      ],
+      "tokens": [
+        "obosite",
+        "fericite",
+        "barmani",
+        "muzicieni",
+        "fericiți"
+      ],
+      "minimalRepro": {
+        "en": "The parents are tired.",
+        "mt": "Părinții sunt obosiți.",
+        "settings": {
+          "speaker": "F"
+        },
+        "got": "Părinții sunt obosite.",
+        "expected": "Părinții sunt obosiți."
+      },
+      "severity": "high",
+      "status": "confirmed",
+      "fix": "Treat 'sunt' as 1sg only when the English clause is 'I am/was' (the source is already passed in), or when it is clause-initial and not preceded by a plural or definite noun. Otherwise open an 'other' (3pl) span."
+    },
+    {
+      "id": "P3",
+      "title": "1st-plural 'suntem' follows the speaker alone, so a mixed \"we\" becomes feminine ('Suntem fericite', 'suntem colege')",
+      "rootCause": "'suntem' is in FIRST_PERSON and opens a speaker span. Who is in the group (speaker plus husband; you and I) is ignored.",
+      "location": "src/ro/postedit.ts FIRST_PERSON L120, analyze() L196-201",
+      "cases": [
+        "B034",
+        "B060"
+      ],
+      "tokens": [
+        "colege",
+        "fericite"
+      ],
+      "minimalRepro": {
+        "en": "You and I are tired.",
+        "mt": "Tu și cu mine suntem obosiți.",
+        "settings": {
+          "speaker": "F",
+          "addressee": "M"
+        },
+        "got": "Tu și cu mine suntem obosite.",
+        "expected": "Tu și cu mine suntem obosiți."
+      },
+      "severity": "medium",
+      "status": "confirmed",
+      "fix": "Give 'suntem'/'sunteți' a group span: feminine only when every known member is F (for 'tu și cu mine', the speaker and the addressee). Otherwise use masculine plural, or leave the MT output alone. A017 is the case where following the speaker is correct."
+    },
+    {
+      "id": "P4",
+      "title": "A possessive that agrees with a different noun gets flipped ('familia meu', 'echipa nostru', 'fratelui mea', 'fratele mea')",
+      "rootCause": "The span runs to the end of the clause, and every indexed possessive inside it (meu/mea, nostru/noastră in FUNCTION_WORDS) is flipped. That includes possessives inside a prepositional phrase (din familia mea) or attached to a second noun (fratelui meu).",
+      "location": "src/ro/postedit.ts analyze() L219 (span covers the rest of the clause); candidate loop L412-432; src/ro/words.ts FUNCTION_WORDS L64-67",
+      "cases": [
+        "B096",
+        "B097",
+        "B098",
+        "B009",
+        "B079"
+      ],
+      "tokens": [
+        "meu",
+        "nostru",
+        "mea",
+        "familia",
+        "echipa",
+        "fratelui"
+      ],
+      "minimalRepro": {
+        "en": "I am from my family.",
+        "mt": "Sunt din familia mea.",
+        "settings": {
+          "speaker": "M"
+        },
+        "got": "Sunt din familia meu.",
+        "expected": "Sunt din familia mea."
+      },
+      "severity": "high",
+      "status": "confirmed",
+      "fix": "A possessive agrees with the noun it follows, so flip it only when that noun is itself a flipped candidate. Close the span at prepositions (din, de, la, în, cu, pentru) and after a genitive noun."
+    },
+    {
+      "id": "P5",
+      "title": "Article, possessive article or adjective flipped although the head noun cannot change ('o om', 'înaltă', 'o a 17-lea', 'o a XVII-lea', 'o Zorost', 'o welder')",
+      "rootCause": "Every indexed token in the span is flipped on its own. 'un'/'o' and 'al'/'a' are indexed as function words, so they flip even when the noun they belong to has no counterpart: the epicene 'om', an MT non-word, an ordinal. The adjective then takes the wrong gender too ('înaltă').",
+      "location": "src/ro/postedit.ts buildFormIndex() L62 (function words indexed unconditionally); candidate loop L412-432 (no head-noun check)",
+      "cases": [
+        "A153",
+        "A125",
+        "A156",
+        "A157",
+        "A011",
+        "A122",
+        "A150",
+        "A184",
+        "A185",
+        "A186"
+      ],
+      "tokens": [
+        "om",
+        "înaltă",
+        "17-lea",
+        "XVII-lea",
+        "Archivist",
+        "fizioterapeut",
+        "sai",
+        "welder",
+        "Zorost"
+      ],
+      "minimalRepro": {
+        "en": "You are a good person.",
+        "mt": "Ești un om bun.",
+        "settings": {
+          "speaker": "M",
+          "addressee": "F"
+        },
+        "got": "Ești o om bună.",
+        "expected": "Ești un om bun."
+      },
+      "severity": "high",
+      "status": "confirmed",
+      "fix": "Treat the noun phrase as a unit. Flip determiners, possessive articles and adjectives only when the head noun is itself flipped, or when the predicate has no noun at all ('Sunt obosit'). Never flip 'al' before an ordinal."
+    },
+    {
+      "id": "P6",
+      "title": "Noun flipped but its adjective left behind ('asistent medicală', and 'asistent/asistentă medicală' in both-forms mode)",
+      "rootCause": "The MT renders 'nurse' as 'asistentă medicală'. 'medical/medicală' is in neither ADJECTIVES nor the lexicon, so only 'asistentă' changes. In both-forms mode the doublet covers only the noun.",
+      "location": "src/ro/words.ts ADJECTIVES L9-16; lexicon index 46 (nurse) is single-word; src/ro/postedit.ts candidate loop L412-432",
+      "cases": [
+        "A101",
+        "A103",
+        "B004",
+        "B036",
+        "B110"
+      ],
+      "tokens": [
+        "medicală",
+        "asistent",
+        "asistent/asistentă"
+      ],
+      "minimalRepro": {
+        "en": "I am a nurse.",
+        "mt": "Sunt asistentă medicală.",
+        "settings": {
+          "speaker": "M"
+        },
+        "got": "Sunt asistent medicală.",
+        "expected": "Sunt asistent medical."
+      },
+      "severity": "high",
+      "status": "confirmed",
+      "fix": "Store nurse as the multiword pair 'asistent medical' / 'asistentă medicală', or add medical/medicală to ADJECTIVES. With P5's noun-phrase rule the adjective then follows its noun, including inside a doublet."
+    },
+    {
+      "id": "P7",
+      "title": "Only the first of several coordinated predicates is rewritten ('doctoriță și profesor', 'obosită și fericit', 'înaltă, obosit și fericit', 'o prietenă bună și un coleg bun')",
+      "rootCause": "'și' counts as a clause BOUNDARY unless it directly follows the copula, and any trailing comma closes the span. So the second and later items of the same predicate fall outside it. In both-forms mode the second variant is built from the same cut-off span (A210). With 'avoid', the cut produces a half paraphrase (B104).",
+      "location": "src/ro/postedit.ts BOUNDARY L129-132; analyze() L212-217 and L220",
+      "cases": [
+        "B025",
+        "B027",
+        "B091",
+        "B092",
+        "B093",
+        "A210",
+        "B104",
+        "B121"
+      ],
+      "tokens": [
+        "profesor",
+        "vecinul",
+        "fericit",
+        "obosit",
+        "coleg",
+        "traducător"
+      ],
+      "minimalRepro": {
+        "en": "I am tired and happy.",
+        "mt": "Sunt obosit și fericit.",
+        "settings": {
+          "speaker": "F"
+        },
+        "got": "Sunt obosită și fericit.",
+        "expected": "Sunt obosită și fericită."
+      },
+      "severity": "high",
+      "status": "confirmed",
+      "fix": "Keep the span open across 'și' and ',' when what follows is another predicate item (an article, adjective or noun candidate) and no new finite verb or subject comes in between. 'și eu sunt' still closes it."
+    },
+    {
+      "id": "P8",
+      "title": "The avoid-gender paraphrase drops modifiers and complements ('Predai.' for 'a good teacher', 'Predau.' for 'the best teacher', 'Tu editezi.' for 'the editor of this magazine')",
+      "rootCause": "The paraphrase swaps the copula for the gender-free verb and deletes every token from copula+1 to the end of the span, whatever those tokens are ('bun', 'cel mai bun', 'acestei reviste'). It also paraphrases when the span holds a second noun that has no paraphrase.",
+      "location": "src/ro/postedit.ts edit() avoid branch L393-410 (L409 deletes the whole span)",
+      "cases": [
+        "A171",
+        "B102",
+        "B105",
+        "B106",
+        "A068",
+        "B104"
+      ],
+      "tokens": [
+        "Predai.",
+        "Cânți.",
+        "Predau.",
+        "Conduc?",
+        "editezi.",
+        "traducător."
+      ],
+      "minimalRepro": {
+        "en": "You are a good teacher.",
+        "mt": "Ești un profesor bun.",
+        "settings": {
+          "speaker": "M",
+          "addressee": "avoid"
+        },
+        "got": "Predai.",
+        "expected": "Ești un profesor bun/o profesoară bună. (doublet fallback) or 'Predai bine.'"
+      },
+      "severity": "medium",
+      "status": "confirmed",
+      "fix": "Paraphrase only when the span is exactly an optional [un/o] plus one paraphrasable occupation noun, plus punctuation. Otherwise set fellBack and print the doublet. Optionally map a lone 'bun' to 'bine'."
+    },
+    {
+      "id": "P9",
+      "title": "The subject noun before the copula is not rewritten for an unnamed third party ('Vecinul meu e grădinăreasă', 'Doctorul e o prietenă', 'Doctorul care este vecina mea')",
+      "rootCause": "A span opens AT the copula, so the subject noun phrase to its left ('Vecinul meu', 'Doctorul') never belongs to it, and the sentence ends up with mixed genders. The reviewers labelled A076 'out-of-coverage', but 'vecin' is in NOUNS and 'Vecinul' is indexed.",
+      "location": "src/ro/postedit.ts analyze() start() L168-173 (span begins at the copula)",
+      "cases": [
+        "A076",
+        "B014",
+        "B087"
+      ],
+      "tokens": [
+        "Vecinul",
+        "meu",
+        "Doctorul",
+        "grădinăreasă",
+        "prietenă"
+      ],
+      "minimalRepro": {
+        "en": "My neighbour is tired.",
+        "mt": "Vecinul meu e obosit.",
+        "settings": {
+          "speaker": "M",
+          "addressee": "F"
+        },
+        "got": "Vecinul meu e obosită.",
+        "expected": "Vecina mea e obosită."
+      },
+      "severity": "medium",
+      "status": "confirmed",
+      "fix": "For a 3rd-person span with no name, also take in the definite subject noun phrase directly before the copula (the noun and its possessive), when that noun is indexed."
+    },
+    {
+      "id": "P10",
+      "title": "Coordinated named subjects never control a plural predicate, so all-female groups stay masculine ('Maya și Ana sunt colegii mei', 'Kim și Sam sunt programatori buni')",
+      "rootCause": "When 'sunt' follows a name, analyze() just closes the span (open = undefined) instead of opening a span for the whole group of names.",
+      "location": "src/ro/postedit.ts analyze() L199",
+      "cases": [
+        "B029",
+        "B085",
+        "B050"
+      ],
+      "tokens": [
+        "colegii",
+        "mei",
+        "programatori",
+        "buni"
+      ],
+      "minimalRepro": {
+        "en": "Maya and Ana are tired.",
+        "mt": "Maya și Ana sunt obosiți.",
+        "settings": {
+          "speaker": "M",
+          "targets": {
+            "maya": "F",
+            "ana": "F"
+          }
+        },
+        "got": "Maya și Ana sunt obosiți.",
+        "expected": "Maya și Ana sunt obosite."
+      },
+      "severity": "medium",
+      "status": "confirmed",
+      "fix": "Open a group span for 'Name (, Name)* și Name sunt': feminine plural when every named target is F, masculine plural otherwise."
+    },
+    {
+      "id": "P11",
+      "title": "Definite (articled) forms are not rewritten for some lexicon words ('auditorul', 'procurorul', 'ministrul')",
+      "rootCause": "buildFormIndex() indexes the 8 paradigm cells only when BOTH formsM and formsF exist. auditor has formsM = null; prosecutor and minister have formsF = null. So their definite forms are unknown to the post-editor. The bare lemma pair is still indexed, which is why A018, A139 and A096 work. This is a gap in the lexicon, not a bug in the span logic.",
+      "location": "src/ro/postedit.ts buildFormIndex() L49 (both-paradigms condition); lexicon index 8, 44, 63",
+      "cases": [
+        "A019",
+        "A140",
+        "A097"
+      ],
+      "tokens": [
+        "auditorul",
+        "procurorul",
+        "ministrul"
+      ],
+      "minimalRepro": {
+        "en": "You are the prosecutor.",
+        "mt": "Ești procurorul.",
+        "settings": {
+          "speaker": "M",
+          "addressee": "F"
+        },
+        "got": "Ești procurorul.",
+        "expected": "Ești procuroarea."
+      },
+      "severity": "medium",
+      "status": "confirmed",
+      "fix": "Fill in the missing paradigms (the DOOM3-backed values are in the lexicon section). 16 entries have formsF = null and 3 have formsM = null; any of them can show this miss."
+    },
+    {
+      "id": "P12",
+      "title": "The hyphenated possessive article 'de-al' is never re-agreed ('o colegă de-al lui', 'o prietenă de-al mea')",
+      "rootCause": "findGendered() splits on whitespace and looks up the whole token. 'de-al' is not in the index, so it never becomes a candidate.",
+      "location": "src/ro/postedit.ts findGendered() L96-104",
+      "cases": [
+        "B009",
+        "B011",
+        "B014"
+      ],
+      "tokens": [
+        "de-al"
+      ],
+      "minimalRepro": {
+        "en": "I am a colleague of his.",
+        "mt": "Sunt un coleg de-al lui.",
+        "settings": {
+          "speaker": "F"
+        },
+        "got": "Sunt o colegă de-al lui.",
+        "expected": "Sunt o colegă de-a lui."
+      },
+      "severity": "medium",
+      "status": "confirmed",
+      "fix": "Add the closed set de-al/de-a and de-ai/de-ale as function-word pairs."
+    },
+    {
+      "id": "P13",
+      "title": "'ca' + occupation is only handled after a name ('Lucrez ca fotograf' stays masculine for a female speaker)",
+      "rootCause": "The 'ca' rule needs a recognised name two tokens back. A 1sg/2sg verb (Lucrez/Lucrezi) or a kinship subject never opens a span.",
+      "location": "src/ro/postedit.ts analyze() L208-211",
+      "cases": [
+        "B039",
+        "B037"
+      ],
+      "tokens": [
+        "fotograf",
+        "chelner",
+        "Lucrez"
+      ],
+      "minimalRepro": {
+        "en": "I work as a photographer.",
+        "mt": "Lucrez ca fotograf.",
+        "settings": {
+          "speaker": "F"
+        },
+        "got": "Lucrez ca fotograf.",
+        "expected": "Lucrez ca fotografă."
+      },
+      "severity": "medium",
+      "status": "confirmed",
+      "fix": "At 'ca', open a speaker/addressee span when the verb before it is 1sg/2sg (English 'I/you work as'), and an 'other' span after a kinship subject."
+    },
+    {
+      "id": "P14",
+      "title": "The clitic-fused perfect 'mi-a fost' is not recognised as a copula",
+      "rootCause": "The PERFECT check compares the bare token with 'a'. 'mi-a' (likewise i-a, ți-a, ne-a) does not match, so no span opens.",
+      "location": "src/ro/postedit.ts analyze() L189-194",
+      "cases": [
+        "B019"
+      ],
+      "tokens": [
+        "mi-a",
+        "prieten"
+      ],
+      "minimalRepro": {
+        "en": "Maya has been a friend to me.",
+        "mt": "Maya mi-a fost un prieten.",
+        "settings": {
+          "speaker": "M",
+          "targets": {
+            "maya": "F"
+          }
+        },
+        "got": "Maya mi-a fost un prieten.",
+        "expected": "Maya mi-a fost o prietenă."
+      },
+      "severity": "low",
+      "status": "confirmed",
+      "fix": "Strip a leading dative clitic (mi-, ți-, i-, ne-, v-, le-) before the PERFECT lookup, and keep the name check on the token before it."
+    },
+    {
+      "id": "P15",
+      "title": "A name that ends one sentence blocks the 'Sunt' of the next sentence ('Eu sunt Ana. Sunt profesor.')",
+      "rootCause": "The 'sunt after a name' guard reads prev = bare('Ana.') = 'ana' straight across the full stop, so the speaker's next sentence is taken as 3rd plural.",
+      "location": "src/ro/postedit.ts analyze() L178-179 and L199",
+      "cases": [
+        "B065"
+      ],
+      "tokens": [
+        "profesor",
+        "Ana."
+      ],
+      "minimalRepro": {
+        "en": "I am Ana. I am tired.",
+        "mt": "Eu sunt Ana. Sunt obosit.",
+        "settings": {
+          "speaker": "F"
+        },
+        "got": "Eu sunt Ana. Sunt obosit.",
+        "expected": "Eu sunt Ana. Sunt obosită."
+      },
+      "severity": "low",
+      "status": "confirmed",
+      "fix": "Treat prev as empty when the previous raw token ends in . ! or ?"
+    },
+    {
+      "id": "P16",
+      "title": "The object clitic is not re-agreed after its noun changes ('profesoară pe care-l am')",
+      "rootCause": "Clitic pronouns (-l / o) are not modelled.",
+      "location": "src/ro/postedit.ts (no clitic handling)",
+      "cases": [
+        "B095"
+      ],
+      "tokens": [
+        "care-l",
+        "profesoară"
+      ],
+      "minimalRepro": {
+        "en": "You are the best teacher I have.",
+        "mt": "Ești cel mai bun profesor pe care-l am.",
+        "settings": {
+          "speaker": "M",
+          "addressee": "F"
+        },
+        "got": "Ești cea mai bună profesoară pe care-l am.",
+        "expected": "Ești cea mai bună profesoară pe care o am."
+      },
+      "severity": "low",
+      "status": "confirmed",
+      "fix": "Add 'pe care-l' -> 'pe care o' (and the plurals -i / le) when the noun before it was flipped."
+    },
+    {
+      "id": "P17",
+      "title": "Once two people are named, the anyone-else row is dropped, so unnamed third parties ('șeful', 'vecinul', 'regizorul') cannot be set",
+      "rootCause": "This is UI design, not the post-editor: run() re-applies the edit with addressee = undefined when people.length >= 2, and the eval harness does the same. The intents of B047-B049 expect the row to keep applying to unnamed people. Turning it back on would expose P6 ('asistent medicală' in B048) and P9 ('șeful meu e fericită' in B047, where 'șeful' is not indexed at all).",
+      "location": "src/ui/main.ts L400-406; scripts/review-run.ts L64-66 (GENERAL_ROW_LIMIT = 2)",
+      "cases": [
+        "B047",
+        "B048",
+        "B049"
+      ],
+      "tokens": [
+        "șeful",
+        "fericit",
+        "asistentă",
+        "regizorul",
+        "obosit"
+      ],
+      "minimalRepro": {
+        "en": "Ana is tired, Mihai is tired and my neighbour is tired.",
+        "mt": "Ana e obosită, Mihai e obosit și vecinul meu e obosit.",
+        "settings": {
+          "speaker": "M",
+          "addressee": "F",
+          "targets": {
+            "ana": "F",
+            "mihai": "M"
+          }
+        },
+        "got": "Ana e obosită, Mihai e obosit și vecinul meu e obosit.  (main.ts / review-run drop the row; calling applyGender directly gives \"... vecinul meu e obosită\", i.e. P9)",
+        "expected": "Ana e obosită, Mihai e obosit și vecina mea e obosită."
+      },
+      "severity": "medium",
+      "status": "confirmed",
+      "fix": "Keep the anyone-else row while the sentence still has unnamed 3rd-person spans (othersGuess is defined), and hide it only when every span belongs to a named person."
+    },
+    {
+      "id": "P18",
+      "title": "Half-correction when the head noun is unknown ('Suntem sportivi obosite')",
+      "rootCause": "The adjective is indexed and flipped, but its noun ('sportivi') is not in the lexicon, which leaves a mixed predicate. This is the same missing noun-phrase check as P5.",
+      "location": "src/ro/postedit.ts candidate loop L412-432",
+      "cases": [
+        "A017"
+      ],
+      "tokens": [
+        "sportivi",
+        "obosite"
+      ],
+      "minimalRepro": {
+        "en": "We are tired athletes.",
+        "mt": "Suntem sportivi obosiți.",
+        "settings": {
+          "speaker": "F"
+        },
+        "got": "Suntem sportivi obosite.",
+        "expected": "Suntem sportivi obosiți. (leave untouched until 'sportiv' is covered) or 'Suntem sportive obosite.'"
+      },
+      "severity": "medium",
+      "status": "confirmed",
+      "fix": "The P5 rule covers it: do not flip an adjective that follows an unknown noun. Also add sportiv/sportivă to coverage."
+    }
+  ],
+  "lexicon": [
+    {
+      "entry": "botanist",
+      "index": 13,
+      "field": "formsM.sg.na.def",
+      "current": "botanista",
+      "proposed": "botanistul",
+      "reason": "The feminine definite 'botanista' was copied into the masculine paradigm. Because m === f, addPair skips the cell, so 'botanistul' is never indexed.",
+      "evidence": "Read from the JSON. findGendered('botanistul') returns []",
+      "status": "confirmed"
+    },
+    {
+      "entry": "botanist",
+      "index": 13,
+      "field": "formsM.sg.gd.def",
+      "current": "botanistaui",
+      "proposed": "botanistului",
+      "reason": "Corrupt form 'botanistaui'. It is indexed as a spurious key that maps to 'botanistei'.",
+      "evidence": "Read from the JSON. findGendered('botanistaui') -> botanistei",
+      "status": "confirmed"
+    },
+    {
+      "entry": "lawyer",
+      "index": 40,
+      "field": "formsM.sg.na.def",
+      "current": "ul",
+      "proposed": "avocatul",
+      "reason": "The stem is lost and only the article 'ul' is stored. 'ul' becomes an index key: applyGender('Ești ul.','M','F') -> 'Ești avocata.', while 'Ești avocatul.' is left unchanged.",
+      "evidence": "Read from the JSON and reproduced",
+      "status": "confirmed"
+    },
+    {
+      "entry": "lawyer",
+      "index": 40,
+      "field": "formsM.sg.gd.def",
+      "current": "ului",
+      "proposed": "avocatului",
+      "reason": "The stem is lost: 'ului' is stored and indexed (maps to 'avocatei').",
+      "evidence": "Read from the JSON and reproduced",
+      "status": "confirmed"
+    },
+    {
+      "entry": "auditor",
+      "index": 8,
+      "field": "formsM",
+      "current": null,
+      "proposed": {
+        "sg.na.indef": "auditor",
+        "sg.na.def": "auditorul",
+        "sg.gd.indef": "auditor",
+        "sg.gd.def": "auditorului",
+        "pl.na.indef": "auditori",
+        "pl.na.def": "auditorii",
+        "pl.gd.indef": "auditori",
+        "pl.gd.def": "auditorilor"
+      },
+      "reason": "With no masculine paradigm, 'auditorul' cannot be rewritten (P11).",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt): DOOM3 'auditor ... pl. auditori; adj. f., s. f. sg. și pl. auditoare'. The regular M cells follow from that.",
+      "status": "confirmed",
+      "cases": [
+        "A019"
+      ]
+    },
+    {
+      "entry": "auditor",
+      "index": 8,
+      "field": "status",
+      "current": "attested",
+      "proposed": "normative",
+      "reason": "DOOM3 and DEX '09 (auditor², -oare: 'persoană ... având responsabilitatea unui audit') record the feminine.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex/auditoare.json",
+      "status": "confirmed"
+    },
+    {
+      "entry": "prosecutor",
+      "index": 63,
+      "field": "formsF",
+      "current": null,
+      "proposed": {
+        "sg.na.indef": "procuroare",
+        "sg.na.def": "procuroarea",
+        "sg.gd.indef": "procuroare",
+        "sg.gd.def": "procuroarei",
+        "pl.na.indef": "procuroare",
+        "pl.na.def": "procuroarele",
+        "pl.gd.indef": "procuroare",
+        "pl.gd.def": "procuroarelor"
+      },
+      "reason": "'procurorul' cannot be rewritten (P11). DOOM3 added '+procuroare', g.-d. art. procuroarei, pl. procuroare.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex2/procuroare",
+      "status": "confirmed",
+      "cases": [
+        "A140"
+      ]
+    },
+    {
+      "entry": "prosecutor",
+      "index": 63,
+      "field": "status",
+      "current": "attested",
+      "proposed": "normative (or keep 'attested' with a note that 'doamna procuror' still competes)",
+      "reason": "DOOM3 lists procuroare with no register mark.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex2/procuroare",
+      "status": "confirmed"
+    },
+    {
+      "entry": "minister",
+      "index": 44,
+      "field": "formsF",
+      "current": null,
+      "proposed": {
+        "sg.na.indef": "ministră",
+        "sg.na.def": "ministra",
+        "sg.gd.indef": "ministre",
+        "sg.gd.def": "ministrei",
+        "pl.na.indef": "ministre",
+        "pl.na.def": "ministrele",
+        "pl.gd.indef": "ministre",
+        "pl.gd.def": "ministrelor"
+      },
+      "reason": "This is the DOOM3 inflection table. Without it, ministrul is unreachable (P11/F4).",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex2/ministră (inflection table 'Surse flexiune: DOOM 3')",
+      "status": "confirmed",
+      "cases": [
+        "A097"
+      ]
+    },
+    {
+      "entry": "minister",
+      "index": 44,
+      "field": "note",
+      "current": "Wiktionary records no feminine; 'doamna ministru' still standard in official address",
+      "proposed": "DOOM3 (2021) admits 'ministră' only as (fam.) (colocv.); 'doamna ministru' is the formal standard",
+      "reason": "The current note cites only Wiktionary's silence. DOOM3 is the stronger source.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt): '+ministră (fam.) (colocv.) s. f.' and the comment 'Forma pentru feminin se folosește doar în formulări familiare, colocviale.'",
+      "status": "confirmed"
+    },
+    {
+      "entry": "librarian",
+      "index": 42,
+      "field": "formsM",
+      "current": null,
+      "proposed": "regular bibliotecar M1 paradigm (bibliotecarul, bibliotecarului, bibliotecari, bibliotecarii, bibliotecarilor)",
+      "reason": "formsM = null, so the definite masculine is not indexed (same mechanism as P11).",
+      "evidence": "Read from the JSON; cached dexonline page (scratchpad dex/, out3.txt) dex/bibliotecara.json (DEX '09 BIBLIOTECAR, -Ă, bibliotecari, -e)",
+      "status": "confirmed"
+    },
+    {
+      "entry": "librarian",
+      "index": 42,
+      "field": "status",
+      "current": "attested",
+      "proposed": "normative",
+      "reason": "DOOM3 lists bibliotecară, g.-d. art. bibliotecarei, pl. bibliotecare.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex/bibliotecara.json [DOOM 3]",
+      "status": "confirmed"
+    },
+    {
+      "entry": "veterinarian",
+      "index": 81,
+      "field": "formsM",
+      "current": null,
+      "proposed": "regular veterinar M1 paradigm",
+      "reason": "formsM = null.",
+      "evidence": "Read from the JSON; the cache shows DOOM3 'veterinar adj. m., s. m., pl. veterinari'",
+      "status": "confirmed"
+    },
+    {
+      "entry": "veterinarian",
+      "index": 81,
+      "field": "note",
+      "current": null,
+      "proposed": "DOOM3 lists 'veterinară' only as an adjective (adj. f.); the noun is s. m. only",
+      "reason": "Both sentence reviewers accepted 'Sunt veterinară' (A179) and 'Ești veterinară' (A180). The lexicon reviewer is right that the noun has no feminine in DOOM3.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex2/veterinar: 'veterinar adj. m., s. m., pl. veterinari; adj. f. veterinară, pl. veterinare'",
+      "status": "confirmed",
+      "cases": [
+        "A179",
+        "A180"
+      ]
+    },
+    {
+      "entry": "porter",
+      "index": 59,
+      "field": "f",
+      "current": "portăriță",
+      "proposed": "portăreasă (fAlt: portăriță, marked obsolete)",
+      "reason": "DOOM3 lists only portăreasă. MDA2 marks portăriță (Înv.) = portăreasă. pluralF and formsF need to change with it (portărese, portăresei).",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt): DOOM3 'portăreasă s. f., g.-d. art. portăresei; pl. portărese'; portăriță page: 'MDA2 ... (Înv) Portăreasă'",
+      "status": "confirmed",
+      "cases": [
+        "A131"
+      ]
+    },
+    {
+      "entry": "porter",
+      "index": 59,
+      "field": "en",
+      "current": "porter",
+      "proposed": "note the ambiguity: 'portar' = doorkeeper; a luggage porter is 'hamal'",
+      "reason": "English porter has two senses.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex2/hamal",
+      "status": "confirmed"
+    },
+    {
+      "entry": "radiologist",
+      "index": 65,
+      "field": "f",
+      "current": "radioloagă",
+      "proposed": "radiologă (fAlt radioloagă; status variant; formsF from DOOM3: radiologei, radiologe)",
+      "reason": "DOOM3 lists the livr./colocv. doublet. This is why A144/A145 are not flagged (F2).",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt): '!radiologă (livr.)/(colocv.) radioloagă ... g.-d. art. radiologei/radioloagei; pl. radiologe/radioloage'",
+      "status": "confirmed",
+      "cases": [
+        "A144",
+        "A145"
+      ]
+    },
+    {
+      "entry": "psychologist",
+      "index": 64,
+      "field": "f / fAlt",
+      "current": {
+        "f": "psiholoagă",
+        "fAlt": "psihologă"
+      },
+      "proposed": "f=psihologă, fAlt=psiholoagă; note: register doublet (livr./colocv.)",
+      "reason": "The DOOM3 headword is the bookish form, and the cross-reference reads 'psiholoagă v. psihologă'. Fill formsF (psihologei, psihologe).",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex2/psihologă",
+      "status": "confirmed"
+    },
+    {
+      "entry": "zoologist",
+      "index": 84,
+      "field": "f / fAlt",
+      "current": {
+        "f": "zooloagă",
+        "fAlt": "zoologă"
+      },
+      "proposed": "f=zoologă, fAlt=zooloagă; register doublet",
+      "reason": "Same DOOM3 pattern. Fill formsF.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex2/zoologă",
+      "status": "confirmed"
+    },
+    {
+      "entry": "philologist",
+      "index": 51,
+      "field": "note",
+      "current": "DOOM3 (2021) admits both spellings -- the canonical o->oa case",
+      "proposed": "DOOM3: filologă (livr.) / filoloagă (colocv.), register doublets; fill formsF (filologei, filologe)",
+      "reason": "DOOM3 marks the pair by register, not as two spellings. The f/fAlt order is already correct here.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex2/filologă",
+      "status": "confirmed"
+    },
+    {
+      "entry": "geologist",
+      "index": 35,
+      "field": "f / fAlt",
+      "current": {
+        "f": "geoloagă",
+        "fAlt": "geologă"
+      },
+      "proposed": "f=geologă, fAlt=geoloagă",
+      "reason": "The reviewer cites DOOM3 geologă (livr.) / geoloagă (colocv.). This matches the confirmed pattern for filolog/psiholog/radiolog/zoolog.",
+      "evidence": "dex/geologa.json is a 0-byte file, so geolog itself was not seen; only the pattern supports it",
+      "status": "unconfirmed"
+    },
+    {
+      "entry": "astronomer",
+      "index": 6,
+      "field": "note / status",
+      "current": {
+        "note": "sources differ by the o->oa breaking; DOOM3 admits both spellings",
+        "status": "variant"
+      },
+      "proposed": "normative 'astronoamă', with 'astronomă' as the superseded DOOM2 form",
+      "reason": "The reviewer says DOOM3 lists only astronoamă.",
+      "evidence": "dex/astronoama.json and astronoma.json are 0-byte files, not grounded",
+      "status": "unconfirmed"
+    },
+    {
+      "entry": "physician",
+      "index": 53,
+      "field": "note",
+      "current": "kaikki records 'medică'; 'doamna doctor' competes in usage",
+      "proposed": "DOOM3 has no feminine noun 'medică' (only adj. medic¹ f. medică, math.). Usage splits between medic, doamna doctor and doctoriță",
+      "reason": "The current note implies kaikki's 'medică' is a noun form. Both sentence reviewers accepted 'Sunt medică' (A117), which disagrees with this.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt): 'medic2 s. m., pl. medici; medic1 (mat.) adj. m., pl. medici; f. medică, pl. medice'",
+      "status": "confirmed",
+      "cases": [
+        "A117",
+        "A119"
+      ]
+    },
+    {
+      "entry": "physician",
+      "index": 53,
+      "field": "fAlt",
+      "current": null,
+      "proposed": "doctoriță",
+      "reason": "DEX defines doctoriță as 'femeie medic'. Note that it is already the f of the 'doctor' entry, so adding it here duplicates a pair.",
+      "evidence": "Not in cache; reviewer citation only",
+      "status": "unconfirmed"
+    },
+    {
+      "entry": "sailor",
+      "index": 68,
+      "field": "f",
+      "current": "marinăreasă",
+      "proposed": "marinăriță",
+      "reason": "dexonline has no result for 'marinăreasă'. 'marinăriță' is attested (a DCR2 citation in the cached 'marinar' page). The reviewer's claim that DEX '09 has it is not in the cache.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt): marinăreasă -> 'Niciun rezultat pentru marinăreasă'; marinar page quotes '(sau... marinăriță)'",
+      "status": "confirmed"
+    },
+    {
+      "entry": "lecturer",
+      "index": 41,
+      "field": "f",
+      "current": "lectoare",
+      "proposed": "lectoră (reviewer; DOOM3 'rar')",
+      "reason": "dexonline returns no entry for 'lectoare'. Both sentence reviewers accepted 'Sunt lectoare' (A090), which contradicts this.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex/lectoare.json -> definitions: [] (the replacement 'lectoră' is not cached, so the proposal is unconfirmed)",
+      "status": "confirmed",
+      "cases": [
+        "A090"
+      ]
+    },
+    {
+      "entry": "banker",
+      "index": 10,
+      "field": "status",
+      "current": "normative",
+      "proposed": "attested (not normative)",
+      "reason": "No dexonline entry for bancheră, so 'normative' (two corpora agree) overstates it. A022's 'Sunt bancheră' was accepted by both sentence reviewers.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex/banchera.json -> definitions: []",
+      "status": "confirmed",
+      "cases": [
+        "A022"
+      ]
+    },
+    {
+      "entry": "banker",
+      "index": 10,
+      "field": "pluralF/formsF",
+      "current": {
+        "pluralF": null,
+        "formsF": null
+      },
+      "proposed": "regular -ă paradigm (from memory)",
+      "reason": "Rejected: the README and R0 rule out derived forms, and the form is not in any cached dictionary.",
+      "evidence": "Reviewer source: memory",
+      "status": "rejected"
+    },
+    {
+      "entry": "archivist",
+      "index": 5,
+      "field": "pluralF/formsF",
+      "current": {
+        "pluralF": null,
+        "formsF": null
+      },
+      "proposed": "regular -ară paradigm (from memory)",
+      "reason": "Rejected for the same reason. The reviewer marks 'arhivară' itself as unverified, and dex/arhivara.json is a 0-byte file.",
+      "evidence": "Reviewer source: memory",
+      "status": "rejected"
+    },
+    {
+      "entry": "archivist",
+      "index": 5,
+      "field": "f",
+      "current": "arhivară",
+      "proposed": "arhivară (unverified)",
+      "reason": "The reviewer found no feminine of arhivar on dexonline.",
+      "evidence": "dex/arhivara.json is a 0-byte file, not grounded",
+      "status": "unconfirmed"
+    },
+    {
+      "entry": "diplomat",
+      "index": 26,
+      "field": "status",
+      "current": "attested",
+      "proposed": "normative",
+      "reason": "DOOM3: 'diplomat ... adj. f., s. f. diplomată, pl. diplomate'.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex/diplomata.json [DOOM 3]",
+      "status": "confirmed"
+    },
+    {
+      "entry": "editor",
+      "index": 31,
+      "field": "status",
+      "current": "attested",
+      "proposed": "normative",
+      "reason": "DOOM3 lists editoare, g.-d. art. editoarei, pl. editoare.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex/editoare.json [DOOM 3]",
+      "status": "confirmed"
+    },
+    {
+      "entry": "editor",
+      "index": 31,
+      "field": "en",
+      "current": "editor",
+      "proposed": "map job-sense 'editor' to redactor/redactoare; keep editor/editoare for 'publisher'",
+      "reason": "DEX '09: editor = 'persoană (fizică sau juridică) având sarcina de a edita o carte, o revistă'. That is closer to publisher. The redactor equivalence is from the auditor's own knowledge.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex/editoare.json [DEX '09]",
+      "status": "confirmed",
+      "cases": [
+        "A068"
+      ]
+    },
+    {
+      "entry": "director",
+      "index": 27,
+      "field": "en",
+      "current": "director",
+      "proposed": "'film/stage director' -> regizor; add 'director' -> director/directoare",
+      "reason": "regizor covers only film and theatre (DEX '09). The MT gave 'directorul' for a hospital director (A058), which is outside the lexicon, and 'regizorul' for a plain 'director' (B049).",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex/regizoare.json [DEX '09 'Specialist care regizează o piesă de teatru, un film']",
+      "status": "confirmed",
+      "cases": [
+        "A058",
+        "B049"
+      ]
+    },
+    {
+      "entry": "producer",
+      "index": 61,
+      "field": "pluralF",
+      "current": null,
+      "proposed": "producătoare",
+      "reason": "formsF is filled (pl.na.indef 'producătoare') but pluralF is null.",
+      "evidence": "Read from the JSON; DOOM3 (cache) adj. f., s. f. sg. și pl. producătoare",
+      "status": "confirmed"
+    },
+    {
+      "entry": "recruiter",
+      "index": 67,
+      "field": "formsF / status",
+      "current": {
+        "formsF": null,
+        "status": "attested"
+      },
+      "proposed": "recrutoare paradigm (recrutoarei, pl. recrutoare); normative",
+      "reason": "DOOM3 '+recrutoare' with no register mark.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt) dex2/recrutoare",
+      "status": "confirmed"
+    },
+    {
+      "entry": "welder",
+      "index": 83,
+      "field": "note",
+      "current": null,
+      "proposed": "DOOM3 marks 'sudoriță' (fam.)",
+      "reason": "A register restriction worth showing.",
+      "evidence": "cached dexonline page (scratchpad dex/, out3.txt): 'sudoriță (fam.) s. f.'",
+      "status": "confirmed"
+    },
+    {
+      "entry": "designer",
+      "index": 24,
+      "field": "status / formsF",
+      "current": {
+        "status": "attested",
+        "formsF": null
+      },
+      "proposed": "normative; designerei, pl. designere",
+      "reason": "The reviewer says DOOM3 added '+designeră'. Sentence reviewer y (A052/A053) calls it rare/contested.",
+      "evidence": "dex/designera.json is a 0-byte file, not grounded",
+      "status": "unconfirmed",
+      "cases": [
+        "A052",
+        "A053"
+      ]
+    },
+    {
+      "entry": "detective",
+      "index": 25,
+      "field": "formsF / note",
+      "current": {
+        "formsF": null,
+        "note": null
+      },
+      "proposed": "detectivă paradigm; DOOM3 (rar)",
+      "reason": "formsF = null (confirmed from the JSON). The DOOM3 claim is not grounded.",
+      "evidence": "dex/detectiva.json is a 0-byte file",
+      "status": "unconfirmed"
+    },
+    {
+      "entry": "hairdresser",
+      "index": 36,
+      "field": "status",
+      "current": "attested",
+      "proposed": "normative",
+      "reason": "The reviewer says DOOM3 records coafeză.",
+      "evidence": "dex/coafeza.json is a 0-byte file",
+      "status": "unconfirmed"
+    },
+    {
+      "entry": "judge",
+      "index": 39,
+      "field": "status",
+      "current": "attested",
+      "proposed": "normative",
+      "reason": "The reviewer says DOOM2/DOOM3 record judecătoare.",
+      "evidence": "dex/judecatoare.json is a 0-byte file",
+      "status": "unconfirmed"
+    },
+    {
+      "entry": "bartender",
+      "index": 12,
+      "field": "note",
+      "current": "EnRoGend and kaikki agree",
+      "proposed": "DOOM3 marks bármaniță (fam.)",
+      "reason": "A register label.",
+      "evidence": "dex/barmana.json and barmani_a.json are 0-byte files",
+      "status": "unconfirmed"
+    },
+    {
+      "entry": "carpenter",
+      "index": 14,
+      "field": "f / status",
+      "current": {
+        "f": "tâmplăriță",
+        "status": "attested"
+      },
+      "proposed": "tâmplăriță: flag it, or treat it as having no established feminine (MDA2: 'rar', = carpenter's wife)",
+      "reason": "The reviewer says the only attestation means 'wife of the carpenter'. A031 'Am fost tâmplăriță' was accepted by both sentence reviewers.",
+      "evidence": "The cached dex/tâmplari_a.json is an unrelated page (no 'tâmplăriță' text)",
+      "status": "unconfirmed",
+      "cases": [
+        "A031"
+      ]
+    },
+    {
+      "entry": "chef",
+      "index": 16,
+      "field": "neutral",
+      "current": {
+        "kind": "verb_paraphrase",
+        "verb1sg": "gătesc",
+        "verb2sg": "gătești"
+      },
+      "proposed": "kind 'none' (doublet), or keep it with a note",
+      "reason": "'Gătesc'/'Gătești' ('I/you cook') does not name the profession. This is the substance of disagreement A036.",
+      "evidence": "Linguistic, no dictionary needed",
+      "status": "confirmed",
+      "cases": [
+        "A036"
+      ]
+    },
+    {
+      "entry": "driver",
+      "index": 29,
+      "field": "neutral",
+      "current": {
+        "kind": "verb_paraphrase",
+        "verb1sg": "conduc",
+        "verb2sg": "conduci"
+      },
+      "proposed": "keep, but consider 'conduc' + object, or kind 'none'",
+      "reason": "Bare 'Conduc' is ambiguous (drive / lead). This is disagreement A063.",
+      "evidence": "Linguistic: 'a conduce' = to drive and to lead",
+      "status": "confirmed",
+      "cases": [
+        "A063"
+      ]
+    },
+    {
+      "entry": "nurse",
+      "index": 46,
+      "field": "m / f (multiword)",
+      "current": {
+        "m": "asistent",
+        "f (multiword)": null
+      },
+      "proposed": "asistent medical / asistentă medicală (full paradigm)",
+      "reason": "The MT always says 'asistentă medicală'. Storing only the head noun produces 'asistent medicală' (P6).",
+      "evidence": "Reproduced: 'Sunt asistentă medicală.' (M) -> 'Sunt asistent medicală.'; cache DOOM3 'asistent adj. m., s. m. ... adj. f., s. f. asistentă'",
+      "status": "confirmed",
+      "cases": [
+        "A101",
+        "A103",
+        "B004",
+        "B036",
+        "B110"
+      ]
+    }
+  ],
+  "flags": [
+    {
+      "id": "F1",
+      "title": "The masculine 'inginer' carries the \"contested\" flag",
+      "cases": [
+        "B050",
+        "B065",
+        "B005",
+        "B043",
+        "B088"
+      ],
+      "rootCause": "addPair() attaches the entry's status and note to BOTH readings of a pair, the masculine and the feminine. The status describes only the feminine (see the GenderedForm.status doc comment and lexicon.ts realize() L251-256, which returns 'normative' for the masculine). The UI (main.ts render() L120-122, collectNotes() L142-147) and the eval harness (review-run.ts L51) read options[0].status without checking agreement. So the bug starts in the post-editor's data and shows up in the UI. Across all 332 runs, the only masculine forms that got flagged are these 5 'inginer' tokens.",
+      "location": "src/ro/postedit.ts addPair() L29-41, called at L48/L51 with e.status/e.note; src/ui/main.ts L120-122",
+      "minimalRepro": {
+        "en": "I am an engineer.",
+        "mt": "Sunt inginer.",
+        "settings": {
+          "speaker": "M"
+        },
+        "got": "'inginer' flagged contested (options[0] = {agreement:'M', status:'contested'})",
+        "expected": "no flag on the masculine"
+      },
+      "severity": "medium",
+      "status": "confirmed",
+      "fix": "In addPair(), put status and note only on the F reading (or leave them undefined for agreement 'M'). That one change fixes the UI and the harness."
+    },
+    {
+      "id": "F2",
+      "title": "'radioloagă' is not flagged although DOOM3 lists radiologă (livr.) / radioloagă (colocv.)",
+      "cases": [
+        "A144",
+        "A145"
+      ],
+      "rootCause": "Lexicon index 65 has status 'attested', f = 'radioloagă' and fAlt = null, so the flag (variant/contested only) never fires. Its siblings psiholog and zoolog are 'variant'.",
+      "location": "src/ro/lexicon.occupations.json index 65",
+      "severity": "medium",
+      "status": "confirmed",
+      "fix": "Set f = 'radiologă', fAlt = 'radioloagă', status = 'variant' (see lexicon index 65)."
+    },
+    {
+      "id": "F3",
+      "title": "'designeră' has no flag (both sentence reviewers marked the flag as missing)",
+      "cases": [
+        "A052",
+        "A053"
+      ],
+      "rootCause": "Index 24 has status 'attested', and 'attested' is never flagged. The reviewers disagree on whether the word is settled: sentence reviewer y calls it rare/contested, while lexicon reviewer 1 says DOOM3 added '+designeră' unmarked, which would make it normative. The dexonline cache for designeră is empty (0-byte file), so neither claim is grounded.",
+      "location": "src/ro/lexicon.occupations.json index 24; src/ui/main.ts L120-122 (only variant/contested are shown)",
+      "severity": "low",
+      "status": "unconfirmed",
+      "fix": "Settle the status from DOOM3 by hand. If it is normative, no flag is needed and the 'missing' verdict is wrong."
+    },
+    {
+      "id": "F4",
+      "title": "'ministrul' for a female addressee is neither rewritten nor flagged",
+      "cases": [
+        "A097"
+      ],
+      "rootCause": "Index 44 has formsF = null, so the definite forms are not indexed (P11), and the contested note is never reached. In register terms the output is defensible: DOOM3 marks ministră (fam.) (colocv.).",
+      "location": "src/ro/postedit.ts buildFormIndex() L49; lexicon index 44",
+      "severity": "low",
+      "status": "confirmed",
+      "fix": "Fill formsF for minister. Then decide whether a contested word should be rewritten at all, or kept masculine and flagged."
+    },
+    {
+      "id": "F5",
+      "title": "'medică' is flagged contested, but the note should say DOOM3 does not sanction it as a noun",
+      "cases": [
+        "A117",
+        "A119"
+      ],
+      "rootCause": "The flag fires correctly, but the note ('kaikki records medică; doamna doctor competes') misstates the evidence: DOOM3 has medic² s.m. only, and 'medică' only as the feminine of the adjective medic¹ (math., 'median'). Both sentence reviewers accepted 'Sunt medică', so they disagree with the lexicon reviewer, and the cache supports the lexicon reviewer.",
+      "location": "src/ro/lexicon.occupations.json index 53",
+      "severity": "low",
+      "status": "confirmed",
+      "fix": "Rewrite the note (lexicon index 53). Consider not rewriting medic to medică at all."
+    }
+  ],
+  "mt": [
+    {
+      "cases": [
+        "A012",
+        "A092",
+        "A093",
+        "A098",
+        "A124",
+        "A151",
+        "A165",
+        "A166",
+        "A183",
+        "A187"
+      ],
+      "description": "The MT produced a non-word, an untranslated English word or the wrong lexeme for the occupation ('archivistul', 'librarian', 'librarianul', 'preot' for minister, 'al 17-lea' for plumber, 'sai' for sailor, 'inspector' for surveyor, 'welder', 'Zorost'). Acord left these unchanged, and nothing in Acord can repair them."
+    },
+    {
+      "cases": [
+        "A011",
+        "A125",
+        "A150",
+        "A156",
+        "A157",
+        "A184",
+        "A185",
+        "A186"
+      ],
+      "description": "The same kind of MT garbage, but Acord made it worse by flipping 'un'/'al' onto it ('o a 17-lea', 'o Zorost'). The Acord part is P5, so these appear there as well. The y reviewer's 'mt' attribution is only half right."
+    },
+    {
+      "cases": [
+        "B049"
+      ],
+      "description": "'director' was translated as 'regizorul' (film director). The gender part could not be set because of P17."
+    },
+    {
+      "cases": [
+        "B010",
+        "B037",
+        "B041",
+        "B064"
+      ],
+      "description": "The MT put a masculine (or, in B041, feminine) form against an explicit or kinship subject ('Sora mea este un coleg', 'Sora mea lucrează ca chelner', 'Lucrează ca asistentă' for 'He', 'Sora ta este, de asemenea, un doctor'). Acord did not cause these; it left the MT form alone. It could fix them only through P1/P13 (English pronoun and kinship-subject detection). B064's 'un doctor' for a woman is awkward rather than wrong."
+    },
+    {
+      "cases": [
+        "B089"
+      ],
+      "description": "'un prieten care este asistentă medicală' mixes genders for one person. The intent is to leave it, and Acord did. This is an MT inconsistency."
+    },
+    {
+      "cases": [
+        "A146"
+      ],
+      "description": "The MT gave the feminine 'recepționistă' to a male speaker. Acord cannot correct it because the lexicon holds recepționer/recepționeră, not recepționist(ă) (see coverage)."
+    }
+  ],
+  "coverage": [
+    {
+      "word": "asistent medical / asistentă medicală",
+      "english": "nurse (multiword)",
+      "cases": [
+        "A101",
+        "A103",
+        "B004",
+        "B036",
+        "B110"
+      ],
+      "note": "Change the existing entry 46 to multiword (P6)"
+    },
+    {
+      "word": "director / directoare",
+      "english": "director (manager)",
+      "cases": [
+        "A058",
+        "B049"
+      ],
+      "note": "Entry 27 maps director to regizor (film)"
+    },
+    {
+      "word": "sportiv / sportivă",
+      "english": "athlete",
+      "cases": [
+        "A017"
+      ],
+      "note": "The lexicon has atlet/atletă only"
+    },
+    {
+      "word": "bucătar-șef / bucătăreasă-șefă",
+      "english": "chef",
+      "cases": [
+        "A034",
+        "A035"
+      ]
+    },
+    {
+      "word": "fizioterapeut / fizioterapeută",
+      "english": "physiotherapist",
+      "cases": [
+        "A122",
+        "A123"
+      ],
+      "note": "The lexicon has kinetoterapeut only; fizioterapeut is not in the cache (unconfirmed)"
+    },
+    {
+      "word": "recepționist / recepționistă",
+      "english": "receptionist",
+      "cases": [
+        "A146"
+      ],
+      "note": "Cache: MDA2 lists recepționist, ~ă as (Rar) = recepționer, and DOOM3 has no entry. Add it as a variant pointing to recepționer/recepționeră, so 'recepționistă' can be corrected"
+    },
+    {
+      "word": "om de știință (epicene, M)",
+      "english": "scientist",
+      "cases": [
+        "A153"
+      ],
+      "note": "Add as epicene/no-flip so the article and adjectives keep agreeing with 'om'. The female alternative is 'femeie de știință' or cercetătoare"
+    },
+    {
+      "word": "ofițer (epicene, M)",
+      "english": "police officer",
+      "cases": [
+        "A128",
+        "A129"
+      ],
+      "note": "The MT chose 'ofițer de poliție' over polițist/polițistă (already in the lexicon). Mark it epicene so it is never half-flipped"
+    },
+    {
+      "word": "șef / șefă",
+      "english": "boss",
+      "cases": [
+        "B047",
+        "B050"
+      ]
+    },
+    {
+      "word": "trist / tristă",
+      "english": "sad",
+      "cases": [
+        "B112",
+        "B121"
+      ]
+    },
+    {
+      "word": "ocupat / ocupată",
+      "english": "busy",
+      "cases": [
+        "B114"
+      ]
+    },
+    {
+      "word": "căsătorit / căsătorită",
+      "english": "married",
+      "cases": [
+        "B116"
+      ]
+    },
+    {
+      "word": "student / studentă",
+      "english": "student",
+      "cases": [
+        "B117"
+      ]
+    },
+    {
+      "word": "mândru / mândră",
+      "english": "proud",
+      "cases": [
+        "B119"
+      ]
+    },
+    {
+      "word": "singur / singură",
+      "english": "alone",
+      "cases": [
+        "B120"
+      ]
+    },
+    {
+      "word": "arhivist / arhivistă",
+      "english": "archivist",
+      "cases": [
+        "A011",
+        "A012"
+      ],
+      "note": "Unconfirmed: the MT's 'archivist(ul)' points at it, but no cached dictionary page"
+    },
+    {
+      "word": "medical / medicală (adjective)",
+      "english": "medical",
+      "cases": [
+        "A101",
+        "A103",
+        "B004",
+        "B036",
+        "B110"
+      ]
+    },
+    {
+      "word": "de-al / de-a, de-ai / de-ale (function words)",
+      "english": "(a friend) of mine/his",
+      "cases": [
+        "B009",
+        "B011",
+        "B014"
+      ]
+    },
+    {
+      "word": "soră, soție, mamă / frate, soț, tată (lexically gendered subjects, never flipped)",
+      "english": "sister, wife, mother / brother, husband, father",
+      "cases": [
+        "B010",
+        "B037",
+        "B059",
+        "B064",
+        "B090",
+        "B079"
+      ],
+      "note": "Needed by P1: a closed list that pins the gender of a clause, not new flip pairs"
+    }
+  ],
+  "disagreements": [
+    {
+      "id": "A036",
+      "ruling": "Reviewer x is right about meaning but the issue is minor. 'Gătești?' is the paraphrase working as designed, yet 'cook' does not name the profession (lexicon index 16). Keep the output; revisit the chef paraphrase."
+    },
+    {
+      "id": "A063",
+      "ruling": "Reviewer x is right but the issue is minor. 'Conduc.' is ambiguous (drive / lead) and loses the profession (lexicon index 29). It is still a valid gender-free rendering under the current design."
+    },
+    {
+      "id": "A052",
+      "ruling": "x ('ok') wins. 'o designeră' is grammatical. The 'o' comes from the MT's 'un designer', not from Acord. Whether designeră is settled enough to need no flag is unconfirmed (F3)."
+    },
+    {
+      "id": "A053",
+      "ruling": "Same as A052: x ok. The flag question (F3) is unconfirmed."
+    },
+    {
+      "id": "A097",
+      "ruling": "y ('ok') wins on the output: DOOM3 marks ministră (fam.) (colocv.), so 'ministrul' for a woman is the formal standard. x is right that it is inconsistent with A096 and goes unflagged, because index 44 lacks formsF (P11/F4)."
+    },
+    {
+      "id": "A128",
+      "ruling": "y ('ok') wins. 'ofițer' is used for women and has no settled feminine. Acord's polițist/polițistă entry is unreachable because the MT chose 'ofițer de poliție'. This is a coverage note, not an error."
+    },
+    {
+      "id": "A129",
+      "ruling": "Same as A128: y ok."
+    },
+    {
+      "id": "A131",
+      "ruling": "y ('awkward') wins. DOOM3 lists portăreasă, while MDA2 marks portăriță as obsolete (Înv.) (cached). Fix lexicon index 59."
+    },
+    {
+      "id": "B089",
+      "ruling": "x ('ok') wins on Acord's behaviour. The intent says to leave it as translated, and nothing was rewritten. y's point is an MT inconsistency ('un prieten ... asistentă'), listed under mt."
+    }
+  ]
+}
