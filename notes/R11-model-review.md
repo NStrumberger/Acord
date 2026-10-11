@@ -180,6 +180,37 @@ Not changed: the `unconfirmed` items below, because applying them would mean
 guessing forms. The `build_lexicon.py` change could not be run here (no
 Python); it was read, not executed.
 
+## Known gaps after the fixes (second code review, 8c0031d)
+
+A second review of the pushed fix found one regression, now fixed, and four
+older gaps that are left open. Each repro below was re-run on both 8c0031d
+and the commit before the R11 fixes (06e03a5), with the same output on both.
+None of the 332 review cases hits them. S/O means the speaker and "anyone
+else" settings.
+
+- **Fixed: "both" let *Anyone else* reach named people again.** The M and F
+  re-runs in `applyGender` dropped `namedFollowOthers`. Test: P17 in
+  `test/ro-r11.test.ts`.
+- **H1: a list stops at a later name or kinship word.** `continues()` ends the
+  span as soon as a name, kinship noun, copula or boundary appears anywhere
+  ahead, even when it is only a complement.
+  - Example: `Sunt obosit și fericit și mama mea este obosită.` (F/M) gives
+    `obosită și fericit`.
+  - Also affected: `prietenul lui Maya`, `prieten cu Maya`, and `al lui Maya`
+    after a coordination.
+  - Judge only the next coordinated element. `Sunt profesor și prietenul lui
+    Maya este doctor.` must still end the span.
+- **H2: a `care` clause on an object is half-corrected.**
+  `Cunosc o profesoară care este obosită.` (M/M) gives `care este obosit`.
+  The clause should take its antecedent noun phrase with it, or be left alone.
+- **H3: an apposition hides the subject.** `Maya, prietena mea, este obosită.`
+  (M/M, maya F) gives `este obosit`. `subjectBefore` stops at the comma and
+  falls back to *Anyone else*.
+- **M2: the "I am" / "they are" queue drifts.** An English "I am" with no
+  Romanian `sunt` (`Am 30 de ani`, `Mi-e foame`, `am fost`) leaves its reading
+  unused, so a later `sunt` meaning "they" takes the speaker's gender.
+  `Mi-e foame. Sunt profesori.` (F/M) gives `profesoare`.
+
 ## What a native speaker should look at first
 
 Everything marked `unconfirmed` in `eval/findings.json`, because the cached

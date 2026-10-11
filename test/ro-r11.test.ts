@@ -172,7 +172,17 @@ test('P17: with two names, "anyone else" reaches the unnamed and nobody named', 
   assert.equal(applyGender(named, 'M', 'F', { source: 'Josh and Maya are tired.' }).othersPresent, false);
 });
 
-test('P18: an athlete is now known, so the predicate agrees whole', () => {
+test('P17: splitting "both" keeps "anyone else" off the named people', () => {
+  // Found by review of 8c0031d: the M and F re-runs dropped namedFollowOthers.
+  const out = applyGender('Maya și Josh sunt prieteni, iar eu sunt cel mai bun prieten.', 'both', 'F',
+    { source: 'Maya and Josh are friends and I am the best friend.', targets: {}, namedFollowOthers: false });
+  assert.deepEqual(out.variants, [
+    'Maya și Josh sunt prieteni, iar eu sunt cel mai bun prieten.',
+    'Maya și Josh sunt prieteni, iar eu sunt cea mai bună prietenă.',
+  ]);
+});
+
+test('P18:an athlete is now known, so the predicate agrees whole', () => {
   assert.equal(run('Suntem sportivi obosiți.', 'We are tired athletes.', 'F').text,
     'Suntem sportive obosite.');
 });

@@ -557,7 +557,7 @@ export function applyGender(text: string, speaker: Target, addressee?: Target,
   const pick = <T extends Target | undefined>(t: T, g: Agreement) =>
     (t === 'both' || t === 'avoid' ? g : t) as T extends undefined ? Target | undefined : Target;
   const pickPeople = (g: Agreement): PeopleOptions | undefined => people && {
-    source: people.source,
+    ...people,
     targets: Object.fromEntries(
       Object.entries(people.targets ?? {}).map(([name, t]) => [name, pick(t, g)])),
   };
