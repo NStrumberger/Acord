@@ -1,0 +1,326 @@
+{
+ "_about": "Corrections confirmed by the R11 review (notes/R11-model-review.md). Applied by build_lexicon.py after the sources are merged, so a rebuild keeps them. Forms are stored, never derived at runtime.",
+ "patch": {
+  "botanist": {
+   "formsM": {
+    "sg.na.def": "botanistul",
+    "sg.gd.def": "botanistului"
+   }
+  },
+  "lawyer": {
+   "formsM": {
+    "sg.na.def": "avocatul",
+    "sg.gd.def": "avocatului"
+   }
+  },
+  "auditor": {
+   "pluralM": "auditori",
+   "formsM": {
+    "sg.na.indef": "auditor",
+    "sg.na.def": "auditorul",
+    "sg.gd.indef": "auditor",
+    "sg.gd.def": "auditorului",
+    "pl.na.indef": "auditori",
+    "pl.na.def": "auditorii",
+    "pl.gd.indef": "auditori",
+    "pl.gd.def": "auditorilor"
+   },
+   "status": "normative",
+   "note": "DOOM3 via dexonline, checked in the R11 review: auditoare",
+   "sources": [
+    "EnRoGend",
+    "DOOM3"
+   ]
+  },
+  "prosecutor": {
+   "pluralF": "procuroare",
+   "formsF": {
+    "sg.na.indef": "procuroare",
+    "sg.na.def": "procuroarea",
+    "sg.gd.indef": "procuroare",
+    "sg.gd.def": "procuroarei",
+    "pl.na.indef": "procuroare",
+    "pl.na.def": "procuroarele",
+    "pl.gd.indef": "procuroare",
+    "pl.gd.def": "procuroarelor"
+   },
+   "status": "normative",
+   "note": "DOOM3 via dexonline, checked in the R11 review: procuroare",
+   "sources": [
+    "EnRoGend",
+    "kaikki",
+    "DOOM3"
+   ]
+  },
+  "minister": {
+   "pluralF": "ministre",
+   "formsF": {
+    "sg.na.indef": "ministră",
+    "sg.na.def": "ministra",
+    "sg.gd.indef": "ministre",
+    "sg.gd.def": "ministrei",
+    "pl.na.indef": "ministre",
+    "pl.na.def": "ministrele",
+    "pl.gd.indef": "ministre",
+    "pl.gd.def": "ministrelor"
+   },
+   "note": "DOOM3 admits 'ministră' only as familiar/colloquial; 'doamna ministru' is the formal standard"
+  },
+  "librarian": {
+   "pluralM": "bibliotecari",
+   "formsM": {
+    "sg.na.indef": "bibliotecar",
+    "sg.na.def": "bibliotecarul",
+    "sg.gd.indef": "bibliotecar",
+    "sg.gd.def": "bibliotecarului",
+    "pl.na.indef": "bibliotecari",
+    "pl.na.def": "bibliotecarii",
+    "pl.gd.indef": "bibliotecari",
+    "pl.gd.def": "bibliotecarilor"
+   },
+   "status": "normative",
+   "note": "DOOM3 via dexonline, checked in the R11 review: bibliotecară",
+   "sources": [
+    "EnRoGend",
+    "DOOM3"
+   ]
+  },
+  "veterinarian": {
+   "pluralM": "veterinari",
+   "formsM": {
+    "sg.na.indef": "veterinar",
+    "sg.na.def": "veterinarul",
+    "sg.gd.indef": "veterinar",
+    "sg.gd.def": "veterinarului",
+    "pl.na.indef": "veterinari",
+    "pl.na.def": "veterinarii",
+    "pl.gd.indef": "veterinari",
+    "pl.gd.def": "veterinarilor"
+   },
+   "status": "contested",
+   "note": "DOOM3 lists 'veterinară' only as an adjective; the noun is masculine only ('medic veterinar')"
+  },
+  "porter": {
+   "f": "portăreasă",
+   "fAlt": null,
+   "pluralF": "portărese",
+   "formsF": {
+    "sg.na.indef": "portăreasă",
+    "sg.na.def": "portăreasa",
+    "sg.gd.indef": "portărese",
+    "sg.gd.def": "portăresei",
+    "pl.na.indef": "portărese",
+    "pl.na.def": "portăresele",
+    "pl.gd.indef": "portărese",
+    "pl.gd.def": "portăreselor"
+   },
+   "status": "normative",
+   "note": "DOOM3 gives 'portăreasă'; 'portăriță' is marked obsolete (MDA2). A luggage porter is 'hamal'.",
+   "sources": [
+    "EnRoGend",
+    "kaikki",
+    "DOOM3"
+   ]
+  },
+  "radiologist": {
+   "f": "radiologă",
+   "fAlt": "radioloagă",
+   "status": "variant",
+   "pluralF": "radiologe",
+   "formsF": {
+    "sg.na.indef": "radiologă",
+    "sg.na.def": "radiologa",
+    "sg.gd.indef": "radiologe",
+    "sg.gd.def": "radiologei",
+    "pl.na.indef": "radiologe",
+    "pl.na.def": "radiologele",
+    "pl.gd.indef": "radiologe",
+    "pl.gd.def": "radiologelor"
+   },
+   "note": "DOOM3: 'radiologă' (literary) / 'radioloagă' (colloquial), a register doublet"
+  },
+  "psychologist": {
+   "f": "psihologă",
+   "fAlt": "psiholoagă",
+   "pluralF": "psihologe",
+   "formsF": {
+    "sg.na.indef": "psihologă",
+    "sg.na.def": "psihologa",
+    "sg.gd.indef": "psihologe",
+    "sg.gd.def": "psihologei",
+    "pl.na.indef": "psihologe",
+    "pl.na.def": "psihologele",
+    "pl.gd.indef": "psihologe",
+    "pl.gd.def": "psihologelor"
+   },
+   "note": "DOOM3: 'psihologă' (literary) / 'psiholoagă' (colloquial), a register doublet"
+  },
+  "zoologist": {
+   "f": "zoologă",
+   "fAlt": "zooloagă",
+   "pluralF": "zoologe",
+   "formsF": {
+    "sg.na.indef": "zoologă",
+    "sg.na.def": "zoologa",
+    "sg.gd.indef": "zoologe",
+    "sg.gd.def": "zoologei",
+    "pl.na.indef": "zoologe",
+    "pl.na.def": "zoologele",
+    "pl.gd.indef": "zoologe",
+    "pl.gd.def": "zoologelor"
+   },
+   "note": "DOOM3: 'zoologă' (literary) / 'zooloagă' (colloquial), a register doublet"
+  },
+  "philologist": {
+   "pluralF": "filologe",
+   "formsF": {
+    "sg.na.indef": "filologă",
+    "sg.na.def": "filologa",
+    "sg.gd.indef": "filologe",
+    "sg.gd.def": "filologei",
+    "pl.na.indef": "filologe",
+    "pl.na.def": "filologele",
+    "pl.gd.indef": "filologe",
+    "pl.gd.def": "filologelor"
+   },
+   "note": "DOOM3: 'filologă' (literary) / 'filoloagă' (colloquial), a register doublet"
+  },
+  "physician": {
+   "note": "DOOM3 has no noun 'medică' (only the unrelated adjective); usage splits between 'medic', 'doamna doctor' and 'doctoriță'"
+  },
+  "sailor": {
+   "f": "marinăriță",
+   "pluralF": "marinărițe",
+   "formsF": {
+    "sg.na.indef": "marinăriță",
+    "sg.na.def": "marinărița",
+    "sg.gd.indef": "marinărițe",
+    "sg.gd.def": "marinăriței",
+    "pl.na.indef": "marinărițe",
+    "pl.na.def": "marinărițele",
+    "pl.gd.indef": "marinărițe",
+    "pl.gd.def": "marinărițelor"
+   },
+   "status": "attested",
+   "note": "DEX gives 'marinăriță'; 'marinăreasă' is in no dictionary on dexonline"
+  },
+  "lecturer": {
+   "f": "lectoră",
+   "pluralF": "lectore",
+   "formsF": {
+    "sg.na.indef": "lectoră",
+    "sg.na.def": "lectora",
+    "sg.gd.indef": "lectore",
+    "sg.gd.def": "lectorei",
+    "pl.na.indef": "lectore",
+    "pl.na.def": "lectorele",
+    "pl.gd.indef": "lectore",
+    "pl.gd.def": "lectorelor"
+   },
+   "status": "attested",
+   "note": "DOOM3 marks 'lectoră' rare; 'lectoare' is in no dictionary on dexonline"
+  },
+  "banker": {
+   "status": "attested",
+   "note": "'bancheră' is in no dictionary on dexonline"
+  },
+  "diplomat": {
+   "status": "normative",
+   "note": "DOOM3 via dexonline, checked in the R11 review: diplomată",
+   "sources": [
+    "EnRoGend",
+    "kaikki",
+    "DOOM3"
+   ]
+  },
+  "editor": {
+   "status": "normative",
+   "note": "DOOM3: editoare. Romanian 'editor' leans to 'publisher'; the job sense is 'redactor'",
+   "sources": [
+    "EnRoGend",
+    "kaikki",
+    "DOOM3"
+   ]
+  },
+  "producer": {
+   "pluralF": "producătoare"
+  },
+  "recruiter": {
+   "pluralF": "recrutoare",
+   "formsF": {
+    "sg.na.indef": "recrutoare",
+    "sg.na.def": "recrutoarea",
+    "sg.gd.indef": "recrutoare",
+    "sg.gd.def": "recrutoarei",
+    "pl.na.indef": "recrutoare",
+    "pl.na.def": "recrutoarele",
+    "pl.gd.indef": "recrutoare",
+    "pl.gd.def": "recrutoarelor"
+   },
+   "status": "normative",
+   "note": "DOOM3 via dexonline, checked in the R11 review: recrutoare",
+   "sources": [
+    "EnRoGend",
+    "kaikki",
+    "DOOM3"
+   ]
+  },
+  "welder": {
+   "note": "DOOM3 marks 'sudoriță' familiar"
+  },
+  "chef": {
+   "neutral": {
+    "kind": "none"
+   }
+  },
+  "driver": {
+   "neutral": {
+    "kind": "none"
+   }
+  },
+  "director": {
+   "en": "film director"
+  }
+ },
+ "add": [
+  {
+   "en": "director",
+   "m": "director",
+   "f": "directoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "the manager sense; DOOM3: directoare",
+   "gender": "m",
+   "pluralM": "directori",
+   "pluralF": "directoare",
+   "formsM": {
+    "sg.na.indef": "director",
+    "sg.na.def": "directorul",
+    "sg.gd.indef": "director",
+    "sg.gd.def": "directorului",
+    "pl.na.indef": "directori",
+    "pl.na.def": "directorii",
+    "pl.gd.indef": "directori",
+    "pl.gd.def": "directorilor"
+   },
+   "formsF": {
+    "sg.na.indef": "directoare",
+    "sg.na.def": "directoarea",
+    "sg.gd.indef": "directoare",
+    "sg.gd.def": "directoarei",
+    "pl.na.indef": "directoare",
+    "pl.na.def": "directoarele",
+    "pl.gd.indef": "directoare",
+    "pl.gd.def": "directoarelor"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "curated",
+    "DOOM3"
+   ],
+   "reviewed": false
+  }
+ ]
+}

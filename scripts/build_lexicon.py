@@ -118,12 +118,47 @@ for x in EXTRA:
         "sources": ["curated"] + (["kaikki"] if k else []),
         "reviewed": False,
     })
+# Corrections a review confirmed against DOOM3 (notes/R11). Applied last, so a
+# rebuild from the raw sources cannot quietly undo them. Paradigm patches merge
+# cell by cell; every other field is replaced.
+_fix = json.load(open("scripts/lexicon-corrections.json", encoding="utf-8"))
+_missing = set(_fix["patch"]) - {e["en"] for e in entries}
+if _missing:
+    raise SystemExit(f"lexicon-corrections.json patches unknown entries: {sorted(_missing)}")
+def _patched(e):
+    patch = _fix["patch"].get(e["en"])
+    if not patch:
+        return e
+    out = dict(e)
+    for key, value in patch.items():
+        if key in ("formsM", "formsF"):
+            # A partial paradigm only makes sense on top of a full one.
+            if not e.get(key) and len(value) < 8:
+                raise SystemExit(f"{e['en']}: partial {key} patch but no {key} to merge into")
+            out[key] = {**(e.get(key) or {}), **value}
+        else:
+            out[key] = value
+    return out
+# Patch first: a patch may rename an entry out of the way of an addition
+# ("director" -> "film director"); anything still clashing is replaced.
+_added = {x["en"] for x in _fix["add"]}
+entries = [p for p in map(_patched, entries) if p["en"] not in _added] + _fix["add"]
 entries.sort(key=lambda x: x["en"])
+
+# modelReview is added by hand after a review run (notes/R11), not derived from
+# any source here, so carry it over from the current file or a rebuild erases it.
+try:
+    _previous = json.load(open("src/ro/lexicon.occupations.json", encoding="utf-8"))
+    _reviews = {e["en"]: e["modelReview"] for e in _previous["entries"] if "modelReview" in e}
+except FileNotFoundError:
+    _reviews = {}
+entries = [{**e, "modelReview": _reviews[e["en"]]} if e["en"] in _reviews else e
+           for e in entries]
 
 out = {
     "_license": "Derived from EnRoGend (CC BY 4.0) and kaikki.org Wiktionary "
                 "extracts (CC BY-SA 4.0). ShareAlike attaches. Attribution required.",
-    "_status": "normative=two sources agree | variant=sources differ, both current "
+    "_status": "normative=two sources agree, or DOOM3 lists it | variant=sources differ, both current "
                "| attested=single source | contested=documented dispute",
     "entries": entries,
 }

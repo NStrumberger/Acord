@@ -74,12 +74,13 @@ test('every entry carries a status and its sources', () => {
   }
 });
 
-test('forms agreed by two independent sources are marked normative', () => {
+test('normative forms are agreed by two sources, or listed by DOOM3', () => {
   const normative = entries.filter((e) => e.status === 'normative');
   assert.ok(normative.length > 30, 'expected a substantial normative core');
   for (const e of normative) {
-    assert.ok(e.sources.includes('EnRoGend') && e.sources.includes('kaikki'),
-      `"${e.en}" is normative but not corroborated by both sources`);
+    const corroborated = e.sources.includes('EnRoGend') && e.sources.includes('kaikki');
+    assert.ok(corroborated || e.sources.includes('DOOM3'),
+      `"${e.en}" is normative but neither corroborated nor in DOOM3`);
   }
 });
 

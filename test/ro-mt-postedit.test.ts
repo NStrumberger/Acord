@@ -65,7 +65,11 @@ test('rewritten words carry their lexicon status', () => {
   // "geolog" -> "geoloagă" is a variant spelling; the user should be told.
   const out = applyGender(mt('I am a geologist.'), 'F');
   assert.equal(out.text, 'Sunt geoloagă.');
-  assert.equal(out.changed[0]!.options[0]!.status, 'variant');
+  // The flag sits on the word the user sees. The masculine it replaced is not
+  // in dispute, so it carries none (R11, F1).
+  const shown = out.candidates.find((c) => c.token === 'geoloagă');
+  assert.equal(shown?.options[0]?.status, 'variant');
+  assert.equal(out.changed[0]!.options[0]!.status, 'normative');
 });
 
 test('every gendered word is reported even when not auto-applied', () => {

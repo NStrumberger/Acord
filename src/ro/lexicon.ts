@@ -33,7 +33,19 @@ export type OccupationEntry = {
   formsF: NounForms | null;
   neutral: NeutralStrategy;
   sources: string[];
+  /** A native speaker has checked this entry. Only a person sets this. */
   reviewed: boolean;
+  /**
+   * A model screened this entry -- a pre-screen, NOT a native-speaker review,
+   * and never a reason to set `reviewed`. See notes/R11-model-review.md.
+   */
+  modelReview?: ModelReview;
+};
+
+export type ModelReview = {
+  date: string;
+  result: 'ok' | 'flagged' | 'unconfirmed';
+  ref: string;
 };
 
 // Imported rather than read from disk: this module must run in the browser,

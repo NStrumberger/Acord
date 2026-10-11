@@ -1,6 +1,6 @@
 {
  "_license": "Derived from EnRoGend (CC BY 4.0) and kaikki.org Wiktionary extracts (CC BY-SA 4.0). ShareAlike attaches. Attribution required.",
- "_status": "normative=two sources agree | variant=sources differ, both current | attested=single source | contested=documented dispute",
+ "_status": "normative=two sources agree, or DOOM3 lists it | variant=sources differ, both current | attested=single source | contested=documented dispute",
  "entries": [
   {
    "en": "accountant",
@@ -39,7 +39,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "actor",
@@ -78,7 +83,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "ambassador",
@@ -117,7 +127,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "anesthetist",
@@ -156,7 +171,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "architect",
@@ -195,7 +215,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "archivist",
@@ -225,7 +250,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "unconfirmed",
+    "ref": "R11"
+   }
   },
   {
    "en": "astronomer",
@@ -255,7 +285,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "unconfirmed",
+    "ref": "R11"
+   }
   },
   {
    "en": "athlete",
@@ -294,19 +329,33 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "auditor",
    "m": "auditor",
    "f": "auditoare",
    "fAlt": null,
-   "status": "attested",
-   "note": null,
+   "status": "normative",
+   "note": "DOOM3 via dexonline, checked in the R11 review: auditoare",
    "gender": "m",
-   "pluralM": null,
+   "pluralM": "auditori",
    "pluralF": "auditoare",
-   "formsM": null,
+   "formsM": {
+    "sg.na.indef": "auditor",
+    "sg.na.def": "auditorul",
+    "sg.gd.indef": "auditor",
+    "sg.gd.def": "auditorului",
+    "pl.na.indef": "auditori",
+    "pl.na.def": "auditorii",
+    "pl.gd.indef": "auditori",
+    "pl.gd.def": "auditorilor"
+   },
    "formsF": {
     "pl.gd.def": "auditoarelor",
     "pl.gd.indef": "auditoare",
@@ -321,9 +370,15 @@
     "kind": "none"
    },
    "sources": [
-    "EnRoGend"
+    "EnRoGend",
+    "DOOM3"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "baker",
@@ -362,15 +417,20 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "banker",
    "m": "bancher",
    "f": "bancheră",
    "fAlt": null,
-   "status": "normative",
-   "note": "EnRoGend and kaikki agree",
+   "status": "attested",
+   "note": "'bancheră' is in no dictionary on dexonline",
    "gender": "m",
    "pluralM": "bancheri",
    "pluralF": null,
@@ -392,7 +452,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "barber",
@@ -431,7 +496,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "bartender",
@@ -470,7 +540,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "unconfirmed",
+    "ref": "R11"
+   }
   },
   {
    "en": "botanist",
@@ -487,9 +562,9 @@
     "pl.gd.indef": "botaniști",
     "pl.na.def": "botaniștii",
     "pl.na.indef": "botaniști",
-    "sg.gd.def": "botanistaui",
+    "sg.gd.def": "botanistului",
     "sg.gd.indef": "botanist",
-    "sg.na.def": "botanista",
+    "sg.na.def": "botanistul",
     "sg.na.indef": "botanist"
    },
    "formsF": {
@@ -509,7 +584,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "carpenter",
@@ -548,7 +628,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "unconfirmed",
+    "ref": "R11"
+   }
   },
   {
    "en": "cashier",
@@ -587,7 +672,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "chef",
@@ -620,15 +710,18 @@
     "sg.na.indef": "bucătăreasă"
    },
    "neutral": {
-    "kind": "verb_paraphrase",
-    "verb1sg": "gătesc",
-    "verb2sg": "gătești"
+    "kind": "none"
    },
    "sources": [
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "chemist",
@@ -667,7 +760,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "coach",
@@ -706,7 +804,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "composer",
@@ -747,7 +850,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "conductor",
@@ -786,7 +894,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "consultant",
@@ -825,7 +938,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "dancer",
@@ -866,7 +984,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "dentist",
@@ -905,7 +1028,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "designer",
@@ -935,7 +1063,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "unconfirmed",
+    "ref": "R11"
+   }
   },
   {
    "en": "detective",
@@ -965,15 +1098,20 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "unconfirmed",
+    "ref": "R11"
+   }
   },
   {
    "en": "diplomat",
    "m": "diplomat",
    "f": "diplomată",
    "fAlt": null,
-   "status": "attested",
-   "note": null,
+   "status": "normative",
+   "note": "DOOM3 via dexonline, checked in the R11 review: diplomată",
    "gender": "m",
    "pluralM": "diplomați",
    "pluralF": "diplomate",
@@ -1002,46 +1140,52 @@
    },
    "sources": [
     "EnRoGend",
-    "kaikki"
+    "kaikki",
+    "DOOM3"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "director",
-   "m": "regizor",
-   "f": "regizoare",
+   "m": "director",
+   "f": "directoare",
    "fAlt": null,
    "status": "normative",
-   "note": "EnRoGend and kaikki agree",
+   "note": "the manager sense; DOOM3: directoare",
    "gender": "m",
-   "pluralM": "regizori",
-   "pluralF": "regizoare",
+   "pluralM": "directori",
+   "pluralF": "directoare",
    "formsM": {
-    "pl.gd.def": "regizorilor",
-    "pl.gd.indef": "regizori",
-    "pl.na.def": "regizorii",
-    "pl.na.indef": "regizori",
-    "sg.gd.def": "regizorului",
-    "sg.gd.indef": "regizor",
-    "sg.na.def": "regizorul",
-    "sg.na.indef": "regizor"
+    "sg.na.indef": "director",
+    "sg.na.def": "directorul",
+    "sg.gd.indef": "director",
+    "sg.gd.def": "directorului",
+    "pl.na.indef": "directori",
+    "pl.na.def": "directorii",
+    "pl.gd.indef": "directori",
+    "pl.gd.def": "directorilor"
    },
    "formsF": {
-    "pl.gd.def": "regizoarelor",
-    "pl.gd.indef": "regizoare",
-    "pl.na.def": "regizoarele",
-    "pl.na.indef": "regizoare",
-    "sg.gd.def": "regizoarei",
-    "sg.gd.indef": "regizoare",
-    "sg.na.def": "regizoarea",
-    "sg.na.indef": "regizoare"
+    "sg.na.indef": "directoare",
+    "sg.na.def": "directoarea",
+    "sg.gd.indef": "directoare",
+    "sg.gd.def": "directoarei",
+    "pl.na.indef": "directoare",
+    "pl.na.def": "directoarele",
+    "pl.gd.indef": "directoare",
+    "pl.gd.def": "directoarelor"
    },
    "neutral": {
     "kind": "none"
    },
    "sources": [
-    "EnRoGend",
-    "kaikki"
+    "curated",
+    "DOOM3"
    ],
    "reviewed": false
   },
@@ -1082,7 +1226,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "driver",
@@ -1115,15 +1264,18 @@
     "sg.na.indef": "șoferiță"
    },
    "neutral": {
-    "kind": "verb_paraphrase",
-    "verb1sg": "conduc",
-    "verb2sg": "conduci"
+    "kind": "none"
    },
    "sources": [
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "economist",
@@ -1162,15 +1314,20 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "editor",
    "m": "editor",
    "f": "editoare",
    "fAlt": null,
-   "status": "attested",
-   "note": null,
+   "status": "normative",
+   "note": "DOOM3: editoare. Romanian 'editor' leans to 'publisher'; the job sense is 'redactor'",
    "gender": "m",
    "pluralM": "editori",
    "pluralF": "editoare",
@@ -1201,9 +1358,15 @@
    },
    "sources": [
     "EnRoGend",
-    "kaikki"
+    "kaikki",
+    "DOOM3"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "electrician",
@@ -1242,7 +1405,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "engineer",
@@ -1281,7 +1449,56 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
+  },
+  {
+   "en": "film director",
+   "m": "regizor",
+   "f": "regizoare",
+   "fAlt": null,
+   "status": "normative",
+   "note": "EnRoGend and kaikki agree",
+   "gender": "m",
+   "pluralM": "regizori",
+   "pluralF": "regizoare",
+   "formsM": {
+    "pl.gd.def": "regizorilor",
+    "pl.gd.indef": "regizori",
+    "pl.na.def": "regizorii",
+    "pl.na.indef": "regizori",
+    "sg.gd.def": "regizorului",
+    "sg.gd.indef": "regizor",
+    "sg.na.def": "regizorul",
+    "sg.na.indef": "regizor"
+   },
+   "formsF": {
+    "pl.gd.def": "regizoarelor",
+    "pl.gd.indef": "regizoare",
+    "pl.na.def": "regizoarele",
+    "pl.na.indef": "regizoare",
+    "sg.gd.def": "regizoarei",
+    "sg.gd.indef": "regizoare",
+    "sg.na.def": "regizoarea",
+    "sg.na.indef": "regizoare"
+   },
+   "neutral": {
+    "kind": "none"
+   },
+   "sources": [
+    "EnRoGend",
+    "kaikki"
+   ],
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "gardener",
@@ -1320,7 +1537,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "geologist",
@@ -1350,7 +1572,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "unconfirmed",
+    "ref": "R11"
+   }
   },
   {
    "en": "hairdresser",
@@ -1389,7 +1616,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "unconfirmed",
+    "ref": "R11"
+   }
   },
   {
    "en": "inspector",
@@ -1428,7 +1660,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "journalist",
@@ -1467,7 +1704,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "judge",
@@ -1506,7 +1748,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "unconfirmed",
+    "ref": "R11"
+   }
   },
   {
    "en": "lawyer",
@@ -1523,9 +1770,9 @@
     "pl.gd.indef": "avocați",
     "pl.na.def": "avocații",
     "pl.na.indef": "avocați",
-    "sg.gd.def": "ului",
+    "sg.gd.def": "avocatului",
     "sg.gd.indef": "avocat",
-    "sg.na.def": "ul",
+    "sg.na.def": "avocatul",
     "sg.na.indef": "avocat"
    },
    "formsF": {
@@ -1545,18 +1792,23 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "lecturer",
    "m": "lector",
-   "f": "lectoare",
+   "f": "lectoră",
    "fAlt": null,
    "status": "attested",
-   "note": null,
+   "note": "DOOM3 marks 'lectoră' rare; 'lectoare' is in no dictionary on dexonline",
    "gender": "m",
    "pluralM": "lectori",
-   "pluralF": null,
+   "pluralF": "lectore",
    "formsM": {
     "pl.gd.def": "lectorilor",
     "pl.gd.indef": "lectori",
@@ -1567,7 +1819,16 @@
     "sg.na.def": "lectorul",
     "sg.na.indef": "lector"
    },
-   "formsF": null,
+   "formsF": {
+    "sg.na.indef": "lectoră",
+    "sg.na.def": "lectora",
+    "sg.gd.indef": "lectore",
+    "sg.gd.def": "lectorei",
+    "pl.na.indef": "lectore",
+    "pl.na.def": "lectorele",
+    "pl.gd.indef": "lectore",
+    "pl.gd.def": "lectorelor"
+   },
    "neutral": {
     "kind": "none"
    },
@@ -1575,19 +1836,33 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "librarian",
    "m": "bibliotecar",
    "f": "bibliotecară",
    "fAlt": null,
-   "status": "attested",
-   "note": null,
+   "status": "normative",
+   "note": "DOOM3 via dexonline, checked in the R11 review: bibliotecară",
    "gender": "m",
-   "pluralM": null,
+   "pluralM": "bibliotecari",
    "pluralF": "bibliotecare",
-   "formsM": null,
+   "formsM": {
+    "sg.na.indef": "bibliotecar",
+    "sg.na.def": "bibliotecarul",
+    "sg.gd.indef": "bibliotecar",
+    "sg.gd.def": "bibliotecarului",
+    "pl.na.indef": "bibliotecari",
+    "pl.na.def": "bibliotecarii",
+    "pl.gd.indef": "bibliotecari",
+    "pl.gd.def": "bibliotecarilor"
+   },
    "formsF": {
     "pl.gd.def": "bibliotecarelor",
     "pl.gd.indef": "bibliotecare",
@@ -1602,9 +1877,15 @@
     "kind": "none"
    },
    "sources": [
-    "EnRoGend"
+    "EnRoGend",
+    "DOOM3"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "mathematician",
@@ -1643,7 +1924,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "minister",
@@ -1651,10 +1937,10 @@
    "f": "ministră",
    "fAlt": null,
    "status": "contested",
-   "note": "Wiktionary records no feminine; 'doamna ministru' still standard in official address",
+   "note": "DOOM3 admits 'ministră' only as familiar/colloquial; 'doamna ministru' is the formal standard",
    "gender": "m",
    "pluralM": "miniștri",
-   "pluralF": null,
+   "pluralF": "ministre",
    "formsM": {
     "pl.gd.def": "miniștrilor",
     "pl.gd.indef": "miniștri",
@@ -1665,7 +1951,16 @@
     "sg.na.def": "ministrul",
     "sg.na.indef": "ministru"
    },
-   "formsF": null,
+   "formsF": {
+    "sg.na.indef": "ministră",
+    "sg.na.def": "ministra",
+    "sg.gd.indef": "ministre",
+    "sg.gd.def": "ministrei",
+    "pl.na.indef": "ministre",
+    "pl.na.def": "ministrele",
+    "pl.gd.indef": "ministre",
+    "pl.gd.def": "ministrelor"
+   },
    "neutral": {
     "kind": "none"
    },
@@ -1673,7 +1968,12 @@
     "curated",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "musician",
@@ -1712,7 +2012,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "nurse",
@@ -1751,7 +2056,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "nutritionist",
@@ -1790,7 +2100,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "optician",
@@ -1829,7 +2144,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "painter",
@@ -1870,7 +2190,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "pharmacist",
@@ -1909,7 +2234,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "philologist",
@@ -1917,10 +2247,10 @@
    "f": "filologă",
    "fAlt": "filoloagă",
    "status": "variant",
-   "note": "DOOM3 (2021) admits both spellings -- the canonical o->oa case",
+   "note": "DOOM3: 'filologă' (literary) / 'filoloagă' (colloquial), a register doublet",
    "gender": "m",
    "pluralM": "filologi",
-   "pluralF": null,
+   "pluralF": "filologe",
    "formsM": {
     "pl.gd.def": "filologilor",
     "pl.gd.indef": "filologi",
@@ -1931,7 +2261,16 @@
     "sg.na.def": "filologul",
     "sg.na.indef": "filolog"
    },
-   "formsF": null,
+   "formsF": {
+    "sg.na.indef": "filologă",
+    "sg.na.def": "filologa",
+    "sg.gd.indef": "filologe",
+    "sg.gd.def": "filologei",
+    "pl.na.indef": "filologe",
+    "pl.na.def": "filologele",
+    "pl.gd.indef": "filologe",
+    "pl.gd.def": "filologelor"
+   },
    "neutral": {
     "kind": "none"
    },
@@ -1939,7 +2278,12 @@
     "curated",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "photographer",
@@ -1980,7 +2324,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "physician",
@@ -1988,7 +2337,7 @@
    "f": "medică",
    "fAlt": null,
    "status": "contested",
-   "note": "kaikki records 'medică'; 'doamna doctor' competes in usage",
+   "note": "DOOM3 has no noun 'medică' (only the unrelated adjective); usage splits between 'medic', 'doamna doctor' and 'doctoriță'",
    "gender": "m",
    "pluralM": "medici",
    "pluralF": null,
@@ -2010,7 +2359,12 @@
     "curated",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "physicist",
@@ -2049,7 +2403,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "physiotherapist",
@@ -2088,7 +2447,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "plumber",
@@ -2127,7 +2491,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "poet",
@@ -2166,7 +2535,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "police officer",
@@ -2205,18 +2579,23 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "porter",
    "m": "portar",
-   "f": "portăriță",
+   "f": "portăreasă",
    "fAlt": null,
-   "status": "attested",
-   "note": null,
+   "status": "normative",
+   "note": "DOOM3 gives 'portăreasă'; 'portăriță' is marked obsolete (MDA2). A luggage porter is 'hamal'.",
    "gender": "m",
    "pluralM": "portari",
-   "pluralF": "portărițe",
+   "pluralF": "portărese",
    "formsM": {
     "pl.gd.def": "portarilor",
     "pl.gd.indef": "portari",
@@ -2228,23 +2607,29 @@
     "sg.na.indef": "portar"
    },
    "formsF": {
-    "pl.gd.def": "portărițelor",
-    "pl.gd.indef": "portărițe",
-    "pl.na.def": "portărițele",
-    "pl.na.indef": "portărițe",
-    "sg.gd.def": "portăriței",
-    "sg.gd.indef": "portărițe",
-    "sg.na.def": "portărița",
-    "sg.na.indef": "portăriță"
+    "pl.gd.def": "portăreselor",
+    "pl.gd.indef": "portărese",
+    "pl.na.def": "portăresele",
+    "pl.na.indef": "portărese",
+    "sg.gd.def": "portăresei",
+    "sg.gd.indef": "portărese",
+    "sg.na.def": "portăreasa",
+    "sg.na.indef": "portăreasă"
    },
    "neutral": {
     "kind": "none"
    },
    "sources": [
     "EnRoGend",
-    "kaikki"
+    "kaikki",
+    "DOOM3"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "presenter",
@@ -2283,7 +2668,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "producer",
@@ -2294,7 +2684,7 @@
    "note": "EnRoGend and kaikki agree",
    "gender": "m",
    "pluralM": "producători",
-   "pluralF": null,
+   "pluralF": "producătoare",
    "formsM": {
     "pl.gd.def": "producătorilor",
     "pl.gd.indef": "producători",
@@ -2322,7 +2712,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "programmer",
@@ -2363,18 +2758,23 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "prosecutor",
    "m": "procuror",
    "f": "procuroare",
    "fAlt": null,
-   "status": "attested",
-   "note": null,
+   "status": "normative",
+   "note": "DOOM3 via dexonline, checked in the R11 review: procuroare",
    "gender": "m",
    "pluralM": "procurori",
-   "pluralF": null,
+   "pluralF": "procuroare",
    "formsM": {
     "pl.gd.def": "procurorilor",
     "pl.gd.indef": "procurori",
@@ -2385,26 +2785,41 @@
     "sg.na.def": "procurorul",
     "sg.na.indef": "procuror"
    },
-   "formsF": null,
+   "formsF": {
+    "sg.na.indef": "procuroare",
+    "sg.na.def": "procuroarea",
+    "sg.gd.indef": "procuroare",
+    "sg.gd.def": "procuroarei",
+    "pl.na.indef": "procuroare",
+    "pl.na.def": "procuroarele",
+    "pl.gd.indef": "procuroare",
+    "pl.gd.def": "procuroarelor"
+   },
    "neutral": {
     "kind": "none"
    },
    "sources": [
     "EnRoGend",
-    "kaikki"
+    "kaikki",
+    "DOOM3"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "psychologist",
    "m": "psiholog",
-   "f": "psiholoagă",
-   "fAlt": "psihologă",
+   "f": "psihologă",
+   "fAlt": "psiholoagă",
    "status": "variant",
-   "note": "sources differ by the o->oa breaking; DOOM3 admits both spellings",
+   "note": "DOOM3: 'psihologă' (literary) / 'psiholoagă' (colloquial), a register doublet",
    "gender": "m",
    "pluralM": "psihologi",
-   "pluralF": null,
+   "pluralF": "psihologe",
    "formsM": {
     "pl.gd.def": "psihologilor",
     "pl.gd.indef": "psihologi",
@@ -2415,7 +2830,16 @@
     "sg.na.def": "psihologul",
     "sg.na.indef": "psiholog"
    },
-   "formsF": null,
+   "formsF": {
+    "sg.na.indef": "psihologă",
+    "sg.na.def": "psihologa",
+    "sg.gd.indef": "psihologe",
+    "sg.gd.def": "psihologei",
+    "pl.na.indef": "psihologe",
+    "pl.na.def": "psihologele",
+    "pl.gd.indef": "psihologe",
+    "pl.gd.def": "psihologelor"
+   },
    "neutral": {
     "kind": "none"
    },
@@ -2423,18 +2847,23 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "radiologist",
    "m": "radiolog",
-   "f": "radioloagă",
-   "fAlt": null,
-   "status": "attested",
-   "note": null,
+   "f": "radiologă",
+   "fAlt": "radioloagă",
+   "status": "variant",
+   "note": "DOOM3: 'radiologă' (literary) / 'radioloagă' (colloquial), a register doublet",
    "gender": "m",
    "pluralM": "radiologi",
-   "pluralF": null,
+   "pluralF": "radiologe",
    "formsM": {
     "pl.gd.def": "radiologilor",
     "pl.gd.indef": "radiologi",
@@ -2445,7 +2874,16 @@
     "sg.na.def": "radiologul",
     "sg.na.indef": "radiolog"
    },
-   "formsF": null,
+   "formsF": {
+    "sg.na.indef": "radiologă",
+    "sg.na.def": "radiologa",
+    "sg.gd.indef": "radiologe",
+    "sg.gd.def": "radiologei",
+    "pl.na.indef": "radiologe",
+    "pl.na.def": "radiologele",
+    "pl.gd.indef": "radiologe",
+    "pl.gd.def": "radiologelor"
+   },
    "neutral": {
     "kind": "none"
    },
@@ -2453,7 +2891,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "receptionist",
@@ -2492,18 +2935,23 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "recruiter",
    "m": "recrutor",
    "f": "recrutoare",
    "fAlt": null,
-   "status": "attested",
-   "note": null,
+   "status": "normative",
+   "note": "DOOM3 via dexonline, checked in the R11 review: recrutoare",
    "gender": "m",
    "pluralM": "recrutori",
-   "pluralF": null,
+   "pluralF": "recrutoare",
    "formsM": {
     "pl.gd.def": "recrutorilor",
     "pl.gd.indef": "recrutori",
@@ -2514,26 +2962,41 @@
     "sg.na.def": "recrutorul",
     "sg.na.indef": "recrutor"
    },
-   "formsF": null,
+   "formsF": {
+    "sg.na.indef": "recrutoare",
+    "sg.na.def": "recrutoarea",
+    "sg.gd.indef": "recrutoare",
+    "sg.gd.def": "recrutoarei",
+    "pl.na.indef": "recrutoare",
+    "pl.na.def": "recrutoarele",
+    "pl.gd.indef": "recrutoare",
+    "pl.gd.def": "recrutoarelor"
+   },
    "neutral": {
     "kind": "none"
    },
    "sources": [
     "EnRoGend",
-    "kaikki"
+    "kaikki",
+    "DOOM3"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "sailor",
    "m": "marinar",
-   "f": "marinăreasă",
+   "f": "marinăriță",
    "fAlt": null,
    "status": "attested",
-   "note": null,
+   "note": "DEX gives 'marinăriță'; 'marinăreasă' is in no dictionary on dexonline",
    "gender": "m",
    "pluralM": "marinari",
-   "pluralF": null,
+   "pluralF": "marinărițe",
    "formsM": {
     "pl.gd.def": "marinarilor",
     "pl.gd.indef": "marinari",
@@ -2544,7 +3007,16 @@
     "sg.na.def": "marinarul",
     "sg.na.indef": "marinar"
    },
-   "formsF": null,
+   "formsF": {
+    "sg.na.indef": "marinăriță",
+    "sg.na.def": "marinărița",
+    "sg.gd.indef": "marinărițe",
+    "sg.gd.def": "marinăriței",
+    "pl.na.indef": "marinărițe",
+    "pl.na.def": "marinărițele",
+    "pl.gd.indef": "marinărițe",
+    "pl.gd.def": "marinărițelor"
+   },
    "neutral": {
     "kind": "none"
    },
@@ -2552,7 +3024,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "scientist",
@@ -2591,7 +3068,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "screenwriter",
@@ -2630,7 +3112,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "sculptor",
@@ -2669,7 +3156,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "secretary",
@@ -2708,7 +3200,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "singer",
@@ -2749,7 +3246,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "statistician",
@@ -2788,7 +3290,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "surveyor",
@@ -2827,7 +3334,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "tailor",
@@ -2866,7 +3378,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "teacher",
@@ -2907,7 +3424,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "technician",
@@ -2946,7 +3468,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "therapist",
@@ -2985,7 +3512,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "translator",
@@ -3026,19 +3558,33 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "veterinarian",
    "m": "veterinar",
    "f": "veterinară",
    "fAlt": null,
-   "status": "attested",
-   "note": null,
+   "status": "contested",
+   "note": "DOOM3 lists 'veterinară' only as an adjective; the noun is masculine only ('medic veterinar')",
    "gender": "m",
-   "pluralM": null,
+   "pluralM": "veterinari",
    "pluralF": "veterinare",
-   "formsM": null,
+   "formsM": {
+    "sg.na.indef": "veterinar",
+    "sg.na.def": "veterinarul",
+    "sg.gd.indef": "veterinar",
+    "sg.gd.def": "veterinarului",
+    "pl.na.indef": "veterinari",
+    "pl.na.def": "veterinarii",
+    "pl.gd.indef": "veterinari",
+    "pl.gd.def": "veterinarilor"
+   },
    "formsF": {
     "pl.gd.def": "veterinarelor",
     "pl.gd.indef": "veterinare",
@@ -3055,7 +3601,12 @@
    "sources": [
     "EnRoGend"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "waiter",
@@ -3094,7 +3645,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "ok",
+    "ref": "R11"
+   }
   },
   {
    "en": "welder",
@@ -3102,7 +3658,7 @@
    "f": "sudoriță",
    "fAlt": null,
    "status": "attested",
-   "note": null,
+   "note": "DOOM3 marks 'sudoriță' familiar",
    "gender": "m",
    "pluralM": "sudori",
    "pluralF": "sudorițe",
@@ -3133,18 +3689,23 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   },
   {
    "en": "zoologist",
    "m": "zoolog",
-   "f": "zooloagă",
-   "fAlt": "zoologă",
+   "f": "zoologă",
+   "fAlt": "zooloagă",
    "status": "variant",
-   "note": "sources differ by the o->oa breaking; DOOM3 admits both spellings",
+   "note": "DOOM3: 'zoologă' (literary) / 'zooloagă' (colloquial), a register doublet",
    "gender": "m",
    "pluralM": "zoologi",
-   "pluralF": null,
+   "pluralF": "zoologe",
    "formsM": {
     "pl.gd.def": "zoologilor",
     "pl.gd.indef": "zoologi",
@@ -3155,7 +3716,16 @@
     "sg.na.def": "zoologul",
     "sg.na.indef": "zoolog"
    },
-   "formsF": null,
+   "formsF": {
+    "sg.na.indef": "zoologă",
+    "sg.na.def": "zoologa",
+    "sg.gd.indef": "zoologe",
+    "sg.gd.def": "zoologei",
+    "pl.na.indef": "zoologe",
+    "pl.na.def": "zoologele",
+    "pl.gd.indef": "zoologe",
+    "pl.gd.def": "zoologelor"
+   },
    "neutral": {
     "kind": "none"
    },
@@ -3163,7 +3733,12 @@
     "EnRoGend",
     "kaikki"
    ],
-   "reviewed": false
+   "reviewed": false,
+   "modelReview": {
+    "date": "2026-10-11",
+    "result": "flagged",
+    "ref": "R11"
+   }
   }
  ]
 }

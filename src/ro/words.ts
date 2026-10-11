@@ -13,6 +13,15 @@ export const ADJECTIVES: Record<string, AdjectiveForms> = {
   good: { msg: 'bun', fsg: 'bună', mpl: 'buni', fpl: 'bune' },
   big: { msg: 'mare', fsg: 'mare', mpl: 'mari', fpl: 'mari' },
   ready: { msg: 'gata', fsg: 'gata', mpl: 'gata', fpl: 'gata' }, // invariable
+  // Added from the R11 review: gaps that left predicates half-corrected.
+  sad: { msg: 'trist', fsg: 'tristă', mpl: 'triști', fpl: 'triste' },
+  busy: { msg: 'ocupat', fsg: 'ocupată', mpl: 'ocupați', fpl: 'ocupate' },
+  married: { msg: 'căsătorit', fsg: 'căsătorită', mpl: 'căsătoriți', fpl: 'căsătorite' },
+  proud: { msg: 'mândru', fsg: 'mândră', mpl: 'mândri', fpl: 'mândre' },
+  alone: { msg: 'singur', fsg: 'singură', mpl: 'singuri', fpl: 'singure' },
+  // "asistentă medicală" is how the model says "nurse"; without the adjective
+  // only the noun flipped ("asistent medicală").
+  medical: { msg: 'medical', fsg: 'medicală', mpl: 'medicali', fpl: 'medicale' },
 };
 
 /** Non-occupation nouns with a masculine/feminine pair. */
@@ -20,7 +29,26 @@ export const NOUNS: Record<string, { m: string; f: string; mPl: string; fPl: str
   friend: { m: 'prieten', f: 'prietenă', mPl: 'prieteni', fPl: 'prietene' },
   colleague: { m: 'coleg', f: 'colegă', mPl: 'colegi', fPl: 'colege' },
   neighbour: { m: 'vecin', f: 'vecină', mPl: 'vecini', fPl: 'vecine' },
+  athlete: { m: 'sportiv', f: 'sportivă', mPl: 'sportivi', fPl: 'sportive' },
+  student: { m: 'student', f: 'studentă', mPl: 'studenți', fPl: 'studente' },
+  boss: { m: 'șef', f: 'șefă', mPl: 'șefi', fPl: 'șefe' },
 };
+
+/**
+ * Nouns whose gender is the person's: a sister is a woman whatever the
+ * settings say. A clause with one of these as its subject agrees with it --
+ * the noun is evidence, the way "he" or "she" is. Never flipped themselves.
+ * Mixed plurals ("părinții") are masculine, as Romanian agreement requires.
+ */
+const kin = (gender: 'M' | 'F', forms: string[]) => forms.map((f) => [f, gender] as const);
+export const KINSHIP: ReadonlyMap<string, 'M' | 'F'> = new Map([
+  ...kin('F', ['soră', 'sora', 'soție', 'soția', 'mamă', 'mama', 'fiică', 'fiica', 'mătușă',
+    'mătușa', 'bunică', 'bunica', 'nepoată', 'nepoata', 'verișoară', 'verișoara', 'cumnată',
+    'cumnata', 'surori', 'surorile']),
+  ...kin('M', ['frate', 'fratele', 'soț', 'soțul', 'tată', 'tatăl', 'fiu', 'fiul', 'unchi',
+    'unchiul', 'bunic', 'bunicul', 'nepot', 'nepotul', 'văr', 'vărul', 'cumnat', 'cumnatul',
+    'părinți', 'părinții', 'frați', 'frații']),
+]);
 
 /** Past participles, invariable in the compound past with a preceding auxiliary. */
 export const PARTICIPLES: Record<string, string> = {
@@ -61,6 +89,8 @@ export const FUNCTION_WORDS: readonly (readonly [string, string])[] = [
   ['un', 'o'],                                    // indefinite article
   ['cel', 'cea'], ['cei', 'cele'],                // demonstrative / superlative
   ['al', 'a'], ['ai', 'ale'],                     // possessive article
+  ['de-al', 'de-a'], ['de-ai', 'de-ale'],         // "un prieten de-al meu"
+  ['care-l', 'care o'],                           // "pe care-l am" / "pe care o am"
   ['meu', 'mea'], ['mei', 'mele'],
   ['tău', 'ta'], ['tăi', 'tale'],
   ['său', 'sa'], ['săi', 'sale'],

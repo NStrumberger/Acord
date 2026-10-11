@@ -205,11 +205,12 @@ let personPlacers: (() => void)[] = [];
  * on, so every row here does something -- an unreachable control would be
  * worse than no control.
  */
-function renderPeople(people: Person[]): void {
-  // Two or more named people ARE the other people, so the catch-all row goes
-  // away rather than sitting there silently outranking them.
+function renderPeople(people: Person[], othersPresent: boolean): void {
+  // With one name, the catch-all row also covers that person ("Same"). From
+  // two names on they each have their own row, and the catch-all stays only
+  // while someone unnamed is left for it to cover.
   const general = people.length < GENERAL_ROW_LIMIT;
-  generalRow.hidden = !general;
+  generalRow.hidden = !general && !othersPresent;
 
   // Rebuilding on every translation would blow away a selection mid-edit.
   const signature = people.map((p) => `${p.name}:${p.governs}:${p.guess ?? ''}`)
@@ -398,16 +399,19 @@ async function run(): Promise<void> {
     const choices = { source: text, targets: Object.fromEntries(personChoices) };
     const others = othersTouched ? targetOf('addressee') : undefined;
     let result = applyGender(translated.romanian, speaker, others, choices);
-    // Once the named rows replace "Anyone else", it must stop applying too: a
-    // hidden control still forcing a gender is a trap. Re-running costs
-    // nothing -- the model is not involved a second time.
-    if (result.people.length >= GENERAL_ROW_LIMIT && others) {
-      result = applyGender(translated.romanian, speaker, undefined, choices);
+    // From two names on, each named person has a row of their own, so "Anyone
+    // else" must never reach them: a catch-all silently outranking a named row
+    // is a trap. It still covers whoever the sentence does not name ("my
+    // boss"), and when there is nobody like that it is hidden and applies to
+    // nothing. Re-running costs nothing -- the model is not involved again.
+    if (result.people.length >= GENERAL_ROW_LIMIT) {
+      result = applyGender(translated.romanian, speaker, result.othersPresent ? others : undefined,
+        { ...choices, namedFollowOthers: false });
     }
     // Show what the translator did with everyone it did not name, so this row
     // reads like the others: a visible starting point rather than a blank.
     if (!othersTouched) setChoice('addressee', result.othersGuess ?? '');
-    renderPeople(result.people);
+    renderPeople(result.people, result.othersPresent);
     empty.hidden = true;
     spoken = result.variants.join('\n');
     tools.hidden = false;

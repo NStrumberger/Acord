@@ -1,6 +1,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { lookup, realize, paradigmFor } from '../src/ro/lexicon.ts';
+import { lookup, realize, paradigmFor, allEntries } from '../src/ro/lexicon.ts';
+
+test('a model screen never counts as a native-speaker review', () => {
+  // R11: a model pre-screened the lexicon. Only a person may set `reviewed`.
+  for (const e of allEntries()) {
+    assert.equal(e.reviewed, false, `${e.en} is marked reviewed`);
+    if (e.modelReview) assert.match(e.modelReview.result, /^(ok|flagged|unconfirmed)$/);
+  }
+});
 
 test('unknown occupations are a miss, never a guess', () => {
   // The refusal path: inventing a Romanian feminine is the failure mode
