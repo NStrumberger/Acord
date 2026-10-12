@@ -8,12 +8,11 @@
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
-import { env } from '@huggingface/transformers';
-import { translate } from '../src/ro/mt.ts';
 import { applyGender, type Target, type PostEdit, type Candidate } from '../src/ro/postedit.ts';
+import { openTranslator } from './browser-mt.ts';
 
-// Same module instance mt.ts imports, so the model is downloaded once to here.
-env.cacheDir = './data/raw/hf-cache';
+const mt = await openTranslator();
+const translate = (lines: string[]) => mt.translate(lines);
 
 /** main.ts: from this many named people the catch-all row stops applying. */
 const GENERAL_ROW_LIMIT = 2;
@@ -98,4 +97,8 @@ async function main(): Promise<void> {
   console.log(`${cases.length} cases -> ${output}`);
 }
 
-await main();
+try {
+  await main();
+} finally {
+  await mt.close();
+}

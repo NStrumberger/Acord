@@ -378,8 +378,8 @@ async function run(): Promise<void> {
   if (!text) return;
   go.disabled = true;
   meta.classList.remove('error');
-  // The model is fetched once, then cached by the browser. Say so, because
-  // ~113 MB downloading in silence looks like the app has hung.
+  // The model is fetched once, then kept by the service worker. Say so, because
+  // ~15 MB downloading in silence on a slow line looks like the app has hung.
   if (translated?.source !== text) {
     meta.textContent = isLoaded() ? 'Translating…' : 'Preparing the translator…';
   }

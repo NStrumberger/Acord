@@ -7,3 +7,5 @@ __pycache__/
 *.pyc
 .venv/
 shots/
+# Copied from node_modules before dev/build (scripts/vendor-bergamot.mjs).
+public/bergamot/

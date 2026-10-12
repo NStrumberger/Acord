@@ -60,20 +60,26 @@ the subject. Half-correcting it is worse than not correcting it.
 Open the site in Safari, then **Share → Add to Home Screen**. It installs with
 its own icon and opens full-screen.
 
-The first translation on a device downloads the model (~113 MB, quantised) and
-takes 10–15 seconds. After that everything is local: no network, no server.
+The first translation on a device downloads the model (~15 MB) and takes a
+few seconds. After that everything is local: no network, no server.
 
 ## How it works
 
 ```
-English  →  opus-mt-en-ro (ONNX, in-browser)  →  Romanian
+English  →  Firefox Translations en-ro (Bergamot, WebAssembly, in-browser)  →  Romanian
+                                                    ↓
+                                    tidy: drop the pronouns and articles
+                                    Romanian leaves out ("Eu sunt un …")
                                                     ↓
                                     post-editor: find the predicate spans,
                                     set each person's gender from your
                                     choice, flag disputed forms
 ```
 
-Translation is `Xenova/opus-mt-en-ro` under `transformers.js`. The gender layer
+Translation is Mozilla's Firefox Translations `en-ro` model (spring 2024
+release) on the Bergamot engine, both MPL 2.0 and served by this site. It
+replaced opus-mt-en-ro after a blind comparison; see
+[`notes/R12-reverse-spike.md`](notes/R12-reverse-spike.md). The gender layer
 is original: a reverse index over stored paradigms, and a span analyser that
 decides whose gender each word follows. A copula opens a span to the end of its
 clause, because a Romanian predicate agrees throughout — article, superlative,

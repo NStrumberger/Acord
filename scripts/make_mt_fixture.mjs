@@ -1,12 +1,10 @@
 /**
- * Regenerate the committed MT fixture from the model the app actually uses,
- * so post-editor tests run against real output without needing the model.
+ * Regenerate the committed MT fixture from the engine the app actually uses,
+ * so post-editor tests run against real output without needing the engine.
+ * The engine only runs in a browser, so this drives one (see browser-mt.ts).
  */
 import { writeFileSync } from 'node:fs';
-import { pipeline, env } from '@huggingface/transformers';
-import { normalizeRomanian } from '../src/ro/normalize.ts';
-
-env.cacheDir = './data/raw/hf-cache';
+import { openTranslator } from './browser-mt.ts';
 
 const SENTENCES = [
   'I am tired.', 'I am happy.', 'I am a teacher.', 'I am a lawyer.',
@@ -17,17 +15,17 @@ const SENTENCES = [
   'You are tired.', 'You are my best friend.',
 ];
 
-const translate = await pipeline('translation', 'Xenova/opus-mt-en-ro', { dtype: 'q8' });
-// One at a time: batching this model through transformers.js produces
-// degenerate output (long runs of trailing full stops).
+const mt = await openTranslator();
 const pairs = {};
-for (const en of SENTENCES) {
-  const [out] = await translate(en);
-  pairs[en] = normalizeRomanian(out.translation_text);
+try {
+  const out = await mt.translate(SENTENCES);
+  SENTENCES.forEach((en, i) => { pairs[en] = out[i]; });
+} finally {
+  await mt.close();
 }
 
 writeFileSync('test/fixtures/mt-en-ro.json', JSON.stringify({
-  _model: 'Xenova/opus-mt-en-ro (q8), the model the app runs in the browser',
+  _model: 'Mozilla Firefox Translations en-ro (Bergamot tiny, spring 2024), through src/ro/mt.ts as the app runs it',
   _note: 'regenerate with: npm run mt:fixture',
   pairs,
 }, null, 1) + '\n', 'utf8');

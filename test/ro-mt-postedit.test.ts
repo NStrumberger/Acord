@@ -31,10 +31,10 @@ test('punctuation survives a rewrite', () => {
 });
 
 test('a past-tense clause is in scope', () => {
-  // "Ieri eram obosita" -- the adjective agrees with the speaker even though
-  // the copula is not sentence-initial.
-  assert.equal(applyGender(mt('I was tired yesterday.'), 'M').text, 'Ieri eram obosit.');
-  assert.equal(applyGender(mt('I was tired yesterday.'), 'F').text, 'Ieri eram obosită.');
+  // "Am fost obosit ieri" -- the adjective agrees with the speaker through the
+  // compound past, not only after a present-tense copula.
+  assert.equal(applyGender(mt('I was tired yesterday.'), 'M').text, 'Am fost obosit ieri.');
+  assert.equal(applyGender(mt('I was tired yesterday.'), 'F').text, 'Am fost obosită ieri.');
 });
 
 test('a second person in the sentence is NOT rewritten', () => {
@@ -42,7 +42,7 @@ test('a second person in the sentence is NOT rewritten', () => {
   // speaker to male must leave the friend alone -- this is the coreference
   // trap, and we avoid it by only claiming the first-person predicate.
   const out = applyGender(mt('I am happy and my friend is tired.'), 'F');
-  assert.equal(out.text, 'Sunt fericită și prietenul meu e obosit.');
+  assert.equal(out.text, 'Sunt fericită și prietenul meu este obosit.');
   assert.equal(out.changed.length, 1);
 });
 
@@ -52,7 +52,10 @@ test('sentences with no first-person subject are left entirely alone', () => {
 });
 
 test('invariable adjectives are never touched', () => {
-  assert.equal(applyGender(mt('I am ready.'), 'F').text, 'Sunt gata.');
+  // A literal, not the fixture: the current engine renders "I am ready" as
+  // "Sunt pregătită", which the word list does not know yet (notes/R12).
+  assert.equal(applyGender('Sunt gata.', 'F').text, 'Sunt gata.');
+  assert.equal(applyGender('Sunt gata.', 'M').text, 'Sunt gata.');
 });
 
 test('clitic word order from the model is preserved', () => {

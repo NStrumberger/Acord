@@ -1,0 +1,43 @@
+{
+ "_source": "Mozilla Firefox Translations (Bergamot) models, MPL-2.0. Regenerate with: npm run models:fetch",
+ "en-ro": {
+  "model": {
+   "name": "spring-2024_Ov3G4D_DRJa-4qTlILkPhg/model.enro.intgemm.alphas.bin.gz",
+   "size": 17141051,
+   "gzSize": 12207487,
+   "sha256": "aa98c415e5beb1c5ee2f7d2508a3bbba949be223d7d9e5e1788ad0ae8598dda5"
+  },
+  "lex": {
+   "name": "spring-2024_Ov3G4D_DRJa-4qTlILkPhg/lex.50.50.enro.s2t.bin.gz",
+   "size": 3739880,
+   "gzSize": 1846074,
+   "sha256": "508bce64a8bc906a99043ad2f4855b4662e06f8827c1c6a75ab83181b4f17f81"
+  },
+  "vocab": {
+   "name": "spring-2024_Ov3G4D_DRJa-4qTlILkPhg/vocab.enro.spm.gz",
+   "size": 801522,
+   "gzSize": 397137,
+   "sha256": "d89eedf6cbbcb30d7ed4b0b092189196ac2b010ec0c3ede33a6676b17ea1c95e"
+  }
+ },
+ "ro-en": {
+  "model": {
+   "name": "spring-2024_RwH0W_MDRK2BmZA6VzAmBg/model.roen.intgemm.alphas.bin.gz",
+   "size": 17141051,
+   "gzSize": 12722200,
+   "sha256": "e7542557fc6dbafacddae7b48e67fcdb07bd67b3fb55a76139edf366eca5dbdb"
+  },
+  "lex": {
+   "name": "spring-2024_RwH0W_MDRK2BmZA6VzAmBg/lex.50.50.roen.s2t.bin.gz",
+   "size": 4691708,
+   "gzSize": 2159556,
+   "sha256": "d242745eadff6f345784fccf1d58046061501b28c8190ba5912a9da5f056cd2f"
+  },
+  "vocab": {
+   "name": "spring-2024_RwH0W_MDRK2BmZA6VzAmBg/vocab.roen.spm.gz",
+   "size": 800832,
+   "gzSize": 396717,
+   "sha256": "2a690fbcd1b79bc9b99c43d582252720e0900245c82ecc813c8eb05cf063fd0c"
+  }
+ }
+}

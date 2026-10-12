@@ -1,39 +1,34 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { splitSentences } from '../src/ro/mt.ts';
+import { prepareEnglish, dropDialogueDashes } from '../src/ro/mt.ts';
 
-test('sentences are separated so the model sees them one at a time', () => {
-  // opus-mt is sentence-level: given three at once it splices the first two
-  // with a comma and drops the third. "Hello. How are you? I am well." came
-  // back as "- Bună, ce mai faci?".
-  assert.deepEqual(splitSentences('I am tired. My friend is happy.'),
-    ['I am tired.', 'My friend is happy.']);
-  assert.deepEqual(splitSentences('Hello. How are you? I am well.'),
-    ['Hello.', 'How are you?', 'I am well.']);
-  assert.deepEqual(splitSentences('Stop! Look at this.'), ['Stop!', 'Look at this.']);
+test('a title loses its full stop, so the model does not end the sentence there', () => {
+  // "Mrs. Smith" came back as "Doamna. Smith"; "Mrs Smith" as "Doamna Smith".
+  assert.equal(prepareEnglish('Mrs. Smith is a lawyer.'), 'Mrs Smith is a lawyer.');
+  assert.equal(prepareEnglish('I saw Mr. Ionescu and Ms. Kim.'), 'I saw Mr Ionescu and Ms Kim.');
+  assert.equal(prepareEnglish('Dr. Popescu is my friend.'), 'Dr Popescu is my friend.');
+  assert.equal(prepareEnglish('Prof. Ionescu is tired.'), 'Prof Ionescu is tired.');
 });
 
-test('terminal punctuation is kept, because the translation needs it too', () => {
-  assert.deepEqual(splitSentences('One. Two! Three?'), ['One.', 'Two!', 'Three?']);
+test('a full stop that really ends a sentence is kept', () => {
+  assert.equal(prepareEnglish('I am a teacher. Mrs is a title.'), 'I am a teacher. Mrs is a title.');
+  assert.equal(prepareEnglish('I like Mrs. smith.'), 'I like Mrs. smith.');
 });
 
-test('a single sentence is left exactly as it is', () => {
-  const one = 'Maya is my friend, although Steve is tired, Rose works as a teacher';
-  assert.deepEqual(splitSentences(one), [one]);
-  assert.deepEqual(splitSentences('I am tired.'), ['I am tired.']);
+test('a dialogue dash before a sentence is removed', () => {
+  assert.equal(dropDialogueDashes('- Cum ești?'), 'Cum ești?');
+  assert.equal(dropDialogueDashes('Bună ziua. - Cum ești?'), 'Bună ziua. Cum ești?');
+  assert.equal(dropDialogueDashes('Bună ziua! – Cum ești?'), 'Bună ziua! Cum ești?');
 });
 
-test('an abbreviation is not the end of a sentence', () => {
-  assert.deepEqual(splitSentences('Dr. Popescu is my friend.'),
-    ['Dr. Popescu is my friend.']);
-  assert.deepEqual(splitSentences('I saw Mr. Ionescu. He is tired.'),
-    ['I saw Mr. Ionescu.', 'He is tired.']);
-  assert.deepEqual(splitSentences('J. R. Tolkien is a writer.'),
-    ['J. R. Tolkien is a writer.']);
+test('a dash the source itself starts with is kept', () => {
+  // Found by review: a list item the user typed is not a subtitle dash.
+  assert.equal(dropDialogueDashes('- Cumpără pâine.', '- Buy bread.'), '- Cumpără pâine.');
+  assert.equal(dropDialogueDashes('- Cum ești?', 'How are you?'), 'Cum ești?');
 });
 
-test('empty and whitespace-only input yields nothing to translate', () => {
-  assert.deepEqual(splitSentences(''), []);
-  assert.deepEqual(splitSentences('   '), []);
-  assert.deepEqual(splitSentences('.  '), ['.']);
+test('a dash inside a sentence or a word is kept', () => {
+  assert.equal(dropDialogueDashes('Sunt bucătar-șef.'), 'Sunt bucătar-șef.');
+  assert.equal(dropDialogueDashes('E frumos - foarte frumos.'), 'E frumos - foarte frumos.');
+  assert.equal(dropDialogueDashes('Am văzut-o ieri.'), 'Am văzut-o ieri.');
 });

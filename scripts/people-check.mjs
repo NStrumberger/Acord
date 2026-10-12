@@ -77,7 +77,8 @@ await page.click('.row-person:has(.row-label:text-is("Josh")) label:has(input[va
 await settled();
 const after = (await page.textContent('#output')).trim();
 console.log('Josh -> Feminine:', after);
-if (!/prietena mea și Maya/.test(after)) throw new Error(`Josh was not rewritten: ${after}`);
+// Josh's own clause, whatever the engine joins the two with ("și", ", iar").
+if (!/Josh este prietena mea\b/.test(after)) throw new Error(`Josh was not rewritten: ${after}`);
 if (!/prietena mea\.?$/.test(after)) throw new Error(`Maya should be untouched: ${after}`);
 
 // A name is not a person: the Josh in the next sentence need not be this one,
