@@ -449,3 +449,9 @@ wrong** (the two forward misses are gone).
   noun to follow.
 - "Suntem fericiți împreună" now flips with the speaker, as "suntem" always has. The
   group's make-up is not known.
+
+**iPhone (Nils, 2026-10-12).** Both directions work offline on a real iPhone after one
+online use per direction. One stale-cache incident first: the previously installed home-screen
+app showed "the translation model could not be loaded" after the Part B deploy, and
+removing and re-adding the web app fixed it. Not reproduced in Playwright WebKit. If it
+recurs, show the error's technical cause in the UI (it is currently hidden).
