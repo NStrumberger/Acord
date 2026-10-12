@@ -24,7 +24,7 @@
   <form id="form">
     <!-- Inset grouped list: label left, control right, separators inset. -->
     <h2 class="group-header">
-      People in the sentence
+      <span id="whoHeader">People in the sentence</span>
       <button type="button" class="info" id="explainBtn" aria-expanded="false"
               aria-controls="explain" aria-label="How this works">
         <svg viewBox="0 0 22 22" aria-hidden="true" focusable="false">
@@ -45,7 +45,10 @@
         </div>
       </div>
       <div class="row" id="generalRow">
-        <span class="row-label" id="addresseeLabel">Anyone else</span>
+        <span class="row-head">
+          <span class="row-label" id="addresseeLabel">Anyone else</span>
+          <span class="row-evidence" id="generalHint" hidden>from their message</span>
+        </span>
         <div class="seg" role="radiogroup" aria-labelledby="addresseeLabel">
           <label><input type="radio" name="addressee" value="M"><span>Masculine</span></label>
           <label><input type="radio" name="addressee" value="F"><span>Feminine</span></label>
@@ -54,6 +57,18 @@
         </div>
       </div>
     </div>
+    <div class="group" id="readGroup" hidden></div>
+
+    <p class="group-footer" id="explainRead" hidden>
+      Reading their Romanian, these rows show what it reveals rather than asking:
+      <i>Them</i> is whoever wrote it, <i>You</i> is how they address you, then everyone
+      they name. Each answer comes with the Romanian word that proves it.
+      <b>Not shown</b> means no word says, and nothing is guessed in its place: a name is no
+      evidence, and nor is a masculine job title, which women use too
+      (<i lang="ro">Sunt profesor</i>). A masculine plural may be all men or a mixed group.
+      Where the English had to pick <i>he</i> or <i>she</i> and the Romanian says otherwise,
+      it is corrected and marked.
+    </p>
 
     <p class="group-footer" id="explain" hidden>
       Every row starts on the gender the translation actually used, so you are
@@ -73,22 +88,24 @@
     </p>
 
     <div class="group panel">
-      <div class="langbar">
-        <span class="lang">English</span>
-        <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M4 12h15M13.5 6.5 19.5 12l-6 5.5" fill="none" stroke="currentColor"
-                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="lang">Romanian</span>
+      <div class="langbar" id="langbar">
+        <span class="lang lang-from" id="langFrom">English</span>
+        <button type="button" class="flip" id="flip" aria-label="Swap: translate Romanian to English">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4.5 8.5h14M15 5l3.5 3.5L15 12M19.5 15.5h-14M9 12l-3.5 3.5L9 19" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <span class="lang lang-to" id="langTo">Romanian</span>
       </div>
 
       <section class="pane">
-        <label class="visually-hidden" for="source">English</label>
+        <label class="visually-hidden" for="source" id="sourceLabel">English</label>
         <textarea id="source" name="source" rows="1" spellcheck="false" autocomplete="off"
                   placeholder="Enter text"></textarea>
       </section>
 
-      <section class="pane pane-out" aria-live="polite" aria-label="Romanian translation">
+      <section class="pane pane-out" id="outPane" aria-live="polite" aria-label="Romanian translation">
         <div id="output" class="ro" lang="ro"></div>
         <p id="empty" class="empty">Translation</p>
         <div class="tools" id="tools" hidden>
@@ -115,15 +132,40 @@
 
     <div class="actions">
       <p id="meta" class="meta"></p>
+      <button type="button" class="secondary" id="turn" hidden>Their reply</button>
       <button type="submit" id="go">Translate</button>
     </div>
+
+    <section id="conversation" class="conversation" hidden aria-label="Conversation so far">
+      <div class="group-header convo-header">
+        <h2>Conversation</h2>
+        <button type="button" class="toggle clear" id="clearConvo">Clear</button>
+      </div>
+      <div class="group transcript" id="transcript"></div>
+    </section>
+
+    <div class="group settings">
+      <label class="row" for="convoToggle">
+        <span class="row-label">Conversation mode</span>
+        <input type="checkbox" role="switch" class="switch" id="convoToggle">
+      </label>
+    </div>
+    <p class="group-footer">
+      Adds <b>Their reply</b> and <b>Reply</b>: copy your Romanian into your messages, paste
+      their answer back, read it, reply. What their message shows about them starts your
+      reply's <i>Anyone else</i>, and anything you set wins. The conversation stays in this
+      tab and is never stored.
+    </p>
   </form>
 
   <div id="notes" class="notes" hidden></div>
 
-  <p class="key">
+  <p class="key" id="keyWrite">
     <span class="k k-flip">form</span>set by you, not the translator
     <span class="k k-dispute">form</span>disputed in Romanian usage
+  </p>
+  <p class="key" id="keyRead" hidden>
+    <span class="k k-flip">she</span>corrected to what the Romanian shows
   </p>
   <p class="colophon">
     Lexicon derived from

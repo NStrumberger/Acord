@@ -216,7 +216,7 @@ re-run (A5) puts both systems through the same, current post-editor.
   - names translated as words (Jordan → Iordania).
 
 ## Engine swap: what shipped, and what is still open (2026-10-12)
-- **Shipped (uncommitted).**
+- **Shipped** (commit `2800233`).
   - `src/ro/mt.ts` runs Bergamot through a subclassed `TranslatorBacking`: a local
     registry, plus gzip download, sniffing and sha256 check.
   - `src/ro/tidy.ts`.
@@ -285,3 +285,167 @@ detection reads the Romanian, not the English.
 The masking step finds the names in the Romanian. That list can replace the English-based
 name check (`namesIn`) in detection, so detection no longer depends on the English for
 names.
+
+## Part B: reading gender out of Romanian (2026-10-12)
+`src/ro/detect.ts` reports what a Romanian message shows about the writer ("Them"),
+the reader ("You"), each named person and anyone else. It reuses the post-editor's
+analysis, which now lives in `src/ro/analyze.ts` (refactor checked byte-identical over
+11,952 post-editor results). **The rule is that a finding is never wrong. When in doubt
+it says "not shown".** What that took:
+
+- **Masculine plurals** ("obosiți") prove nothing about any one person: a group of men or
+  a mixed one.
+- **Masculine job titles prove nothing.** Romanian women say "Sunt profesor / medic /
+  director" of themselves. Feminine titles do count. Every lexicon masculine is marked
+  `sharedByWomen`, and the words agreeing with it inherit that.
+- **No subject, only person words.** "E bun" is just as well "it is good", and "E bună"
+  may be the book from the last sentence. With no subject in sight, only a noun for a
+  person counts ("E profesoară").
+- **Prepositions.** Past one, a word is where or what, not who. "Sunt la matematică" is
+  not a woman; many adjectives are also nouns. The degree "de" ("extrem de", "atât de")
+  is excepted.
+- **Adverbs.** A masculine form directly before another adjective is an adverb
+  ("extrem de obosită", "total nepregătită").
+- **The English he/she is ignored** (`readStated: false`). It is our own model's guess.
+- **Sunt + plural** is "they are", whatever the English says.
+- **Names.**
+  - Names come from the English (as forward does).
+  - Mid-sentence capitalised unknown words count too, but only if something agrees with
+    them, so "în București" is no person.
+  - A known given name at a sentence start counts ("Ioana" → "Joan" in Bergamot's
+    English).
+  - Titles (Dr, Prof, …) are no longer read as names. This was also a forward bug:
+    "Dr Popescu" was a group no setting could reach (B072, now fixed and tested).
+- **Word list.** `src/ro/adjectives.json` holds 16,289 adjectives and participles,
+  taken from kaikki/Wiktionary **headword lines only** (editor-written, never from
+  generated tables, never from endings). Forms that read two ways are dropped. Given
+  names (285) are in `detect.names.json`; their usual gender is deliberately not kept.
+  Both are CC BY-SA, built by `scripts/extract_kaikki_detect.py`. The list feeds
+  **detection only**; forward output is unchanged.
+
+**Round-trip oracle** (`scripts/review-roundtrip.ts`).
+- Method: run the forward pipeline on the 332 review cases with their known genders,
+  translate the result back with Bergamot (`scripts/roundtrip-english.ts`), then detect.
+- Results:
+
+| | agree | not shown | wrong |
+|---|---|---|---|
+| final | 234 | 349 | 2 |
+
+- **The 2 "wrong" are forward misses, not detection errors.**
+  - "Are you ready?" with the reader set female gives "Ești pregătit?".
+  - "Are you angry with me?" gives "Ești supărat?".
+  - In both, the post-editor's short list lacks the adjective, and the detector correctly
+    reads masculine.
+- **Oracle caveat.** "Anyone else" is not compared where a he/she or a family word fixes
+  the gender regardless of the settings. Before that exclusion, all 9 such flags were
+  checked by hand and the detector was right in each.
+- **Real ambiguity.** "Sunt auditoare" is "I'm an auditor (f)" or "they're auditors";
+  -oare titles are the same in both numbers. Bergamot says "they", so the finding lands on
+  "Anyone else": right gender, person open to doubt.
+
+**Code review (Sonnet).** Three ways to report a wrong gender were found and fixed, with
+tests:
+- nouns after a preposition;
+- "să fiu" read as "son";
+- masculine job titles other than medic/inginer.
+
+**English pronoun fix** (`src/en/pronouns.ts`).
+- When does it swap? Only when all of these hold:
+  - the Romanian shows one gender for its unstated third person;
+  - the English uses only the other pronoun family;
+  - nobody else in the Romanian has that other gender.
+- How it swaps "her" ("his" or "him") and "his" ("her" or "hers"): by the next word.
+- Result on the 327 back-translations: it fired 0 times, because Bergamot had no pronoun
+  wrong there. It stays as a safety net.
+
+**Decision (Nils, 2026-10-12): the list feeds the post-editor too, after a blind review.**
+See "Word list in both directions" below.
+
+**UI (Part B Phases 4–5).**
+- **Flip.** The arrow in the language bar is a swap button. It moves the translation into
+  the box and re-runs it, as other translate apps do. The direction is remembered.
+- **Reading mode.** The same rows appear in the same place, read-only: Them, You,
+  everyone named, Anyone else. Each carries "from *word*", and the evidence is the
+  control's `aria-describedby`. "Not shown", "conflict" and "mixed" use the inert-row
+  style.
+- **Lazy loading.** Detection and its word list load only on the first read (separate
+  chunk, 181 KB gz).
+- **Conversation mode.** A switch, off by default.
+  - "Their reply" and "Reply" file each exchange into an in-memory transcript, then turn
+    round with an empty box.
+  - Them's gender pre-fills your reply's "Anyone else", captioned "from their message".
+  - Named people's shown genders seed their rows.
+  - A touch overrides any of these. Clear or switching off takes them all back.
+- **Checks.**
+  - Playwright Chromium: desktop light and phone dark, through the full loop.
+  - Offline reading after one online use: passes in Chromium and Firefox.
+  - `check:people` still passes.
+- **Fixed on the way (pre-existing).** A choice set from code ("Anyone else" starting on
+  the translator's guess) never moved the segmented thumb. `setChoice` now tells the
+  control.
+- **Code review (Sonnet), fixed:**
+  - the pronoun fix turned "her" masculine by guessing his/him ("I gave his flowers").
+    It now never turns "her" masculine; it leaves the text alone;
+  - carried choices survived Clear and switching off;
+  - an error left stale findings, and a Reply that filed the wrong translation;
+  - a flip, or a newer run, during the first chunk load could still write;
+  - Reply stayed visible after an edit.
+- **Seen, not fixed:**
+  - Bergamot renames some names in the English ("Mihai" → "Michael", "Ioana" → "Joan").
+    Detection is unaffected because it reads the Romanian. Name masking is an option if
+    it bothers people.
+  - "Bună!" sometimes comes back as "Hi! Hi!".
+  - Reading mode offline needs one online use first, as the forward model does.
+
+## Word list in both directions (2026-10-12)
+The attested adjective list (`src/ro/adjectives.json`, now 17,289 entries) feeds both
+directions through one index, `wordIndex()` in `analyze.ts`. The guards built for
+detection now also protect rewriting:
+- **Prepositions.** Past one, a word is not the subject. Exceptions:
+  - the degree "de" (only when an adjective follows: "extrem de obosită");
+  - "de a deveni …";
+  - adverbs such as "de asemenea", "la fel";
+  - the relative "pe care".
+- **Adverbs.** A masculine form directly against another adjective is an adverb
+  ("total nepregătit"). A comma means a list ("înalt, obosit").
+- **"It is …" English.** When the English says the subject is a thing ("it's clear
+  that"), a subject-less clause keeps its words. A word for a person still follows the
+  setting ("E profesoară").
+- "să" ends a clause, and common place adverbs (aici, acolo, acasă, afară, împreună) are
+  transparent.
+- The extractor now drops only forms whose **gender** is ambiguous. Number may be
+  ambiguous, which brings back the -tor adjectives (răbdătoare, recunoscătoare).
+
+**Blind review.**
+- **Cases.** The 332 R11 cases rarely use adjectives outside the old list, so 100 new
+  cases (`eval/cases-c.json`) were written around the list and its traps: things,
+  "it is", prepositions, adverbs, plurals, names. They were translated by Bergamot
+  (`eval/runs/2026-10-12-wordlist-c.jsonl`).
+- **Method.** The post-editor was run twice on all 432 recorded translations: the live
+  code (a clean checkout of `cd0a46c`), then the new code. The 37 outputs that differ
+  were judged blind, with A/B shuffled and the key sealed.
+- **Regressions caught before the review.** Checking the diff by hand first found three,
+  all fixed:
+  - "E clar" became "E clară";
+  - "de a deveni bucătăreasă" lost its agreement;
+  - "de asemenea, vecina mea" lost its agreement.
+- **A reviewer discarded.** The first judge reported tallies identical to the second, and
+  the file it said it wrote does not exist. It was replaced by a reviewer working from an
+  isolated copy. The two valid reviewers agree on 36/37 verdicts, and every reason is
+  specific.
+
+| 37 changed outputs | old (live) ok / awkward / wrong | new ok / awkward / wrong | preferred old / new / tie |
+|---|---|---|---|
+| judge 2 | 3 / 1 / 33 | **37 / 0 / 0** | 0 / 34 / 3 |
+| judge 3 | 4 / 0 / 33 | **37 / 0 / 0** | 0 / 33 / 4 |
+
+The ties are a spouse, a neighbour and a "we" with no stated gender, where both versions
+are acceptable. Detection round-trip after the change: 238 agree, 347 not shown, **0
+wrong** (the two forward misses are gone).
+
+**Known gaps left.**
+- "Sunt cel mai mare" stays masculine for a woman: "mare" is invariable, so "cel" has no
+  noun to follow.
+- "Suntem fericiți împreună" now flips with the speaker, as "suntem" always has. The
+  group's make-up is not known.

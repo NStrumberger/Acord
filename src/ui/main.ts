@@ -1,7 +1,12 @@
 import '@fontsource-variable/inter';
 import './styles.css';
 import { applyGender, type Person, type Target } from '../ro/postedit.ts';
-import { translate, isLoaded, TranslationUnavailable } from '../ro/mt.ts';
+import { translate, isLoaded, TranslationUnavailable, type Pair } from '../ro/mt.ts';
+import { mountThumb } from './seg.ts';
+import { renderFindings, countShown } from './read.ts';
+import type { PronounFix } from '../en/pronouns.ts';
+import type { Detection } from '../ro/detect.ts';
+import * as conversation from './conversation.ts';
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const form = $<HTMLFormElement>('form');
@@ -22,6 +27,23 @@ const whoGroup = $<HTMLDivElement>('whoGroup');
 const generalRow = $<HTMLDivElement>('generalRow');
 const explain = $<HTMLParagraphElement>('explain');
 const explainBtn = $<HTMLButtonElement>('explainBtn');
+const explainRead = $<HTMLParagraphElement>('explainRead');
+const readGroup = $<HTMLDivElement>('readGroup');
+const whoHeader = $<HTMLSpanElement>('whoHeader');
+const langbar = $<HTMLDivElement>('langbar');
+const langFrom = $<HTMLSpanElement>('langFrom');
+const langTo = $<HTMLSpanElement>('langTo');
+const flipBtn = $<HTMLButtonElement>('flip');
+const sourceLabel = $<HTMLLabelElement>('sourceLabel');
+const outPane = $<HTMLElement>('outPane');
+const keyWrite = $<HTMLParagraphElement>('keyWrite');
+const keyRead = $<HTMLParagraphElement>('keyRead');
+const generalHint = $<HTMLSpanElement>('generalHint');
+const turnBtn = $<HTMLButtonElement>('turn');
+const convoSection = $<HTMLElement>('conversation');
+const transcript = $<HTMLDivElement>('transcript');
+const clearConvo = $<HTMLButtonElement>('clearConvo');
+const convoToggle = $<HTMLInputElement>('convoToggle');
 
 const STORE = 'gendered-translator.profile';
 const TARGETS = new Set<Target>(['M', 'F', 'both', 'avoid']);
@@ -45,6 +67,9 @@ const setChoice = (group: string, value: string) => {
   // An empty value selects nothing: the translator had no single answer to
   // show, so the control shows none either rather than proposing one.
   for (const input of inputs) input.checked = input.value === value && value !== '';
+  // Setting `checked` from code fires no change event, so the thumb would stay
+  // where it was. Tell the control itself; the inputs' own handlers stay quiet.
+  inputs[0]?.closest('.seg')?.dispatchEvent(new Event('change'));
 };
 
 function saveProfile(): void {
@@ -323,6 +348,13 @@ function fail(message: string): void {
   tools.hidden = true;
   meta.classList.add('error');
   meta.textContent = message;
+  // Nothing of the previous result may outlive the error: stale findings under
+  // it would read as the answer, and Reply would file the wrong translation.
+  readGroup.replaceChildren();
+  readGroup.hidden = true;
+  spoken = '';
+  translated = undefined;
+  updateTurn();
 }
 
 function flash(message: string): void {
@@ -340,12 +372,22 @@ copyBtn.addEventListener('click', async () => {
   }
 });
 
-/** Only offer speech when the system actually has a Romanian voice installed. */
-const romanianVoice = (): SpeechSynthesisVoice | undefined =>
-  window.speechSynthesis?.getVoices().find((v) => v.lang.toLowerCase().startsWith('ro'));
+/**
+ * Which way the app translates. English to Romanian writes your message with
+ * the genders you set; Romanian to English reads theirs and shows the genders
+ * it reveals. Remembered, because a conversation tends to stay on one side.
+ */
+let direction: Pair = 'en-ro';
+const DIRECTION = 'acord.direction';
+const reading = () => direction === 'ro-en';
+const outputLang = () => (reading() ? 'en' : 'ro');
+
+/** Only offer speech when the system actually has a voice for the output language. */
+const voiceFor = (lang: string): SpeechSynthesisVoice | undefined =>
+  window.speechSynthesis?.getVoices().find((v) => v.lang.toLowerCase().startsWith(lang));
 
 function refreshSpeak(): void {
-  speakBtn.hidden = !romanianVoice();
+  speakBtn.hidden = !voiceFor(outputLang());
 }
 
 if ('speechSynthesis' in window) {
@@ -357,7 +399,7 @@ if ('speechSynthesis' in window) {
 }
 
 speakBtn.addEventListener('click', () => {
-  const voice = romanianVoice();
+  const voice = voiceFor(outputLang());
   if (!voice) return;
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(spoken.split('\n')[0] ?? '');
@@ -371,61 +413,130 @@ speakBtn.addEventListener('click', () => {
  * the post-editor. Gender is decided after translation, so the model has
  * nothing to add the second time.
  */
-let translated: { source: string; romanian: string } | undefined;
+let translated: { source: string; pair: Pair; target: string } | undefined;
+
+async function translateFresh(text: string, pair: Pair): Promise<string> {
+  if (pair === 'en-ro') {
+    // New text, new people: the Alex in this sentence need not be the Alex
+    // in the last one, so nobody's choice survives the change.
+    personChoices.clear();
+    // In a conversation, the people their message showed start your reply on
+    // that: a suggestion in the row, which you can still change.
+    for (const [name, g] of carried?.people ?? []) personChoices.set(name, g);
+    othersTouched = false;
+    shownPeople = '';
+  }
+  const [target] = await translate([text], ({ percent }) => {
+    meta.textContent = `Downloading the translation model… ${Math.round(percent)}%`;
+  }, pair);
+  translated = { source: text, pair, target: target ?? '' };
+  return translated.target;
+}
+
+function showWriting(text: string, romanian: string): void {
+  const speaker = targetOf('speaker') ?? 'M';
+  const choices = { source: text, targets: Object.fromEntries(personChoices) };
+  // Replying in a conversation: what their message showed about them is who
+  // "Anyone else" now is, until you choose otherwise.
+  const suggestion = othersTouched ? undefined : carried?.them;
+  const others = othersTouched ? targetOf('addressee') : suggestion;
+  let result = applyGender(romanian, speaker, others, choices);
+  // From two names on, each named person has a row of their own, so "Anyone
+  // else" must never reach them: a catch-all silently outranking a named row
+  // is a trap. It still covers whoever the sentence does not name ("my
+  // boss"), and when there is nobody like that it is hidden and applies to
+  // nothing. Re-running costs nothing -- the model is not involved again.
+  if (result.people.length >= GENERAL_ROW_LIMIT) {
+    result = applyGender(romanian, speaker, result.othersPresent ? others : undefined,
+      { ...choices, namedFollowOthers: false });
+  }
+  // Show what the translator did with everyone it did not name, so this row
+  // reads like the others: a visible starting point rather than a blank.
+  if (!othersTouched) setChoice('addressee', suggestion ?? result.othersGuess ?? '');
+  generalHint.hidden = !suggestion;
+  renderPeople(result.people, result.othersPresent);
+  spoken = result.variants.join('\n');
+  describe(render(result));
+}
+
+/** The English, with any pronoun the Romanian corrected marked like a set word. */
+function renderEnglish(fix: PronounFix): void {
+  output.replaceChildren();
+  notes.replaceChildren();
+  notes.hidden = true;
+  const changed = new Set(fix.changed.map((c) => c.index));
+  fix.text.split(/\s+/).forEach((token, i) => {
+    if (i > 0) output.append(' ');
+    if (!changed.has(i)) return void output.append(token);
+    const word = bare(token);
+    const [before = '', after = ''] = token.split(word);
+    const mark = document.createElement('span');
+    mark.className = 'g';
+    mark.textContent = word;
+    output.append(before, mark, after);
+  });
+}
+
+/** Returns false when a newer run or a flip overtook it while the code loaded. */
+async function showReading(romanian: string, english: string, isCurrent: () => boolean): Promise<boolean> {
+  // Loaded on first use: the word list is only needed to read Romanian.
+  const [{ detectGender }, { fixPronouns }] =
+    await Promise.all([import('../ro/detect.ts'), import('../en/pronouns.ts')]);
+  if (!isCurrent()) return false;
+  const detection = detectGender(romanian, english);
+  lastDetection = detection;
+  const fix = fixPronouns(english, detection);
+  renderFindings(readGroup, detection);
+  readGroup.hidden = false;
+  renderEnglish(fix);
+  spoken = fix.text;
+  const { shown, notShown } = countShown(detection);
+  meta.classList.remove('error');
+  meta.replaceChildren(strong(shown), shown === 1 ? ' person shown' : ' people shown');
+  if (notShown) meta.append(' · ', strong(notShown), ' not shown');
+  if (fix.changed.length) {
+    meta.append(' · ', strong(fix.changed.length), fix.changed.length === 1 ? ' pronoun corrected' : ' pronouns corrected');
+  }
+  return true;
+}
+
+/** Counts runs, so a slow one that finishes late cannot overwrite a newer one. */
+let runs = 0;
 
 async function run(): Promise<void> {
   const text = source.value.trim();
   if (!text) return;
+  const pair = direction;
+  const ticket = ++runs;
+  const isCurrent = () => ticket === runs && pair === direction;
   go.disabled = true;
   meta.classList.remove('error');
+  const cached = translated?.source === text && translated.pair === pair ? translated.target : undefined;
   // The model is fetched once, then kept by the service worker. Say so, because
   // ~15 MB downloading in silence on a slow line looks like the app has hung.
-  if (translated?.source !== text) {
-    meta.textContent = isLoaded() ? 'Translating…' : 'Preparing the translator…';
-  }
+  if (cached === undefined) meta.textContent = isLoaded(pair) ? 'Translating…' : 'Preparing the translator…';
   try {
-    if (translated?.source !== text) {
-      // New text, new people: the Alex in this sentence need not be the Alex
-      // in the last one, so nobody's choice survives the change.
-      personChoices.clear();
-      othersTouched = false;
-      shownPeople = '';
-      const [romanian] = await translate([text], ({ percent }) => {
-        meta.textContent = `Downloading the translation model… ${Math.round(percent)}%`;
-      });
-      translated = { source: text, romanian: romanian ?? '' };
+    const target = cached ?? await translateFresh(text, pair);
+    if (!isCurrent()) return;   // flipped, or a newer run started, while it translated
+    if (pair === 'ro-en') {
+      if (!await showReading(text, target, isCurrent)) return;
+    } else {
+      showWriting(text, target);
     }
-    const speaker = targetOf('speaker') ?? 'M';
-    const choices = { source: text, targets: Object.fromEntries(personChoices) };
-    const others = othersTouched ? targetOf('addressee') : undefined;
-    let result = applyGender(translated.romanian, speaker, others, choices);
-    // From two names on, each named person has a row of their own, so "Anyone
-    // else" must never reach them: a catch-all silently outranking a named row
-    // is a trap. It still covers whoever the sentence does not name ("my
-    // boss"), and when there is nobody like that it is hidden and applies to
-    // nothing. Re-running costs nothing -- the model is not involved again.
-    if (result.people.length >= GENERAL_ROW_LIMIT) {
-      result = applyGender(translated.romanian, speaker, result.othersPresent ? others : undefined,
-        { ...choices, namedFollowOthers: false });
-    }
-    // Show what the translator did with everyone it did not name, so this row
-    // reads like the others: a visible starting point rather than a blank.
-    if (!othersTouched) setChoice('addressee', result.othersGuess ?? '');
-    renderPeople(result.people, result.othersPresent);
     empty.hidden = true;
-    spoken = result.variants.join('\n');
     tools.hidden = false;
-    describe(render(result));
+    updateTurn();
     // Re-trigger the enter animation on every new result.
     output.classList.remove('enter');
     void output.offsetWidth;
     output.classList.add('enter');
   } catch (err) {
+    if (!isCurrent()) return;
     fail(err instanceof TranslationUnavailable
       ? 'The translation model could not be loaded. Check your connection and try again.'
       : `Translation failed: ${String(err)}`);
   } finally {
-    go.disabled = false;
+    if (ticket === runs) go.disabled = false;
   }
 }
 
@@ -439,51 +550,146 @@ for (const radio of document.querySelectorAll('input[name="speaker"], input[name
   });
 }
 
+/** The explanation that belongs to the current direction. */
+const currentExplain = () => (reading() ? explainRead : explain);
+
 explainBtn.addEventListener('click', () => {
-  explain.hidden = !explain.hidden;
-  explainBtn.setAttribute('aria-expanded', String(!explain.hidden));
+  const open = explainBtn.getAttribute('aria-expanded') !== 'true';
+  explainBtn.setAttribute('aria-expanded', String(open));
+  explain.hidden = true;
+  explainRead.hidden = true;
+  currentExplain().hidden = !open;
+  explainBtn.setAttribute('aria-controls', currentExplain().id);
+});
+
+/** Everything that names a language or belongs to one direction. */
+function applyDirection(): void {
+  const r = reading();
+  langFrom.textContent = r ? 'Romanian' : 'English';
+  langTo.textContent = r ? 'English' : 'Romanian';
+  flipBtn.setAttribute('aria-label', r ? 'Swap: translate English to Romanian' : 'Swap: translate Romanian to English');
+  sourceLabel.textContent = r ? 'Romanian' : 'English';
+  source.lang = r ? 'ro' : 'en';
+  output.lang = outputLang();
+  outPane.setAttribute('aria-label', r ? 'English translation' : 'Romanian translation');
+  whoHeader.textContent = r ? 'What their Romanian shows' : 'People in the sentence';
+  whoGroup.hidden = r;
+  readGroup.hidden = !r || readGroup.childElementCount === 0;
+  keyWrite.hidden = r;
+  keyRead.hidden = !r;
+  const open = explainBtn.getAttribute('aria-expanded') === 'true';
+  explain.hidden = r || !open;
+  explainRead.hidden = !r || !open;
+  explainBtn.setAttribute('aria-controls', currentExplain().id);
+  refreshSpeak();
+}
+
+function clearOutput(): void {
+  output.replaceChildren();
+  notes.replaceChildren();
+  notes.hidden = true;
+  readGroup.replaceChildren();
+  empty.hidden = false;
+  tools.hidden = true;
+  meta.classList.remove('error');
+  meta.textContent = '';
+  spoken = '';
+  updateTurn();
+}
+
+/**
+ * Swap languages, as every translate app does: the translation becomes the
+ * text to translate, so their reply can go straight back the other way.
+ */
+function turnRound(text: string): void {
+  direction = reading() ? 'en-ro' : 'ro-en';
+  try { localStorage.setItem(DIRECTION, direction); } catch { /* the app works without it */ }
+  flipBtn.classList.toggle('turned');
+  langbar.classList.remove('swapping');
+  void langbar.offsetWidth;
+  langbar.classList.add('swapping');
+  source.value = text;
+  clearOutput();
+  applyDirection();
+  autoGrow();
+  if (text.trim()) void run();
+}
+
+/** The translation on screen, if it belongs to the text in the box. */
+const current = () =>
+  translated && translated.source === source.value.trim() && translated.pair === direction && spoken
+    ? { original: translated.source, translation: spoken.split('\n')[0]! } : undefined;
+
+flipBtn.addEventListener('click', () => turnRound(current()?.translation ?? source.value));
+
+/**
+ * What their last message showed, offered to your reply, and the reading it
+ * came from. Kept until their next message or until the conversation is cleared.
+ */
+let carried: conversation.Carried | undefined;
+let lastDetection: Detection | undefined;
+
+/** "Their reply" after writing, "Reply" after reading: file it, turn round, empty box. */
+function updateTurn(): void {
+  turnBtn.textContent = reading() ? 'Reply' : 'Their reply';
+  turnBtn.hidden = !conversation.isEnabled() || !current();
+}
+
+function showTranscript(): void {
+  conversation.renderTranscript(transcript);
+  convoSection.hidden = !conversation.isEnabled() || conversation.count() === 0;
+}
+
+turnBtn.addEventListener('click', () => {
+  const now = current();
+  if (!now) return;
+  conversation.record({ who: reading() ? 'them' : 'you', ...now });
+  if (reading() && lastDetection) carried = conversation.carryFrom(lastDetection);
+  showTranscript();
+  turnRound('');
+  source.focus();
 });
 
 /**
- * The selected segment is a thumb that slides, as it does on iOS. CSS cannot
- * do this alone: the thumb has to be measured against whichever label is
- * currently checked, and re-measured when the font loads or the box resizes.
+ * Forget what their message showed, including the person rows it started on:
+ * with the mode off, writing must behave exactly as it did without it.
  */
-function mountThumb(seg: HTMLElement): { observer: ResizeObserver; place: (animate: boolean) => void } {
-  const thumb = document.createElement('div');
-  thumb.className = 'seg-thumb';
-  seg.prepend(thumb);
-
-  const place = (animate: boolean) => {
-    const label = seg.querySelector<HTMLInputElement>('input:checked')?.closest('label');
-    thumb.hidden = !label;   // nothing chosen: no thumb, not a zero-width one
-    if (!label) return;
-    // Jump without animating on first paint and on resize; only a real
-    // selection change should slide.
-    if (!animate) thumb.style.transition = 'none';
-    const track = seg.getBoundingClientRect();
-    const box = label.getBoundingClientRect();
-    thumb.style.setProperty('--seg-w', `${box.width}px`);
-    thumb.style.setProperty('--seg-x', `${box.left - track.left}px`);
-    if (!animate) { void thumb.offsetWidth; thumb.style.transition = ''; }
-    thumb.classList.add('ready');
-  };
-
-  place(false);
-  seg.addEventListener('change', () => place(true));
-  const observer = new ResizeObserver(() => place(false));
-  observer.observe(seg);
-  // Inter loads after first paint and changes label widths.
-  void document.fonts?.ready.then(() => place(false));
-  return { observer, place };
+function forgetCarried(): void {
+  for (const [name, g] of carried?.people ?? []) {
+    if (personChoices.get(name) === g) personChoices.delete(name);
+  }
+  carried = undefined;
+  shownPeople = '';
 }
+
+clearConvo.addEventListener('click', () => {
+  conversation.clear();
+  forgetCarried();
+  showTranscript();
+  if (source.value.trim() && !reading()) void run();
+});
+
+convoToggle.addEventListener('change', () => {
+  conversation.setEnabled(convoToggle.checked);
+  if (!convoToggle.checked) { conversation.clear(); forgetCarried(); }
+  showTranscript();
+  updateTurn();
+  if (source.value.trim() && !reading()) void run();
+});
+
+function loadDirection(): void {
+  try {
+    if (localStorage.getItem(DIRECTION) === 'ro-en') direction = 'ro-en';
+  } catch { /* private mode or blocked storage */ }
+}
+
 
 /** The field grows with its content rather than reserving empty rows. */
 function autoGrow(): void {
   source.style.height = 'auto';
   source.style.height = `${source.scrollHeight}px`;
 }
-source.addEventListener('input', autoGrow);
+source.addEventListener('input', () => { autoGrow(); updateTurn(); });
 
 // Offline shell, so the app opens without a network once installed.
 if ('serviceWorker' in navigator &&
@@ -494,6 +700,9 @@ if ('serviceWorker' in navigator &&
 }
 
 loadProfile();
+loadDirection();
+applyDirection();
+convoToggle.checked = conversation.isEnabled();
 for (const seg of document.querySelectorAll<HTMLElement>('.seg')) mountThumb(seg);
 autoGrow();
 empty.hidden = false;

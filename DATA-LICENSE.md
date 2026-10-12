@@ -19,11 +19,20 @@ attribution and license their version the same way.
 This is why the app carries visible attribution in its footer: under CC BY that
 is an obligation, not a courtesy.
 
+## `src/ro/adjectives.json`, `src/ro/detect.names.json` — CC BY-SA 4.0
+
+Adjective forms and given names extracted from [kaikki.org](https://kaikki.org/)'s
+Wiktionary extracts by `scripts/extract_kaikki_detect.py`, used to set gender in
+Romanian and to read it back out. Derived from a ShareAlike source, so distributed under **CC BY-SA 4.0**, same
+as the lexicon.
+
 ## Other components
 
-- **Translation model** — [Helsinki-NLP/opus-mt-en-ro](https://huggingface.co/Helsinki-NLP/opus-mt-en-ro),
-  Apache 2.0, via the [Xenova](https://huggingface.co/Xenova/opus-mt-en-ro) ONNX
-  conversion. Downloaded by the browser at runtime; not redistributed here.
+- **Translation models and engine** — Mozilla's [Firefox Translations models](https://github.com/mozilla/firefox-translations-models)
+  (en-ro, ro-en) and the [Bergamot translator](https://github.com/browsermt/bergamot-translator),
+  MPL 2.0. Redistributed here unmodified: the models under `public/models/` with the
+  licence text beside them, the engine copied into `public/bergamot/<version>/` at build
+  time with its licence and a link to its source.
 - **Inter** — SIL Open Font License 1.1, bundled via `@fontsource-variable/inter`.
 - Hand-written vocabulary in `src/ro/words.ts` and the curated `EXTRA` entries in
   `scripts/build_lexicon.py` are original work and MIT, though they ship inside

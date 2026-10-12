@@ -180,3 +180,13 @@ test("each person's default is the translator's own guess, not the user's last c
   assert.deepEqual(guesses({}), ['M', 'F']);
   assert.deepEqual(guesses({ josh: 'F', maya: 'M' }), ['M', 'F']);
 });
+
+test('a title before a name is not a second person', () => {
+  // "Dr" passes into the Romanian unchanged, so the English used to confirm it
+  // as a name, and "Dr Popescu" became a group no one's setting could reach.
+  const out = applyGender('Prof. Ionescu este obosit. Dr Popescu este fericit.', 'F', undefined, {
+    source: 'Prof. Ionescu is tired. Dr. Popescu is happy.', targets: { ionescu: 'M', popescu: 'F' },
+  });
+  assert.equal(out.text, 'Prof. Ionescu este obosit. Dr Popescu este fericită.');
+  assert.deepEqual(out.people.map((p) => p.name), ['Ionescu', 'Popescu']);
+});

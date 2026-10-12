@@ -2,7 +2,8 @@
 
 [![Deploy](https://github.com/NStrumberger/Acord/actions/workflows/deploy.yml/badge.svg)](https://github.com/NStrumberger/Acord/actions/workflows/deploy.yml)
 
-English → Romanian translation that gets **grammatical gender** right.
+English → Romanian translation that gets **grammatical gender** right, and
+Romanian → English that tells you what gender the other person's message shows.
 Runs entirely in your browser. No server, no account, works offline.
 
 **→ [nstrumberger.github.io/Acord](https://nstrumberger.github.io/Acord/)**
@@ -50,6 +51,18 @@ the subject. Half-correcting it is worse than not correcting it.
   so there is no third to print. Non-binary output shows both forms, or avoids
   gender entirely where the language allows — `Sunt profesor` becomes `Predau`,
   a verb that carries no gender at all.
+- **It reads their Romanian too.** Flip the direction, paste their message, and
+  the same rows show what it reveals about the writer, about you as they address
+  you, and about everyone they name, each with the Romanian word that proves it
+  ("from *obosită*"). Where no word says, it says **not shown** rather than
+  guessing: a name is no evidence, a masculine job title is said by women too
+  (`Sunt profesor`), and a masculine plural may be a mixed group. When the
+  English had to pick *he* or *she* and the Romanian shows otherwise, the
+  pronoun is corrected and marked.
+- **Conversation mode** (a switch, off by default) adds *Their reply* and
+  *Reply*: write, copy it into your messages, paste their answer back, read it,
+  reply. What their message showed about them starts your reply's *Anyone else*,
+  and anything you set wins. The transcript lives in the tab and is never stored.
 - **Nothing is derived at runtime.** Rule-based feminine derivation was measured
   at 78% against attested data, and the errors are well-formed Romanian words
   that are simply the wrong one. The lexicon is curated; an unknown word is a
@@ -61,7 +74,9 @@ Open the site in Safari, then **Share → Add to Home Screen**. It installs with
 its own icon and opens full-screen.
 
 The first translation on a device downloads the model (~15 MB) and takes a
-few seconds. After that everything is local: no network, no server.
+few seconds; reading Romanian the first time downloads the other direction's
+model (~15 MB) and a word list. After that everything is local: no network, no
+server.
 
 ## How it works
 
@@ -84,6 +99,13 @@ is original: a reverse index over stored paradigms, and a span analyser that
 decides whose gender each word follows. A copula opens a span to the end of its
 clause, because a Romanian predicate agrees throughout — article, superlative,
 noun, possessive article and possessive together.
+
+Reading Romanian runs the same span analyser the other way round
+(`src/ro/detect.ts`): each gendered word is credited to whoever it agrees with,
+using a list of 17,000 adjectives and participles taken from Wiktionary headword
+lines, which the post-editor uses too. It is built never to be wrong rather than always to answer; a
+round trip over the 332 review cases finds no word it misreads. See the Part B
+section of [`notes/R12-reverse-spike.md`](notes/R12-reverse-spike.md).
 
 The `notes/` directory records what was measured and what was got wrong,
 including the enclitic article rules validating at 100% against corpus data

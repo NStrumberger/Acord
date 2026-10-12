@@ -81,3 +81,36 @@ test('"show both" never invents a non-form', () => {
     assert.doesNotMatch(applyGender(src, 'both').text, /[@*]/);
   }
 });
+
+test('adjectives beyond the hand-written list follow the setting too', () => {
+  assert.equal(applyGender('Sunt pregătită.', 'M').text, 'Sunt pregătit.');
+  assert.equal(applyGender('Ești pregătit?', 'M', 'F').text, 'Ești pregătită?');
+  assert.equal(applyGender('Ești sigur că nu ești prea obosită?', 'M', 'F').text,
+    'Ești sigură că nu ești prea obosită?');
+});
+
+test('past a preposition a word is not the subject, and is left alone', () => {
+  assert.equal(applyGender('Sunt la engleză.', 'M').text, 'Sunt la engleză.');
+  assert.equal(applyGender('Sunt căsătorit cu o profesoară.', 'F').text,
+    'Sunt căsătorită cu o profesoară.');
+});
+
+test('a masculine form used as an adverb is not rewritten', () => {
+  assert.equal(applyGender('Sunt extrem de obosit.', 'F').text, 'Sunt extrem de obosită.');
+});
+
+test('a preposition opening a verb or an adverb does not end the predicate', () => {
+  assert.equal(applyGender('Am fost chelner înainte de a deveni bucătar.', 'F').text,
+    'Am fost chelneriță înainte de a deveni bucătăreasă.');
+  assert.equal(applyGender('Steve este colegul meu și, de asemenea, vecinul meu.', 'M', undefined,
+    { source: 'Steve is my colleague and also my neighbour.', targets: { steve: 'F' } }).text,
+    'Steve este colega mea și, de asemenea, vecina mea.');
+});
+
+test('"it is" clauses belong to a thing, not to anyone else', () => {
+  const people = { source: "It's clear that you are right.", targets: {} };
+  assert.equal(applyGender('E clar că ai dreptate.', 'M', 'F', people).text, 'E clar că ai dreptate.');
+  // A word for a person still follows the setting: "she is a teacher" is someone.
+  assert.equal(applyGender('E profesor.', 'M', 'F', { source: "It's true, she is a teacher.", targets: {} }).text,
+    'E profesoară.');
+});

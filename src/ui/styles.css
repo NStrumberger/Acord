@@ -140,6 +140,21 @@ h1 {
    the app is not seen to have missed them, but with nothing to offer. */
 .row-inert .row-label { color:var(--label-2); }
 .row-note { font-size:var(--t-footnote); color:var(--label-3); text-align:right; }
+.row-note.conflict { color:var(--caution-line); }
+
+/* Reading their Romanian: the same rows, showing rather than asking. The name
+   carries the Romanian word that proves it underneath. */
+.row-head { display:flex; flex-direction:column; gap:2px; min-width:0; }
+.row-evidence {
+  font-size:var(--t-footnote); line-height:1.35; color:var(--label-2); text-wrap:pretty;
+}
+.row-evidence i { font-style:normal; font-weight:500; color:var(--label); }
+/* Read-only: no hover, no press, and the unchosen side recedes. */
+.seg-read { pointer-events:none; }
+.seg-read input { cursor:default; }
+.seg-read span { color:var(--label-3); }
+.seg-read input:checked + span { color:var(--label); }
+.row-read { animation:row-in .32s var(--ease-ios) both; }
 
 /* Folds away the people past the cap, so a long cast cannot run off a phone. */
 .row-toggle { min-height:44px; padding:0 var(--s4); justify-content:flex-start; }
@@ -219,8 +234,35 @@ h1 {
   content:''; position:absolute; left:0; right:0; bottom:0;
   height:.5px; background:var(--separator);
 }
-.lang { font-size:var(--t-headline); font-weight:600; letter-spacing:-.012em; }
-.arrow { width:20px; height:20px; color:var(--label-3); flex:0 0 auto; }
+/* The two names share the bar evenly, so the swap button stays dead centre
+   whichever language is the longer word. */
+.lang { flex:1 1 0; font-size:var(--t-headline); font-weight:600; letter-spacing:-.012em; }
+.lang-from { text-align:right; }
+.lang-to { text-align:left; }
+.langbar.swapping .lang { animation:lang-swap var(--enter) var(--ease-ios) both; }
+.langbar.swapping .lang-to { animation-name:lang-swap-to; }
+@keyframes lang-swap { from { opacity:0; transform:translateX(10px); } to { opacity:1; transform:none; } }
+@keyframes lang-swap-to { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:none; } }
+
+/* Swap button: a quiet round glyph that turns half a circle each press, so
+   the direction it last went is never ambiguous. 36px visible, 44px to hit. */
+.flip {
+  position:relative; flex:0 0 auto; display:grid; place-items:center;
+  width:36px; height:36px; padding:0; border:0; border-radius:999px;
+  color:var(--accent-strong); background:var(--fill); cursor:pointer;
+  transition:background-color var(--fast) var(--ease-ios), transform var(--fast) var(--ease-ios);
+}
+.flip::before { content:''; position:absolute; inset:-4px; }
+.flip svg {
+  width:20px; height:20px;
+  transition:transform var(--slide) var(--ease-ios);
+}
+.flip.turned svg { transform:rotate(180deg); }
+.flip:hover { background:color-mix(in srgb, var(--accent) 14%, transparent); }
+.flip:active { transform:scale(.92); }
+.flip:focus-visible {
+  outline:none; box-shadow:0 0 0 3.5px color-mix(in srgb, var(--accent) 40%, transparent);
+}
 
 textarea {
   display:block; width:100%; resize:none; overflow:hidden;
@@ -323,6 +365,7 @@ textarea::placeholder { color:var(--label-3); }
   margin:var(--s8) 0 0; font-size:var(--t-footnote); color:var(--label-2);
   display:flex; flex-wrap:wrap; align-items:baseline; gap:var(--s1) var(--s5);
 }
+.key[hidden] { display:none; }
 .k { margin-right:var(--s1); }
 .k-flip { text-decoration:underline dotted var(--accent-soft);
           text-decoration-thickness:1.5px; text-underline-offset:.24em; }
@@ -349,8 +392,75 @@ textarea::placeholder { color:var(--label-3); }
   /* The name stacks above its note, so the note follows the name's edge. */
   .row-note { text-align:left; }
   .row-inert { flex-direction:row; align-items:center; }
+  .row-read.row-inert { flex-direction:column; align-items:stretch; }
   .seg { width:100%; }
   .seg label { flex:1 1 0; min-width:0; }
   .seg span { padding:0 var(--s1); font-size:var(--t-caption); }
   #go { flex:1 1 100%; }
+}
+
+/* Conversation mode ------------------------------------------------------ */
+
+/* The second action: tinted rather than filled, so Translate stays the one
+   obvious thing to press. */
+.secondary {
+  flex:0 0 auto; font:600 var(--t-headline)/1 var(--sans); letter-spacing:-.01em;
+  color:var(--accent-strong); background:color-mix(in srgb, var(--accent) 13%, transparent);
+  border:0; border-radius:980px; min-height:44px; padding:0 var(--s5); cursor:pointer;
+  transition:transform var(--fast) var(--ease-ios), background-color var(--fast) var(--ease-ios);
+}
+.secondary:hover { background:color-mix(in srgb, var(--accent) 20%, transparent); }
+.secondary:active { transform:scale(.96); }
+.secondary:focus-visible {
+  outline:none; box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.secondary[hidden] { display:none; }
+
+/* iOS switch: 51x31 track, 27px knob. */
+.switch {
+  appearance:none; -webkit-appearance:none; position:relative; flex:0 0 auto;
+  width:51px; height:31px; margin:0; border-radius:999px; cursor:pointer;
+  background:var(--fill);
+  transition:background-color var(--fast) var(--ease-ios);
+}
+.switch::after {
+  content:''; position:absolute; top:2px; left:2px; width:27px; height:27px;
+  border-radius:999px; background:#fff;
+  box-shadow:0 3px 8px rgba(0,0,0,.15), 0 1px 1px rgba(0,0,0,.08);
+  transition:transform var(--slide) var(--ease-ios);
+}
+.switch:checked { background:#34c759; }
+.switch:checked::after { transform:translateX(20px); }
+.switch:focus-visible { outline:none; box-shadow:0 0 0 3.5px color-mix(in srgb, var(--accent) 40%, transparent); }
+.settings { margin-top:var(--s8); }
+.settings .row { cursor:pointer; }
+.settings + .group-footer { margin-bottom:var(--s2); }
+
+.conversation { margin-top:var(--s8); }
+.conversation[hidden] { display:none; }
+.convo-header { display:flex; align-items:baseline; justify-content:space-between; margin-right:var(--s4); }
+.convo-header h2 { margin:0; font:inherit; }
+.clear { padding:0; font-size:var(--t-footnote); }
+
+/* The transcript reads like the messages it mirrors: yours on the right,
+   theirs on the left, each with the other language underneath. */
+.transcript { display:flex; flex-direction:column; gap:var(--s3); padding:var(--s4); }
+.turn { max-width:85%; display:flex; flex-direction:column; gap:2px; }
+.turn-you { align-self:flex-end; text-align:right; }
+.turn-them { align-self:flex-start; }
+.turn-who { font-size:var(--t-caption); color:var(--label-3); }
+.turn-original, .turn-translation { margin:0; text-wrap:pretty; }
+.turn-original {
+  padding:var(--s2) var(--s3); border-radius:18px;
+  font-size:var(--t-subhead); line-height:1.35;
+  background:var(--fill); color:var(--label);
+}
+.turn-you .turn-original { background:var(--accent-strong); color:#fff; }
+.turn-translation { padding:0 var(--s3); font-size:var(--t-footnote); line-height:1.35; color:var(--label-2); }
+@media (max-width:36rem) {
+  .secondary { flex:1 1 100%; }
+}
+@media (max-width:36rem) {
+  /* A switch sits beside its label, as in Settings, never under it. */
+  .settings .row { flex-direction:row; align-items:center; }
 }
